@@ -1,0 +1,4 @@
+kernel_wrapper_m00_axi_input_buffer
+kernel_wrapper_control_s_axi
+kernel_wrapper_m00_axi_m_axi
+kernel_wrapper

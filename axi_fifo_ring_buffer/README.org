@@ -1,0 +1,116 @@
+#+TITLE: FPGA BRAM FIFO Buffer
+#+startup: overview
+
+All hope abandon, ye who enter here.
+
+* Quick Facts :ATTACH:
+:PROPERTIES:
+:ID:       5b45c1cd-a8ac-46ae-9d2a-649b1fa21d71
+:END:
+- our board :: [[https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html#documentation][Xilinx ZCU102 evaluation kit]]
+- our dev evironment :: Vitis 2019.2 with Vivado 2019.2 (+ Emacs)
+- boot modes :: [[file:data/5b/45c1cd-a8ac-46ae-9d2a-649b1fa21d71/zcu102_boot_modes.jpg]]
+
+* What Was Done Here [7/7]
+- [X] Board self-test run.
+- [X] Minimal and-gate implementation achieved using hardware switcheds to
+  demonstrate use of Xilinx constraint files (.xdc) and interacting with
+  specific physical components of the board.
+- [X] Embedded linux system installed.
+- [X] Serial connection to board established.
+- [X] Synchronous AXI-like FIFO buffer implemented.
+- [X] Kernel wrapper generated in Verilog so that the FIFO can be exposed as a
+  function.
+- [X] Generated C++ host code to drive kernel wrapper using OpenCL.
+
+* Things to Do [0/3]
+- [ ] Possibly rewrite the FIFO so that it is fully asynchronous and does not
+  sit behind a clock. Note that this should be /very/ easy and it /will/
+  increase the speed of the FIFO, but it will also make it use more resources as
+  it cannot make use of block RAM (BRAM) for storage.
+- [ ] Figure out why the FIFO is not meshing well with the kernel wrapper.
+- [ ] Implement the rest of the AXI protocol directly on the FIFO (e.g. bursts).
+
+* Tips For Students
+Hi fellow student. This is probably your first time dealing with FPGAs. It was
+mine too. Take this as my somewhat inaccurate, but ultimately well-intentioned
+way of helping you get past information-overload.
+
+- Xilinx makes FPGAs (Field Programmable Gate Arrays). They're like circuits you
+  can reconfigure with code.
+- To do this you +need to+ should learn an HDL (Hardware Description Language).
+  - HDLs can model and be translated into hardware by describing a circuit's
+    /structure/ as well as its /behavior/. The latter is often referred to as
+    RTL (Register Transfer Level) modeling. There are more complicated and more
+    accurate definitions, but you don't really need them.
+  - When Xilinx says RTL <blank>, what they mean is that <blank> is written in
+    VHDL/Verilog/System Verilog (Different HDLs).
+- VHDL > (System) Verilog, but learn both. Xilinx prefers Verilog. All of their
+  wizards spit out Verilog/System Verilog.
+  - Before I figured this out, I wrote my FIFO in VHDL (sorry).
+  - But it's all cool because you can use VHDL modules as if they were Verilog
+    modules and vice-versa (see and example [[file:~/sandbox/vivado/kernel_wrapper_ex/imports/kernel_wrapper.v][here]]).
+- Do not take courses on either of these languages - they take to long. [[https://www.youtube.com/watch?v=PJGvZSlsLKs&t=1s][These]]
+  [[https://www.youtube.com/watch?v=zm-RA6BsYmc][videos]] videos should be more than enough, supplemented by [[(another
+  FPGA manufacutrer)][this reading]] when you get stuck.
+  If you have a bit more time for examples, check out [[https://www.youtube.com/watch?v=h4ZXge1BE80&list=PLIbRYKjjYOPkhpxnkQ0fwTXnmgsiCMcVV][this series on VHDL]].
+- Xilinx has a bunch of IDEs. They're horrible, but you need them unless you
+  want to grow old writing bolerplate and XML. Download the [[https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html][Xilinx unified
+  Installer]] and select the Vidis IDE along with Vivado for installation.
+  - Do not download the whole thing directly - it takes ages. Use the
+    self-extracting installer.
+  - Clear your disk space it's 20GB+
+- Wikipedia is often better than online courses.
+- Keep records of things outside of bookmarks. Even if they're only legible to
+  you. You can find mine [[file:scratchpad.org][here]]. If you have any questions about this file, please
+  do reach out.
+
+* Hitches Along The Way.
+The only problem I ran into was the fact that Xilinx only officially supports
+Ubunutu, Centos, Suse... the standard stuff. If you use something more up-to-date, make
+sure to have legacy ncurses5 compat libs installed.
+
+* Retracing My Steps
+** Self-Test
+Just follow the steps described [[https://www.xilinx.com/support/documentation/boards_and_kits/zcu102/xtp426-zcu102-quickstart.pdf][here]]. The stage is just here to ensure the board
+is not broken.
+
+** And-Gate
+I wrote this simple project to familiarize myself with VHDL and the Vivado (not
+Vivado HLS) design suite.
+- example modle :: https://gitlab.com/jjzmajic/and_gate/-/blob/master/project_1.srcs/sources_1/new/and_gate.vhdl
+- example testbench :: https://gitlab.com/jjzmajic/and_gate/-/blob/master/project_1.srcs/sim_1/new/and_tb.vhdl
+- example constraints file (mapping physical components will to your design) ::
+  https://gitlab.com/jjzmajic/and_gate/-/blob/master/project_1.srcs/constrs_1/new/constraints.xdc
+- place to find names of hardware components ::
+
+Note that constraints can be full fledged TCL scripts. =.xdc= files are a subset
+of TCL that Vivado knows how to handle. Stick to them if possible. This way you
+can use the dropdown to select physical components from the board you are
+working on for mapping
+
+With these constraints, if you press the east and the west button on the
+board, the LED should light up once you program the FPGA. For a quick video on
+how to do that, look [[https://www.youtube.com/watch?v=f7xp3SC2iwM][here]].
+
+** Embedded Linux
+Xilinx maintains PetaLinux so that you can run a full-blown OS on their
+integrated ARM processor. Pre-compiled versions of this exist in the form of
+BSPs (Board Support Packages). You can download both PetaLinux tools and BSPs
+you need from [[https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/embedded-design-tools.html][here]]. I already installed a copy onto the SD card inside the
+board, all you need to do is boot from it.
+** Serial Connection
+Before you boot from the board, plug micro USB cable into inner of the 2 slots
+on the board, connect it to your computer, and check what hardware appears. If
+you have no other serial connections, it will likely be =/dev/ttyUSB0=. Then
+connect to it with Putty or something. I prefer the standard GNU implementation
+off [[https://www.airs.com/ian/uucp.html][UUCP]]. Once you have UUCP installed, just type =sudo cu -l /dev/ttyUSB0 -s
+115200=. Then power on the board. You should see PetaLinux boot.
+** FIFO
+[[file:kernel_wrapper_ex.srcs/sources_1/imports/new/axi_fifo.vhd][This]] is my minimal [[https://en.wikipedia.org/wiki/Advanced_eXtensible_Interface][AXI]] FIFO ring buffer. It only supports ready/valid handshakes
+and does not understand bursts, but it's pretty nifty. Stacking the buffers just
+works (TM), and increses their joint capacity.
+** Kernel Wrapper & C++ Host Code
+These were mostly generated through Vivado's RTL kernel wizard and modified to
+fit my FIFO buffer in. The kernel wrapper is in Verlilog, but it can instantiate
+my VHDL buffer. It still doesn't work, but it compiles!

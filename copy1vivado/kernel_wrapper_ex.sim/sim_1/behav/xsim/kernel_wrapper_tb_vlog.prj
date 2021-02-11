@@ -1,0 +1,19 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "../../../../kernel_wrapper_ex.ip_user_files/ipstatic/hdl" --include "/home/uros/.Xilinx/Vivado/2019.2/data/xilinx_vip/include" \
+"../../../../kernel_wrapper_ex.srcs/sources_1/ip/slv_m00_axi_vip/sim/slv_m00_axi_vip_pkg.sv" \
+"../../../../kernel_wrapper_ex.srcs/sources_1/ip/slv_m00_axi_vip/sim/slv_m00_axi_vip.sv" \
+"../../../../kernel_wrapper_ex.srcs/sources_1/ip/control_kernel_wrapper_vip/sim/control_kernel_wrapper_vip_pkg.sv" \
+"../../../../kernel_wrapper_ex.srcs/sources_1/ip/control_kernel_wrapper_vip/sim/control_kernel_wrapper_vip.sv" \
+
+verilog xil_defaultlib  --include "../../../../kernel_wrapper_ex.ip_user_files/ipstatic/hdl" --include "/home/uros/.Xilinx/Vivado/2019.2/data/xilinx_vip/include" \
+"../../../../imports/kernel_wrapper.v" \
+"../../../../imports/kernel_wrapper_control_s_axi.v" \
+
+sv xil_defaultlib  --include "../../../../kernel_wrapper_ex.ip_user_files/ipstatic/hdl" --include "/home/uros/.Xilinx/Vivado/2019.2/data/xilinx_vip/include" \
+"../../../../imports/kernel_wrapper_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

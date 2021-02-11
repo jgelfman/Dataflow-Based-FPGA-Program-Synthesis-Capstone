@@ -1,0 +1,89 @@
+#+TITLE: Scratchpad
+* docs
+- prog guide :: https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_1/ug1277-sdaccel-programmers-guide.pdf
+- axi4 :: https://www.realdigital.org/doc/a9fee931f7a172423e1ba73f66ca4081
+- vivado hls :: https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_3/ug902-vivado-high-level-synthesis.pdf
+- vhdl projects :: https://www.xilinx.com/support/documentation/university/Vivado-Teaching/HDL-Design/2015x/VHDL/docs-pdf/Vivado_Tutorial.pdf
+- c/c++ kernels :: https://www.xilinx.com/html_docs/xilinx2019_1/sdaccel_doc/rjk1519742919747.html#rjk1519742919747
+- pragma reference :: https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_1/ug1253-sdx-pragma-reference.pdf
+- best practices :: https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_2/ug949-vivado-design-methodology.pdf
+- lookup tables :: https://www.youtube.com/watch?v=3-kL6fXBNTk
+- half-adder :: https://www.youtube.com/watch?v=thkTzdnkL5U
+- full-adder :: https://www.youtube.com/watch?v=m0C3-JWWvcc
+- petalinux :: https://www.xilinx.com/support/documentation/sw_manuals/xilinx2019_2/ug1144-petalinux-tools-reference-guide.pdf#nameddest=PetaLinuxToolsInstallationSteps
+- demo :: https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842112/Zynq+UltraScale+MPSoC+Ubuntu+part+1+-+Running+the+Pre-Built+Ubuntu+Image+and+Power+Advantage+Tool
+- rtl kernels in vitis :: https://www.xilinx.com/html_docs/xilinx2019_2/vitis_doc/Chunk2020182740.html
+  - ghub tutorial for rtl kernels :: https://github.com/Xilinx/Vitis-Tutorials/tree/master/docs/getting-started-rtl-kernels
+
+
+* our hardware
+- xilinx zybo :: https://www.xilinx.com/support/university/boards-portfolio/xup-boards/DigilentZYBO.html
+- xilinx ultrascale+ :: https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html#documentation
+* drivers
+=sudo <xilinx install dir>/Vivado/<version number>/data/xicom/cable_drivers/lin64/install_script/install_drivers/install_drivers=
+* distro & misc idiosyncrasies
+
+This software suite is not pretty and does not integrate well with
+distros at all. If you do not want to use the [[https://aws.amazon.com/marketplace/pp/Amazon-Web-Services-FPGA-Developer-AMI/B06VVYBLZZ][FPGA AMI]] for development,
+you are going to have to deal with quite a bit of cruft, like legacy
+ncurses libraries.
+** emacs
+Flycheck gives you syntax checking out of the box with =ghdl=
+** arch linux
+#+begin_src sh
+  # the keyserver is unavalable, no one uses this anymore
+  yay -S ncurses5-compat-libs --mflags '--skippgpcheck'
+#+end_src
+** TODO debian family
+#+begin_src sh
+  # in case default shell is dash
+  sudo dpkg-reconfigure dash
+#+end_src
+** TODO rpm family
+* workflow by weeks
+1. board is working
+2. opencl code is running
+3. HLS (C) code is running
+4. VHDL code is running
+5. C code on CPU communicate FGPA is working
+6. mmul on xilinx - https://github.com/spcl/gemm_hls
+* notes
+- a collection of what would be ports in SRAM == axi channel
+- use =m_axi= for throughput intensive slaves
+- use =s_axilite= for control/masters
+- remember a port for the return value on the master
+- everything in the same =bundle= goes to the same axi port
+- one axi master bus driving a ddr interface is blocking
+- max 250 mhz for the shell, 500 mhz for the configurable logic
+- by default everything binds to ddr controller 0
+
+** example architecture
+- url :: https://www.coursera.org/learn/fpga-sdaccel-theory/lecture/duTkf/interface-optimizations-overall-context-and-an-overview-of-a-typical-target
+[[file:./images/screenshot-01.png]]
+** optimizations to keep in mind
+- memory partitioning
+- dsp block inferencing
+- loop unrolling
+- loop pipelining
+* terms
+- asic :: application specific circuit
+- gpp :: general purpose processor
+- fpga :: field programmable gate array
+- soft core processor :: a general processor implemented using fpga  fabric
+- ip core :: intellectual property core represention a blok of logic
+  or data in an asic or fpga circuit
+- systolic array :: pretty much why fpgas exist. a sea of homogeneous
+  nodes that take input from their upstream neighbors
+
+* courses
+- low level :: https://www.coursera.org/learn/intro-fpga-design-embedded-systems
+- high level :: https://www.coursera.org/learn/fpga-sdaccel-practice
+- high level theory :: https://www.coursera.org/learn/fpga-sdaccel-theory
+* end goal
+- translade CSDF to VHDL
+- make sure VHDL conforms to xilinx api
+* learning resources
+- https://www.youtube.com/playlist?list=PL_Nji0JOuXg0_N0ba-pGABeabXdcfQYtJ
+- https://www.coursera.org/learn/intro-fpga-design-embedded-systems
+- https://www.coursera.org/learn/fpga-hardware-description-languages
+- https://www.seas.upenn.edu/~ese171/vhdl/vhdl_primer.html#_Toc526061341
