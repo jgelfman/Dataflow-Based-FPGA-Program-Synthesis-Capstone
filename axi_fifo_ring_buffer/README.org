@@ -1,4 +1,4 @@
-#+TITLE: FPGA BRAM FIFO Buffer
+#+TITLE: (BY UROS:) FPGA BRAM FIFO Buffer
 #+startup: overview
 
 All hope abandon, ye who enter here.
