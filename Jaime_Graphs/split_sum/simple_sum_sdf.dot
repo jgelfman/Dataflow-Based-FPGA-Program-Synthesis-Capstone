@@ -1,0 +1,15 @@
+digraph G {
+
+    rankdir="LR";
+  graph [label="",splines=false]
+  edge [len=1.5,fontsize=8,labelsize=4,color=grey]
+
+  t_1 [shape=circle,  fixedsize="shape", fontsize="7",label = "0x7fb6c40017e0" ];
+  t_2 [shape=circle,  fixedsize="shape", fontsize="7",label = "0x7fb6c40018d0" ];
+  t_3 [shape=circle,  fixedsize="shape", fontsize="7",label = "0x7fb6c4001db0" ];
+  t_4 [shape=circle,  fixedsize="shape", fontsize="7",label = "OUTPUT_0" ];
+  t_1 -> t_3 [ label="0", headlabel="{1}", taillabel="{1}", ] ;
+  t_2 -> t_3 [ label="0", headlabel="{1}", taillabel="{1}", ] ;
+  t_3 -> t_4 [ label="0", headlabel="{1}", taillabel="{1}", ] ;
+
+}

@@ -1,0 +1,6 @@
+strict digraph loopgraph {
+    rankdir=LR; node [fontsize=10];
+S0x7f4e6c004250[label="INPUT_0" color="red" style="bold" shape="ellipse"];
+OUTPUT_0[color="red2" style="filled" fillcolor="pink"];
+S0x7f4e6c004250 -> OUTPUT_0[ color="red" style="bold"];
+}

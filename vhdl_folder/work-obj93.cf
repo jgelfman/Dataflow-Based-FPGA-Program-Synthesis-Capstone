@@ -1,0 +1,10 @@
+v 4
+file . "../axi_fifo_ring_buffer/kernel_wrapper_ex.srcs/sources_1/imports/new/axi_fifo.vhd" "ad369dfd21da9d6ce50c045c672b74e9e78e2f0c" "20210209163102.688":
+  entity axi_fifo at 1( 0) + 0 on 13;
+  architecture rtl of axi_fifo at 26( 528) + 0 on 14;
+file . "copy1.vhdl" "871936182569a4c37e47ab7dbb719b1b62c99a25" "20210126083217.649":
+  entity copy1 at 1( 0) + 0 on 4;
+  architecture copy1 of copy1 at 20( 338) + 0 on 4;
+file . "plus1.vhdl" "0a827ebfc6fae49daf6ac0e9b919b5623e4169f0" "20210126094415.333":
+  entity plus1 at 1( 0) + 0 on 11;
+  architecture plus1 of plus1 at 33( 840) + 0 on 12;
