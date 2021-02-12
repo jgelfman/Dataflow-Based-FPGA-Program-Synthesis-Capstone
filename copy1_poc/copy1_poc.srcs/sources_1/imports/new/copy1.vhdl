@@ -23,8 +23,8 @@ architecture copy1_arch of copy1 is
 
     component entity_node is
         port (
-            in_opening : in std_logic_vector(ram_width - 1 downto 0);
-            out_opening : out std_logic_vector(ram_width - 1 downto 0)
+            in_opening : in std_logic_vector(copy1_ram_width - 1 downto 0);
+            out_opening : out std_logic_vector(copy1_ram_width - 1 downto 0)
         ); end component;
 
     component axi_fifo is
