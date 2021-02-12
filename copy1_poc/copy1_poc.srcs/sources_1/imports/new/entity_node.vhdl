@@ -9,18 +9,18 @@ entity entity_node is
     ram_depth : natural
     );
 
-    port (
+   port (
         --inner_clk : in std_logic;
         --inner_rst : in std_logic;
 
         in_opening : in std_logic_vector(ram_width - 1 downto 0);
         out_opening : out std_logic_vector(ram_width - 1 downto 0)
-    );
+    ); 
         
 end entity_node;
 
 
-architecture entity_node_arch of entity_node is
+architecture copy1_arch of entity_node is
 
     begin
 

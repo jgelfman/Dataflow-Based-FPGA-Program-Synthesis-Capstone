@@ -21,12 +21,10 @@ end;
 
 architecture copy1_arch of copy1 is
 
-    signal in1, out1, out_data, out2 : std_logic;
-
-    component entry_node is
-        Port (
-            in1 : in std_logic_vector(ram_width - 1 downto 0);
-            out1 : out std_logic_vector(ram_width - 1 downto 0)
+    component entity_node is
+        port (
+            in_opening : in std_logic_vector(ram_width - 1 downto 0);
+            out_opening : out std_logic_vector(ram_width - 1 downto 0)
         ); end component;
 
     component axi_fifo is
@@ -40,43 +38,44 @@ architecture copy1_arch of copy1 is
 
             in_ready : out std_logic;
             in_valid : in std_logic;
-            in_data : in std_logic_vector(ram_width - 1 downto 0);
+            in_data : in std_logic_vector(copy1_ram_width - 1 downto 0);
 
             out_ready : in std_logic;
             out_valid : out std_logic;
-            out_data : out std_logic_vector(ram_width - 1 downto 0)
+            out_data : out std_logic_vector(copy1_ram_width - 1 downto 0)
         ); end component;
 
-    component exit_node is
-        Port (
-            in2 : in std_logic_vector(ram_width - 1 downto 0);
-            out2 : out std_logic_vector(ram_width - 1 downto 0)
-        ); end component;
+    --component exit_node is
+    --    Port (
+    --        in2 : in std_logic_vector(copy1_ram_width - 1 downto 0);
+    --        out2 : out std_logic_vector(copy1_ram_width - 1 downto 0)
+    --    ); end component;
 
+    signal node_to_buffer, buffer_to_node : std_logic;
 
     begin
 
-        entry_node : entity_node PORT MAP ( copy1_in  => in1,
-                                            out1 => out1
+        entry_node : entity_node PORT MAP ( copy1_in  => in_opening,
+                                            out_opening => node_to_buffer
                                             );
 
-        axi_fifo : axi_fifo GENERIC MAP (   copy1_ram_width => ram_width,
-                                            copy1_ram_depth => ram_depth
+        fifo : axi_fifo GENERIC MAP (       copy1_ram_width,
+                                            copy1_ram_depth
                                             )
                             PORT MAP (      clk => clk,
                                             rst => rst,
 
                                             copy1_in_ready => in_ready,
                                             copy1_in_valid => in_valid,
-                                            out1 => in_data,
+                                            node_to_buffer => in_data,
 
                                             out_ready => copy1_out_ready,
                                             out_valid => copy1_out_valid,
-                                            out_data => out_data
+                                            out_data => buffer_to_node
                                             );
 
-        exit_node : entity_node PORT MAP (  out_data => in2,
-                                            out2 => copy1_out
+        exit_node : entity_node PORT MAP (  buffer_to_node => in_opening,
+                                            out_opening => copy1_out
                                             );
 
 end copy1_arch;
