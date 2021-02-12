@@ -8,6 +8,8 @@ entity copy1 is
     copy1_ram_depth : natural
     );
     port (
+        clk : in std_logic;
+        rst : in std_logic;
         copy1_in : in std_logic_vector(copy1_ram_width - 1 downto 0);
         copy1_out : out std_logic_vector(copy1_ram_width - 1 downto 0);
 
@@ -51,11 +53,11 @@ architecture copy1_arch of copy1 is
     --        out2 : out std_logic_vector(copy1_ram_width - 1 downto 0)
     --    ); end component;
 
-    signal node_to_buffer, buffer_to_node : std_logic;
+    signal node_to_buffer, buffer_to_node : std_logic_vector(copy1_ram_width - 1 downto 0);
 
     begin
 
-        entry_node : entity_node PORT MAP ( copy1_in  => in_opening,
+        entry_node : entity_node PORT MAP ( in_opening => copy1_in,
                                             out_opening => node_to_buffer
                                             );
 
@@ -64,17 +66,16 @@ architecture copy1_arch of copy1 is
                                             )
                             PORT MAP (      clk => clk,
                                             rst => rst,
-
-                                            copy1_in_ready => in_ready,
-                                            copy1_in_valid => in_valid,
-                                            node_to_buffer => in_data,
+                                            in_ready => copy1_in_ready,
+                                            in_valid =>  copy1_in_valid,
+                                            in_data => node_to_buffer,
 
                                             out_ready => copy1_out_ready,
                                             out_valid => copy1_out_valid,
                                             out_data => buffer_to_node
                                             );
 
-        exit_node : entity_node PORT MAP (  buffer_to_node => in_opening,
+        exit_node : entity_node PORT MAP (  in_opening => buffer_to_node,
                                             out_opening => copy1_out
                                             );
 
