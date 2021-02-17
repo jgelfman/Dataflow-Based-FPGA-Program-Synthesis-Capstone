@@ -32,3 +32,36 @@ WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.s
 add_files -norecurse /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl
 WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl' cannot be added to the project because it already exists in the project, skipping this file
 update_compile_order -fileset sources_1
+write_project_tcl -all_properties -dump_project_info {/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_poc.tcl}
+INFO: [Vivado-projutils-8] Tcl script 'copy1_poc.tcl' generated in output directory '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new'
+
+INFO: [Vivado-projutils-15] Please note that by default, the file path for the project source files were set wth respect to the 'origin_dir' variable in the
+ generated script. When this script is executed from the output directory, these source files will be referenced with respect to this 'origin_dir' path value.
+ In case this script was later moved to a different directory, the 'origin_dir' value must be set manually in the script with the path
+ relative to the new output directory to make sure that the source files are referenced correctly from the original project. You can also set the
+ 'origin_dir' automatically by setting the 'origin_dir_loc' variable in the tcl shell before sourcing this generated script. The 'origin_dir_loc'
+ variable should be set to the path relative to the new output directory. Alternatively, if you are sourcing the script from the Vivado command line,
+ then set the origin dir using '-tclargs --origin_dir <path>'. For example, 'vivado -mode tcl -source copy1_poc.tcl -tclargs --origin_dir ".."
+
+WARNING: [Vivado-projutils-10] Found source(s) that were local or imported into the project. If this project is being source controlled, then
+ please ensure that the project source(s) are also part of this source controlled data. The list of these local source(s) can be found in the generated script
+ under the header section.
+
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1157-1
+Top: copy1_wrapper
+INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 7397.859 ; gain = 200.660 ; free physical = 106 ; free virtual = 3666
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-4169] error in use clause: package 'env' not found in library 'std' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:5]
+INFO: [Synth 8-2810] unit copy1_wrapper ignored due to previous errors [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:7]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 7456.609 ; gain = 259.410 ; free physical = 222 ; free virtual = 3702
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+2 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
