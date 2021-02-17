@@ -61,19 +61,19 @@ architecture copy1_arch of copy1 is
                                             out_opening => node_to_buffer
                                             );
 
-        fifo : axi_fifo GENERIC MAP (copy1_ram_width => ram_width
-                                                copy1_ram_depth => ram_depth,
-                                                )
-                                    port map    (clk => clk,
-                                                rst => rst,
-                                                in_ready => copy1_in_ready,
-                                                in_valid =>  copy1_in_valid,
-                                                in_data => node_to_buffer,
+        fifo : axi_fifo GENERIC MAP (copy1_ram_width => copy1_ram_width
+                                    copy1_ram_depth => copy1_ram_depth,
+                                    )
+                        port map    (clk => clk,
+                                    rst => rst,
+                                    in_ready => copy1_in_ready,
+                                    in_valid =>  copy1_in_valid,
+                                    in_data => node_to_buffer,
 
-                                                out_ready => copy1_out_ready,
-                                                out_valid => copy1_out_valid,
-                                                out_data => buffer_to_node
-                                                );
+                                    out_ready => copy1_out_ready,
+                                    out_valid => copy1_out_valid,
+                                    out_data => buffer_to_node
+                                    );
 
         exit_node : entity_node PORT MAP (  in_opening => buffer_to_node,
                                             out_opening => copy1_out
