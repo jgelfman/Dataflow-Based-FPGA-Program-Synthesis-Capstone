@@ -556,3 +556,126 @@ selectCodeEditor("copy1_wrapper.vhdl", 319, 208); // ch (w, cr)
 // TclEventType: DG_GRAPH_STALE
 // TclEventType: FILE_SET_CHANGE
 // HMemoryUtils.trashcanNow. Engine heap size: 1,315 MB. GUI used memory: 62 MB. Current time: 2/18/21, 12:02:24 AM SRET
+// WARNING: HTimer (StateMonitor Timer) is taking 905ms to process. Increasing delay to 4000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1795 ms.
+// Elapsed time: 491 seconds
+selectCodeEditor("copy1_wrapper.vhdl", 350, 25); // ch (w, cr)
+// Elapsed time: 10 seconds
+selectCodeEditor("copy1_wrapper.vhdl", 568, 33); // ch (w, cr)
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k (aA, cr)
+closeTask("Project Manager", "Project Manager", "DesignTask.PROJECT_MANAGER");
+// Run Command: PAResourceCommand.PACommandNames_CLOSE_PROJECT
+// A (cr): Close Project: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (A)
+// 'b' command handler elapsed time: 3 seconds
+dismissDialog("Close Project"); // A (cr)
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // aa (q, cr)
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // af (cr)
+// Elapsed time: 35 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // af (cr)
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // af (cr)
+selectMenuItem(PAResourceCommand.PACommandNames_WRITE_PROJECT_TCL, "Write Tcl..."); // ai (cr)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // aa (q, cr)
+// Run Command: PAResourceCommand.PACommandNames_WRITE_PROJECT_TCL
+// aO (cr): Write Project to Tcl: addNotify
+selectCheckBox(PAResourceTtoZ.WriteProjectTclDialog_RECREATE_BLOCK_DESIGNS_USING_TCL, "Recreate Block Designs using Tcl", true); // g (Q, aO): TRUE
+selectCheckBox(PAResourceTtoZ.WriteProjectTclDialog_WRITE_ALL_PROPERTIES, "Write all properties", true); // g (Q, aO): TRUE
+selectCheckBox(PAResourceTtoZ.WriteProjectTclDialog_WRITE_OBJECT_VALUES, "Write object values", true); // g (Q, aO): TRUE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aO)
+// Tcl Command: 'write_project_tcl -all_properties -dump_project_info {/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_poc.tcl}'
+// 'p' command handler elapsed time: 14 seconds
+dismissDialog("Write Project to Tcl"); // aO (cr)
+// bB (cr):  Write Project to Tcl : addNotify
+// TclEventType: PROJECT_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: write_project_tcl -all_properties -dump_project_info {/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_poc.tcl} 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message:  
+// Tcl Message:  
+dismissDialog("Write Project to Tcl"); // bB (cr)
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+selectButton("OptionPane.button", "Yes"); // JButton (A, G)
+// Elapsed time: 13 seconds
+selectCodeEditor("copy1_poc.tcl", 190, 313); // ch (w, cr)
+selectCodeEditor("copy1_poc.tcl", 190, 313); // ch (w, cr)
+selectCodeEditor("copy1_poc.tcl", 190, 313); // ch (w, cr)
+selectCodeEditor("copy1_poc.tcl", 190, 313); // ch (w, cr)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+collapseTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 8); // u (O, cr)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 8); // u (O, cr)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design, Schematic]", 11, false); // u (O, cr)
+// A (cr): Elaborate Design: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (A)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (A)
+// bB (cr):  Open Elaborated Design : addNotify
+dismissDialog("Elaborate Design"); // A (cr)
+// Tcl Message: synth_design -rtl -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -name rtl_1 Starting synth_design Using part: xc7vx485tffg1157-1 Top: copy1_wrapper 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,507 MB. GUI used memory: 63 MB. Current time: 2/18/21, 12:12:34 AM SRET
+// HMemoryUtils.trashcanNow. Engine heap size: 1,683 MB. GUI used memory: 63 MB. Current time: 2/18/21, 12:12:49 AM SRET
+// TclEventType: ELABORATE_START
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: INFO: [Device 21-403] Loading part xc7vx485tffg1157-1 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 7397.859 ; gain = 200.660 ; free physical = 106 ; free virtual = 3666 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: ERROR: [Synth 8-4169] error in use clause: package 'env' not found in library 'std' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:5] 
+// Tcl Message: INFO: [Synth 8-2810] unit copy1_wrapper ignored due to previous errors [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:7] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 7456.609 ; gain = 259.410 ; free physical = 222 ; free virtual = 3702 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: RTL Elaboration failed 
+// Tcl Message: 2 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// [Engine Memory]: 1,942 MB (+606556kb) [00:46:35]
+// S (cr): Critical Messages: addNotify
+// Elapsed time: 32 seconds
+dismissDialog("Open Elaborated Design"); // bB (cr)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,942 MB. GUI used memory: 64 MB. Current time: 2/18/21, 12:13:04 AM SRET
+// Elapsed time: 15 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (S)
+dismissDialog("Critical Messages"); // S (cr)
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 303ms to process. Increasing delay to 2000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  3154 ms.
+// WARNING: HTimer (HSTRUtils Dump STR Log Timer) is taking 1190ms to process. Increasing delay to 4000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1190 ms.
+// Elapsed time: 241 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // aa (q, cr)
+dismissMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // aa (q, cr)
+// Elapsed time: 11 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // aa (q, cr)
+// Elapsed time: 14 seconds
+selectMenuItem(PAResourceCommand.PACommandNames_LICENSE_MANAGE, "Manage License..."); // ai (cr)
+dismissMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // aa (q, cr)
+// Run Command: PAResourceCommand.PACommandNames_LICENSE_MANAGE
+// WARNING: HEventQueue.dispatchEvent() is taking  1551 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1081 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1158 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1581 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1941 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1090 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 444ms to process. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1106 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1059 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1416 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2192 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1041 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1344 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1723 ms.
