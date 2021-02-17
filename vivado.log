@@ -2,8 +2,8 @@
 # Vivado v2019.2.1 (64-bit)
 # SW Build 2729669 on Thu Dec  5 04:48:12 MST 2019
 # IP Build 2729494 on Thu Dec  5 07:38:25 MST 2019
-# Start of session at: Wed Feb 17 23:26:15 2021
-# Process ID: 2056
+# Start of session at: Thu Feb 18 00:53:52 2021
+# Process ID: 11557
 # Current directory: /home/jon/Desktop/capstone
 # Command line: vivado
 # Log file: /home/jon/Desktop/capstone/vivado.log
@@ -17,23 +17,315 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2019.2/data/ip'.
 update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:55:17 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
 update_compile_order -fileset sources_1
-add_files -norecurse /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl
 update_compile_order -fileset sources_1
-add_files -norecurse /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl
-WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl' cannot be added to the project because it already exists in the project, skipping this file
-add_files -norecurse /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl
-WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl' cannot be added to the project because it already exists in the project, skipping this file
-add_files {/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl}
-WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd' cannot be added to the project because it already exists in the project, skipping this file
-WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl' cannot be added to the project because it already exists in the project, skipping this file
-WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl' cannot be added to the project because it already exists in the project, skipping this file
-WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl' cannot be added to the project because it already exists in the project, skipping this file
-add_files -norecurse /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl
-WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl' cannot be added to the project because it already exists in the project, skipping this file
 update_compile_order -fileset sources_1
-write_project_tcl -all_properties -dump_project_info {/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_poc.tcl}
-INFO: [Vivado-projutils-8] Tcl script 'copy1_poc.tcl' generated in output directory '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new'
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 01:09:12 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 01:10:52 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1157-1
+Top: copy1_wrapper
+INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 7170.336 ; gain = 199.688 ; free physical = 562 ; free virtual = 3733
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:48]
+INFO: [Synth 8-638] synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'entry_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:60]
+INFO: [Synth 8-638] synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:18]
+INFO: [Synth 8-256] done synthesizing module 'entity_node' (1#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:18]
+	Parameter ram_width bound to: 16 - type: integer 
+	Parameter ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'axi_fifo' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:5' bound to instance 'fifo' of component 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:64]
+INFO: [Synth 8-638] synthesizing module 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
+	Parameter ram_width bound to: 16 - type: integer 
+	Parameter ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'axi_fifo' (2#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'exit_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:78]
+INFO: [Synth 8-256] done synthesizing module 'copy1' (3#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:67]
+WARNING: [Synth 8-2897] clock signal used as data [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:75]
+WARNING: [Synth 8-2897] clock signal used as data [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:75]
+ERROR: [Synth 8-27] nested clocked statements not supported [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:73]
+ERROR: [Synth 8-285] failed synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 7207.273 ; gain = 236.625 ; free physical = 600 ; free virtual = 3770
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+12 Infos, 3 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 01:13:57 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 01:20:06 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 01:24:58 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1157-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7290.797 ; gain = 0.000 ; free physical = 1367 ; free virtual = 3774
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7298.734 ; gain = 0.000 ; free physical = 1285 ; free virtual = 3694
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 7429.254 ; gain = 138.457 ; free physical = 1193 ; free virtual = 3610
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1157-1
+Top: copy1_wrapper
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 7927.777 ; gain = 77.539 ; free physical = 629 ; free virtual = 3077
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:48]
+INFO: [Synth 8-638] synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'entry_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:60]
+INFO: [Synth 8-638] synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:18]
+INFO: [Synth 8-256] done synthesizing module 'entity_node' (1#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:18]
+	Parameter ram_width bound to: 16 - type: integer 
+	Parameter ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'axi_fifo' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:5' bound to instance 'fifo' of component 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:64]
+INFO: [Synth 8-638] synthesizing module 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
+	Parameter ram_width bound to: 16 - type: integer 
+	Parameter ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'axi_fifo' (2#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'exit_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:78]
+INFO: [Synth 8-256] done synthesizing module 'copy1' (3#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:67]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:77]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:95]
+INFO: [Synth 8-4471] merging register 'copy1_out_ready_reg' into 'copy1_in_valid_reg' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:60]
+WARNING: [Synth 8-6014] Unused sequential element copy1_out_ready_reg was removed.  [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:60]
+INFO: [Synth 8-256] done synthesizing module 'copy1_wrapper' (4#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 7947.777 ; gain = 97.539 ; free physical = 679 ; free virtual = 3128
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7962.621 ; gain = 112.383 ; free physical = 676 ; free virtual = 3125
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7962.621 ; gain = 112.383 ; free physical = 676 ; free virtual = 3125
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7962.621 ; gain = 0.000 ; free physical = 669 ; free virtual = 3118
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8065.375 ; gain = 0.000 ; free physical = 594 ; free virtual = 3043
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 8086.016 ; gain = 235.777 ; free physical = 509 ; free virtual = 2966
+16 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 8086.016 ; gain = 235.777 ; free physical = 509 ; free virtual = 2966
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 8091.984 ; gain = 3.949 ; free physical = 457 ; free virtual = 2921
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:48]
+INFO: [Synth 8-638] synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'entry_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:60]
+INFO: [Synth 8-638] synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:18]
+INFO: [Synth 8-256] done synthesizing module 'entity_node' (1#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:18]
+	Parameter ram_width bound to: 16 - type: integer 
+	Parameter ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'axi_fifo' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:5' bound to instance 'fifo' of component 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:64]
+INFO: [Synth 8-638] synthesizing module 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
+	Parameter ram_width bound to: 16 - type: integer 
+	Parameter ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'axi_fifo' (2#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'exit_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:78]
+INFO: [Synth 8-256] done synthesizing module 'copy1' (3#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:67]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:77]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:94]
+INFO: [Synth 8-256] done synthesizing module 'copy1_wrapper' (4#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 8131.926 ; gain = 43.891 ; free physical = 505 ; free virtual = 2969
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 8146.770 ; gain = 58.734 ; free physical = 505 ; free virtual = 2969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 8146.770 ; gain = 58.734 ; free physical = 505 ; free virtual = 2969
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 8146.770 ; gain = 0.000 ; free physical = 598 ; free virtual = 3062
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+refresh_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:11 . Memory (MB): peak = 8218.594 ; gain = 130.559 ; free physical = 425 ; free virtual = 2889
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 01:34:09 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+current_design synth_1
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7vx485tffg1157-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8218.602 ; gain = 0.000 ; free physical = 916 ; free virtual = 2922
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8218.602 ; gain = 0.000 ; free physical = 857 ; free virtual = 2863
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+launch_runs impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8234.602 ; gain = 0.000 ; free physical = 762 ; free virtual = 2773
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+[Thu Feb 18 01:35:50 2021] Launched impl_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/impl_1/runme.log
+launch_simulation -mode post-synthesis -type functional
+Command: launch_simulation -mode post-synthesis -type functional
+INFO: [Vivado 12-5682] Launching post-synthesis functional simulation in '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/synth/func/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-24] Writing simulation netlist file for design 'synth_1'...
+INFO: [SIM-utils-26] write_vhdl -mode funcsim -nolib -force -file "/home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/synth/func/xsim/copy1_wrapper_func_synth.vhd"
+INFO: [SIM-utils-36] Netlist generated:/home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/synth/func/xsim/copy1_wrapper_func_synth.vhd
+INFO: [SIM-utils-54] Inspecting design source files for 'copy1_wrapper' in fileset 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/synth/func/xsim'
+xvhdl --incr --relax -prj copy1_wrapper_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/synth/func/xsim/copy1_wrapper_func_synth.vhd" into library xil_defaultlib
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/synth/func/xsim'
+xelab -wto 7cb67da4d93341db9fa3bd9068944096 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot copy1_wrapper_func_synth xil_defaultlib.copy1_wrapper -log elaborate.log
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 7cb67da4d93341db9fa3bd9068944096 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot copy1_wrapper_func_synth xil_defaultlib.copy1_wrapper -log elaborate.log 
+Using 8 slave threads.
+ERROR: [XSIM 43-3225] Cannot find design unit xil_defaultlib.copy1_wrapper in library work located at xsim.dir/work.
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/synth/func/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/synth/func/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+current_design rtl_1
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 8242.602 ; gain = 0.000 ; free physical = 1227 ; free virtual = 2690
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:48]
+INFO: [Synth 8-638] synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'entry_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:60]
+INFO: [Synth 8-638] synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:18]
+INFO: [Synth 8-256] done synthesizing module 'entity_node' (1#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:18]
+	Parameter ram_width bound to: 16 - type: integer 
+	Parameter ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'axi_fifo' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:5' bound to instance 'fifo' of component 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:64]
+INFO: [Synth 8-638] synthesizing module 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
+	Parameter ram_width bound to: 16 - type: integer 
+	Parameter ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'axi_fifo' (2#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'exit_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:78]
+INFO: [Synth 8-256] done synthesizing module 'copy1' (3#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:67]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:77]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:94]
+INFO: [Synth 8-256] done synthesizing module 'copy1_wrapper' (4#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 8242.602 ; gain = 0.000 ; free physical = 1260 ; free virtual = 2730
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 8242.602 ; gain = 0.000 ; free physical = 1262 ; free virtual = 2734
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 8242.602 ; gain = 0.000 ; free physical = 1262 ; free virtual = 2734
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 8242.602 ; gain = 0.000 ; free physical = 1346 ; free virtual = 2820
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+refresh_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 8261.402 ; gain = 18.801 ; free physical = 1232 ; free virtual = 2725
+write_project_tcl -all_properties -dump_project_info {/home/jon/Desktop/capstone/copy1_poc.tcl}
+INFO: [Vivado-projutils-8] Tcl script 'copy1_poc.tcl' generated in output directory '/home/jon/Desktop/capstone'
 
 INFO: [Vivado-projutils-15] Please note that by default, the file path for the project source files were set wth respect to the 'origin_dir' variable in the
  generated script. When this script is executed from the output directory, these source files will be referenced with respect to this 'origin_dir' path value.
@@ -47,90 +339,5 @@ WARNING: [Vivado-projutils-10] Found source(s) that were local or imported into 
  please ensure that the project source(s) are also part of this source controlled data. The list of these local source(s) can be found in the generated script
  under the header section.
 
-synth_design -rtl -name rtl_1
-Command: synth_design -rtl -name rtl_1
-Starting synth_design
-Using part: xc7vx485tffg1157-1
-Top: copy1_wrapper
-INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 7397.859 ; gain = 200.660 ; free physical = 106 ; free virtual = 3666
----------------------------------------------------------------------------------
-ERROR: [Synth 8-4169] error in use clause: package 'env' not found in library 'std' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:5]
-INFO: [Synth 8-2810] unit copy1_wrapper ignored due to previous errors [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:7]
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 7456.609 ; gain = 259.410 ; free physical = 222 ; free virtual = 3702
----------------------------------------------------------------------------------
-RTL Elaboration failed
-2 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
-synth_design failed
-ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
-synth_design -rtl -name rtl_1
-Command: synth_design -rtl -name rtl_1
-Starting synth_design
-Using part: xc7vx485tffg1157-1
-Top: copy1_wrapper
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 7475.586 ; gain = 2.961 ; free physical = 596 ; free virtual = 3668
----------------------------------------------------------------------------------
-ERROR: [Synth 8-1031] finish is not declared [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:93]
-INFO: [Synth 8-2810] unit copy1_arch ignored due to previous errors [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:10]
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7475.586 ; gain = 2.961 ; free physical = 636 ; free virtual = 3710
----------------------------------------------------------------------------------
-RTL Elaboration failed
-1 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
-synth_design failed
-ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
-synth_design -rtl -name rtl_1
-Command: synth_design -rtl -name rtl_1
-Starting synth_design
-Using part: xc7vx485tffg1157-1
-Top: copy1_wrapper
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 7491.602 ; gain = 0.000 ; free physical = 594 ; free virtual = 3667
----------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
-	Parameter copy1_ram_width bound to: 16 - type: integer 
-	Parameter copy1_ram_depth bound to: 256 - type: integer 
-INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:48]
-INFO: [Synth 8-638] synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
-	Parameter copy1_ram_width bound to: 16 - type: integer 
-	Parameter copy1_ram_depth bound to: 256 - type: integer 
-INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'entry_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:60]
-INFO: [Synth 8-638] synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:23]
-ERROR: [Synth 8-78] a value must be associated with generic ram_width [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:8]
-ERROR: [Synth 8-78] a value must be associated with generic ram_depth [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:9]
-ERROR: [Synth 8-285] failed synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:23]
-ERROR: [Synth 8-285] failed synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
-ERROR: [Synth 8-285] failed synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 7491.602 ; gain = 0.000 ; free physical = 631 ; free virtual = 3705
----------------------------------------------------------------------------------
-RTL Elaboration failed
-5 Infos, 0 Warnings, 0 Critical Warnings and 6 Errors encountered.
-synth_design failed
-ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
-launch_runs synth_1
-[Thu Feb 18 00:38:19 2021] Launched synth_1...
-Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
-reset_run synth_1
-launch_runs synth_1
-[Thu Feb 18 00:42:05 2021] Launched synth_1...
-Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
-reset_run synth_1
-launch_runs synth_1
-[Thu Feb 18 00:45:27 2021] Launched synth_1...
-Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
-reset_run synth_1
-launch_runs synth_1
-[Thu Feb 18 00:47:10 2021] Launched synth_1...
-Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
-reset_run synth_1
-launch_runs synth_1
-[Thu Feb 18 00:49:23 2021] Launched synth_1...
-Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
-reset_run synth_1
-launch_runs synth_1
-[Thu Feb 18 00:52:12 2021] Launched synth_1...
-Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 18 01:41:39 2021...

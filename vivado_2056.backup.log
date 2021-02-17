@@ -1,0 +1,138 @@
+#-----------------------------------------------------------
+# Vivado v2019.2.1 (64-bit)
+# SW Build 2729669 on Thu Dec  5 04:48:12 MST 2019
+# IP Build 2729494 on Thu Dec  5 07:38:25 MST 2019
+# Start of session at: Wed Feb 17 23:26:15 2021
+# Process ID: 2056
+# Current directory: /home/jon/Desktop/capstone
+# Command line: vivado
+# Log file: /home/jon/Desktop/capstone/vivado.log
+# Journal file: /home/jon/Desktop/capstone/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/jon/Desktop/capstone/copy1_poc/copy1_poc.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2019.2/data/ip'.
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -norecurse /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl
+update_compile_order -fileset sources_1
+add_files -norecurse /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl
+WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl' cannot be added to the project because it already exists in the project, skipping this file
+add_files -norecurse /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl
+WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl' cannot be added to the project because it already exists in the project, skipping this file
+add_files {/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl}
+WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl' cannot be added to the project because it already exists in the project, skipping this file
+add_files -norecurse /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl
+WARNING: [filemgmt 56-12] File '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl' cannot be added to the project because it already exists in the project, skipping this file
+update_compile_order -fileset sources_1
+write_project_tcl -all_properties -dump_project_info {/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_poc.tcl}
+INFO: [Vivado-projutils-8] Tcl script 'copy1_poc.tcl' generated in output directory '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new'
+
+INFO: [Vivado-projutils-15] Please note that by default, the file path for the project source files were set wth respect to the 'origin_dir' variable in the
+ generated script. When this script is executed from the output directory, these source files will be referenced with respect to this 'origin_dir' path value.
+ In case this script was later moved to a different directory, the 'origin_dir' value must be set manually in the script with the path
+ relative to the new output directory to make sure that the source files are referenced correctly from the original project. You can also set the
+ 'origin_dir' automatically by setting the 'origin_dir_loc' variable in the tcl shell before sourcing this generated script. The 'origin_dir_loc'
+ variable should be set to the path relative to the new output directory. Alternatively, if you are sourcing the script from the Vivado command line,
+ then set the origin dir using '-tclargs --origin_dir <path>'. For example, 'vivado -mode tcl -source copy1_poc.tcl -tclargs --origin_dir ".."
+
+WARNING: [Vivado-projutils-10] Found source(s) that were local or imported into the project. If this project is being source controlled, then
+ please ensure that the project source(s) are also part of this source controlled data. The list of these local source(s) can be found in the generated script
+ under the header section.
+
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1157-1
+Top: copy1_wrapper
+INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 7397.859 ; gain = 200.660 ; free physical = 106 ; free virtual = 3666
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-4169] error in use clause: package 'env' not found in library 'std' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:5]
+INFO: [Synth 8-2810] unit copy1_wrapper ignored due to previous errors [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:7]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 7456.609 ; gain = 259.410 ; free physical = 222 ; free virtual = 3702
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+2 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1157-1
+Top: copy1_wrapper
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 7475.586 ; gain = 2.961 ; free physical = 596 ; free virtual = 3668
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-1031] finish is not declared [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:93]
+INFO: [Synth 8-2810] unit copy1_arch ignored due to previous errors [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:10]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7475.586 ; gain = 2.961 ; free physical = 636 ; free virtual = 3710
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+1 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1157-1
+Top: copy1_wrapper
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 7491.602 ; gain = 0.000 ; free physical = 594 ; free virtual = 3667
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:48]
+INFO: [Synth 8-638] synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'entry_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:60]
+INFO: [Synth 8-638] synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:23]
+ERROR: [Synth 8-78] a value must be associated with generic ram_width [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:8]
+ERROR: [Synth 8-78] a value must be associated with generic ram_depth [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:9]
+ERROR: [Synth 8-285] failed synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:23]
+ERROR: [Synth 8-285] failed synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+ERROR: [Synth 8-285] failed synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 7491.602 ; gain = 0.000 ; free physical = 631 ; free virtual = 3705
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+5 Infos, 0 Warnings, 0 Critical Warnings and 6 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+launch_runs synth_1
+[Thu Feb 18 00:38:19 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:42:05 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:45:27 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:47:10 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:49:23 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:52:12 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 18 00:53:47 2021...

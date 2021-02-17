@@ -68,12 +68,16 @@ begin
             rst <= '0';
             wait until rising_edge(clk);
 
-        report "Beginning writing into input node..."; -- write until full
-        copy1_in_valid <= '1';
-        while copy1_in_ready = '1' loop
-            copy1_in <= std_logic_vector(unsigned(copy1_in) + 1);
-            wait until rising_edge(clk);
-        end loop;
+        report "Starting to write into input node..."; -- write until full
+        if copy1_in_ready = '1' then
+                copy1_in_valid <= '1';
+                copy1_in <= std_logic_vector(unsigned(copy1_in) + 1);      
+        else 
+            report "Not ready!";
+            std.env.finish;
+         end if;
+        --end loop;
+        --wait until rising_edge(clk);
         copy1_in_valid <= '0';
 
         copy1_in <= (others => 'X');
@@ -81,13 +85,12 @@ begin
 
         report "Reading from the output node..."; -- read until empty
         copy1_out_ready <= '1';
-        while copy1_out_valid = '1' loop
-            wait until rising_edge(clk);
-        end loop;
-        copy1_out_ready <= '0';
-
-
-        report "Test completed. Check waveform.";
+        if copy1_out_valid = '1' then
+           copy1_out_ready <= '0';
+           report "Test completed. Check waveform.";
+        else
+            report "Output not valid!";
+        end if;
         std.env.finish;
         
     end process;
