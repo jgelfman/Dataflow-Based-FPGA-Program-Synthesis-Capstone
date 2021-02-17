@@ -25,7 +25,7 @@ begin
 
   clk <= not clk after clock_period / 2;
 
-  copy : entity copy1 GENERIC MAP (copy1_ram_width : natural;
+  copy : copy1 GENERIC MAP (copy1_ram_width : natural;
                                   copy1_ram_depth : natural
                                   );
                       PORT MAP    (

@@ -61,7 +61,7 @@ architecture copy1_arch of copy1 is
                                             out_opening => node_to_buffer
                                             );
 
-        fifo : entity axi_fifo(rtl) GENERIC MAP (copy1_ram_width => ram_width
+        fifo : axi_fifo GENERIC MAP (copy1_ram_width => ram_width
                                                 copy1_ram_depth => ram_depth,
                                                 )
                                     port map    (clk => clk,
