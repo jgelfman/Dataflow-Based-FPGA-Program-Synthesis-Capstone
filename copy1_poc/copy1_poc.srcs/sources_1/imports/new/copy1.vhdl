@@ -4,9 +4,9 @@ use ieee.numeric_std.all;
 
 entity copy1 is
     generic (
-    copy1_ram_width : natural;
-    copy1_ram_depth : natural
-    );
+        copy1_ram_width : natural;
+        copy1_ram_depth : natural
+        );
     port (
         clk : in std_logic;
         rst : in std_logic;
@@ -61,22 +61,22 @@ architecture copy1_arch of copy1 is
                                             out_opening => node_to_buffer
                                             );
 
-        fifo : axi_fifo GENERIC MAP (       copy1_ram_width,
-                                            copy1_ram_depth
-                                            )
-                            PORT MAP (      clk => clk,
-                                            rst => rst,
-                                            in_ready => copy1_in_ready,
-                                            in_valid =>  copy1_in_valid,
-                                            in_data => node_to_buffer,
+        fifo : entity axi_fifo(rtl) GENERIC MAP (copy1_ram_width => ram_width
+                                                copy1_ram_depth => ram_depth,
+                                                )
+                                    port map    (clk => clk,
+                                                rst => rst,
+                                                in_ready => copy1_in_ready,
+                                                in_valid =>  copy1_in_valid,
+                                                in_data => node_to_buffer,
 
-                                            out_ready => copy1_out_ready,
-                                            out_valid => copy1_out_valid,
-                                            out_data => buffer_to_node
-                                            );
+                                                out_ready => copy1_out_ready,
+                                                out_valid => copy1_out_valid,
+                                                out_data => buffer_to_node
+                                                );
 
         exit_node : entity_node PORT MAP (  in_opening => buffer_to_node,
                                             out_opening => copy1_out
                                             );
-
+        
 end copy1_arch;
