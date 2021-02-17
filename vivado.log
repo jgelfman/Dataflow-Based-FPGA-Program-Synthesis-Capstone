@@ -65,3 +65,72 @@ RTL Elaboration failed
 2 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
 synth_design failed
 ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1157-1
+Top: copy1_wrapper
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 7475.586 ; gain = 2.961 ; free physical = 596 ; free virtual = 3668
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-1031] finish is not declared [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:93]
+INFO: [Synth 8-2810] unit copy1_arch ignored due to previous errors [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:10]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7475.586 ; gain = 2.961 ; free physical = 636 ; free virtual = 3710
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+1 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1157-1
+Top: copy1_wrapper
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 7491.602 ; gain = 0.000 ; free physical = 594 ; free virtual = 3667
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:48]
+INFO: [Synth 8-638] synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'entry_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:60]
+INFO: [Synth 8-638] synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:23]
+ERROR: [Synth 8-78] a value must be associated with generic ram_width [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:8]
+ERROR: [Synth 8-78] a value must be associated with generic ram_depth [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:9]
+ERROR: [Synth 8-285] failed synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:23]
+ERROR: [Synth 8-285] failed synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+ERROR: [Synth 8-285] failed synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 7491.602 ; gain = 0.000 ; free physical = 631 ; free virtual = 3705
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+5 Infos, 0 Warnings, 0 Critical Warnings and 6 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+launch_runs synth_1
+[Thu Feb 18 00:38:19 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:42:05 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:45:27 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:47:10 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:49:23 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1
+[Thu Feb 18 00:52:12 2021] Launched synth_1...
+Run output will be captured here: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/runme.log

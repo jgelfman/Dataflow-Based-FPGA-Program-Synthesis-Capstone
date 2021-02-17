@@ -2,8 +2,6 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-use std.env.finish;
-
 entity copy1_wrapper is
 end copy1_wrapper;
 
@@ -90,7 +88,7 @@ begin
 
 
         report "Test completed. Check waveform.";
-        finish;
+        std.env.finish;
         
     end process;
 

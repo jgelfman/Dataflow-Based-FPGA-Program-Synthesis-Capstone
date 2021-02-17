@@ -1,0 +1,55 @@
+#-----------------------------------------------------------
+# Vivado v2019.2.1 (64-bit)
+# SW Build 2729669 on Thu Dec  5 04:48:12 MST 2019
+# IP Build 2729494 on Thu Dec  5 07:38:25 MST 2019
+# Start of session at: Thu Feb 18 00:52:14 2021
+# Process ID: 11174
+# Current directory: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1
+# Command line: vivado -log copy1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source copy1_wrapper.tcl
+# Log file: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/copy1_wrapper.vds
+# Journal file: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source copy1_wrapper.tcl -notrace
+Command: synth_design -top copy1_wrapper -part xc7vx485tffg1157-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-86] Your Synthesis license expires in 29 day(s)
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11221 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1600.598 ; gain = 156.719 ; free physical = 173 ; free virtual = 3205
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:48]
+INFO: [Synth 8-638] synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+	Parameter copy1_ram_width bound to: 16 - type: integer 
+	Parameter copy1_ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'entry_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:60]
+INFO: [Synth 8-638] synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:18]
+INFO: [Synth 8-256] done synthesizing module 'entity_node' (1#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:18]
+	Parameter ram_width bound to: 16 - type: integer 
+	Parameter ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-3491] module 'axi_fifo' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:5' bound to instance 'fifo' of component 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:64]
+INFO: [Synth 8-638] synthesizing module 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
+	Parameter ram_width bound to: 16 - type: integer 
+	Parameter ram_depth bound to: 256 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'axi_fifo' (2#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'exit_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:78]
+INFO: [Synth 8-256] done synthesizing module 'copy1' (3#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:67]
+WARNING: [Synth 8-2897] clock signal used as data [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:75]
+WARNING: [Synth 8-2897] clock signal used as data [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:75]
+ERROR: [Synth 8-27] nested clocked statements not supported [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:73]
+ERROR: [Synth 8-285] failed synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1662.348 ; gain = 218.469 ; free physical = 207 ; free virtual = 3239
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+14 Infos, 3 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 18 00:52:32 2021...
