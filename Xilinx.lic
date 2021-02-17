@@ -1,0 +1,796 @@
+# ----- REMOVE LINES ABOVE HERE --------------------------
+#
+# This license is valid from Tue Feb 16 16:19:42 UTC 2021.
+#
+# This is license NODELOCKED to HOSTID=080027758c2e;
+# there is no need to run lmgrd for this license.
+#
+#
+#  This license is valid for evaluation ( 30 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT VIVADO_HLS xilinxd 2022.02 19-mar-2021 uncounted \
+F0757434FB3B \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,VIVADO_HLS,software,evaluation,_212073335_0_0_021 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+# This is a permanent license generated on Tue Feb 16 16:19:42 UTC 2021
+INCREMENT Embedded_SDK xilinxd 2022.02 permanent uncounted \
+8DE6CC32AB37 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,Embedded_SDK,software,permanent,_212073335_0_0_647 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_osd xilinxd 2022.02 18-apr-2021 uncounted A7E737501481 \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_osd,ip,evaluation,_212073335_0_0_523 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+# Licenses for v_osd
+FEATURE v_osd xilinxd 1.0 18-apr-2021 uncounted CBD9807C770C \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+# Licenses for v_osd_v1_0
+FEATURE v_osd_v1_0 xilinxd 1.0 18-apr-2021 uncounted 4E7AEE0D2D42 \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_rgb2ycrcd xilinxd 2022.02 18-apr-2021 uncounted \
+A67A5D5FC15E \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_rgb2ycrcd,ip,evaluation,_212073335_0_0_804 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+# Licenses for v_rgb2ycrcb
+FEATURE v_rgb2ycrcb xilinxd 1.0 18-apr-2021 uncounted 3418611A79CD \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+# Licenses for v_rgb2ycrcb_v2
+FEATURE v_rgb2ycrcb_v2 xilinxd 1.0 18-apr-2021 uncounted 7AFF92B03A42 \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_ycrcb2rgb xilinxd 2022.02 18-apr-2021 uncounted \
+8C2987C97937 \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_ycrcb2rgb,ip,evaluation,_212073335_0_0_761 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+# Licenses for v_ycrcb2rgb
+FEATURE v_ycrcb2rgb xilinxd 1.0 18-apr-2021 uncounted 512687464B9B \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+# Licenses for v_ycrcb2rgb_v2
+FEATURE v_ycrcb2rgb_v2 xilinxd 1.0 18-apr-2021 uncounted 82F7704DE326 \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_tc xilinxd 2022.02 18-apr-2021 uncounted 98348DEC8D4A \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_tc,ip,evaluation,_212073335_0_0_263 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+# Licenses for v_tc
+FEATURE v_tc xilinxd 1.0 18-apr-2021 uncounted 8E9B91EFF3D9 \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_cresample xilinxd 2022.02 18-apr-2021 uncounted \
+548AED2D16A7 \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_cresample,ip,evaluation,_212073335_0_0_042 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+# Licenses for v_cresample
+FEATURE v_cresample xilinxd 1.0 18-apr-2021 uncounted 3472B2A09CAD \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_tpg xilinxd 2022.02 18-apr-2021 uncounted 80A8B6E1D3A0 \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_tpg,ip,evaluation,_212073335_0_0_644 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+# Licenses for v_tpg
+FEATURE v_tpg xilinxd 1.0 18-apr-2021 uncounted 42BEAB9F19FB \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT ap_cc xilinxd 2022.02 18-apr-2021 uncounted 3DCD04F43FF4 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,ap_cc,software,evaluation,_212073335_0_0_941 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_ycrcb2rgb_v2 xilinxd 2022.02 18-apr-2021 uncounted \
+B631897ACF8A \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_ycrcb2rgb_v2,ip,evaluation,_212073335_0_0_548 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT SDSoC_Tools xilinxd 2022.02 18-apr-2021 uncounted \
+BC6B49C80843 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,SDSoC_Tools,software,evaluation,_212073335_0_0_949 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu3eg-es1 xilinxd 2022.02 18-apr-2021 uncounted \
+F86E9321A62E \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu3eg-es1,software,evaluation,_212073335_0_0_326 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu9eg-es1 xilinxd 2022.02 18-apr-2021 uncounted \
+BF79644C3AAF \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu9eg-es1,software,evaluation,_212073335_0_0_527 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT ap_sdsoc xilinxd 2022.02 18-apr-2021 uncounted AAD3ED3A1B96 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,ap_sdsoc,software,evaluation,_212073335_0_0_228 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_rgb2ycrcb_v2 xilinxd 2022.02 18-apr-2021 uncounted \
+9B51A5229278 \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_rgb2ycrcb_v2,ip,evaluation,_212073335_0_0_563 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_hdmi xilinxd 2022.02 18-apr-2021 uncounted FA51DB4A604B \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_hdmi,ip,evaluation,_212073335_0_0_643 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+# Licenses for v_hdmi
+FEATURE v_hdmi xilinxd 1.0 18-apr-2021 uncounted 7EFB1DDAD384 \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_proc_ss xilinxd 2022.02 18-apr-2021 uncounted \
+5CF1F78414FC \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_proc_ss,ip,evaluation,_212073335_0_0_900 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+# Licenses for v_proc_ss
+FEATURE v_proc_ss xilinxd 1.0 18-apr-2021 uncounted 7B5D5019F4E2 \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU2EG-EVAL xilinxd 2022.02 18-apr-2021 uncounted \
+CDB8AF6B218F \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU2EG-EVAL,software,evaluation,_212073335_0_0_127 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU6EG-EVAL xilinxd 2022.02 18-apr-2021 uncounted \
+20D7E0B75B20 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU6EG-EVAL,software,evaluation,_212073335_0_0_060 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT mipi_csi2_rx_ctrl xilinxd 2022.02 18-apr-2021 uncounted \
+9D493CB77A88 \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,mipi_csi2_rx_ctrl,ip,evaluation,_212073335_0_0_106 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+# Licenses for mipi_csi2_rx_ctrl
+FEATURE mipi_csi2_rx_ctrl xilinxd 1.0 18-apr-2021 uncounted \
+634A3781323A VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU9EG-ES1_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+08DEBE2A682D \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU9EG-ES1_bitgen,software,evaluation,_212073335_0_0_025 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT v_mix xilinxd 2022.02 18-apr-2021 uncounted 4F8EFF5CB4D1 \
+VENDOR_STRING=License_Type:Hardware_Evaluation;gelfman.jonathan@u.yale-nus.edu.sg,v_mix,ip,evaluation,_212073335_0_0_709 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" NOTICE="The license \
+for this core was generated for \
+gelfman.jonathan@u.yale-nus.edu.sg on 02/17/2021It is the \
+responsibility of the Licensee of this core to adhere to all \
+terms and conditions of the applicable license agreement when \
+using this core." START=16-Feb-2021 TS_OK
+#
+# Licenses for v_mix
+FEATURE v_mix xilinxd 1.0 18-apr-2021 uncounted 169B8260E7CE \
+VENDOR_STRING=License_Type:Hardware_Evaluation \
+HOSTID=080027758c2e ISSUER=Xilinx NOTICE="The license for this \
+core was generated for gelfman.jonathan@u.yale-nus.edu.sg on \
+02/17/2021It is the responsibility of the Licensee of this \
+core to adhere to all terms and conditions of the applicable \
+license agreement when using this core." TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU3EG-ES1_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+EB25C527F77F \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU3EG-ES1_bitgen,software,evaluation,_212073335_0_0_149 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU15EG-ES1 xilinxd 2022.02 18-apr-2021 uncounted \
+DE6D50519A00 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU15EG-ES1,software,evaluation,_212073335_0_0_347 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU15EG-ES1_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+D221BEDB4FA6 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU15EG-ES1_bitgen,software,evaluation,_212073335_0_0_902 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU4EV-EVAL xilinxd 2022.02 18-apr-2021 uncounted \
+0EB4C362C67E \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU4EV-EVAL,software,evaluation,_212073335_0_0_009 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU5EV-EVAL xilinxd 2022.02 18-apr-2021 uncounted \
+32E685F2C640 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU5EV-EVAL,software,evaluation,_212073335_0_0_426 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU11EG-EVAL xilinxd 2022.02 18-apr-2021 uncounted \
+CE1772ECEA9C \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU11EG-EVAL,software,evaluation,_212073335_0_0_440 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU17EG-EVAL xilinxd 2022.02 18-apr-2021 uncounted \
+D9C2411CC508 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU17EG-EVAL,software,evaluation,_212073335_0_0_747 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU9EG-ES2_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+6A75F561DAE7 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU9EG-ES2_bitgen,software,evaluation,_212073335_0_0_708 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU19EG-ES2 xilinxd 2022.02 18-apr-2021 uncounted \
+6C7FC94AD53A \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU19EG-ES2,software,evaluation,_212073335_0_0_025 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU19EG-ES2_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+2C526701F410 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU19EG-ES2_bitgen,software,evaluation,_212073335_0_0_929 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU9EG-ES2 xilinxd 2022.02 18-apr-2021 uncounted \
+13CEFF16CBF5 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU9EG-ES2,software,evaluation,_212073335_0_0_345 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU19EG xilinxd 2022.02 18-apr-2021 uncounted FBCE220B3D3D \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU19EG,software,evaluation,_212073335_0_0_221 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT XCZU9EG xilinxd 2022.02 18-apr-2021 uncounted 081B7A68B626 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,XCZU9EG,software,evaluation,_212073335_0_0_740 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu4ev xilinxd 2022.02 18-apr-2021 uncounted 74C56D015C2A \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu4ev,software,evaluation,_212073335_0_0_724 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu5ev xilinxd 2022.02 18-apr-2021 uncounted FD75D6E4A64A \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu5ev,software,evaluation,_212073335_0_0_003 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu7ev xilinxd 2022.02 18-apr-2021 uncounted F27B62A4BA84 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu7ev,software,evaluation,_212073335_0_0_603 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu7ev_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+D28255C69593 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu7ev_bitgen,software,evaluation,_212073335_0_0_700 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xazu2eg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+AF5863EBCEA5 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xazu2eg_bitgen,software,evaluation,_212073335_0_0_925 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu2cg xilinxd 2022.02 18-apr-2021 uncounted F487A8F814FF \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu2cg,software,evaluation,_212073335_0_0_648 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu2cg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+9A4874F08E9E \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu2cg_bitgen,software,evaluation,_212073335_0_0_820 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu3cg xilinxd 2022.02 18-apr-2021 uncounted 570E50BC56FE \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu3cg,software,evaluation,_212073335_0_0_148 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu3cg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+D58DFA49A555 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu3cg_bitgen,software,evaluation,_212073335_0_0_508 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu4ev_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+A527CEB4E7CE \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu4ev_bitgen,software,evaluation,_212073335_0_0_560 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu2eg xilinxd 2022.02 18-apr-2021 uncounted 87096EBE179F \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu2eg,software,evaluation,_212073335_0_0_729 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu2eg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+2CE3500801D1 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu2eg_bitgen,software,evaluation,_212073335_0_0_821 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu3eg xilinxd 2022.02 18-apr-2021 uncounted A2EF122A98F6 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu3eg,software,evaluation,_212073335_0_0_528 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu3eg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+D9E7475AE534 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu3eg_bitgen,software,evaluation,_212073335_0_0_043 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu4eg xilinxd 2022.02 18-apr-2021 uncounted B89C5E022CA1 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu4eg,software,evaluation,_212073335_0_0_666 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu4eg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+5AB31E38A620 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu4eg_bitgen,software,evaluation,_212073335_0_0_062 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu4cg xilinxd 2022.02 18-apr-2021 uncounted 0D2575B973E8 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu4cg,software,evaluation,_212073335_0_0_346 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu4cg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+B5DE064C2BF5 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu4cg_bitgen,software,evaluation,_212073335_0_0_065 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu5eg xilinxd 2022.02 18-apr-2021 uncounted 02C2CDBB1A5F \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu5eg,software,evaluation,_212073335_0_0_307 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu5eg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+6CE9ECFD86DC \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu5eg_bitgen,software,evaluation,_212073335_0_0_945 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu5cg xilinxd 2022.02 18-apr-2021 uncounted 6028D36FA805 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu5cg,software,evaluation,_212073335_0_0_105 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu5cg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+57F6555E4029 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu5cg_bitgen,software,evaluation,_212073335_0_0_402 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu7eg xilinxd 2022.02 18-apr-2021 uncounted C4F42BBFDA45 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu7eg,software,evaluation,_212073335_0_0_367 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu7eg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+6BC7BB5A013C \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu7eg_bitgen,software,evaluation,_212073335_0_0_047 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu7cg xilinxd 2022.02 18-apr-2021 uncounted 6331B93599B1 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu7cg,software,evaluation,_212073335_0_0_246 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu7cg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+D1B13C1B2FA1 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu7cg_bitgen,software,evaluation,_212073335_0_0_340 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu6eg xilinxd 2022.02 18-apr-2021 uncounted F83C38880929 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu6eg,software,evaluation,_212073335_0_0_169 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu6eg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+5C89F94D19CC \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu6eg_bitgen,software,evaluation,_212073335_0_0_564 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu6cg xilinxd 2022.02 18-apr-2021 uncounted E1D0E2CAC4A9 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu6cg,software,evaluation,_212073335_0_0_246 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu6cg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+11BFC1AB3FBC \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu6cg_bitgen,software,evaluation,_212073335_0_0_744 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu9cg xilinxd 2022.02 18-apr-2021 uncounted 326020226822 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu9cg,software,evaluation,_212073335_0_0_364 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu9cg_bitgen xilinxd 2022.02 18-apr-2021 uncounted \
+05BAA546EA93 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu9cg_bitgen,software,evaluation,_212073335_0_0_444 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu11eg xilinxd 2022.02 18-apr-2021 uncounted 39CCDA2F4DF5 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu11eg,software,evaluation,_212073335_0_0_665 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu15eg xilinxd 2022.02 18-apr-2021 uncounted 46C58425A543 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu15eg,software,evaluation,_212073335_0_0_821 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 60 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT xczu17eg xilinxd 2022.02 18-apr-2021 uncounted 306A75FAAB42 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,xczu17eg,software,evaluation,_212073335_0_0_305 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 90 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT SysGen xilinxd 2022.02 18-may-2021 uncounted 3954AC6BAAB5 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,SysGen,software,evaluation,_212073335_0_0_861 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 90 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT ModelComposer xilinxd 2022.02 18-may-2021 uncounted \
+E4F85AA6D3AC \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,ModelComposer,software,evaluation,_212073335_0_0_049 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 30 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT SDAccel xilinxd 2022.02 19-mar-2021 uncounted 6B2F7157E49D \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,SDAccel,software,evaluation,_212073335_0_0_960 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+# This is a permanent license generated on Tue Feb 16 16:19:42 UTC 2021
+INCREMENT ISE_Embedded_Edition xilinxd 2022.02 permanent uncounted \
+26249BE307B7 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,ISE_Embedded_Edition,software,permanent,_212073335_0_0_469 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+# This is a permanent license generated on Tue Feb 16 16:19:42 UTC 2021
+INCREMENT SDK xilinxd 2022.02 permanent uncounted AD337D37DC56 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,SDK,software,permanent,_212073335_0_0_203 \
+HOSTID=ANY ISSUER="Xilinx Inc" START=16-Feb-2021 TS_OK
+#
+# This is a permanent license generated on Tue Feb 16 16:19:42 UTC 2021
+INCREMENT Analyzer xilinxd 2022.02 permanent uncounted 9906279F47DC \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,Analyzer,software,permanent,_212073335_0_0_206 \
+HOSTID=ANY ISSUER="Xilinx Inc" START=16-Feb-2021 TS_OK
+#
+# This is a permanent license generated on Tue Feb 16 16:19:42 UTC 2021
+INCREMENT HLS xilinxd 2022.02 permanent uncounted A5A65EE0079D \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,HLS,software,permanent,_212073335_0_0_302 \
+HOSTID=ANY ISSUER="Xilinx Inc" START=16-Feb-2021 TS_OK
+#
+# This is a permanent license generated on Tue Feb 16 16:19:42 UTC 2021
+INCREMENT V_WebPACK xilinxd 2022.02 permanent uncounted 03D0CED2DBBA \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,V_WebPACK,software,permanent,_212073335_0_0_648 \
+HOSTID=ANY ISSUER="Xilinx Inc" START=16-Feb-2021 TS_OK
+#
+#  This license is valid for evaluation ( 365 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT PetaLinux_NoSuport_Eval xilinxd 2022.02 17-feb-2022 \
+uncounted 1ACC799CB42B \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,PetaLinux_NoSuport_Eval,software,evaluation,_212073335_0_0_342 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 30 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT Vivado_System_Edition xilinxd 2022.02 19-mar-2021 uncounted \
+7898B47809C5 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,Vivado_System_Edition,software,evaluation,_212073335_0_0_044 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#  This license is valid for evaluation ( 30 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT ISE_System_Edition xilinxd 2022.02 19-mar-2021 uncounted \
+9748229804F1 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,ISE_System_Edition,software,evaluation,_212073335_0_0_905 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+# This is a permanent license generated on Tue Feb 16 16:19:42 UTC 2021
+INCREMENT ISE_WebPACK xilinxd 2022.02 permanent uncounted \
+BE85EA34D664 \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,ISE_WebPACK,software,permanent,_212073335_0_0_977 \
+HOSTID=ANY ISSUER="Xilinx Inc" START=16-Feb-2021 TS_OK
+#
+#  This license is valid for evaluation ( 90 days ) from Tue Feb 16 16:19:42 UTC 2021
+INCREMENT ModelComposer xilinxd 2022.02 18-may-2021 uncounted \
+CC799107608E \
+VENDOR_STRING=gelfman.jonathan@u.yale-nus.edu.sg,ModelComposer,software,evaluation,_212073335_0_0_028 \
+HOSTID=080027758c2e ISSUER="Xilinx Inc" START=16-Feb-2021 \
+TS_OK
+#
+#
+# ----------------------------------------------------------------------
+#  The following PACKAGE definition is a REQUIRED part of this license:
+#
+PACKAGE Embedded_SDK xilinxd 2022.02 7AEC1D7F8C72 COMPONENTS=SDK \
+OPTIONS=SUITE
+#
+# ------------------------------------------------------------------------------
+#
+#
+# ----------------------------------------------------------------------
+#  The following PACKAGE definition is a REQUIRED part of this license:
+#
+PACKAGE SDSoC_Tools xilinxd 2022.02 98826FB5C578 COMPONENTS="SDK \
+XC7Z010 XC7Z030 XC7Z045 Simulation Analyzer XC7Z020 ap_cc \
+XC7Z100 ap_sdsoc xc7z015 xc7z035" OPTIONS=SUITE
+#
+# ------------------------------------------------------------------------------
+#
+#
+# ----------------------------------------------------------------------
+#  The following PACKAGE definition is a REQUIRED part of this license:
+#
+PACKAGE SDAccel xilinxd 2022.02 DD7881B544BD \
+COMPONENTS="PartialReconfiguration Simulation Implementation \
+Analyzer HLS Synthesis ap_opencl" OPTIONS=SUITE
+#
+# ------------------------------------------------------------------------------
+#
+#
+# ----------------------------------------------------------------------
+#  The following PACKAGE definition is a REQUIRED part of this license:
+#
+PACKAGE ISE_Embedded_Edition xilinxd 2022.02 83D920BA51F3 \
+COMPONENTS="SDK ChipScopePro_SIOTK ChipscopePro ISE XPS ISIM \
+PlanAhead" OPTIONS=SUITE
+#
+# ------------------------------------------------------------------------------
+#
+#
+# ----------------------------------------------------------------------
+#  The following PACKAGE definition is a REQUIRED part of this license:
+#
+PACKAGE PetaLinux_NoSuport_Eval xilinxd 2022.02 9D0296597722 \
+COMPONENTS="petalinux_arch_microblaze petalinux_arch_ppc \
+petalinux_arch_zynq" OPTIONS=SUITE
+#
+# ------------------------------------------------------------------------------
+#
+#
+# ----------------------------------------------------------------------
+#  The following PACKAGE definition is a REQUIRED part of this license:
+#
+PACKAGE Vivado_System_Edition xilinxd 2022.02 A9D81ED42F6F \
+COMPONENTS="SDK SysGen PartialReconfiguration Simulation \
+Implementation Analyzer HLS Synthesis ModelComposer" \
+OPTIONS=SUITE
+#
+# ------------------------------------------------------------------------------
+#
+#
+# ----------------------------------------------------------------------
+#  The following PACKAGE definition is a REQUIRED part of this license:
+#
+PACKAGE ISE_System_Edition xilinxd 2022.02 2453B87AFBAC \
+COMPONENTS="ChipScopePro_SIOTK ChipscopePro ISE SysGen XPS HLS \
+ISIM PlanAhead" OPTIONS=SUITE
+#
+# ------------------------------------------------------------------------------
+#
+#
+# ----------------------------------------------------------------------
+#  The following PACKAGE definition is a REQUIRED part of this license:
+#
+PACKAGE ISE_WebPACK xilinxd 2022.02 8392A99A9E50 COMPONENTS="SDK \
+ChipScopePro_SIOTK ChipscopePro WebPACK XC7Z010 XC7Z030 HLS \
+xps_tdp XC7Z020 PlanAhead" OPTIONS=SUITE
+#
+# ------------------------------------------------------------------------------
+#
+# ----- REMOVE LINES BELOW HERE --------------------------
