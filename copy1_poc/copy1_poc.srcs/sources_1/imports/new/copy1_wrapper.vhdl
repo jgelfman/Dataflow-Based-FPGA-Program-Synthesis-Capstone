@@ -37,8 +37,7 @@ architecture copy1_arch of copy1_wrapper is
 
           copy1_out_ready : in std_logic;
           copy1_out_valid : out std_logic
-      );
-  end;
+      ); end component;
 
 begin
 
