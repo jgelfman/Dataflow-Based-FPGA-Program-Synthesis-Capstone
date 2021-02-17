@@ -21,6 +21,25 @@ architecture copy1_arch of copy1_wrapper is
   signal copy1_in_valid : std_logic := '0';
   signal copy1_in : std_logic_vector(copy1_ram_width - 1 downto 0) := (others => '0');
 
+  component copy1 is
+      generic (
+          copy1_ram_width : natural;
+          copy1_ram_depth : natural
+          );
+      port (
+          clk : in std_logic;
+          rst : in std_logic;
+          copy1_in : in std_logic_vector(copy1_ram_width - 1 downto 0);
+          copy1_out : out std_logic_vector(copy1_ram_width - 1 downto 0);
+
+          copy1_in_ready : out std_logic;
+          copy1_in_valid : in std_logic;
+
+          copy1_out_ready : in std_logic;
+          copy1_out_valid : out std_logic
+      );
+  end;
+
 begin
 
   clk <= not clk after clock_period / 2;
