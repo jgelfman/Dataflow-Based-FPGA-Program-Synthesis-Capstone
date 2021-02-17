@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2019.2.1 (64-bit)
+# SW Build 2729669 on Thu Dec  5 04:48:12 MST 2019
+# IP Build 2729494 on Thu Dec  5 07:38:25 MST 2019
+# Start of session at: Sat Feb 13 00:37:58 2021
+# Process ID: 26927
+# Current directory: /home/jon/Desktop/capstone
+# Command line: vivado
+# Log file: /home/jon/Desktop/capstone/vivado.log
+# Journal file: /home/jon/Desktop/capstone/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/jon/Desktop/capstone/copy1_poc/copy1_poc.xpr
+update_compile_order -fileset sources_1
+add_files -norecurse {/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl /home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1

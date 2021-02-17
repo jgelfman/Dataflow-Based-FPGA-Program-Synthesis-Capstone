@@ -10,8 +10,8 @@ entity copy1 is
     port (
         clk : in std_logic;
         rst : in std_logic;
-        copy1_in : in std_logic_vector(copy1_ram_width - 1 downto 0);
-        copy1_out : out std_logic_vector(copy1_ram_width - 1 downto 0);
+        copy1_in : in std_logic_vector;
+        copy1_out : out std_logic_vector;
 
         copy1_in_ready : out std_logic;
         copy1_in_valid : in std_logic;
@@ -61,10 +61,10 @@ architecture copy1_arch of copy1 is
                                             out_opening => node_to_buffer
                                             );
 
-        fifo : axi_fifo GENERIC MAP (copy1_ram_width => copy1_ram_width
-                                    copy1_ram_depth => copy1_ram_depth,
+        fifo : axi_fifo GENERIC MAP (copy1_ram_width,
+                                    copy1_ram_depth
                                     )
-                        port map    (clk => clk,
+                        PORT MAP    (clk => clk,
                                     rst => rst,
                                     in_ready => copy1_in_ready,
                                     in_valid =>  copy1_in_valid,
