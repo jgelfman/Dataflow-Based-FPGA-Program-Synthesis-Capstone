@@ -15,14 +15,14 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
 INFO: [Common 17-86] Your Synthesis license expires in 29 day(s)
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15906 
+INFO: Helper process launched with PID 3892 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1600.598 ; gain = 158.719 ; free physical = 157 ; free virtual = 2351
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1600.594 ; gain = 156.719 ; free physical = 1095 ; free virtual = 4759
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
 	Parameter copy1_ram_width bound to: 16 - type: integer 
 	Parameter copy1_ram_depth bound to: 256 - type: integer 
-INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:48]
+INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:47]
 INFO: [Synth 8-638] synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
 	Parameter copy1_ram_width bound to: 16 - type: integer 
 	Parameter copy1_ram_depth bound to: 256 - type: integer 
@@ -38,26 +38,27 @@ INFO: [Synth 8-638] synthesizing module 'axi_fifo' [/home/jon/Desktop/capstone/c
 INFO: [Synth 8-256] done synthesizing module 'axi_fifo' (2#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
 INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'exit_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:78]
 INFO: [Synth 8-256] done synthesizing module 'copy1' (3#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:67]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:77]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:94]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:66]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:76]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:80]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:88]
 INFO: [Synth 8-256] done synthesizing module 'copy1_wrapper' (4#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1662.348 ; gain = 220.469 ; free physical = 213 ; free virtual = 2378
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1662.344 ; gain = 218.469 ; free physical = 1130 ; free virtual = 4794
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1662.348 ; gain = 220.469 ; free physical = 208 ; free virtual = 2374
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1662.344 ; gain = 218.469 ; free physical = 1125 ; free virtual = 4789
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7vx485tffg1157-1
+---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1670.348 ; gain = 226.473 ; free physical = 1124 ; free virtual = 4788
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1670.352 ; gain = 228.473 ; free physical = 206 ; free virtual = 2372
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1688.266 ; gain = 246.387 ; free physical = 203 ; free virtual = 2374
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1687.262 ; gain = 243.387 ; free physical = 1115 ; free virtual = 4780
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -74,7 +75,7 @@ Detailed RTL Component Info :
 	   2 Input      8 Bit       Adders := 2     
 	   3 Input      8 Bit       Adders := 1     
 +---Registers : 
-	               16 Bit    Registers := 2     
+	               16 Bit    Registers := 1     
 	                8 Bit    Registers := 2     
 	                1 Bit    Registers := 3     
 +---RAMs : 
@@ -91,7 +92,6 @@ Hierarchical RTL Component report
 Module copy1_wrapper 
 Detailed RTL Component Info : 
 +---Registers : 
-	               16 Bit    Registers := 1     
 	                1 Bit    Registers := 2     
 Module axi_fifo 
 Detailed RTL Component Info : 
@@ -125,7 +125,7 @@ Start Cross Boundary and Area Optimization
 Warning: Parallel synthesis criteria is not met 
 WARNING: [Synth 8-6014] Unused sequential element copy/fifo/ram_reg was removed. 
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:26 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 114 ; free virtual = 2042
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:23 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 790 ; free virtual = 4457
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -138,7 +138,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:27 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 111 ; free virtual = 2040
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:23 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 788 ; free virtual = 4455
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -150,7 +150,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:27 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 111 ; free virtual = 2040
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:23 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 788 ; free virtual = 4455
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -174,13 +174,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:30 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 111 ; free virtual = 2041
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 790 ; free virtual = 4456
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:30 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 111 ; free virtual = 2041
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 790 ; free virtual = 4456
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -199,25 +199,25 @@ Report Check Netlist:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:30 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 111 ; free virtual = 2041
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 790 ; free virtual = 4456
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:30 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 111 ; free virtual = 2041
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 790 ; free virtual = 4456
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:30 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 111 ; free virtual = 2041
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 790 ; free virtual = 4456
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:30 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 111 ; free virtual = 2041
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 790 ; free virtual = 4456
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -242,26 +242,26 @@ Report Instance Areas:
 |1     |top      |       |     0|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:30 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 111 ; free virtual = 2041
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 790 ; free virtual = 4456
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:30 . Memory (MB): peak = 1944.484 ; gain = 502.605 ; free physical = 110 ; free virtual = 2041
-Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:30 . Memory (MB): peak = 1944.492 ; gain = 502.605 ; free physical = 110 ; free virtual = 2042
+Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1945.480 ; gain = 501.605 ; free physical = 790 ; free virtual = 4456
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1945.488 ; gain = 501.605 ; free physical = 790 ; free virtual = 4456
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1944.492 ; gain = 0.000 ; free physical = 162 ; free virtual = 2108
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1945.488 ; gain = 0.000 ; free physical = 858 ; free virtual = 4525
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2032.047 ; gain = 0.000 ; free physical = 111 ; free virtual = 2012
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2032.043 ; gain = 0.000 ; free physical = 761 ; free virtual = 4428
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-20 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+20 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:36 . Memory (MB): peak = 2032.047 ; gain = 598.172 ; free physical = 245 ; free virtual = 2147
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2032.047 ; gain = 0.000 ; free physical = 244 ; free virtual = 2148
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 2032.043 ; gain = 596.172 ; free physical = 897 ; free virtual = 4564
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2032.043 ; gain = 0.000 ; free physical = 897 ; free virtual = 4564
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/copy1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file copy1_wrapper_utilization_synth.rpt -pb copy1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Feb 18 01:34:58 2021...
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 18 23:53:30 2021...

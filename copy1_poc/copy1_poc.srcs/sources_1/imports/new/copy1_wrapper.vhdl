@@ -21,7 +21,6 @@ architecture copy1_arch of copy1_wrapper is
   signal copy1_out : std_logic_vector(copy1_ram_width - 1 downto 0) := (others => '0');
   signal copy1_out_ready : std_logic := '0';
   signal copy1_out_valid : std_logic;
-  signal copy1_out_data : std_logic_vector(copy1_ram_width - 1 downto 0);
 
   component copy1 is
       generic (
@@ -65,8 +64,8 @@ begin
     begin
     
         wait for 10 * clock_period;
-            rst <= '0';
-            wait until rising_edge(clk);
+        rst <= '0';
+        wait until rising_edge(clk);
 
         report "Starting to write into input node..."; -- write until full
         if copy1_in_ready = '1' then
@@ -78,20 +77,21 @@ begin
          end if;
         --end loop;
         --wait until rising_edge(clk);
+        wait for 10 * clock_period;
         copy1_in_valid <= '0';
 
-        copy1_in <= (others => 'X');
+        --copy1_in <= (others => 'X');
 
 
         report "Reading from the output node..."; -- read until empty
         copy1_out_ready <= '1';
+        wait for 10 * clock_period;
         if copy1_out_valid = '1' then
            copy1_out_ready <= '0';
            report "Test completed. Check waveform.";
         else
             report "Output not valid!";
         end if;
-        std.env.finish;
         
     end process;
 
