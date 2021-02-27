@@ -10,7 +10,7 @@ architecture copy1_arch of copy1_wrapper is
   -- testbench constants
   constant clock_period : time := 10 ns;
   constant copy1_ram_width : natural := 16;
-  constant copy1_ram_depth : natural := 1; --256;
+  constant copy1_ram_depth : natural := 256;
 
   -- signals
   signal clk : std_logic := '1';
@@ -75,8 +75,6 @@ begin
             report "Not ready!";
             std.env.finish;
          end if;
-        --end loop;
-        --wait until rising_edge(clk);
         wait for 10 * clock_period;
         copy1_in_valid <= '0';
 

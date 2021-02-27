@@ -28,8 +28,11 @@ architecture copy1_arch of copy1 is
             entity_clk : in std_logic;
             entity_rst : in std_logic;
             
-            in_opening : in std_logic_vector(copy1_ram_width - 1 downto 0);
-            out_opening : out std_logic_vector(copy1_ram_width - 1 downto 0)
+            entity_in_ready : out std_logic;
+            entity_out_ready : in std_logic;
+            
+            entity_in_opening : in std_logic_vector(copy1_ram_width - 1 downto 0);
+            entity_out_opening : out std_logic_vector(copy1_ram_width - 1 downto 0)
         ); end component;
 
     component axi_fifo is
@@ -41,13 +44,13 @@ architecture copy1_arch of copy1 is
             buf_clk : in std_logic;
             buf_rst : in std_logic;
 
-            in_ready : out std_logic;
-            in_valid : in std_logic;
-            in_data : in std_logic_vector(copy1_ram_width - 1 downto 0);
+            buf_in_ready : out std_logic;
+            buf_in_valid : in std_logic;
+            buf_in_data : in std_logic_vector(copy1_ram_width - 1 downto 0);
 
-            out_ready : in std_logic;
-            out_valid : out std_logic;
-            out_data : out std_logic_vector(copy1_ram_width - 1 downto 0)
+            buf_out_ready : in std_logic;
+            buf_out_valid : out std_logic;
+            buf_out_data : out std_logic_vector(copy1_ram_width - 1 downto 0)
         ); end component;
 
     --component exit_node is
@@ -57,13 +60,18 @@ architecture copy1_arch of copy1 is
     --    ); end component;
 
     signal node_to_buffer, buffer_to_node : std_logic_vector(copy1_ram_width - 1 downto 0);
+    signal node_ready, buffer_ready : std_logic;
 
     begin
 
         entry_node : entity_node PORT MAP ( entity_clk => copy1_clk,
                                             entity_rst => copy1_rst,
-                                            in_opening => copy1_in,
-                                            out_opening => node_to_buffer
+                                            
+                                            entity_in_ready => copy1_in_ready,
+                                            entity_out_ready => node_ready,
+                                            
+                                            entity_in_opening => copy1_in,
+                                            entity_out_opening => node_to_buffer
                                             );
 
         fifo : axi_fifo GENERIC MAP (copy1_ram_width,
@@ -71,19 +79,23 @@ architecture copy1_arch of copy1 is
                                     )
                         PORT MAP    (buf_clk => copy1_clk,
                                     buf_rst => copy1_rst,
-                                    in_ready => copy1_in_ready,
-                                    in_valid =>  copy1_in_valid,
-                                    in_data => node_to_buffer,
+                                    buf_in_ready => node_ready,
+                                    buf_in_valid =>  copy1_in_valid,
+                                    buf_in_data => node_to_buffer,
 
-                                    out_ready => copy1_out_ready,
-                                    out_valid => copy1_out_valid,
-                                    out_data => buffer_to_node
+                                    buf_out_ready => buffer_ready,
+                                    buf_out_valid => copy1_out_valid,
+                                    buf_out_data => buffer_to_node
                                     );
 
         exit_node : entity_node PORT MAP (  entity_clk => copy1_clk,
                                             entity_rst => copy1_rst,
-                                            in_opening => buffer_to_node,
-                                            out_opening => copy1_out
+                                            
+                                            entity_in_ready => buffer_ready,
+                                            entity_out_ready => copy1_out_ready,
+                                         
+                                            entity_in_opening => buffer_to_node,
+                                            entity_out_opening => copy1_out
                                             );
         
 end copy1_arch;

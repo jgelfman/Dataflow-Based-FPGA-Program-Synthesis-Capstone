@@ -12,21 +12,21 @@ entity axi_fifo is
     buf_rst : in std_logic;
 
     -- axi input interface
-    in_ready : out std_logic;
-    in_valid : in std_logic;
-    in_data : in std_logic_vector(ram_width - 1 downto 0);
+    buf_in_ready : out std_logic;
+    buf_in_valid : in std_logic;
+    buf_in_data : in std_logic_vector(ram_width - 1 downto 0);
 
     -- axi output interface
-    out_ready : in std_logic;
-    out_valid : out std_logic;
-    out_data : out std_logic_vector(ram_width - 1 downto 0)
+    buf_out_ready : in std_logic;
+    buf_out_valid : out std_logic;
+    buf_out_data : out std_logic_vector(ram_width - 1 downto 0)
   );
 end axi_fifo;
 
 architecture copy1_arch of axi_fifo is
 
   -- the fifo is full when the ram contains ram_depth - 1 elements
-  type ram_type is array (0 to ram_depth - 1) of std_logic_vector(in_data'range);
+  type ram_type is array (0 to ram_depth - 1) of std_logic_vector(buf_in_data'range);
   signal ram : ram_type;
 
   -- newest element at head, oldest element at tail
@@ -82,21 +82,21 @@ architecture copy1_arch of axi_fifo is
 begin
 
   -- copy internal signals to output
-  in_ready <= in_ready_local;
-  out_valid <= out_valid_local;
+  buf_in_ready <= in_ready_local;
+  buf_out_valid <= out_valid_local;
 
   -- update head index on write
-  proc_head : index_proc(buf_clk, buf_rst, head, in_ready_local, in_valid);
+  proc_head : index_proc(buf_clk, buf_rst, head, in_ready_local, buf_in_valid);
 
   -- update tail index on read
-  proc_tail : index_proc(buf_clk, buf_rst, tail, out_ready, out_valid_local);
+  proc_tail : index_proc(buf_clk, buf_rst, tail, buf_out_ready, out_valid_local);
 
   -- write to and read from the ram
   proc_ram : process(buf_clk)
   begin
     if rising_edge(buf_clk) then
-      ram(head) <= in_data;
-      out_data <= ram(next_index(tail, out_ready, out_valid_local));
+      ram(head) <= buf_in_data;
+      buf_out_data <= ram(next_index(tail, buf_out_ready, out_valid_local));
     end if;
   end process;
 
@@ -141,8 +141,8 @@ begin
 
       else
         read_while_write_delayed <= '0';
-        if in_ready_local = '1' and in_valid = '1' and
-          out_ready = '1' and out_valid_local = '1' then
+        if in_ready_local = '1' and buf_in_valid = '1' and
+          buf_out_ready = '1' and out_valid_local = '1' then
           read_while_write_delayed <= '1';
         end if;
       end if;

@@ -8,8 +8,11 @@ entity entity_node is
         entity_clk : in std_logic;
         entity_rst : in std_logic;
 
-        in_opening : in std_logic_vector;
-        out_opening : out std_logic_vector
+        entity_in_ready : out std_logic;
+        entity_out_ready : in std_logic;
+        
+        entity_in_opening : in std_logic_vector;
+        entity_out_opening : out std_logic_vector
     ); 
         
 end entity_node;
@@ -18,7 +21,8 @@ end entity_node;
 architecture copy1_arch of entity_node is
 
     begin
-
-        out_opening <= in_opening;
+        
+        entity_out_opening <= entity_in_opening;
+        --entity_out_ready => entity_in_ready;
 
     end architecture;
