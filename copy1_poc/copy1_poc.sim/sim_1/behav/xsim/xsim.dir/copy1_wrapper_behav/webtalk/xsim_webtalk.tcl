@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/xsim.dir/copy1_wrapper_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Sat Feb 27 23:13:03 2021" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Sun Feb 28 01:43:08 2021" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2019.2.1 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2729669" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "LIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "1acd59fe-a537-452f-b550-810b98ec534a" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "7cb67da4d93341db9fa3bd9068944096" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "5" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "7" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Ubuntu" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "Ubuntu 20.04.2 LTS" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-8557U CPU @ 1.70GHz" -context "user_environment"
@@ -33,10 +33,10 @@ webtalk_add_data -client xsim -key Debug -value "typical" -context "xsim\\comman
 webtalk_add_data -client xsim -key Simulation_Image_Code -value "39 KB" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Simulation_Image_Data -value "3 KB" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Nets -value "0" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Total_Processes -value "16" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Total_Processes -value "15" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Instances -value "10" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Xilinx_HDL_Libraries_Used -value "secureip " -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Time -value "1.63_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Memory -value "209988_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 1904233259 -regid "212073335_0_0_469" -xml /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/xsim.dir/copy1_wrapper_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/xsim.dir/copy1_wrapper_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/xsim.dir/copy1_wrapper_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Compiler_Time -value "1.66_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Compiler_Memory -value "210196_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 3332417299 -regid "212073335_0_0_469" -xml /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/xsim.dir/copy1_wrapper_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/xsim.dir/copy1_wrapper_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/xsim.dir/copy1_wrapper_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

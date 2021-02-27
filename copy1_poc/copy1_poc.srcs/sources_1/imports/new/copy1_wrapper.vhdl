@@ -15,10 +15,12 @@ architecture copy1_arch of copy1_wrapper is
   -- signals
   signal clk : std_logic := '1';
   signal rst : std_logic := '1';
+  
   signal copy1_in_ready : std_logic;
   signal copy1_in_valid : std_logic := '0';
   signal copy1_in : std_logic_vector(copy1_ram_width - 1 downto 0) := (others => '0');
-  signal copy1_out : std_logic_vector(copy1_ram_width - 1 downto 0) := (others => '0');
+  
+  signal copy1_out : std_logic_vector(copy1_ram_width - 1 downto 0);
   signal copy1_out_ready : std_logic := '0';
   signal copy1_out_valid : std_logic;
 
@@ -33,10 +35,10 @@ architecture copy1_arch of copy1_wrapper is
           copy1_in : in std_logic_vector(copy1_ram_width - 1 downto 0);
           copy1_out : out std_logic_vector(copy1_ram_width - 1 downto 0);
 
-          copy1_in_ready : out std_logic;
+          copy1_in_ready : in std_logic;
           copy1_in_valid : in std_logic;
 
-          copy1_out_ready : in std_logic;
+          copy1_out_ready : out std_logic;
           copy1_out_valid : out std_logic
       ); end component;
 
@@ -65,9 +67,10 @@ begin
     
         wait for 10 * clock_period;
         rst <= '0';
+        copy1_in_ready <= '1';
         wait until rising_edge(clk);
 
-        report "Starting to write into input node..."; -- write until full
+        report "Writing into input node...";
         if copy1_in_ready = '1' then
                 copy1_in_valid <= '1';
                 copy1_in <= std_logic_vector(unsigned(copy1_in) + 1);      
@@ -81,7 +84,7 @@ begin
         --copy1_in <= (others => 'X');
 
 
-        report "Reading from the output node..."; -- read until empty
+        report "Reading from the output node...";
         copy1_out_ready <= '1';
         
         wait for 10 * clock_period;
@@ -92,6 +95,7 @@ begin
         else
             report "Output not valid!";
         end if;
+        
         
     end process;
 
