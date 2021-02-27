@@ -10,7 +10,7 @@ architecture copy1_arch of copy1_wrapper is
   -- testbench constants
   constant clock_period : time := 10 ns;
   constant copy1_ram_width : natural := 16;
-  constant copy1_ram_depth : natural := 256;
+  constant copy1_ram_depth : natural := 1; --256;
 
   -- signals
   signal clk : std_logic := '1';
@@ -28,8 +28,8 @@ architecture copy1_arch of copy1_wrapper is
           copy1_ram_depth : natural
           );
       port (
-          clk : in std_logic;
-          rst : in std_logic;
+          copy1_clk : in std_logic;
+          copy1_rst : in std_logic;
           copy1_in : in std_logic_vector(copy1_ram_width - 1 downto 0);
           copy1_out : out std_logic_vector(copy1_ram_width - 1 downto 0);
 
@@ -44,12 +44,12 @@ begin
 
   clk <= not clk after clock_period / 2;
 
-  copy : copy1 GENERIC MAP (copy1_ram_width,
+  copy : copy1 GENERIC MAP   (copy1_ram_width,
                               copy1_ram_depth
                               )
                   PORT MAP    (
-                              clk => clk,
-                              rst => rst,
+                              copy1_clk => clk,
+                              copy1_rst => rst,
                               copy1_in => copy1_in,
                               copy1_out => copy1_out,
     
@@ -85,7 +85,9 @@ begin
 
         report "Reading from the output node..."; -- read until empty
         copy1_out_ready <= '1';
+        
         wait for 10 * clock_period;
+        
         if copy1_out_valid = '1' then
            copy1_out_ready <= '0';
            report "Test completed. Check waveform.";

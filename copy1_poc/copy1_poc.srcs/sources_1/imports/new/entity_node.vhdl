@@ -5,8 +5,8 @@ use ieee.numeric_std.all;
 
 entity entity_node is
    port (
-        --inner_clk : in std_logic;
-        --inner_rst : in std_logic;
+        entity_clk : in std_logic;
+        entity_rst : in std_logic;
 
         in_opening : in std_logic_vector;
         out_opening : out std_logic_vector

@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.2.1 (lin64) Build 2729669 Thu Dec  5 04:48:12 MST 2019
-| Date         : Thu Feb 18 23:53:30 2021
-| Host         : ubuntuvm running 64-bit Ubuntu 20.04.1 LTS
+| Date         : Sat Feb 27 22:15:39 2021
+| Host         : ubuntuvm running 64-bit Ubuntu 20.04.2 LTS
 | Command      : report_utilization -file copy1_wrapper_utilization_synth.rpt -pb copy1_wrapper_utilization_synth.pb
 | Design       : copy1_wrapper
 | Device       : 7vx485tffg1157-1

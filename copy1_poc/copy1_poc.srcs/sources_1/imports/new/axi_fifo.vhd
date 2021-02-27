@@ -8,8 +8,8 @@ entity axi_fifo is
     ram_depth : natural
   );
   port (
-    clk : in std_logic;
-    rst : in std_logic;
+    buf_clk : in std_logic;
+    buf_rst : in std_logic;
 
     -- axi input interface
     in_ready : out std_logic;
@@ -86,15 +86,15 @@ begin
   out_valid <= out_valid_local;
 
   -- update head index on write
-  proc_head : index_proc(clk, rst, head, in_ready_local, in_valid);
+  proc_head : index_proc(buf_clk, buf_rst, head, in_ready_local, in_valid);
 
   -- update tail index on read
-  proc_tail : index_proc(clk, rst, tail, out_ready, out_valid_local);
+  proc_tail : index_proc(buf_clk, buf_rst, tail, out_ready, out_valid_local);
 
   -- write to and read from the ram
-  proc_ram : process(clk)
+  proc_ram : process(buf_clk)
   begin
-    if rising_edge(clk) then
+    if rising_edge(buf_clk) then
       ram(head) <= in_data;
       out_data <= ram(next_index(tail, out_ready, out_valid_local));
     end if;
@@ -111,10 +111,10 @@ begin
   end process;
 
   -- delay the count by one clock cycles
-  proc_count_p1 : process(clk)
+  proc_count_p1 : process(buf_clk)
   begin
-    if rising_edge(clk) then
-      if rst = '1' then
+    if rising_edge(buf_clk) then
+      if buf_rst = '1' then
         count_delayed <= 0;
       else
         count_delayed <= count;
@@ -133,10 +133,10 @@ begin
   end process;
 
   -- detect simultaneous read and write operations
-  proc_read_while_write_p1: process(clk)
+  proc_read_while_write_p1: process(buf_clk)
   begin
-    if rising_edge(clk) then
-      if rst = '1' then
+    if rising_edge(buf_clk) then
+      if buf_rst = '1' then
         read_while_write_delayed <= '0';
 
       else
