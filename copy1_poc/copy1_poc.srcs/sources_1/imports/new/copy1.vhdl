@@ -16,7 +16,7 @@ entity copy1 is
         copy1_in_data : in std_logic_vector;
 
         copy1_out_ready : out std_logic;
-        copy1_out_valid : out std_logic
+        copy1_out_valid : out std_logic;
         copy1_out_data : out std_logic_vector
     );
 end;
@@ -69,7 +69,7 @@ architecture copy1_arch of copy1 is
                                             entity_out_ready => node_to_buffer_ready,
 
                                             entity_in_valid => copy1_in_valid,
-                                            entity_out_valid => node_to_buffer_valid，
+                                            entity_out_valid => node_to_buffer_valid,
 
                                             entity_in_opening => copy1_in_data,
                                             entity_out_opening => node_to_buffer_data
@@ -82,7 +82,7 @@ architecture copy1_arch of copy1 is
                                             buf_rst => copy1_rst,
                                             
                                             buf_in_ready => node_to_buffer_ready,
-                                            buf_in_valid =>  node_to_buffer_valid,
+                                            buf_in_valid => node_to_buffer_valid,
                                             buf_in_data => node_to_buffer_data,
         
                                             buf_out_ready => buffer_to_node_ready,
@@ -96,10 +96,10 @@ architecture copy1_arch of copy1 is
                                             entity_in_ready => buffer_to_node_ready,
                                             entity_out_ready => copy1_out_ready,
                                          
-                                            entity_in_valid => node_to_buffer_valid,
-                                            entity_out_valid => copy1_out_valid，
+                                            entity_in_valid => buffer_to_node_valid,
+                                            entity_out_valid => copy1_out_valid,
                                             
-                                            entity_in_opening => buffer_to_node,
+                                            entity_in_opening => buffer_to_node_data,
                                             entity_out_opening => copy1_out_data
                                             );
 
