@@ -32,14 +32,17 @@ architecture copy1_arch of copy1_wrapper is
       port (
           copy1_clk : in std_logic;
           copy1_rst : in std_logic;
-          copy1_in : in std_logic_vector(copy1_ram_width - 1 downto 0);
-          copy1_out : out std_logic_vector(copy1_ram_width - 1 downto 0);
+          
+          copy1_clk : in std_logic;
+          copy1_rst : in std_logic;
 
           copy1_in_ready : in std_logic;
           copy1_in_valid : in std_logic;
+          copy1_in_data : in std_logic_vector(copy1_ram_width - 1 downto 0);
 
-          copy1_out_ready : out std_logic;
-          copy1_out_valid : out std_logic
+          copy1_out_ready : out std_logic；
+          copy1_out_valid : out std_logic；
+          copy1_out_data : out std_logic_vector(copy1_ram_width - 1 downto 0)
       ); end component;
 
 begin
@@ -52,14 +55,14 @@ begin
                   PORT MAP    (
                               copy1_clk => clk,
                               copy1_rst => rst,
-                              copy1_in => copy1_in,
-                              copy1_out => copy1_out,
-    
+
                               copy1_in_ready => copy1_in_ready,
                               copy1_in_valid => copy1_in_valid,
+                              copy1_in_data => copy1_in_data,
     
                               copy1_out_ready => copy1_out_ready,
                               copy1_out_valid => copy1_out_valid
+                              copy1_out_data => copy1_out_data,
                               );
     
     proc_sequencer : process is

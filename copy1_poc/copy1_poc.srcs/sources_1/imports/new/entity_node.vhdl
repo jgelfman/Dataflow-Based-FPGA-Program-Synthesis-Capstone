@@ -10,7 +10,10 @@ entity entity_node is
 
         entity_in_ready : in std_logic;
         entity_out_ready : out std_logic;
-        
+
+        entity_in_valid : in std_logic;
+        entity_out_valid : out std_logic;
+
         entity_in_opening : in std_logic_vector;
         entity_out_opening : out std_logic_vector
     ); 
@@ -20,25 +23,29 @@ end entity_node;
 
 architecture copy1_arch of entity_node is
 
-    signal readiness : std_logic;
+    --signal readiness : std_logic;
     
     begin
-        
-    node_prop : process is
-        begin
+    
+    entity_out_ready <= entity_in_ready;
+    entity_out_valid <= entity_in_valid;
+    entity_out_opening <= entity_in_opening;
+    
+    --node_prop : process is
+    --    begin
+    --        
+    --        wait until rising_edge(entity_clk);
+    --        report "Propagating through node...";
+    --        if entity_in_ready = '1' then
+    --            entity_out_opening <= entity_in_opening;
+    --            entity_out_ready <= '1';
+    --        else
+    --            entity_out_ready <= '0';
+    --            report "Node not ready!";
+    --            std.env.finish;
+    --        --entity_out_ready => entity_in_ready;
+    --        end if;
             
-            wait until rising_edge(entity_clk);
-            report "Propagating through node...";
-            if entity_in_ready = '1' then
-                entity_out_opening <= entity_in_opening;
-                entity_out_ready <= '1';
-            else
-                entity_out_ready <= '0';
-                report "Node not ready!";
-                std.env.finish;
-            --entity_out_ready => entity_in_ready;
-            end if;
-            
-        end process;
+    --    end process;
 
     end architecture;
