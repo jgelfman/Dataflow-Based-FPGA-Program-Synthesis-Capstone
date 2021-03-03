@@ -18,11 +18,11 @@ architecture copy1_arch of copy1_wrapper is
   
   signal copy1_in_ready : std_logic;
   signal copy1_in_valid : std_logic := '0';
-  signal copy1_in : std_logic_vector(copy1_ram_width - 1 downto 0) := (others => '0');
+  signal copy1_in_data : std_logic_vector(copy1_ram_width - 1 downto 0) := (others => '0');
   
-  signal copy1_out : std_logic_vector(copy1_ram_width - 1 downto 0);
   signal copy1_out_ready : std_logic := '0';
   signal copy1_out_valid : std_logic;
+  signal copy1_out_data : std_logic_vector(copy1_ram_width - 1 downto 0);
 
   component copy1 is
       generic (
@@ -70,35 +70,47 @@ begin
     
         wait for 10 * clock_period;
         rst <= '0';
-        copy1_in_ready <= '1';
+        --copy1_in_ready <= '1';
+        copy1_in_valid <= '1';
         wait until rising_edge(clk);
 
-        report "Writing into input node...";
-        if copy1_in_ready = '1' then
-                copy1_in_valid <= '1';
-                copy1_in <= std_logic_vector(unsigned(copy1_in) + 1);      
-        else 
-            report "Not ready!";
-            std.env.finish;
-         end if;
-        wait for 10 * clock_period;
+        report "Writing data...";
+        --if copy1_in_ready = '1' then
+        --        copy1_in_valid <= '1';
+        --        copy1_in <= std_logic_vector(unsigned(copy1_in) + 1);      
+        --else 
+        --    report "Not ready!";
+        --    std.env.finish;
+        --end if; --(test)
+        while copy1_in_valid = '1' loop
+            copy1_in_data <= std_logic_vector(unsigned(copy1_in_data) + 1);
+            wait for 10 * clock_period;
+        end loop;
         copy1_in_valid <= '0';
 
         --copy1_in <= (others => 'X');
 
 
-        report "Reading from the output node...";
+        report "Reading data...";
+        
+        --wait for 10 * clock_period; --(test)
+        
+        wait until rising_edge(clk);
         copy1_out_ready <= '1';
+        while copy1_out_valid = '1' loop
+            copy1_out_data <= std_logic_vector(unsigned(copy1_out_data) + 1);
+            wait for 10 * clock_period;
+        end loop;
+        copy1_out_ready <= '0';
         
-        wait for 10 * clock_period;
-        
-        if copy1_out_valid = '1' then
-           copy1_out_ready <= '0';
-           report "Test completed. Check waveform.";
-        else
-            report "Output not valid!";
-        end if;
-        
+        report "Testbench completed."
+        finish;
+        --if copy1_out_valid = '1' then
+        --   copy1_out_ready <= '0';
+        --   report "Test completed. Check waveform.";
+        --else
+        --    report "Output not valid!";
+        --end if;
         
     end process;
 
