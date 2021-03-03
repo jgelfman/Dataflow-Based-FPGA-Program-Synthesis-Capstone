@@ -28,7 +28,6 @@ architecture copy1_arch of copy1 is
             entity_clk : in std_logic;
             entity_rst : in std_logic;
             
-            
             entity_in_ready : in std_logic;
             entity_out_ready : out std_logic;
 
