@@ -11,7 +11,6 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
-Compiling package std.env
 Compiling architecture copy1_arch of entity xil_defaultlib.entity_node [\entity_node(15,0)(15,0)\]
 Compiling architecture copy1_arch of entity xil_defaultlib.axi_fifo [\axi_fifo(ram_width=16,ram_depth...]
 Compiling architecture copy1_arch of entity xil_defaultlib.copy1 [\copy1(copy1_ram_width=16,copy1_...]

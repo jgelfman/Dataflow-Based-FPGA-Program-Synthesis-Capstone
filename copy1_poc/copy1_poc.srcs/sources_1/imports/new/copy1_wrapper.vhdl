@@ -10,7 +10,7 @@ architecture copy1_arch of copy1_wrapper is
   -- testbench constants
   constant clock_period : time := 10 ns;
   constant copy1_ram_width : natural := 16;
-  constant copy1_ram_depth : natural := 256;
+  constant copy1_ram_depth : natural := 1; --256
 
   -- signals
   signal clk : std_logic := '1';
@@ -72,15 +72,13 @@ begin
         --wait until rising_edge(clk);
 
         report "Writing data...";
-        if copy1_in_valid = '1' then
-                copy1_in_data <= std_logic_vector(unsigned(copy1_in_data) + 1);      
-        else 
-            report "Not ready!";
-            std.env.finish;
-        end if;
-        --while copy1_in_valid = '1' loop
-        --    copy1_in_data <= std_logic_vector(unsigned(copy1_in_data) + 1);
-        --end loop;
+        while copy1_in_valid = '1' loop
+                copy1_in_data <= std_logic_vector(unsigned(copy1_in_data) + 1);  
+        end loop;    
+        --else 
+        --    report "Not ready!";
+        --    std.env.finish;
+        --end if;
         wait for 10 * clock_period;
         copy1_in_valid <= '0';
 
@@ -93,14 +91,15 @@ begin
         
         --wait until rising_edge(clk);
         copy1_out_ready <= '1';
-        if copy1_out_valid = '1' then
+        while copy1_out_valid = '1' loop
             copy1_out_data <= std_logic_vector(unsigned(copy1_out_data) + 1);
-            report "Test completed. Check waveform.";
-            wait for 10 * clock_period;
-            copy1_out_ready <= '0';
-        else
-            report "Output not valid!";
-         end if;
+        end loop;    
+        --else
+        --  report "Output not valid!";
+        --end if;
+        wait for 10 * clock_period;
+        report "Test completed. Check waveform.";
+        copy1_out_ready <= '0';
         
         report "Testbench completed.";
         --if copy1_out_valid = '1' then
