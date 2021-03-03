@@ -70,9 +70,13 @@ begin
         --copy1_in_ready <= '1';
         copy1_in_valid <= '1';
         --wait until rising_edge(clk);
+        
+        report "Adding input...";
+        copy1_in_data <= (others => '1');
+        
 
         report "Writing data...";
-        while copy1_in_valid = '1' loop
+        while copy1_in_ready = '1' loop
                 copy1_in_data <= std_logic_vector(unsigned(copy1_in_data) + 1);  
         end loop;    
         --else 
@@ -90,8 +94,8 @@ begin
         wait for 10 * clock_period; --(test)
         
         --wait until rising_edge(clk);
-        copy1_out_ready <= '1';
-        while copy1_out_valid = '1' loop
+        copy1_out_valid <= '1';
+        while copy1_out_ready = '1' loop
             copy1_out_data <= std_logic_vector(unsigned(copy1_out_data) + 1);
         end loop;    
         --else
@@ -99,7 +103,7 @@ begin
         --end if;
         wait for 10 * clock_period;
         report "Test completed. Check waveform.";
-        copy1_out_ready <= '0';
+        copy1_out_valid <= '0';
         
         report "Testbench completed.";
         --if copy1_out_valid = '1' then
