@@ -2,8 +2,8 @@
 # Vivado v2019.2.1 (64-bit)
 # SW Build 2729669 on Thu Dec  5 04:48:12 MST 2019
 # IP Build 2729494 on Thu Dec  5 07:38:25 MST 2019
-# Start of session at: Wed Mar  3 23:10:01 2021
-# Process ID: 6232
+# Start of session at: Thu Mar  4 00:39:56 2021
+# Process ID: 11786
 # Current directory: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1
 # Command line: vivado -log copy1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source copy1_wrapper.tcl
 # Log file: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/copy1_wrapper.vds

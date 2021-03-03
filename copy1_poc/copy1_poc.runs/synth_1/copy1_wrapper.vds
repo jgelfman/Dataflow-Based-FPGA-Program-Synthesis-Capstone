@@ -2,8 +2,8 @@
 # Vivado v2019.2.1 (64-bit)
 # SW Build 2729669 on Thu Dec  5 04:48:12 MST 2019
 # IP Build 2729494 on Thu Dec  5 07:38:25 MST 2019
-# Start of session at: Wed Mar  3 23:10:01 2021
-# Process ID: 6232
+# Start of session at: Thu Mar  4 00:39:56 2021
+# Process ID: 11786
 # Current directory: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1
 # Command line: vivado -log copy1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source copy1_wrapper.tcl
 # Log file: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/copy1_wrapper.vds
@@ -14,297 +14,49 @@ Command: synth_design -top copy1_wrapper -part xc7vx485tffg1157-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
-INFO: [Common 17-86] Your Synthesis license expires in 16 day(s)
+INFO: [Common 17-86] Your Synthesis license expires in 15 day(s)
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6285 
+INFO: Helper process launched with PID 11814 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1600.566 ; gain = 156.719 ; free physical = 151 ; free virtual = 3879
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1600.594 ; gain = 156.719 ; free physical = 1495 ; free virtual = 4144
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
 	Parameter copy1_ram_width bound to: 16 - type: integer 
-	Parameter copy1_ram_depth bound to: 256 - type: integer 
-INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:49]
+	Parameter copy1_ram_depth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'copy1' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:5' bound to instance 'copy' of component 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:50]
 INFO: [Synth 8-638] synthesizing module 'copy1' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
 	Parameter copy1_ram_width bound to: 16 - type: integer 
-	Parameter copy1_ram_depth bound to: 256 - type: integer 
-INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'entry_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:65]
+	Parameter copy1_ram_depth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'entry_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:64]
 INFO: [Synth 8-638] synthesizing module 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:24]
 INFO: [Synth 8-256] done synthesizing module 'entity_node' (1#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:24]
 	Parameter ram_width bound to: 16 - type: integer 
-	Parameter ram_depth bound to: 256 - type: integer 
-INFO: [Synth 8-3491] module 'axi_fifo' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:5' bound to instance 'fifo' of component 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:78]
+	Parameter ram_depth bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'axi_fifo' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:5' bound to instance 'fifo' of component 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:77]
 INFO: [Synth 8-638] synthesizing module 'axi_fifo' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
 	Parameter ram_width bound to: 16 - type: integer 
-	Parameter ram_depth bound to: 256 - type: integer 
+	Parameter ram_depth bound to: 1 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element count_delayed_reg was removed.  [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:118]
+WARNING: [Synth 8-6014] Unused sequential element read_while_write_delayed_reg was removed.  [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:140]
+WARNING: [Synth 8-4767] Trying to implement RAM 'ram_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: Write port has constant address. 
+	2: No valid read/write found for RAM. 
+	2: Only 1 word in RAM 
+RAM "ram_reg" dissolved into registers
 INFO: [Synth 8-256] done synthesizing module 'axi_fifo' (2#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/axi_fifo.vhd:26]
-INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'exit_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:93]
-WARNING: [Synth 8-3848] Net buffer_to_node_ready in module/entity copy1 does not have driver. [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:61]
+INFO: [Synth 8-3491] module 'entity_node' declared at '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/entity_node.vhdl:6' bound to instance 'exit_node' of component 'entity_node' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:92]
+WARNING: [Synth 8-3848] Net buffer_to_node_ready in module/entity copy1 does not have driver. [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:60]
 INFO: [Synth 8-256] done synthesizing module 'copy1' (3#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1.vhdl:24]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:68]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:79]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:84]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:92]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:99]
-WARNING: [Synth 8-3848] Net copy1_in_ready in module/entity copy1_wrapper does not have driver. [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:19]
-INFO: [Synth 8-256] done synthesizing module 'copy1_wrapper' (4#1) [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
-WARNING: [Synth 8-3331] design entity_node has unconnected port entity_clk
-WARNING: [Synth 8-3331] design entity_node has unconnected port entity_rst
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: wait statement with no conditon [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:69]
+ERROR: [Synth 8-3380] loop condition does not converge after 2000 iterations [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:81]
+ERROR: [Synth 8-285] failed synthesizing module 'copy1_wrapper' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:8]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1662.316 ; gain = 218.469 ; free physical = 216 ; free virtual = 3915
+Finished Synthesize : Time (s): cpu = 00:00:20 ; elapsed = 00:00:25 . Memory (MB): peak = 3038.344 ; gain = 1594.469 ; free physical = 1557 ; free virtual = 4138
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1662.316 ; gain = 218.469 ; free physical = 211 ; free virtual = 3909
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Loading Part and Timing Information
----------------------------------------------------------------------------------
-Loading part: xc7vx485tffg1157-1
----------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1670.320 ; gain = 226.473 ; free physical = 209 ; free virtual = 3908
----------------------------------------------------------------------------------
-WARNING: [Synth 8-327] inferring latch for variable 'copy1_in_data_reg' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:58]
-WARNING: [Synth 8-327] inferring latch for variable 'copy1_out_data_reg' [/home/jon/Desktop/capstone/copy1_poc/copy1_poc.srcs/sources_1/imports/new/copy1_wrapper.vhdl:62]
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1687.234 ; gain = 243.387 ; free physical = 197 ; free virtual = 3897
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
-No constraint files found.
----------------------------------------------------------------------------------
-Start RTL Component Statistics 
----------------------------------------------------------------------------------
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     16 Bit       Adders := 1     
-	   2 Input      8 Bit       Adders := 2     
-	   3 Input      8 Bit       Adders := 1     
-+---Registers : 
-	               16 Bit    Registers := 1     
-	                8 Bit    Registers := 2     
-	                1 Bit    Registers := 1     
-+---RAMs : 
-	               4K Bit         RAMs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 1     
----------------------------------------------------------------------------------
-Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Hierarchical Component Statistics 
----------------------------------------------------------------------------------
-Hierarchical RTL Component report 
-Module copy1_wrapper 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     16 Bit       Adders := 1     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 1     
-Module axi_fifo 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      8 Bit       Adders := 2     
-	   3 Input      8 Bit       Adders := 1     
-+---Registers : 
-	               16 Bit    Registers := 1     
-	                8 Bit    Registers := 2     
-	                1 Bit    Registers := 1     
-+---RAMs : 
-	               4K Bit         RAMs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 3     
----------------------------------------------------------------------------------
-Finished RTL Hierarchical Component Statistics
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Part Resource Summary
----------------------------------------------------------------------------------
-Part Resources:
-DSPs: 2800 (col length:140)
-BRAMs: 2060 (col length: RAMB18 140 RAMB36 70)
----------------------------------------------------------------------------------
-Finished Part Resource Summary
----------------------------------------------------------------------------------
-No constraint files found.
----------------------------------------------------------------------------------
-Start Cross Boundary and Area Optimization
----------------------------------------------------------------------------------
-Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[15]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[14]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[13]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[12]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[11]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[10]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[9]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[8]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[7]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[6]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[5]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[4]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[3]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[2]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[1]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_in_data_reg[0]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[15]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[14]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[13]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[12]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[11]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[10]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[9]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[8]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[7]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[6]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[5]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[4]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[3]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[2]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[1]) is unused and will be removed from module copy1_wrapper.
-WARNING: [Synth 8-3332] Sequential element (copy1_out_data_reg[0]) is unused and will be removed from module copy1_wrapper.
----------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 127 ; free virtual = 3583
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
-No constraint files found.
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 125 ; free virtual = 3581
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 125 ; free virtual = 3581
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 122 ; free virtual = 3579
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 122 ; free virtual = 3579
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 122 ; free virtual = 3579
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 122 ; free virtual = 3579
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 122 ; free virtual = 3579
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 122 ; free virtual = 3579
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
-
-Report Cell Usage: 
-+-+-----+------+
-| |Cell |Count |
-+-+-----+------+
-+-+-----+------+
-
-Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |     0|
-+------+---------+-------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 122 ; free virtual = 3579
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 43 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1945.453 ; gain = 501.605 ; free physical = 123 ; free virtual = 3579
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1945.461 ; gain = 501.605 ; free physical = 123 ; free virtual = 3579
-INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1945.461 ; gain = 0.000 ; free physical = 189 ; free virtual = 3647
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2032.078 ; gain = 0.000 ; free physical = 113 ; free virtual = 3556
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
+synthesize failed
 INFO: [Common 17-83] Releasing license: Synthesis
-20 Infos, 43 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:44 . Memory (MB): peak = 2032.078 ; gain = 596.234 ; free physical = 247 ; free virtual = 3690
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2032.078 ; gain = 0.000 ; free physical = 247 ; free virtual = 3690
-WARNING: [Constraints 18-5210] No constraints selected for write.
-Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint '/home/jon/Desktop/capstone/copy1_poc/copy1_poc.runs/synth_1/copy1_wrapper.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file copy1_wrapper_utilization_synth.rpt -pb copy1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Mar  3 23:10:54 2021...
+14 Infos, 5 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Thu Mar  4 00:40:33 2021...
