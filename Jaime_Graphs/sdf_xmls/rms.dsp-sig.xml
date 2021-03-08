@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf3 type="sdf" version="1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.es.ele.tue.nl/sdf3/xsd/sdf3-csdf.xsd">
+<applicationGraph name='rms'>
+    <sdf name='rms' type='rms'>
+        <actor name='0x7fc197403050' type='2'>
+            <port type='out' name='in_channel_6_int' rate='1'/>
+            <port type='out' name='in_R0x7fc197403050' rate='1'/>
+            <port type='in' name='out_R0x7fc197403050' rate='1'/>
+        </actor>
+        <actor name='0x7fc197517c90' type='INPUT_0'>
+            <port type='out' name='in_channel_5_real_vect' rate='1'/>
+            <port type='out' name='in_R0x7fc197517c90' rate='1'/>
+            <port type='in' name='out_R0x7fc197517c90' rate='1'/>
+        </actor>
+        <actor name='0x7fc197604f80' type='REC W0'>
+            <port type='in' name='out_channel_14_int' rate='1'/>
+            <port type='out' name='in_channel_15_int' rate='1'/>
+            <port type='out' name='in_R0x7fc197604f80' rate='1'/>
+            <port type='in' name='out_R0x7fc197604f80' rate='1'/>
+        </actor>
+        <actor name='0x7fc197605170' type='Proj0'>
+            <port type='in' name='out_channel_15_int' rate='1'/>
+            <port type='out' name='in_channel_18_int' rate='1'/>
+            <port type='out' name='in_channel_3_int' rate='1'/>
+            <port type='out' name='in_R0x7fc197605170' rate='1'/>
+            <port type='in' name='out_R0x7fc197605170' rate='1'/>
+        </actor>
+        <actor name='0x7fc197605a40' type='float'>
+            <port type='in' name='out_channel_18_int' rate='1'/>
+            <port type='out' name='in_channel_19_real' rate='1'/>
+            <port type='out' name='in_R0x7fc197605a40' rate='1'/>
+            <port type='in' name='out_R0x7fc197605a40' rate='1'/>
+        </actor>
+        <actor name='0x7fc1976060c0' type='1.04858e+06'>
+            <port type='out' name='in_channel_4_real' rate='1'/>
+            <port type='out' name='in_R0x7fc1976060c0' rate='1'/>
+            <port type='in' name='out_R0x7fc1976060c0' rate='1'/>
+        </actor>
+        <actor name='0x7fc197608370' type='pow'>
+            <port type='in' name='out_channel_5_real_vect' rate='1'/>
+            <port type='in' name='out_channel_6_int' rate='1'/>
+            <port type='out' name='in_channel_7_real_vect' rate='1'/>
+            <port type='out' name='in_R0x7fc197608370' rate='1'/>
+            <port type='in' name='out_R0x7fc197608370' rate='1'/>
+        </actor>
+        <actor name='0x7fc197608630' type='prod'>
+            <port type='in' name='out_channel_4_real' rate='1'/>
+            <port type='in' name='out_channel_7_real_vect' rate='1'/>
+            <port type='out' name='in_channel_8_real_vect' rate='1'/>
+            <port type='out' name='in_R0x7fc197608630' rate='1'/>
+            <port type='in' name='out_R0x7fc197608630' rate='1'/>
+        </actor>
+        <actor name='0x7fc197608780' type='int'>
+            <port type='in' name='out_channel_8_real_vect' rate='1'/>
+            <port type='out' name='in_channel_9_int_vect' rate='1'/>
+            <port type='out' name='in_channel_13_int_vect' rate='1'/>
+            <port type='out' name='in_R0x7fc197608780' rate='1'/>
+            <port type='in' name='out_R0x7fc197608780' rate='1'/>
+        </actor>
+        <actor name='0x7fc197608df0' type='add'>
+            <port type='in' name='out_channel_3_int' rate='1'/>
+            <port type='in' name='out_channel_9_int_vect' rate='1'/>
+            <port type='out' name='in_channel_10_int' rate='1'/>
+            <port type='out' name='in_R0x7fc197608df0' rate='1'/>
+            <port type='in' name='out_R0x7fc197608df0' rate='1'/>
+        </actor>
+        <actor name='0x7fc197608e80' type='diff'>
+            <port type='in' name='out_channel_10_int' rate='1'/>
+            <port type='in' name='out_channel_13_int_vect' rate='1'/>
+            <port type='out' name='in_channel_14_int' rate='1'/>
+            <port type='out' name='in_R0x7fc197608e80' rate='1'/>
+            <port type='in' name='out_R0x7fc197608e80' rate='1'/>
+        </actor>
+        <actor name='0x7fc1976092d0' type='9.53674e-10'>
+            <port type='out' name='in_channel_0_real' rate='1'/>
+            <port type='out' name='in_R0x7fc1976092d0' rate='1'/>
+            <port type='in' name='out_R0x7fc1976092d0' rate='1'/>
+        </actor>
+        <actor name='0x7fc1976093e0' type='prod'>
+            <port type='in' name='out_channel_0_real' rate='1'/>
+            <port type='in' name='out_channel_19_real' rate='1'/>
+            <port type='out' name='in_channel_20_real' rate='1'/>
+            <port type='out' name='in_R0x7fc1976093e0' rate='1'/>
+            <port type='in' name='out_R0x7fc1976093e0' rate='1'/>
+        </actor>
+        <actor name='0x7fc197609520' type='sqrt'>
+            <port type='in' name='out_channel_20_real' rate='1'/>
+            <port type='out' name='in_channel_21_real' rate='1'/>
+            <port type='out' name='in_R0x7fc197609520' rate='1'/>
+            <port type='in' name='out_R0x7fc197609520' rate='1'/>
+        </actor>
+        <actor name='OUTPUT_0' type='OUTPUT_0'>
+            <port type='in' name='out_channel_21_real' rate='1'/>
+            <port type='out' name='in_ROUTPUT_0' rate='1'/>
+            <port type='in' name='out_ROUTPUT_0' rate='1'/>
+        </actor>
+        <channel name='channel_0_real' srcActor='0x7fc1976092d0' srcPort='in_channel_0_real' dstActor='0x7fc1976093e0' dstPort='out_channel_0_real' size='1' initialTokens='0'/>
+        <channel name='channel_0x7fc197403050' srcActor='0x7fc197403050' srcPort='in_R0x7fc197403050' dstActor='0x7fc197403050' dstPort='out_R0x7fc197403050' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc197517c90' srcActor='0x7fc197517c90' srcPort='in_R0x7fc197517c90' dstActor='0x7fc197517c90' dstPort='out_R0x7fc197517c90' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc197604f80' srcActor='0x7fc197604f80' srcPort='in_R0x7fc197604f80' dstActor='0x7fc197604f80' dstPort='out_R0x7fc197604f80' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc197605170' srcActor='0x7fc197605170' srcPort='in_R0x7fc197605170' dstActor='0x7fc197605170' dstPort='out_R0x7fc197605170' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc197605a40' srcActor='0x7fc197605a40' srcPort='in_R0x7fc197605a40' dstActor='0x7fc197605a40' dstPort='out_R0x7fc197605a40' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc1976060c0' srcActor='0x7fc1976060c0' srcPort='in_R0x7fc1976060c0' dstActor='0x7fc1976060c0' dstPort='out_R0x7fc1976060c0' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc197608370' srcActor='0x7fc197608370' srcPort='in_R0x7fc197608370' dstActor='0x7fc197608370' dstPort='out_R0x7fc197608370' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc197608630' srcActor='0x7fc197608630' srcPort='in_R0x7fc197608630' dstActor='0x7fc197608630' dstPort='out_R0x7fc197608630' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc197608780' srcActor='0x7fc197608780' srcPort='in_R0x7fc197608780' dstActor='0x7fc197608780' dstPort='out_R0x7fc197608780' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc197608df0' srcActor='0x7fc197608df0' srcPort='in_R0x7fc197608df0' dstActor='0x7fc197608df0' dstPort='out_R0x7fc197608df0' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc197608e80' srcActor='0x7fc197608e80' srcPort='in_R0x7fc197608e80' dstActor='0x7fc197608e80' dstPort='out_R0x7fc197608e80' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc1976092d0' srcActor='0x7fc1976092d0' srcPort='in_R0x7fc1976092d0' dstActor='0x7fc1976092d0' dstPort='out_R0x7fc1976092d0' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc1976093e0' srcActor='0x7fc1976093e0' srcPort='in_R0x7fc1976093e0' dstActor='0x7fc1976093e0' dstPort='out_R0x7fc1976093e0' size='1' initialTokens='1'/>
+        <channel name='channel_0x7fc197609520' srcActor='0x7fc197609520' srcPort='in_R0x7fc197609520' dstActor='0x7fc197609520' dstPort='out_R0x7fc197609520' size='1' initialTokens='1'/>
+        <channel name='channel_10_int' srcActor='0x7fc197608df0' srcPort='in_channel_10_int' dstActor='0x7fc197608e80' dstPort='out_channel_10_int' size='1' initialTokens='0'/>
+        <channel name='channel_13_int_vect' srcActor='0x7fc197608780' srcPort='in_channel_13_int_vect' dstActor='0x7fc197608e80' dstPort='out_channel_13_int_vect' size='1' initialTokens='1000'/>
+        <channel name='channel_14_int' srcActor='0x7fc197608e80' srcPort='in_channel_14_int' dstActor='0x7fc197604f80' dstPort='out_channel_14_int' size='1' initialTokens='0'/>
+        <channel name='channel_15_int' srcActor='0x7fc197604f80' srcPort='in_channel_15_int' dstActor='0x7fc197605170' dstPort='out_channel_15_int' size='1' initialTokens='0'/>
+        <channel name='channel_18_int' srcActor='0x7fc197605170' srcPort='in_channel_18_int' dstActor='0x7fc197605a40' dstPort='out_channel_18_int' size='1' initialTokens='0'/>
+        <channel name='channel_19_real' srcActor='0x7fc197605a40' srcPort='in_channel_19_real' dstActor='0x7fc1976093e0' dstPort='out_channel_19_real' size='1' initialTokens='0'/>
+        <channel name='channel_20_real' srcActor='0x7fc1976093e0' srcPort='in_channel_20_real' dstActor='0x7fc197609520' dstPort='out_channel_20_real' size='1' initialTokens='0'/>
+        <channel name='channel_21_real' srcActor='0x7fc197609520' srcPort='in_channel_21_real' dstActor='OUTPUT_0' dstPort='out_channel_21_real' size='1' initialTokens='0'/>
+        <channel name='channel_3_int' srcActor='0x7fc197605170' srcPort='in_channel_3_int' dstActor='0x7fc197608df0' dstPort='out_channel_3_int' size='1' initialTokens='1'/>
+        <channel name='channel_4_real' srcActor='0x7fc1976060c0' srcPort='in_channel_4_real' dstActor='0x7fc197608630' dstPort='out_channel_4_real' size='1' initialTokens='0'/>
+        <channel name='channel_5_real_vect' srcActor='0x7fc197517c90' srcPort='in_channel_5_real_vect' dstActor='0x7fc197608370' dstPort='out_channel_5_real_vect' size='1' initialTokens='0'/>
+        <channel name='channel_6_int' srcActor='0x7fc197403050' srcPort='in_channel_6_int' dstActor='0x7fc197608370' dstPort='out_channel_6_int' size='1' initialTokens='0'/>
+        <channel name='channel_7_real_vect' srcActor='0x7fc197608370' srcPort='in_channel_7_real_vect' dstActor='0x7fc197608630' dstPort='out_channel_7_real_vect' size='1' initialTokens='0'/>
+        <channel name='channel_8_real_vect' srcActor='0x7fc197608630' srcPort='in_channel_8_real_vect' dstActor='0x7fc197608780' dstPort='out_channel_8_real_vect' size='1' initialTokens='0'/>
+        <channel name='channel_9_int_vect' srcActor='0x7fc197608780' srcPort='in_channel_9_int_vect' dstActor='0x7fc197608df0' dstPort='out_channel_9_int_vect' size='1' initialTokens='0'/>
+        <channel name='channel_OUTPUT_0' srcActor='OUTPUT_0' srcPort='in_ROUTPUT_0' dstActor='OUTPUT_0' dstPort='out_ROUTPUT_0' size='1' initialTokens='1'/>
+    </sdf>
+
+    <sdfProperties>
+        <actorProperties actor='0x7fc197403050'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc197517c90'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc197604f80'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc197605170'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc197605a40'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc1976060c0'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc197608370'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc197608630'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc197608780'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc197608df0'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc197608e80'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc1976092d0'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc1976093e0'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='0x7fc197609520'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='OUTPUT_0'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+    </sdfProperties>
+</applicationGraph>
+</sdf3>

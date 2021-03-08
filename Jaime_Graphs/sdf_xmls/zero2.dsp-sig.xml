@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf3 type="sdf" version="1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://www.es.ele.tue.nl/sdf3/xsd/sdf3-csdf.xsd">
+<applicationGraph name='zero2'>
+    <sdf name='zero2' type='zero2'>
+        <actor name='0x7fb1d3e056b0' type='0'>
+            <port type='out' name='in_channel_0_int' rate='1'/>
+            <port type='out' name='in_channel_1_int' rate='1'/>
+            <port type='out' name='in_R0x7fb1d3e056b0' rate='1'/>
+            <port type='in' name='out_R0x7fb1d3e056b0' rate='1'/>
+        </actor>
+        <actor name='OUTPUT_0' type='OUTPUT_0'>
+            <port type='in' name='out_channel_0_int' rate='1'/>
+            <port type='out' name='in_ROUTPUT_0' rate='1'/>
+            <port type='in' name='out_ROUTPUT_0' rate='1'/>
+        </actor>
+        <actor name='OUTPUT_1' type='OUTPUT_1'>
+            <port type='in' name='out_channel_1_int' rate='1'/>
+            <port type='out' name='in_ROUTPUT_1' rate='1'/>
+            <port type='in' name='out_ROUTPUT_1' rate='1'/>
+        </actor>
+        <channel name='channel_0_int' srcActor='0x7fb1d3e056b0' srcPort='in_channel_0_int' dstActor='OUTPUT_0' dstPort='out_channel_0_int' size='1' initialTokens='0'/>
+        <channel name='channel_0x7fb1d3e056b0' srcActor='0x7fb1d3e056b0' srcPort='in_R0x7fb1d3e056b0' dstActor='0x7fb1d3e056b0' dstPort='out_R0x7fb1d3e056b0' size='1' initialTokens='1'/>
+        <channel name='channel_1_int' srcActor='0x7fb1d3e056b0' srcPort='in_channel_1_int' dstActor='OUTPUT_1' dstPort='out_channel_1_int' size='1' initialTokens='0'/>
+        <channel name='channel_OUTPUT_0' srcActor='OUTPUT_0' srcPort='in_ROUTPUT_0' dstActor='OUTPUT_0' dstPort='out_ROUTPUT_0' size='1' initialTokens='1'/>
+        <channel name='channel_OUTPUT_1' srcActor='OUTPUT_1' srcPort='in_ROUTPUT_1' dstActor='OUTPUT_1' dstPort='out_ROUTPUT_1' size='1' initialTokens='1'/>
+    </sdf>
+
+    <sdfProperties>
+        <actorProperties actor='0x7fb1d3e056b0'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='OUTPUT_0'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+        <actorProperties actor='OUTPUT_1'>
+            <processor type='cluster_0' default='true'>
+                <executionTime time='1' />
+            </processor>
+        </actorProperties>
+    </sdfProperties>
+</applicationGraph>
+</sdf3>
