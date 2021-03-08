@@ -1,10 +1,10 @@
-import os
+# This file creates an instance of an identity entity node.
 
 def returnNode():
     node_import = str(
         "library ieee; \n" + 
-        "use ieee.std_logic_1164.all; \n" +
-        "use ieee.numeric_std.all; \n" +
+        "use ieee.std_logic_1164.all;\n" +
+        "use ieee.numeric_std.all;\n" +
         "\n"
         )
     node_entity = str(
@@ -39,9 +39,8 @@ def returnNode():
     
     whole_node = node_import + "\n" + node_entity + "\n" + node_arch
 
-    # Add into a subdirectory output
-    os.makedirs("output")
-    output = open("./output/entity_node.vhdl", "w")
+    # Add into the output subdirectory
+    output = open("output/entity_node.vhdl","w")
     output.write(str(whole_node))
     output.close()
 

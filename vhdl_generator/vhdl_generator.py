@@ -2,6 +2,7 @@
 
 import xml.etree.ElementTree as ET
 inputfile = input("Enter the exact file name (e.g. copy1.xml):")
+# e.g. copy1.dsp-sig.xml
 
 fileTree = ET.parse(inputfile)
 fileRoot = fileTree.getroot()
@@ -55,17 +56,22 @@ for i in range(len(signals)):
     signalsList.append(signal)
 #[signalName, (srcActor, dstActor), (srcPort, dstPort)]
 
+# Create an output directory
+import os
+os.makedirs("output")
+
 # Create entitiy VHDL file
 import vhdl_generator_node
 vhdl_generator_node.returnNode()
 
 #create buffer VHDL file
+import vhdl_generator_buffer
+vhdl_generator_buffer.returnBuffer()
 
 
 #create entity connections based on above
 
 #create wrapper file connecting entities
-
 
 
 data = "test"
