@@ -44,7 +44,10 @@ for channel in sdf.iter('channel'):
     listitem = list(channel.attrib.items())
     signals.append(listitem)
 
-signalsList = []
+# Distinguish between interior and exterior signals
+interiorConnections = []
+nodeSignals = []
+
 for i in range(len(signals)):
     signalName = signals[i][0][1]
     srcActor = signals[i][1][1]
@@ -54,7 +57,11 @@ for i in range(len(signals)):
     acts = (srcActor, dstActor)
     prts = (srcPort, dstPort)
     signal = [signalName, acts, prts]
-    signalsList.append(signal)
+
+    if signal[1][0] == signal[1][1]:
+        interiorConnections.append(signal)
+    else:
+        nodeSignals.append(signal)
 #[signalName, (srcActor, dstActor), (srcPort, dstPort)]
 
 # Create an output directory
@@ -69,13 +76,16 @@ vhdl_generator_node.returnNode(sdfArch)
 import vhdl_generator_buffer
 vhdl_generator_buffer.returnBuffer(sdfArch)
 
-#create entity connections based on above
+# Create entity connections based on above
 import vhdl_generator_entity
-vhdl_generator_buffer.returnEntity(sdfArch, actorsList, signalsList)
+vhdl_generator_entity.returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals)
+
+
+
+#create testbench
 
 
 #create wrapper file connecting entities
-
 
 data = "test"
 

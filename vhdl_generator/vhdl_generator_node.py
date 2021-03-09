@@ -1,7 +1,5 @@
 # This file creates an instance of an identity entity node.
 
-sdfArch = "test_arch"
-
 def returnNode(sdfArch):
     node_import = str(
         "library ieee; \n" + 
@@ -46,4 +44,4 @@ def returnNode(sdfArch):
     output.write(str(whole_node))
     output.close()
 
-returnNode(sdfArch)
+#returnNode(sdfArch)

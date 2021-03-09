@@ -1,7 +1,5 @@
 # This file creates an instance of the axi_fifo buffer.
 
-sdfArch = "test_arch"
-
 def returnBuffer(sdfArch):
     buffer_import = str(
         "library ieee; \n" + 
@@ -185,4 +183,4 @@ def returnBuffer(sdfArch):
     output.write(str(whole_buffer))
     output.close()
 
-returnBuffer(sdfArch)
+#returnBuffer(sdfArch)
