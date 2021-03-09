@@ -1,6 +1,8 @@
 # This file creates an instance of the axi_fifo buffer.
 
-def returnBuffer():
+sdfArch = "test_arch"
+
+def returnBuffer(sdfArch):
     buffer_import = str(
         "library ieee; \n" + 
         "use ieee.std_logic_1164.all; \n" +
@@ -30,7 +32,7 @@ def returnBuffer():
         "end axi_fifo;\n"
     )
     buffer_arch = str(
-        "architecture copy1_arch of axi_fifo is \n" +
+        "architecture " + sdfArch + " of axi_fifo is \n" +
         " \n" +
         "    -- the fifo is full when the ram contains ram_depth - 1 elements \n" +
         "    type ram_type is array (0 to ram_depth - 1) of std_logic_vector(buf_in_data'range); \n" +
@@ -183,4 +185,4 @@ def returnBuffer():
     output.write(str(whole_buffer))
     output.close()
 
-returnBuffer()
+returnBuffer(sdfArch)

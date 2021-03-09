@@ -13,6 +13,7 @@ sdf = applicationGraph[0]
 sdfList = list((sdf.attrib).items())
 sdfName = sdfList[0][1]
 sdfType = sdfList[1][1]
+sdfArch = sdfName + "_arch"
 
 # Generate list of actor names + types + ports
 actors = []
@@ -60,16 +61,18 @@ for i in range(len(signals)):
 import os
 os.makedirs("output")
 
-# Create entitiy VHDL file
+# Create identity entitiy node VHDL file
 import vhdl_generator_node
-vhdl_generator_node.returnNode()
+vhdl_generator_node.returnNode(sdfArch)
 
-#create buffer VHDL file
+# Create buffer VHDL file
 import vhdl_generator_buffer
-vhdl_generator_buffer.returnBuffer()
-
+vhdl_generator_buffer.returnBuffer(sdfArch)
 
 #create entity connections based on above
+import vhdl_generator_entity
+vhdl_generator_buffer.returnEntity(actorsList, signalsList)
+
 
 #create wrapper file connecting entities
 

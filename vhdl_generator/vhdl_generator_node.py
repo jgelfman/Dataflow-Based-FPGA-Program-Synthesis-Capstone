@@ -1,6 +1,8 @@
 # This file creates an instance of an identity entity node.
 
-def returnNode():
+sdfArch = "test_arch"
+
+def returnNode(sdfArch):
     node_import = str(
         "library ieee; \n" + 
         "use ieee.std_logic_1164.all;\n" +
@@ -26,7 +28,7 @@ def returnNode():
         "end entity_node; \n"
     )
     node_arch = str(
-        "architecture copy1_arch of entity_node is \n" +
+        "architecture " + str(sdfArch) + " of entity_node is \n" +
         "\n" +
         "    begin \n" +
         "\n" +
@@ -44,4 +46,4 @@ def returnNode():
     output.write(str(whole_node))
     output.close()
 
-returnNode()
+returnNode(sdfArch)
