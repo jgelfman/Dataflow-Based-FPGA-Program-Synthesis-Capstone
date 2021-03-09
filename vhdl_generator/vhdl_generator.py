@@ -71,7 +71,7 @@ vhdl_generator_buffer.returnBuffer(sdfArch)
 
 #create entity connections based on above
 import vhdl_generator_entity
-vhdl_generator_buffer.returnEntity(actorsList, signalsList)
+vhdl_generator_buffer.returnEntity(sdfArch, actorsList, signalsList)
 
 
 #create wrapper file connecting entities
