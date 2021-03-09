@@ -20,7 +20,7 @@ port (
 
 end entity_node; 
 
-architecture copy1_arch of entity_node is 
+architecture copy2_arch of entity_node is 
 
     begin 
 

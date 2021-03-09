@@ -64,6 +64,8 @@ for i in range(len(signals)):
         nodeSignals.append(signal)
 #[signalName, (srcActor, dstActor), (srcPort, dstPort)]
 
+
+
 # Create an output directory
 import os
 os.makedirs("output", exist_ok=True)
@@ -82,13 +84,92 @@ vhdl_generator_entity.returnEntity(sdfArch, actorsList, interiorConnections, nod
 
 
 
-#create testbench
+# TODO: create testbench
 
 
-#create wrapper file connecting entities
+# TODO: finalize creating wrapper file connecting entities
 
 data = "test"
 
 output = open("output.txt", "w")
 output.write(str(data))
 output.close()
+
+
+#Testing:
+
+# Arch signals
+arch_signals_component = ""
+
+# Index of signals for mappings
+node_signals_data = []
+node_signals_ready = []
+node_signals_valid = []
+
+# Arch data signals
+arch_signals_component += "signal "
+for signal in range(len(nodeSignals)):
+    # Signal name
+    signalName = str(nodeSignals[signal][0])
+
+    # Signal src
+    signalSrcName = str(nodeSignals[signal][1][0])
+
+    # Signal dst
+    signalDstName = str(nodeSignals[signal][2][0])
+
+    # Full signal declaration to buffer
+    signalFullNameToBuffer = signalName + "_from_" + signalSrcName + "_to_buffer"
+    node_signals_data.append(signalFullNameToBuffer)
+
+    # Full signal declaration from buffer
+    signalFullNameFromBuffer = signalName + "_from_buffer_to_" + signalDstName + "_data"
+    node_signals_data.append(signalFullNameFromBuffer)
+    
+    
+    # Add to signals component handling commas
+    arch_signals_component += signalFullNameToBuffer + ", " + signalFullNameFromBuffer + ", "
+arch_signals_component = arch_signals_component[:-2]
+
+# Add remainder
+arch_signals_component += " : std_logic_vector(copy1_ram_width - 1 downto 0); \n"
+
+# Arch ready + valid signals
+arch_signals_component += "signal "
+for signal in range(len(nodeSignals)):
+    # Signal name
+    signalName = str(nodeSignals[signal][0])
+
+    # Signal src
+    signalSrcName = str(nodeSignals[signal][1][0])
+
+    # Signal dst
+    signalDstName = str(nodeSignals[signal][2][0])
+
+    # Full ready signal declaration to buffers
+    signalFullNameToBufferReady = signalName + "_from_" + signalSrcName + "_to_buffer_ready"
+    node_signals_ready.append(signalFullNameToBufferReady)
+
+    # Full ready signal declaration from buffers
+    signalFullNameFromBufferReady = signalName + "_from_buffer_to_" + signalDstName + "_ready"
+    node_signals_ready.append(signalFullNameFromBufferReady)
+    
+    # Full valid signal declaration to buffers
+    signalFullNameToBufferValid = signalName + "_from_" + signalSrcName + "_to_buffer_valid"
+    node_signals_valid.append(signalFullNameToBufferValid)
+
+    # Full valid signal declaration from buffers
+    signalFullNameFromBufferValid = signalName + "_from_buffer_to_" + signalDstName + "_valid"
+    node_signals_valid.append(signalFullNameFromBufferValid)
+
+    # Add to signals component handling commas
+    arch_signals_component += signalFullNameToBufferReady + ", " + signalFullNameFromBufferReady + ", " + signalFullNameToBufferValid + ", " + signalFullNameFromBufferValid + ", "
+
+# Remove last separator
+arch_signals_component = arch_signals_component[:-2]
+
+# Add signals remainder
+arch_signals_component += " : std_logic; \n\n"
+print(arch_signals_component)
+
+node_signals_ready

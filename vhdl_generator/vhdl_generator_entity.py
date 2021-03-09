@@ -40,7 +40,7 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
 
 
         # Architecture
-        node_arch = "architecture " + str(sdfArch) + " of " + nodeName + "is \n"
+        node_arch = "architecture " + str(sdfArch) + " of " + nodeName + " is \n"
 
         # Architecture node component
         arch_node_component = ""
@@ -52,7 +52,6 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
 
         # Other Port instantiation
         portsList = actorsList[actor][3]
-        actorsList
         # Identity ports
         if nodeName == "add":
             pass #PLACEHOLDER
@@ -76,8 +75,10 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
                 arch_node_component += "); end component; \n\n"
 
 
+
         # Arch buffer
         arch_buffer_component = buffer_component
+
 
 
         # Arch signals
@@ -156,16 +157,14 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
 
 
 
+
         # Arch mapping
         arch_mapping_component = "begin \n\n\n"
 
         # Buffers count
-        bufferCount = len(actorsList) - 1
-        if bufferCount > 0:
-            needExtraBuffer = True
-        else:
-            needExtraBuffer = False
+        bufferCounter = len(actorsList) // 2
 
+        # Node mapping
         for node in range(len(actorsList)):
 
             # Add node mappings
@@ -178,7 +177,7 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
             elif nodeName == "div":
                 pass # PLACEHOLDER
             else: # Entry/exit/identity
-                node_mapping += nodeName + "_" + str(node) + " : entity_node"
+                node_mapping += nodeName + "_" + str(node + 1) + " : entity_node"
 
                 # Port Map
                 node_mapping += " PORT MAP ( "
@@ -206,13 +205,14 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
 
             arch_mapping_component += node_mapping
 
+            # Buffer mapping
             # Check for buffer count
-            if needExtraBuffer == True:
+            if bufferCounter > 0:
                 
                 # Add buffer mappings
                 buffer_mapping = ""
 
-                buffer_mapping += "fifo_" + str(node) + " : axi_fifo"
+                buffer_mapping += "fifo_" + str(node + 1) + " : axi_fifo"
 
                 # Generic Map
                 buffer_mapping += "GENERIC MAP         (" + nodeName + "_ram_width, \n" + "                                            " + nodeName + "_ram_depth                                            ) \n"
@@ -235,7 +235,7 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
                 # Buffer remainder
                 buffer_mapping += "); \n\n"
 
-                bufferCount - 1
+                bufferCounter - 1
                 arch_mapping_component += node_mapping + buffer_mapping
 
     
@@ -247,7 +247,8 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
     whole_entity = libraries_component + "\n" + entity_component + "\n" + node_arch + arch_remainder
 
     # Add into the output subdirectory
-    filewrite = open("output/" + nodeName + ".vhdl","w")
+    filename = "output/" + nodeName + ".vhdl"
+    filewrite = open(filename,"w")
     filewrite.write(str(whole_entity))
     filewrite.close()
 
