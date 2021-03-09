@@ -40,6 +40,7 @@ def returnEntity(sdfArch, actorsList, signalsList):
 
 
 
+
         # Architecture
         arch = "architecture " + str(sdfArch) + " of " + nodeName + "is \n"
 
@@ -89,11 +90,82 @@ def returnEntity(sdfArch, actorsList, signalsList):
                 # Node remainder
                 arch_node_component += "); end component; \n" + "\n"
 
+
+
         # Arch buffer
         arch_buffer_component = buffer_component
 
+
+
         # Arch signals
         arch_signals_component = ""
+
+        # Arch data signals
+        arch_signals_component += "signal "
+        for signal in range(len(signalsList)):
+            # Signal name
+            signalName = str(signalsList[signal][0])
+
+            # Signal src
+            signalSrcName = str(signalsList[signal][1][0])
+
+            # Signal dst
+            signalDstName = str(signalsList[signal][2][0])
+
+            # Full signal declaration
+            signalFullName = signalName + "_from_" + signalSrcName + "_to_" + signalDstName + "_data"
+            
+            # Add to signals component handling commas
+            arch_signals_component += signalFullName + ", "
+        arch_signals_component = arch_signals_component[:-2]
+        
+        # Add remainder
+        arch_signals_component += " : std_logic_vector(copy1_ram_width - 1 downto 0); \n"
+
+        # Arch ready + valid signals
+        arch_signals_component += "signal "
+        for signal in range(len(signalsList)):
+            # Signal name
+            signalName = str(signalsList[signal][0])
+
+            # Signal src
+            signalSrcName = str(signalsList[signal][1][0])
+
+            # Signal dst
+            signalDstName = str(signalsList[signal][2][0])
+
+            # Full ready signal declaration
+            signalFullNameReady = signalName + "_from_" + signalSrcName + "_to_" + signalDstName + "_ready"
+            
+            # Full valid signal declaration
+            signalFullNameValid = signalName + "_from_" + signalSrcName + "_to_" + signalDstName + "_valid"
+
+            # Add to signals component handling commas
+            arch_signals_component += signalFullNameReady + ", " + signalFullNameValid
+        arch_signals_component = arch_signals_component[:-2]
+        
+        # Add remainder
+        arch_signals_component += " : std_logic; \n" + "\n"
+
+
+    signalSrcPort = str(signalsList[signal][1][1])
+    signalDstPort = str(signalsList[signal][2][1])
+
+
+    srcActor = signals[i][1][1]
+    srcPort = signals[i][2][1]
+    dstActor = signals[i][3][1]
+    dstPort = signals[i][4][1]
+    acts = (srcActor, dstActor)
+    prts = (srcPort, dstPort)
+    signal = [signalName, acts, prts]
+    signalsList.append(signal)
+
+            '''
+            signal node_to_buffer_data, buffer_to_node_data : std_logic_vector(copy1_ram_width - 1 downto 0);
+            signal node_to_buffer_ready, node_to_buffer_valid, buffer_to_node_ready, buffer_to_node_valid : std_logic;
+            '''
+        # Arch
 
     
     
