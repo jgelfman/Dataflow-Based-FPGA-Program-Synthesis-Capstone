@@ -1,8 +1,8 @@
 # This is a VHDL code generator that uses ElementTree XML to take in XML files describing dataflow graphs compiled using FAUST, and in-return produces the corresponding entities and connections in VHDL to be simulated in Xilinx Vivado.
 
 import xml.etree.ElementTree as ET
-inputfile = "math.dsp-sig.xml" # TODO: delete later
-#inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
+#inputfile = "math.dsp-sig.xml" # TODO: delete later
+inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
 # e.g. copy1.dsp-sig.xml
 
 fileTree = ET.parse(inputfile)
@@ -99,17 +99,10 @@ import vhdl_generator_entity
 vhdl_generator_entity.returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSignals)
 
 
+# Create testbench wrapper to connect all the entities
+# TODO: create testbench wrapper connecting entities
 
-# TODO: create testbench
 
-
-# TODO: finalize creating wrapper file connecting entities
-
-data = "test"
-
-output = open("output.txt", "w")
-output.write(str(data))
-output.close()
 
 
 #Testing:
