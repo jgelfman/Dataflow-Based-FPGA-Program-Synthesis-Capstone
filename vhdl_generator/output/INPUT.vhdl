@@ -60,23 +60,10 @@ architecture copy1_arch of INPUT is
 signal channel_0_real_vect_from_0x7f5f30004250_to_buffer, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_data : std_logic_vector(copy1_ram_width - 1 downto 0); 
 signal channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_ready, channel_0_real_vect_from_0x7f5f30004250_to_buffer_valid, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_valid : std_logic; 
 
+
 begin 
 
-
-INPUT_0 : entity_node PORT MAP (             entity_clk => INPUT_clk, 
-                                            entity_rst => INPUT_rst, 
-
-                                            entity_in_ready => INPUT_in_ready, 
-                                            entity_out_ready => channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, 
-
-                                            entity_in_valid => INPUT_in_valid, 
-                                            entity_out_valid => channel_0_real_vect_from_0x7f5f30004250_to_buffer_valid, 
-
-                                            entity_in_opening => INPUT_in_data, 
-                                            entity_out_opening => channel_0_real_vect_from_0x7f5f30004250_to_buffer 
-); 
-
-INPUT_0 : entity_node PORT MAP (             entity_clk => INPUT_clk, 
+INPUT_0 : entity_node PORT MAP (           entity_clk => INPUT_clk, 
                                             entity_rst => INPUT_rst, 
 
                                             entity_in_ready => INPUT_in_ready, 
@@ -92,7 +79,7 @@ INPUT_0 : entity_node PORT MAP (             entity_clk => INPUT_clk,
 fifo_1 : axi_fifo GENERIC MAP       (INPUT_ram_width, 
                                     INPUT_ram_depth 
                                     ) 
-                                    PORT MAP    (buf_clk => INPUT_clk, 
+                    PORT MAP        (buf_clk => INPUT_clk, 
                                     buf_rst => INPUT_rst, 
 
                                     buf_in_ready => channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, 

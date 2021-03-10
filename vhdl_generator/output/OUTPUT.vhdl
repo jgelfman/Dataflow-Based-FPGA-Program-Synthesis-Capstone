@@ -60,10 +60,10 @@ architecture copy1_arch of OUTPUT is
 signal channel_0_real_vect_from_0x7f5f30004250_to_buffer, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_data : std_logic_vector(copy1_ram_width - 1 downto 0); 
 signal channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_ready, channel_0_real_vect_from_0x7f5f30004250_to_buffer_valid, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_valid : std_logic; 
 
+
 begin 
 
-
-OUTPUT_0 : entity_node PORT MAP (             entity_clk => OUTPUT_clk, 
+OUTPUT_0 : entity_node PORT MAP (           entity_clk => OUTPUT_clk, 
                                             entity_rst => OUTPUT_rst, 
 
                                             entity_in_ready => OUTPUT_in_ready, 
@@ -74,35 +74,6 @@ OUTPUT_0 : entity_node PORT MAP (             entity_clk => OUTPUT_clk,
 
                                             entity_in_opening => OUTPUT_in_data, 
                                             entity_out_opening => OUTPUT_out_data 
-); 
-
-OUTPUT_0 : entity_node PORT MAP (             entity_clk => OUTPUT_clk, 
-                                            entity_rst => OUTPUT_rst, 
-
-                                            entity_in_ready => OUTPUT_in_ready, 
-                                            entity_out_ready => channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, 
-
-                                            entity_in_valid => OUTPUT_in_valid, 
-                                            entity_out_valid => channel_0_real_vect_from_0x7f5f30004250_to_buffer_valid, 
-
-                                            entity_in_opening => OUTPUT_in_data, 
-                                            entity_out_opening => OUTPUT_out_data 
-); 
-
-fifo_1 : axi_fifo GENERIC MAP       (OUTPUT_ram_width, 
-                                    OUTPUT_ram_depth 
-                                    ) 
-                                    PORT MAP    (buf_clk => OUTPUT_clk, 
-                                    buf_rst => OUTPUT_rst, 
-
-                                    buf_in_ready => channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, 
-                                    buf_out_ready => channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_ready, 
-
-                                    buf_in_valid => channel_0_real_vect_from_0x7f5f30004250_to_buffer_valid, 
-                                    buf_out_valid => channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_valid, 
-
-                                    buf_in_data => channel_0_real_vect_from_0x7f5f30004250_to_buffer, 
-                                    buf_out_data => channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_data 
 ); 
 
 

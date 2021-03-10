@@ -2,6 +2,10 @@
 
 def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
 
+
+    #Buffer count
+    bufCount = len(actorsList) - 1
+
     for actor in range(len(actorsList)):
         
         whole_Entity = ""
@@ -166,13 +170,13 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
         arch_signals_component = arch_signals_component[:-2]
         
         # Add signals remainder
-        arch_signals_component += " : std_logic; \n\n"
+        arch_signals_component += " : std_logic; \n\n\n"
 
 
 
 
         # Arch mapping
-        arch_mapping_component = "begin \n\n\n"
+        arch_mapping_component = "begin \n\n"
 
         # Node mapping
         for signal in range(len(nodeSignals)):
@@ -185,10 +189,10 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
                     node_mapping += nodeName + "_" + str(signal) + " : entity_node"
 
                     # Port Map
-                    node_mapping += " PORT MAP ( "
+                    node_mapping += " PORT MAP ("
 
                     # Clock + reset
-                    node_mapping += "            entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
+                    node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
 
                     # AXI ready
                     node_mapping +=  "                                            entity_in_ready => " + nodeName + "_in_ready, \n" +  "                                            entity_out_ready => " + node_signals_ready[signal][0] + ", \n\n"
@@ -204,14 +208,17 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
                     # Node remainder
                     node_mapping += "); \n\n"
 
+                    # Add to architecture
+                    arch_mapping_component += node_mapping
+
                 elif nodeName == "OUTPUT": # Exit node
                     node_mapping += nodeName + "_" + str(signal) + " : entity_node"
 
                     # Port Map
-                    node_mapping += " PORT MAP ( "
+                    node_mapping += " PORT MAP ("
 
                     # Clock + reset
-                    node_mapping += "            entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
+                    node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
 
                     # AXI ready
                     node_mapping +=  "                                            entity_in_ready => " + nodeName + "_in_ready, \n" +  "                                            entity_out_ready => " + node_signals_ready[signal][0] + ", \n\n"
@@ -227,6 +234,9 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
                     # Node remainder
                     node_mapping += "); \n\n"
 
+                    # Add to architecture
+                    arch_mapping_component += node_mapping
+
                 elif nodeName == "add":
                     pass # PLACEHOLDER add node
                 elif nodeName == "prod":
@@ -235,13 +245,13 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
                     pass # PLACEHOLDER div node
 
                 elif nodeName != "INPUT" or "OUTPUT" or "add" or "prod" or "div": # Identity node or any unkown operator
-                    node_mapping += nodeName + "_" + str(signal) + " : entity_node"
+                    node_mapping += nodeName + "_" + str(actor) + " : entity_node"
 
                     # Port Map
-                    node_mapping += " PORT MAP ( "
+                    node_mapping += " PORT MAP ("
 
                     # Clock + reset
-                    node_mapping += "            entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
+                    node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
 
                     # AXI ready
                     node_mapping +=  "                                            entity_in_ready => " + node_signals_ready[signal][1] + ", \n" +  "                                            entity_out_ready => " + node_signals_ready[signal][0] + ", \n\n"
@@ -256,45 +266,50 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
 
                     # Node remainder
                     node_mapping += "); \n\n"
+
+                    # Add to architecture
+                    arch_mapping_component += node_mapping
+            
             except:
                 print("Unkown operator found: " + nodeName)
                 raise
 
-                
 
-            arch_mapping_component += node_mapping
+        # Buffer mapping
+        # Check for buffer count
 
-            # Buffer mapping
-            # Check for buffer count
-            if signal < len(nodeSignals):
-                
-                # Add buffer mappings
-                buffer_mapping = ""
-
-                buffer_mapping += "fifo_" + str(signal+1) + " : axi_fifo"
-
-                # Generic Map
-                buffer_mapping += " GENERIC MAP       (" + nodeName + "_ram_width, \n" + "                                    " + nodeName + "_ram_depth \n" + "                                    ) \n"
-
-                # Port Map
-                buffer_mapping += "                                    PORT MAP    ("
-
-                # Clock + reset
-                buffer_mapping += "buf_clk => " + nodeName + "_clk, \n" + "                                    buf_rst => " + nodeName + "_rst, \n\n"
-
-                # AXI ready
-                buffer_mapping +=  "                                    buf_in_ready => " + node_signals_ready[signal][0] + ", \n" +  "                                    buf_out_ready => " + node_signals_ready[signal][1] + ", \n\n"
+        if bufCount != 0:
             
-                # AXI valid
-                buffer_mapping +=  "                                    buf_in_valid => " + node_signals_valid[signal][0] + ", \n" +  "                                    buf_out_valid => " + node_signals_valid[signal][1] + ", \n\n"
-                
-                # AXI data
-                buffer_mapping +=  "                                    buf_in_data => " + node_signals_data[signal][0] + ", \n" +  "                                    buf_out_data => " + node_signals_data[signal][1] + " \n"
+            # Add buffer mappings
+            buffer_mapping = ""
 
-                # Buffer remainder
-                buffer_mapping += "); \n\n"
+            buffer_mapping += "fifo_" + str(signal+1) + " : axi_fifo"
 
-                arch_mapping_component += node_mapping + buffer_mapping
+            # Generic Map
+            buffer_mapping += " GENERIC MAP       (" + nodeName + "_ram_width, \n" + "                                    " + nodeName + "_ram_depth \n" + "                                    ) \n"
+
+            # Port Map
+            buffer_mapping += "                    PORT MAP        ("
+
+            # Clock + reset
+            buffer_mapping += "buf_clk => " + nodeName + "_clk, \n" + "                                    buf_rst => " + nodeName + "_rst, \n\n"
+
+            # AXI ready
+            buffer_mapping +=  "                                    buf_in_ready => " + node_signals_ready[signal][0] + ", \n" +  "                                    buf_out_ready => " + node_signals_ready[signal][1] + ", \n\n"
+        
+            # AXI valid
+            buffer_mapping +=  "                                    buf_in_valid => " + node_signals_valid[signal][0] + ", \n" +  "                                    buf_out_valid => " + node_signals_valid[signal][1] + ", \n\n"
+            
+            # AXI data
+            buffer_mapping +=  "                                    buf_in_data => " + node_signals_data[signal][0] + ", \n" +  "                                    buf_out_data => " + node_signals_data[signal][1] + " \n"
+
+            # Buffer remainder
+            buffer_mapping += "); \n\n"
+
+            # Update buffer count
+            bufCount -= 1
+
+            arch_mapping_component += buffer_mapping
 
     
         # Bringing the architecture together
