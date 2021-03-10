@@ -75,7 +75,7 @@ add_0 : add_node PORT MAP (           entity_clk => add_clk,
                                             entity_out_valid => channel_3_real_vect_from_0x7fbf3be001d0_to_buffer_valid, 
 
                                             entity_in_opening => channel_3_real_vect_from_buffer_to_in_channel_3_real_vect_data, 
-                                            entity_out_opening => channel_3_real_vect_from_0x7fbf3be001d0_to_buffer, 
+                                            entity_out_opening => channel_3_real_vect_from_0x7fbf3be001d0_to_buffer
 
 ); 
 

@@ -75,7 +75,7 @@ prod_1 : prod_node PORT MAP (           entity_clk => prod_clk,
                                             entity_out_valid => channel_8_real_vect_from_0x7fbf3be004c0_to_buffer_valid, 
 
                                             entity_in_opening => channel_8_real_vect_from_buffer_to_in_channel_8_real_vect_data, 
-                                            entity_out_opening => channel_8_real_vect_from_0x7fbf3be004c0_to_buffer, 
+                                            entity_out_opening => channel_8_real_vect_from_0x7fbf3be004c0_to_buffer
 
 ); 
 

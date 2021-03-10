@@ -310,7 +310,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
                 # AXI data
                 node_mapping += "                                            entity_in_opening => " + node_signals_data[actor][1] + ", \n"
 
-                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + ", \n\n"
+                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + "\n\n"
 
                 # Node remainder
                 node_mapping += "); \n\n"
@@ -337,7 +337,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
                 # AXI data
                 node_mapping += "                                            entity_in_opening => " + node_signals_data[actor][1] + ", \n"
 
-                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + ", \n\n"
+                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + "\n\n"
 
                 # Node remainder
                 node_mapping += "); \n\n"
@@ -364,7 +364,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
                 # AXI data
                 node_mapping += "                                            entity_in_opening => " + node_signals_data[actor][1] + ", \n"
 
-                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + ", \n\n"
+                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + "\n\n"
 
                 # Node remainder
                 node_mapping += "); \n\n"
@@ -391,7 +391,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
                 # AXI data
                 node_mapping += "                                            entity_in_opening => " + node_signals_data[actor][1] + ", \n"
 
-                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + ", \n\n"
+                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + "\n\n"
 
                 # Node remainder
                 node_mapping += "); \n\n"

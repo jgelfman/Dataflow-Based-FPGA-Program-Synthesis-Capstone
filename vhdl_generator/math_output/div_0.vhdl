@@ -75,7 +75,7 @@ div_0 : div_node PORT MAP (           entity_clk => div_clk,
                                             entity_out_valid => channel_9_real_vect_from_0x7fbf3be01d10_to_buffer_valid, 
 
                                             entity_in_opening => channel_9_real_vect_from_buffer_to_in_channel_9_real_vect_data, 
-                                            entity_out_opening => channel_9_real_vect_from_0x7fbf3be01d10_to_buffer, 
+                                            entity_out_opening => channel_9_real_vect_from_0x7fbf3be01d10_to_buffer
 
 ); 
 
