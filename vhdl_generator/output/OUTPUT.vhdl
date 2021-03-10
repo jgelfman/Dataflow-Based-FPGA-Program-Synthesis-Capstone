@@ -22,7 +22,7 @@ OUTPUT_out_data : out std_logic_vector
 ); 
 end; 
  
-architecture copy2_arch of OUTPUTis 
+architecture copy1_arch of OUTPUTis 
 entity OUTPUT is 
 port ( 
 
@@ -77,8 +77,8 @@ Port (
     buf_out_valid : out std_logic; 
     buf_out_data : out std_logic_vector(copy1_ram_width - 1 downto 0) 
 ); end component;
-signal channel_0_real_vect_from_0x7fe74f700020_to_buffer, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_data, channel_1_real_vect_from_0x7fe74f7000e0_to_buffer, channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_data : std_logic_vector(copy1_ram_width - 1 downto 0); 
-signal channel_0_real_vect_from_0x7fe74f700020_to_buffer_ready, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_ready, channel_0_real_vect_from_0x7fe74f700020_to_buffer_valid, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_valid, channel_1_real_vect_from_0x7fe74f7000e0_to_buffer_ready, channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_ready, channel_1_real_vect_from_0x7fe74f7000e0_to_buffer_valid, channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_valid : std_logic; 
+signal channel_0_real_vect_from_0x7f5f30004250_to_buffer, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_data : std_logic_vector(copy1_ram_width - 1 downto 0); 
+signal channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_ready, channel_0_real_vect_from_0x7f5f30004250_to_buffer_valid, channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_valid : std_logic; 
 
 begin 
 
@@ -87,26 +87,26 @@ OUTPUT_0 : entity_node PORT MAP ( entity_clk => OUTPUT_clk,
 entity_rst => OUTPUT_rst, 
 
                                             entity_in_ready => OUTPUT_in_ready, 
-                                            entity_out_ready => channel_0_real_vect_from_0x7fe74f700020_to_buffer_ready, 
+                                            entity_out_ready => channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, 
 
 entity_in_valid => OUTPUT_in_valid, 
-                                            entity_out_valid => channel_0_real_vect_from_0x7fe74f700020_to_buffer_valid, 
+                                            entity_out_valid => channel_0_real_vect_from_0x7f5f30004250_to_buffer_valid, 
 
 entity_in_opening => OUTPUT_in_data, 
-                                            entity_out_opening => channel_0_real_vect_from_0x7fe74f700020_to_buffer 
+                                            entity_out_opening => channel_0_real_vect_from_0x7f5f30004250_to_buffer 
 ); 
 
 OUTPUT_0 : entity_node PORT MAP ( entity_clk => OUTPUT_clk, 
 entity_rst => OUTPUT_rst, 
 
                                             entity_in_ready => OUTPUT_in_ready, 
-                                            entity_out_ready => channel_0_real_vect_from_0x7fe74f700020_to_buffer_ready, 
+                                            entity_out_ready => channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, 
 
 entity_in_valid => OUTPUT_in_valid, 
-                                            entity_out_valid => channel_0_real_vect_from_0x7fe74f700020_to_buffer_valid, 
+                                            entity_out_valid => channel_0_real_vect_from_0x7f5f30004250_to_buffer_valid, 
 
 entity_in_opening => OUTPUT_in_data, 
-                                            entity_out_opening => channel_0_real_vect_from_0x7fe74f700020_to_buffer 
+                                            entity_out_opening => channel_0_real_vect_from_0x7f5f30004250_to_buffer 
 ); 
 
 fifo_0 : axi_fifoGENERIC MAP         (OUTPUT_ram_width, 
@@ -114,14 +114,14 @@ fifo_0 : axi_fifoGENERIC MAP         (OUTPUT_ram_width,
  PORT MAP ( buf_clk => OUTPUT_clk, 
 buf_rst => OUTPUT_rst, 
 
-                                            buf_in_ready => channel_0_real_vect_from_0x7fe74f700020_to_buffer_ready, 
-                                            buf_out_ready => channel_0_real_vect_from_0x7fe74f700020_to_buffer_ready, 
+                                            buf_in_ready => channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, 
+                                            buf_out_ready => channel_0_real_vect_from_0x7f5f30004250_to_buffer_ready, 
 
-                                            buf_in_valid => channel_0_real_vect_from_0x7fe74f700020_to_buffer_valid, 
-                                            buf_out_valid => channel_0_real_vect_from_0x7fe74f700020_to_buffer_valid, 
+                                            buf_in_valid => channel_0_real_vect_from_0x7f5f30004250_to_buffer_valid, 
+                                            buf_out_valid => channel_0_real_vect_from_0x7f5f30004250_to_buffer_valid, 
 
-                                            buf_in_data => channel_0_real_vect_from_0x7fe74f700020_to_buffer, 
-                                            buf_out_data => channel_0_real_vect_from_0x7fe74f700020_to_buffer 
+                                            buf_in_data => channel_0_real_vect_from_0x7f5f30004250_to_buffer, 
+                                            buf_out_data => channel_0_real_vect_from_0x7f5f30004250_to_buffer 
 ); 
 
 OUTPUT_1 : entity_node PORT MAP ( entity_clk => OUTPUT_clk, 
@@ -163,88 +163,6 @@ buf_rst => OUTPUT_rst,
 
                                             buf_in_data => channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_data, 
                                             buf_out_data => channel_0_real_vect_from_buffer_to_in_channel_0_real_vect_data 
-); 
-
-OUTPUT_2 : entity_node PORT MAP ( entity_clk => OUTPUT_clk, 
-entity_rst => OUTPUT_rst, 
-
-                                            entity_in_ready => OUTPUT_in_ready, 
-                                            entity_out_ready => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer_ready, 
-
-entity_in_valid => OUTPUT_in_valid, 
-                                            entity_out_valid => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer_valid, 
-
-entity_in_opening => OUTPUT_in_data, 
-                                            entity_out_opening => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer 
-); 
-
-OUTPUT_2 : entity_node PORT MAP ( entity_clk => OUTPUT_clk, 
-entity_rst => OUTPUT_rst, 
-
-                                            entity_in_ready => OUTPUT_in_ready, 
-                                            entity_out_ready => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer_ready, 
-
-entity_in_valid => OUTPUT_in_valid, 
-                                            entity_out_valid => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer_valid, 
-
-entity_in_opening => OUTPUT_in_data, 
-                                            entity_out_opening => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer 
-); 
-
-fifo_2 : axi_fifoGENERIC MAP         (OUTPUT_ram_width, 
-                                            OUTPUT_ram_depth                                            ) 
- PORT MAP ( buf_clk => OUTPUT_clk, 
-buf_rst => OUTPUT_rst, 
-
-                                            buf_in_ready => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer_ready, 
-                                            buf_out_ready => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer_ready, 
-
-                                            buf_in_valid => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer_valid, 
-                                            buf_out_valid => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer_valid, 
-
-                                            buf_in_data => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer, 
-                                            buf_out_data => channel_1_real_vect_from_0x7fe74f7000e0_to_buffer 
-); 
-
-OUTPUT_3 : entity_node PORT MAP ( entity_clk => OUTPUT_clk, 
-entity_rst => OUTPUT_rst, 
-
-                                            entity_in_ready => OUTPUT_in_ready, 
-                                            entity_out_ready => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_ready, 
-
-entity_in_valid => OUTPUT_in_valid, 
-                                            entity_out_valid => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_valid, 
-
-entity_in_opening => OUTPUT_in_data, 
-                                            entity_out_opening => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_data 
-); 
-
-OUTPUT_3 : entity_node PORT MAP ( entity_clk => OUTPUT_clk, 
-entity_rst => OUTPUT_rst, 
-
-                                            entity_in_ready => OUTPUT_in_ready, 
-                                            entity_out_ready => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_ready, 
-
-entity_in_valid => OUTPUT_in_valid, 
-                                            entity_out_valid => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_valid, 
-
-entity_in_opening => OUTPUT_in_data, 
-                                            entity_out_opening => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_data 
-); 
-
-fifo_3 : axi_fifoGENERIC MAP         (OUTPUT_ram_width, 
-                                            OUTPUT_ram_depth                                            ) 
- PORT MAP ( buf_clk => OUTPUT_clk, 
-buf_rst => OUTPUT_rst, 
-
-                                            buf_in_ready => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_ready, 
-                                            buf_out_ready => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_ready, 
-
-                                            buf_in_valid => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_valid, 
-                                            buf_out_valid => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_valid, 
-
-                                            buf_in_data => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_data, 
-                                            buf_out_data => channel_1_real_vect_from_buffer_to_in_channel_1_real_vect_data 
 ); 
 
 

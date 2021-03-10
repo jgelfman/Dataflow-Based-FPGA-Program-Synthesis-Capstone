@@ -65,7 +65,7 @@ for i in range(len(signals)):
 #[signalName, (srcActor, dstActor), (srcPort, dstPort)]
 
 
-
+# Start creating files
 # Create an output directory
 import os
 os.makedirs("output", exist_ok=True)

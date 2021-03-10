@@ -16,7 +16,7 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
 
 
         # Buffer component
-        buffer_component = "\n" + "component axi_fifo is \n" + "generic ( \n" + "    ram_width : natural; \n" + "    ram_depth : natural \n" + "); \n" + "Port ( \n" + "    buf_clk : in std_logic; \n" + "    buf_rst : in std_logic; \n" + " \n" + "    buf_in_ready : out std_logic; \n" + "    buf_in_valid : in std_logic; \n" + "    buf_in_data : in std_logic_vector(copy1_ram_width - 1 downto 0); \n" + " \n" + "    buf_out_ready : in std_logic; \n" + "    buf_out_valid : out std_logic; \n" + "    buf_out_data : out std_logic_vector(copy1_ram_width - 1 downto 0) \n" + "); end component;" + "\n"
+        buffer_component = "\n" + "    component axi_fifo is \n" + "        generic ( \n" + "            ram_width : natural; \n" + "            ram_depth : natural \n" + "        ); \n" + "        Port ( \n" + "            buf_clk : in std_logic; \n" + "            buf_rst : in std_logic; \n" + " \n" + "            buf_in_ready : out std_logic; \n" + "            buf_in_valid : in std_logic; \n" + "            buf_in_data : in std_logic_vector(copy1_ram_width - 1 downto 0); \n" + " \n" + "            buf_out_ready : in std_logic; \n" + "            buf_out_valid : out std_logic; \n" + "            buf_out_data : out std_logic_vector(copy1_ram_width - 1 downto 0) \n" + "        ); end component;" + "\n"
 
 
 
@@ -29,12 +29,12 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
         entity_component = "entity " + nodeName + " is\n"
 
         # Own entity generic ports
-        entity_component += "generic ( \n" + nodeName + "_ram_width : natural; \n" + nodeName + "_ram_depth : natural \n" + "); \n"
+        entity_component += "    generic ( \n" + "        " + nodeName + "_ram_width : natural; \n" +  "        " + nodeName + "_ram_depth : natural \n" + "); \n"
         
         # Own entity clock + reset
-        entity_component += "port ( \n" + nodeName + "_clk : in std_logic; \n" + nodeName + "_rst : in std_logic; \n" + " \n" 
+        entity_component += "    port ( \n" +  "        " + nodeName + "_clk : in std_logic; \n" +  "        " + nodeName + "_rst : in std_logic; \n" + " \n" 
         # Own entity AXI Ports
-        entity_component += nodeName + "_in_ready : in std_logic; \n" + nodeName + "_in_valid : in std_logic; \n" + nodeName + "_in_data : in std_logic_vector; \n" + " \n" + nodeName + "_out_ready : out std_logic; \n" + nodeName + "_out_valid : out std_logic; \n" + nodeName + "_out_data : out std_logic_vector \n" + "); \n" + "end; \n "
+        entity_component +=  "        " + nodeName + "_in_ready : in std_logic; \n" +  "        " + nodeName + "_in_valid : in std_logic; \n" +  "        " + nodeName + "_in_data : in std_logic_vector; \n" + " \n" +  "        " + nodeName + "_out_ready : out std_logic; \n" +  "        " + nodeName + "_out_valid : out std_logic; \n" +  "        " + nodeName + "_out_data : out std_logic_vector \n" + "    ); \n" + "end; \n "
 
 
 
@@ -45,10 +45,10 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
         # Architecture node component
         arch_node_component = ""
 
-        arch_node_component += "entity " + str(nodeName) + " is \n" + "port ( \n"
+        arch_node_component += "    component " + str(nodeName) + " is \n" + "        port ( \n"
 
         # Add clock + reset ports
-        arch_node_component += "\n" + "        entity_clk : in std_logic; \n" +  "        entity_rst : in std_logic; \n\n"
+        arch_node_component += "\n" + "            entity_clk : in std_logic; \n" +  "            entity_rst : in std_logic; \n\n"
 
         # Other Port instantiation
         portsList = actorsList[actor][3]
@@ -63,16 +63,16 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
             for port in range(len(portsList)):
 
                 # AXI ready
-                arch_node_component +=  "        entity_in_ready : in std_logic; \n" + "        entity_out_ready : out std_logic; \n" + "\n"
+                arch_node_component +=  "            entity_in_ready : in std_logic; \n" + "            entity_out_ready : out std_logic; \n" + "\n"
                
                 # AXI valid
-                arch_node_component += "        entity_in_valid : in std_logic; \n" + "        entity_out_valid : out std_logic; \n\n"
+                arch_node_component += "            entity_in_valid : in std_logic; \n" + "            entity_out_valid : out std_logic; \n\n"
                 
                 # AXI data
-                arch_node_component += "entity_in_opening : in std_logic_vector(copy1_ram_width - 1 downto 0); \n" + "entity_out_opening : out std_logic_vector(copy1_ram_width - 1 downto 0) \n"
+                arch_node_component += "            entity_in_opening : in std_logic_vector(copy1_ram_width - 1 downto 0); \n" + "            entity_out_opening : out std_logic_vector(copy1_ram_width - 1 downto 0) \n"
 
                 # Node remainder
-                arch_node_component += "); end component; \n\n"
+                arch_node_component += "        ); end component; \n\n"
 
 
 
