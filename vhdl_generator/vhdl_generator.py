@@ -120,11 +120,17 @@ for signal in range(len(nodeSignals)):
 
     # Full signal declaration to buffer
     signalFullNameToBuffer = signalName + "_from_" + signalSrcName + "_to_buffer"
-    node_signals_data.append(signalFullNameToBuffer)
 
     # Full signal declaration from buffer
     signalFullNameFromBuffer = signalName + "_from_buffer_to_" + signalDstName + "_data"
-    node_signals_data.append(signalFullNameFromBuffer)
+
+    # Make pair for buffer handling
+    bothDataSigs = []
+    bothDataSigs.append(signalFullNameToBuffer)
+    bothDataSigs.append(signalFullNameFromBuffer)
+
+    # Add pair to signals list
+    node_signals_data.append(bothDataSigs)
     
     
     # Add to signals component handling commas
@@ -146,21 +152,29 @@ for signal in range(len(nodeSignals)):
     # Signal dst
     signalDstName = str(nodeSignals[signal][2][0])
 
+    # Bunching both ready/valid signals for buffer handling
+    bothReadySigs = []
+    bothValidSigs = []
+
     # Full ready signal declaration to buffers
     signalFullNameToBufferReady = signalName + "_from_" + signalSrcName + "_to_buffer_ready"
-    node_signals_ready.append(signalFullNameToBufferReady)
+    bothReadySigs.append(signalFullNameToBufferReady)
 
     # Full ready signal declaration from buffers
     signalFullNameFromBufferReady = signalName + "_from_buffer_to_" + signalDstName + "_ready"
-    node_signals_ready.append(signalFullNameFromBufferReady)
+    bothReadySigs.append(signalFullNameFromBufferReady)
+
+    node_signals_ready.append(bothReadySigs)
     
     # Full valid signal declaration to buffers
     signalFullNameToBufferValid = signalName + "_from_" + signalSrcName + "_to_buffer_valid"
-    node_signals_valid.append(signalFullNameToBufferValid)
+    bothValidSigs.append(signalFullNameToBufferValid)
 
     # Full valid signal declaration from buffers
     signalFullNameFromBufferValid = signalName + "_from_buffer_to_" + signalDstName + "_valid"
-    node_signals_valid.append(signalFullNameFromBufferValid)
+    bothValidSigs.append(signalFullNameFromBufferValid)
+
+    node_signals_valid.append(bothValidSigs)
 
     # Add to signals component handling commas
     arch_signals_component += signalFullNameToBufferReady + ", " + signalFullNameFromBufferReady + ", " + signalFullNameToBufferValid + ", " + signalFullNameFromBufferValid + ", "
