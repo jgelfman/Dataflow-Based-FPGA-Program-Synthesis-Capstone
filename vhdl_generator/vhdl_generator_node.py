@@ -1,6 +1,6 @@
 # This file creates an instance of an identity entity node.
 
-def returnNode(sdfArch):
+def returnNode(sdfArch, outputName):
     node_import = str(
         "library ieee; \n" + 
         "use ieee.std_logic_1164.all;\n" +
@@ -40,7 +40,8 @@ def returnNode(sdfArch):
     whole_node = node_import + "\n" + node_entity + "\n" + node_arch
 
     # Add into the output subdirectory
-    output = open("output/entity_node.vhdl","w")
+    direc = str(outputName) + "/entity_node.vhdl"
+    output = open(direc,"w")
     output.write(str(whole_node))
     output.close()
 

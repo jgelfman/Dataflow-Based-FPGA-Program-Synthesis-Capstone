@@ -24,7 +24,7 @@ port (
 );
 end axi_fifo;
 
-architecture copy1_arch of axi_fifo is 
+architecture math_arch of axi_fifo is 
  
     -- the fifo is full when the ram contains ram_depth - 1 elements 
     type ram_type is array (0 to ram_depth - 1) of std_logic_vector(buf_in_data'range); 

@@ -1,10 +1,24 @@
 # This file creates an instance of an entity node.
 
-def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
+def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSignals):
 
 
-    #Buffer count
+    # Buffer count
     bufCount = len(actorsList) - 1
+
+    # Input count
+    inputCount = 0
+    # Add count
+    addCount = 0
+    # Prod count
+    prodCount = 0
+    # Div count
+    divCount = 0
+    # Output count
+    outputCount = 0
+    # Identity node count
+    identityCount = 0
+
 
     for actor in range(len(actorsList)):
         
@@ -94,7 +108,7 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
         node_signals_valid = []
 
         # Arch data signals
-        arch_signals_component += "signal "
+        arch_signals_component += "\n\n signal "
         for signal in range(len(nodeSignals)):
             # Signal name
             signalName = str(nodeSignals[signal][0])
@@ -179,100 +193,184 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
         arch_mapping_component = "begin \n\n"
 
         # Node mapping
-        for signal in range(len(nodeSignals)):
+        #for act in range(len(actorsList) - 1):
+        
+        # Act name:
+        #actName = str(actorsList[act][1]).split("_")[0]
 
-            # Add node mappings
-            node_mapping = ""
+        # Connected actors
+        conAct = len(actorsList) - 1
 
-            try:
-                if nodeName == "INPUT": # Entry node
-                    node_mapping += nodeName + "_" + str(signal) + " : entity_node"
 
-                    # Port Map
-                    node_mapping += " PORT MAP ("
+        # Add node mappings
+        node_mapping = ""
 
-                    # Clock + reset
-                    node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
+        try:
+            if nodeName == "INPUT": # Entry node
+                inputCount += 1
+                node_mapping += nodeName + "_" + str(inputCount - 1) + " : entity_node"
 
-                    # AXI ready
-                    node_mapping +=  "                                            entity_in_ready => " + nodeName + "_in_ready, \n" +  "                                            entity_out_ready => " + node_signals_ready[signal][0] + ", \n\n"
-                
-                    # AXI valid
-                    node_mapping += "                                            entity_in_valid => " + nodeName + "_in_valid, \n" + "                                            entity_out_valid => " + node_signals_valid[signal][0] + ", \n\n"
-                    
-                    # AXI data
-                    node_mapping += "                                            entity_in_opening => " + nodeName + "_in_data, \n"
+                # Port Map
+                node_mapping += " PORT MAP ("
 
-                    node_mapping += "                                            entity_out_opening => " + node_signals_data[signal][0] + " \n" 
+                # Clock + reset
+                node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
 
-                    # Node remainder
-                    node_mapping += "); \n\n"
-
-                    # Add to architecture
-                    arch_mapping_component += node_mapping
-
-                elif nodeName == "OUTPUT": # Exit node
-                    node_mapping += nodeName + "_" + str(signal) + " : entity_node"
-
-                    # Port Map
-                    node_mapping += " PORT MAP ("
-
-                    # Clock + reset
-                    node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
-
-                    # AXI ready
-                    node_mapping +=  "                                            entity_in_ready => " + nodeName + "_in_ready, \n" +  "                                            entity_out_ready => " + node_signals_ready[signal][0] + ", \n\n"
-                
-                    # AXI valid
-                    node_mapping += "                                            entity_in_valid => " + nodeName + "_in_valid, \n" + "                                            entity_out_valid => " + node_signals_valid[signal][0] + ", \n\n"
-                    
-                    # AXI data
-                    node_mapping += "                                            entity_in_opening => " + nodeName + "_in_data, \n"
-
-                    node_mapping += "                                            entity_out_opening => " + nodeName + "_out_data \n"
-
-                    # Node remainder
-                    node_mapping += "); \n\n"
-
-                    # Add to architecture
-                    arch_mapping_component += node_mapping
-
-                elif nodeName == "add":
-                    pass # PLACEHOLDER add node
-                elif nodeName == "prod":
-                    pass # PLACEHOLDER prod node
-                elif nodeName == "div":
-                    pass # PLACEHOLDER div node
-
-                elif nodeName != "INPUT" or "OUTPUT" or "add" or "prod" or "div": # Identity node or any unkown operator
-                    node_mapping += nodeName + "_" + str(actor) + " : entity_node"
-
-                    # Port Map
-                    node_mapping += " PORT MAP ("
-
-                    # Clock + reset
-                    node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
-
-                    # AXI ready
-                    node_mapping +=  "                                            entity_in_ready => " + node_signals_ready[signal][1] + ", \n" +  "                                            entity_out_ready => " + node_signals_ready[signal][0] + ", \n\n"
-                
-                    # AXI valid
-                    node_mapping += "                                            entity_in_valid => " + node_signals_valid[signal][1] + ", \n" + "                                            entity_out_valid => " + node_signals_valid[signal][0] + ", \n\n"
-                    
-                    # AXI data
-                    node_mapping += "                                            entity_in_opening => " + node_signals_data[signal][1] + ", \n"
-
-                    node_mapping += "                                            entity_out_opening => " + node_signals_data[signal][0] + ", \n\n"
-
-                    # Node remainder
-                    node_mapping += "); \n\n"
-
-                    # Add to architecture
-                    arch_mapping_component += node_mapping
+                # AXI ready
+                node_mapping +=  "                                            entity_in_ready => " + nodeName + "_in_ready, \n" +  "                                            entity_out_ready => " + node_signals_ready[actor][0] + ", \n\n"
             
-            except:
-                print("Unkown operator found: " + nodeName)
-                raise
+                # AXI valid
+                node_mapping += "                                            entity_in_valid => " + nodeName + "_in_valid, \n" + "                                            entity_out_valid => " + node_signals_valid[actor][0] + ", \n\n"
+                
+                # AXI data
+                node_mapping += "                                            entity_in_opening => " + nodeName + "_in_data, \n"
+
+                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + " \n" 
+
+                # Node remainder
+                node_mapping += "); \n\n"
+
+                # Add to architecture
+                arch_mapping_component += node_mapping
+
+            elif nodeName == "OUTPUT": # Exit node
+                outputCount += 1
+                node_mapping += nodeName + "_" + str(outputCount - 1) + " : entity_node"
+
+                # Port Map
+                node_mapping += " PORT MAP ("
+
+                # Clock + reset
+                node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
+
+                # AXI ready
+                node_mapping +=  "                                            entity_in_ready => " + nodeName + "_in_ready, \n" +  "                                            entity_out_ready => " + node_signals_ready[-1][0] + ", \n\n"
+            
+                # AXI valid
+                node_mapping += "                                            entity_in_valid => " + nodeName + "_in_valid, \n" + "                                            entity_out_valid => " + node_signals_valid[-1][0] + ", \n\n"
+                
+                # AXI data
+                node_mapping += "                                            entity_in_opening => " + nodeName + "_in_data, \n"
+
+                node_mapping += "                                            entity_out_opening => " + nodeName + "_out_data \n"
+
+                # Node remainder
+                node_mapping += "); \n\n"
+
+                # Add to architecture
+                arch_mapping_component += node_mapping
+
+            elif nodeName == "add": # PLACEHOLDERS (just the identity node for now)
+                addCount += 1
+                node_mapping += nodeName + "_" + str(addCount - 1) + " : entity_node"
+
+                # Port Map
+                node_mapping += " PORT MAP ("
+
+                # Clock + reset
+                node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
+
+                # AXI ready
+                node_mapping +=  "                                            entity_in_ready => " + node_signals_ready[actor][1] + ", \n" +  "                                            entity_out_ready => " + node_signals_ready[actor][0] + ", \n\n"
+            
+                # AXI valid
+                node_mapping += "                                            entity_in_valid => " + node_signals_valid[actor][1] + ", \n" + "                                            entity_out_valid => " + node_signals_valid[actor][0] + ", \n\n"
+                
+                # AXI data
+                node_mapping += "                                            entity_in_opening => " + node_signals_data[actor][1] + ", \n"
+
+                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + ", \n\n"
+
+                # Node remainder
+                node_mapping += "); \n\n"
+
+                # Add to architecture
+                arch_mapping_component += node_mapping
+
+            elif nodeName == "prod": # PLACEHOLDERS (just the identity node for now)
+                prodCount += 1
+                node_mapping += nodeName + "_" + str(prodCount - 1) + " : entity_node"
+
+                # Port Map
+                node_mapping += " PORT MAP ("
+
+                # Clock + reset
+                node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
+
+                # AXI ready
+                node_mapping +=  "                                            entity_in_ready => " + node_signals_ready[actor][1] + ", \n" +  "                                            entity_out_ready => " + node_signals_ready[actor][0] + ", \n\n"
+            
+                # AXI valid
+                node_mapping += "                                            entity_in_valid => " + node_signals_valid[actor][1] + ", \n" + "                                            entity_out_valid => " + node_signals_valid[actor][0] + ", \n\n"
+                
+                # AXI data
+                node_mapping += "                                            entity_in_opening => " + node_signals_data[actor][1] + ", \n"
+
+                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + ", \n\n"
+
+                # Node remainder
+                node_mapping += "); \n\n"
+
+                # Add to architecture
+                arch_mapping_component += node_mapping
+
+            elif nodeName == "div": # PLACEHOLDERS (just the identity node for now)
+                divCount += 1
+                node_mapping += nodeName + "_" + str(divCount - 1) + " : entity_node"
+
+                # Port Map
+                node_mapping += " PORT MAP ("
+
+                # Clock + reset
+                node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
+
+                # AXI ready
+                node_mapping +=  "                                            entity_in_ready => " + node_signals_ready[actor][1] + ", \n" +  "                                            entity_out_ready => " + node_signals_ready[actor][0] + ", \n\n"
+            
+                # AXI valid
+                node_mapping += "                                            entity_in_valid => " + node_signals_valid[actor][1] + ", \n" + "                                            entity_out_valid => " + node_signals_valid[actor][0] + ", \n\n"
+                
+                # AXI data
+                node_mapping += "                                            entity_in_opening => " + node_signals_data[actor][1] + ", \n"
+
+                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + ", \n\n"
+
+                # Node remainder
+                node_mapping += "); \n\n"
+
+                # Add to architecture
+                arch_mapping_component += node_mapping
+
+            elif nodeName != "INPUT" or "OUTPUT" or "add" or "prod" or "div": # Identity node
+                identityCount += 1
+                node_mapping += nodeName + "_" + str(identityCount - 1) + " : entity_node"
+
+                # Port Map
+                node_mapping += " PORT MAP ("
+
+                # Clock + reset
+                node_mapping += "           entity_clk => " + nodeName + "_clk, \n" + "                                            entity_rst => " + nodeName + "_rst, \n\n"
+
+                # AXI ready
+                node_mapping +=  "                                            entity_in_ready => " + node_signals_ready[actor][1] + ", \n" +  "                                            entity_out_ready => " + node_signals_ready[actor][0] + ", \n\n"
+            
+                # AXI valid
+                node_mapping += "                                            entity_in_valid => " + node_signals_valid[actor][1] + ", \n" + "                                            entity_out_valid => " + node_signals_valid[actor][0] + ", \n\n"
+                
+                # AXI data
+                node_mapping += "                                            entity_in_opening => " + node_signals_data[actor][1] + ", \n"
+
+                node_mapping += "                                            entity_out_opening => " + node_signals_data[actor][0] + ", \n\n"
+
+                # Node remainder
+                node_mapping += "); \n\n"
+
+                # Add to architecture
+                arch_mapping_component += node_mapping
+        
+        except:
+            print("Unkown operator found: " + nodeName)
+            raise
 
 
         # Buffer mapping
@@ -319,9 +417,23 @@ def returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals):
     
         whole_entity = libraries_component + "\n" + entity_component + "\n" + node_arch + arch_remainder
 
+        # File name
+        if nodeName == "INPUT":
+            fileName = nodeName + "_" + str(inputCount - 1)
+        elif nodeName == "OUTPUT":
+            fileName = nodeName + "_" + str(outputCount - 1)
+        elif nodeName == "add":
+            fileName = nodeName + "_" + str(addCount - 1)
+        elif nodeName == "div":
+            fileName = nodeName + "_" + str(divCount - 1)
+        elif nodeName == "prod":
+            fileName = nodeName + "_" + str(prodCount - 1)
+        else:
+            fileName = nodeName + "_" + str(identityCount - 1)
+
         # Add into the output subdirectory
-        filename = "output/" + nodeName + ".vhdl"
-        filewrite = open(filename,"w")
+        direc = str(outputName) + "/" + fileName + ".vhdl"
+        filewrite = open(direc,"w")
         filewrite.write(str(whole_entity))
         filewrite.close()
 
