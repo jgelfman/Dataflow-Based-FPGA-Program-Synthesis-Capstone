@@ -1,6 +1,6 @@
-# This file creates an instance of an identity entity node.
+# This file creates a PLACEHOLDER instance of an identity a prod node.
 
-def returnNode(sdfArch, resourcesFolder):
+def returnProd(sdfArch, resourcesFolder):
     node_import = str(
         "library ieee; \n" + 
         "use ieee.std_logic_1164.all;\n" +
@@ -40,7 +40,7 @@ def returnNode(sdfArch, resourcesFolder):
     whole_node = node_import + "\n" + node_entity + "\n" + node_arch
 
     # Add into the output subdirectory
-    direc = str(resourcesFolder) + "/entity_node.vhdl"
+    direc = str(resourcesFolder) + "/prod_node.vhdl"
     output = open(direc,"w")
     output.write(str(whole_node))
     output.close()

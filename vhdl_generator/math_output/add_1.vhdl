@@ -65,7 +65,7 @@ signal channel_0_real_vect_from_0x7fbf3be00080_to_buffer_ready, channel_0_real_v
 
 begin 
 
-add_1 : entity_node PORT MAP (           entity_clk => add_clk, 
+add_1 : add_node PORT MAP (           entity_clk => add_clk, 
                                             entity_rst => add_rst, 
 
                                             entity_in_ready => channel_4_real_vect_from_buffer_to_in_channel_4_real_vect_ready, 

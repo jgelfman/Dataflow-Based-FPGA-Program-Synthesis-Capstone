@@ -1,6 +1,6 @@
 # This file creates an instance of the axi_fifo buffer.
 
-def returnBuffer(sdfArch, outputName):
+def returnBuffer(sdfArch, resourcesFolder):
     buffer_import = str(
         "library ieee; \n" + 
         "use ieee.std_logic_1164.all; \n" +
@@ -179,7 +179,7 @@ def returnBuffer(sdfArch, outputName):
     whole_buffer = buffer_import + "\n" + buffer_entity + "\n" + buffer_arch
 
     # Add into the output subdirectory
-    direc = str(outputName) + "/axi_fifo.vhd"
+    direc = str(resourcesFolder) + "/axi_fifo.vhd"
     output = open(direc,"w")
     output.write(str(whole_buffer))
     output.close()

@@ -70,15 +70,29 @@ for i in range(len(signals)):
 # Create an output directory
 import os
 outputName = str(sdfName) + "_output"
-os.makedirs(outputName, exist_ok=True)
+resourcesFolder = str(outputName) + "/generator_resources"
+os.makedirs(outputName, exist_ok = True)
+os.makedirs(resourcesFolder, exist_ok = True)
 
 # Create identity entitiy node VHDL file
 import vhdl_generator_node
-vhdl_generator_node.returnNode(sdfArch, outputName)
+vhdl_generator_node.returnNode(sdfArch, resourcesFolder)
 
 # Create buffer VHDL file
 import vhdl_generator_buffer
-vhdl_generator_buffer.returnBuffer(sdfArch, outputName)
+vhdl_generator_buffer.returnBuffer(sdfArch, resourcesFolder)
+
+# Create a PLACEHOLDER add node VHDL file
+import vhdl_generator_add
+vhdl_generator_add.returnAdd(sdfArch, resourcesFolder)
+
+# Create a PLACEHOLDER prod node VHDL file
+import vhdl_generator_prod
+vhdl_generator_prod.returnProd(sdfArch, resourcesFolder)
+
+# Create a PLACEHOLDER div node VHDL file
+import vhdl_generator_div
+vhdl_generator_div.returnDiv(sdfArch, resourcesFolder)
 
 # Create entity connections based on above
 import vhdl_generator_entity

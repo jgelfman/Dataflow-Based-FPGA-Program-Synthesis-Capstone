@@ -293,7 +293,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
 
             elif nodeName == "add": # PLACEHOLDERS (just the identity node for now)
                 addCount += 1
-                node_mapping += nodeName + "_" + str(addCount - 1) + " : entity_node"
+                node_mapping += nodeName + "_" + str(addCount - 1) + " : add_node"
 
                 # Port Map
                 node_mapping += " PORT MAP ("
@@ -320,7 +320,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
 
             elif nodeName == "prod": # PLACEHOLDERS (just the identity node for now)
                 prodCount += 1
-                node_mapping += nodeName + "_" + str(prodCount - 1) + " : entity_node"
+                node_mapping += nodeName + "_" + str(prodCount - 1) + " : prod_node"
 
                 # Port Map
                 node_mapping += " PORT MAP ("
@@ -347,7 +347,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
 
             elif nodeName == "div": # PLACEHOLDERS (just the identity node for now)
                 divCount += 1
-                node_mapping += nodeName + "_" + str(divCount - 1) + " : entity_node"
+                node_mapping += nodeName + "_" + str(divCount - 1) + " : div_node"
 
                 # Port Map
                 node_mapping += " PORT MAP ("
