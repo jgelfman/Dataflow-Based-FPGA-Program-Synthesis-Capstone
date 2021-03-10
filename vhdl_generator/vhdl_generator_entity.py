@@ -31,15 +31,11 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
         "use ieee.numeric_std.all;\n\n"
         )
 
-
-
-        # Buffer component
-        buffer_component = "\n" + "    component axi_fifo is \n" + "        generic ( \n" + "            ram_width : natural; \n" + "            ram_depth : natural \n" + "        ); \n" + "        Port ( \n" + "            buf_clk : in std_logic; \n" + "            buf_rst : in std_logic; \n" + " \n" + "            buf_in_ready : out std_logic; \n" + "            buf_in_valid : in std_logic; \n" + "            buf_in_data : in std_logic_vector(copy1_ram_width - 1 downto 0); \n" + " \n" + "            buf_out_ready : in std_logic; \n" + "            buf_out_valid : out std_logic; \n" + "            buf_out_data : out std_logic_vector(copy1_ram_width - 1 downto 0) \n" + "        ); end component;" + "\n"
-
-
-
         # Node name
         nodeName = str(actorsList[actor][1]).split("_")[0]
+
+        # Buffer component
+        buffer_component = "\n" + "    component axi_fifo is \n" + "        generic ( \n" + "            ram_width : natural; \n" + "            ram_depth : natural \n" + "        ); \n" + "        Port ( \n" + "            buf_clk : in std_logic; \n" + "            buf_rst : in std_logic; \n" + " \n" + "            buf_in_ready : out std_logic; \n" + "            buf_in_valid : in std_logic; \n" + "            buf_in_data : in std_logic_vector(" + nodeName + "_ram_width - 1 downto 0); \n" + " \n" + "            buf_out_ready : in std_logic; \n" + "            buf_out_valid : out std_logic; \n" + "            buf_out_data : out std_logic_vector(" + nodeName + "_ram_width - 1 downto 0) \n" + "        ); end component;" + "\n"
 
 
         # Own entity
@@ -71,14 +67,49 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
         # Other Port instantiation
         portsList = actorsList[actor][3]
         # Identity ports
-        if nodeName == "add":
-            pass #PLACEHOLDER
-        elif nodeName == "prod":
-            pass #PLACEHOLDER
-        elif nodeName == "div":
-            pass #PLACEHOLDER
+        if nodeName == "add": #PLACEHOLDER
+            
+            # AXI ready
+            arch_node_component +=  "            entity_in_ready : in std_logic; \n" + "            entity_out_ready : out std_logic; \n" + "\n"
+            
+            # AXI valid
+            arch_node_component += "            entity_in_valid : in std_logic; \n" + "            entity_out_valid : out std_logic; \n\n"
+            
+            # AXI data
+            arch_node_component += "            entity_in_opening : in std_logic_vector(" + nodeName + "_ram_width - 1 downto 0); \n" + "            entity_out_opening : out std_logic_vector(" + nodeName + "_ram_width - 1 downto 0) \n"
+
+            # Node remainder
+            arch_node_component += "        ); end component; \n\n"
+
+        elif nodeName == "prod": #PLACEHOLDER
+            
+            # AXI ready
+            arch_node_component +=  "            entity_in_ready : in std_logic; \n" + "            entity_out_ready : out std_logic; \n" + "\n"
+            
+            # AXI valid
+            arch_node_component += "            entity_in_valid : in std_logic; \n" + "            entity_out_valid : out std_logic; \n\n"
+            
+            # AXI data
+            arch_node_component += "            entity_in_opening : in std_logic_vector(" + nodeName + "_ram_width - 1 downto 0); \n" + "            entity_out_opening : out std_logic_vector(" + nodeName + "_ram_width - 1 downto 0) \n"
+
+            # Node remainder
+            arch_node_component += "        ); end component; \n\n"
+
+        elif nodeName == "div": #PLACEHOLDER
+            
+            # AXI ready
+            arch_node_component +=  "            entity_in_ready : in std_logic; \n" + "            entity_out_ready : out std_logic; \n" + "\n"
+            
+            # AXI valid
+            arch_node_component += "            entity_in_valid : in std_logic; \n" + "            entity_out_valid : out std_logic; \n\n"
+            
+            # AXI data
+            arch_node_component += "            entity_in_opening : in std_logic_vector(" + nodeName + "_ram_width - 1 downto 0); \n" + "            entity_out_opening : out std_logic_vector(" + nodeName + "_ram_width - 1 downto 0) \n"
+
+            # Node remainder
+            arch_node_component += "        ); end component; \n\n"
+
         else: #nodeName == "INPUT" or "OUTPUT": # Or identity
-            #for port in range(len(portsList)):
 
             # AXI ready
             arch_node_component +=  "            entity_in_ready : in std_logic; \n" + "            entity_out_ready : out std_logic; \n" + "\n"
@@ -87,7 +118,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
             arch_node_component += "            entity_in_valid : in std_logic; \n" + "            entity_out_valid : out std_logic; \n\n"
             
             # AXI data
-            arch_node_component += "            entity_in_opening : in std_logic_vector(copy1_ram_width - 1 downto 0); \n" + "            entity_out_opening : out std_logic_vector(copy1_ram_width - 1 downto 0) \n"
+            arch_node_component += "            entity_in_opening : in std_logic_vector(" + nodeName + "_ram_width - 1 downto 0); \n" + "            entity_out_opening : out std_logic_vector(" + nodeName + "_ram_width - 1 downto 0) \n"
 
             # Node remainder
             arch_node_component += "        ); end component; \n\n"
@@ -139,7 +170,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
         arch_signals_component = arch_signals_component[:-2]
 
         # Add remainder
-        arch_signals_component += " : std_logic_vector(copy1_ram_width - 1 downto 0); \n"
+        arch_signals_component += " : std_logic_vector(" + nodeName + "_ram_width - 1 downto 0); \n"
 
         # Arch ready + valid signals
         arch_signals_component += "signal "
