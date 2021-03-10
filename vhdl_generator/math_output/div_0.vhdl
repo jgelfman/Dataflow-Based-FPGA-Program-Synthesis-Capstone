@@ -79,7 +79,7 @@ div_0 : div_node PORT MAP (           entity_clk => div_clk,
 
 ); 
 
-fifo_15 : axi_fifo GENERIC MAP       (div_ram_width, 
+fifo_1 : axi_fifo GENERIC MAP       (div_ram_width, 
                                     div_ram_depth 
                                     ) 
                     PORT MAP        (buf_clk => div_clk, 

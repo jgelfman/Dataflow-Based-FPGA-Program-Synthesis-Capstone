@@ -78,7 +78,7 @@ INPUT_2 : entity_node PORT MAP (           entity_clk => INPUT_clk,
                                             entity_out_opening => channel_11_real_vect_from_0x7fbf3be006f0_to_buffer 
 ); 
 
-fifo_15 : axi_fifo GENERIC MAP       (INPUT_ram_width, 
+fifo_13 : axi_fifo GENERIC MAP       (INPUT_ram_width, 
                                     INPUT_ram_depth 
                                     ) 
                     PORT MAP        (buf_clk => INPUT_clk, 

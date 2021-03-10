@@ -79,7 +79,7 @@ prod_1 : prod_node PORT MAP (           entity_clk => prod_clk,
 
 ); 
 
-fifo_15 : axi_fifo GENERIC MAP       (prod_ram_width, 
+fifo_2 : axi_fifo GENERIC MAP       (prod_ram_width, 
                                     prod_ram_depth 
                                     ) 
                     PORT MAP        (buf_clk => prod_clk, 

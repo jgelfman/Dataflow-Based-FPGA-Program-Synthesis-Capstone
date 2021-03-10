@@ -79,7 +79,7 @@ add_3 : add_node PORT MAP (           entity_clk => add_clk,
 
 ); 
 
-fifo_15 : axi_fifo GENERIC MAP       (add_ram_width, 
+fifo_4 : axi_fifo GENERIC MAP       (add_ram_width, 
                                     add_ram_depth 
                                     ) 
                     PORT MAP        (buf_clk => add_clk, 
