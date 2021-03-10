@@ -1,7 +1,8 @@
 # This is a VHDL code generator that uses ElementTree XML to take in XML files describing dataflow graphs compiled using FAUST, and in-return produces the corresponding entities and connections in VHDL to be simulated in Xilinx Vivado.
 
 import xml.etree.ElementTree as ET
-inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
+inputfile = "copy1.dsp-sig.xml" # TODO: delete later
+#inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
 # e.g. copy1.dsp-sig.xml
 
 fileTree = ET.parse(inputfile)
@@ -97,93 +98,3 @@ output.close()
 
 
 #Testing:
-
-# Arch signals
-arch_signals_component = ""
-
-# Index of signals for mappings
-node_signals_data = []
-node_signals_ready = []
-node_signals_valid = []
-
-# Arch data signals
-arch_signals_component += "signal "
-for signal in range(len(nodeSignals)):
-    # Signal name
-    signalName = str(nodeSignals[signal][0])
-
-    # Signal src
-    signalSrcName = str(nodeSignals[signal][1][0])
-
-    # Signal dst
-    signalDstName = str(nodeSignals[signal][2][0])
-
-    # Full signal declaration to buffer
-    signalFullNameToBuffer = signalName + "_from_" + signalSrcName + "_to_buffer"
-
-    # Full signal declaration from buffer
-    signalFullNameFromBuffer = signalName + "_from_buffer_to_" + signalDstName + "_data"
-
-    # Make pair for buffer handling
-    bothDataSigs = []
-    bothDataSigs.append(signalFullNameToBuffer)
-    bothDataSigs.append(signalFullNameFromBuffer)
-
-    # Add pair to signals list
-    node_signals_data.append(bothDataSigs)
-    
-    
-    # Add to signals component handling commas
-    arch_signals_component += signalFullNameToBuffer + ", " + signalFullNameFromBuffer + ", "
-arch_signals_component = arch_signals_component[:-2]
-
-# Add remainder
-arch_signals_component += " : std_logic_vector(copy1_ram_width - 1 downto 0); \n"
-
-# Arch ready + valid signals
-arch_signals_component += "signal "
-for signal in range(len(nodeSignals)):
-    # Signal name
-    signalName = str(nodeSignals[signal][0])
-
-    # Signal src
-    signalSrcName = str(nodeSignals[signal][1][0])
-
-    # Signal dst
-    signalDstName = str(nodeSignals[signal][2][0])
-
-    # Bunching both ready/valid signals for buffer handling
-    bothReadySigs = []
-    bothValidSigs = []
-
-    # Full ready signal declaration to buffers
-    signalFullNameToBufferReady = signalName + "_from_" + signalSrcName + "_to_buffer_ready"
-    bothReadySigs.append(signalFullNameToBufferReady)
-
-    # Full ready signal declaration from buffers
-    signalFullNameFromBufferReady = signalName + "_from_buffer_to_" + signalDstName + "_ready"
-    bothReadySigs.append(signalFullNameFromBufferReady)
-
-    node_signals_ready.append(bothReadySigs)
-    
-    # Full valid signal declaration to buffers
-    signalFullNameToBufferValid = signalName + "_from_" + signalSrcName + "_to_buffer_valid"
-    bothValidSigs.append(signalFullNameToBufferValid)
-
-    # Full valid signal declaration from buffers
-    signalFullNameFromBufferValid = signalName + "_from_buffer_to_" + signalDstName + "_valid"
-    bothValidSigs.append(signalFullNameFromBufferValid)
-
-    node_signals_valid.append(bothValidSigs)
-
-    # Add to signals component handling commas
-    arch_signals_component += signalFullNameToBufferReady + ", " + signalFullNameFromBufferReady + ", " + signalFullNameToBufferValid + ", " + signalFullNameFromBufferValid + ", "
-
-# Remove last separator
-arch_signals_component = arch_signals_component[:-2]
-
-# Add signals remainder
-arch_signals_component += " : std_logic; \n\n"
-print(arch_signals_component)
-
-node_signals_ready
