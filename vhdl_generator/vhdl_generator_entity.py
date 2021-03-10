@@ -412,7 +412,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
             # Add buffer mappings
             buffer_mapping = ""
 
-            buffer_mapping += "fifo_" + str(signal+1) + " : axi_fifo"
+            buffer_mapping += "fifo_" + str(bufCount) + " : axi_fifo"
 
             # Generic Map
             buffer_mapping += " GENERIC MAP       (" + nodeName + "_ram_width, \n" + "                                    " + nodeName + "_ram_depth \n" + "                                    ) \n"
