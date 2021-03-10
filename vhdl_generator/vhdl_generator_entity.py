@@ -59,7 +59,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
         # Architecture node component
         arch_node_component = ""
 
-        arch_node_component += "    component " + str(nodeName) + " is \n" + "        port ( \n"
+        arch_node_component += "    component " + str(nodeName) + "_node is \n" + "        port ( \n"
 
         # Add clock + reset ports
         arch_node_component += "\n" + "            entity_clk : in std_logic; \n" +  "            entity_rst : in std_logic; \n\n"

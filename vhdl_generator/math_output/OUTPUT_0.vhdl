@@ -23,7 +23,7 @@ entity OUTPUT is
 end; 
  
 architecture math_arch of OUTPUT is 
-    component OUTPUT is 
+    component OUTPUT_node is 
         port ( 
 
             entity_clk : in std_logic; 

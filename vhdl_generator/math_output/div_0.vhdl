@@ -23,7 +23,7 @@ entity div is
 end; 
  
 architecture math_arch of div is 
-    component div is 
+    component div_node is 
         port ( 
 
             entity_clk : in std_logic; 

@@ -23,7 +23,7 @@ entity add is
 end; 
  
 architecture math_arch of add is 
-    component add is 
+    component add_node is 
         port ( 
 
             entity_clk : in std_logic; 

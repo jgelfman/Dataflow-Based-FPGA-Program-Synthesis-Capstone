@@ -23,7 +23,7 @@ entity prod is
 end; 
  
 architecture math_arch of prod is 
-    component prod is 
+    component prod_node is 
         port ( 
 
             entity_clk : in std_logic; 

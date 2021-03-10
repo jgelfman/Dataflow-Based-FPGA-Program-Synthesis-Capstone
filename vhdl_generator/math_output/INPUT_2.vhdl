@@ -23,7 +23,7 @@ entity INPUT is
 end; 
  
 architecture math_arch of INPUT is 
-    component INPUT is 
+    component INPUT_node is 
         port ( 
 
             entity_clk : in std_logic; 
