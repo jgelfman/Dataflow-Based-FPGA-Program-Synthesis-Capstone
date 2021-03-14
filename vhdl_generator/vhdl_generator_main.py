@@ -2,6 +2,7 @@
 
 import xml.etree.ElementTree as ET
 inputfile = "math.dsp-sig.xml" # TODO: delete later
+#inputfile = "copy1.dsp-sig.xml" # TODO: delete later
 #inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
 # e.g. copy1.dsp-sig.xml
 
@@ -90,11 +91,13 @@ vhdl_generate_output_node.returnOutput(sdfArch, resourcesFolder)
 AddExists = False
 ProdExists = False
 DivExists = False
-PlaceholderNeeded = False
+
+# In case of an unkown operator
+PlaceholderNeeded = True 
 
 # Check which operator node files are required to be generated
 for actor in range(len(actorsList)):
-
+    
     # Node name
     nodeName = str(actorsList[actor][1]).split("_")[0]
 
@@ -105,8 +108,8 @@ for actor in range(len(actorsList)):
         ProdExists = True
     elif nodeName == "div":
         DivExists = True
-    else:
-        PlaceholderNeeded = True
+    elif nodeName == "INPUT" or "OUTPUT" or "add" or "prod" or "div":
+        PlaceholderNeeded = False
 
 # Create a PLACEHOLDER add node VHDL file
 import vhdl_generate_add_node
@@ -134,7 +137,6 @@ if PlaceholderNeeded == True:
 
 
 # Create testbench wrapper to connect all the entities
-# TODO: make sure there is only one file per every type of entity incl one for buffer
 # TODO: create wrapper connecting all entities
 # TODO: create testbench connecting entities
 
