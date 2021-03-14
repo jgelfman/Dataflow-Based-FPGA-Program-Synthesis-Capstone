@@ -12,14 +12,26 @@ def returnProd(sdfArch, resourcesFolder):
         "port ( \n"
         "        entity_clk : in std_logic; \n"
         "        entity_rst : in std_logic; \n"
+        "\n\n" + 
+        "--Input1 \n" +
+        "        entity1_in_ready : in std_logic; \n"
         "\n" +
-        "        entity_in_ready : in std_logic; \n"
+        "        entity1_in_valid : in std_logic; \n"
+        "\n" +
+        "        entity1_in_opening : in std_logic_vector; \n"
+        "\n\n" + 
+        "--Input2 \n" +
+        "        entity2_in_ready : in std_logic; \n"
+        "\n" +
+        "        entity2_in_valid : in std_logic; \n"
+        "\n" +
+        "        entity2_in_opening : in std_logic_vector; \n"
+        "\n\n" + 
+        "--Output \n" +
         "        entity_out_ready : out std_logic; \n"
         "\n" +
-        "        entity_in_valid : in std_logic; \n"
         "        entity_out_valid : out std_logic; \n"
         "\n" +
-        "        entity_in_opening : in std_logic_vector; \n"
         "        entity_out_opening : out std_logic_vector \n"
         "    );  \n"
         "\n" +       
@@ -30,9 +42,10 @@ def returnProd(sdfArch, resourcesFolder):
         "\n" +
         "    begin \n" +
         "\n" +
-        "    entity_out_ready <= entity_in_ready; \n" +
-        "    entity_out_valid <= entity_in_valid; \n" +
-        "    entity_out_opening <= entity_in_opening; \n" +
+        "--PLACEHOLDER: Input1 propagated, Input 2 ignored" # Placeholder behavior
+        "    entity_out_ready <= entity1_in_ready; \n" +
+        "    entity_out_valid <= entity1_in_valid; \n" +
+        "    entity_out_opening <= entity1_in_opening; \n" +
         "\n" +
         "end architecture; \n"
     )
@@ -44,5 +57,3 @@ def returnProd(sdfArch, resourcesFolder):
     output = open(direc,"w")
     output.write(str(whole_node))
     output.close()
-
-#returnNode(sdfArch)
