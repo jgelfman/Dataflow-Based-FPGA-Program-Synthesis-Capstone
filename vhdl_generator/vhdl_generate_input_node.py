@@ -9,19 +9,19 @@ def returnInput(sdfArch, resourcesFolder):
         )
     node_entity = str(
         "entity input_node is \n" +
-        "port ( \n"
-        "        input_clk : in std_logic; \n"
-        "        input_rst : in std_logic; \n"
+        "port ( \n" +
+        "        input_clk : in std_logic; \n" +
+        "        input_rst : in std_logic; \n" +
         "\n" +
-        "        input_in_ready : in std_logic; \n"
-        "        input_out_ready : out std_logic; \n"
+        "        input_in_ready : in std_logic; \n" +
+        "        input_out_ready : out std_logic; \n" +
         "\n" +
-        "        input_in_valid : in std_logic; \n"
-        "        input_out_valid : out std_logic; \n"
+        "        input_in_valid : in std_logic; \n" +
+        "        input_out_valid : out std_logic; \n" +
         "\n" +
-        "        input_in_opening : in std_logic_vector; \n"
-        "        input_out_opening : out std_logic_vector \n"
-        "    );  \n"
+        "        input_in_opening : in std_logic_vector; \n" +
+        "        input_out_opening : out std_logic_vector \n" +
+        "    );  \n" +
         "\n" +       
         "end input_node; \n"
     )

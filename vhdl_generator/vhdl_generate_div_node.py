@@ -9,31 +9,31 @@ def returnDiv(sdfArch, resourcesFolder):
         )
     node_entity = str(
         "entity div_node is \n" +
-        "port ( \n"
-        "        div_clk : in std_logic; \n"
-        "        div_rst : in std_logic; \n"
+        "port ( \n" + 
+        "        div_clk : in std_logic; \n" + 
+        "        div_rst : in std_logic; \n" + 
         "\n\n" + 
         "--Input1 \n" +
-        "        div_in1_ready : in std_logic; \n"
+        "        div_in1_ready : in std_logic; \n" + 
         "\n" +
-        "        div_in1_valid : in std_logic; \n"
+        "        div_in1_valid : in std_logic; \n" + 
         "\n" +
-        "        div_in1_opening : in std_logic_vector; \n"
+        "        div_in1_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Input2 \n" +
-        "        div_in2_ready : in std_logic; \n"
+        "        div_in2_ready : in std_logic; \n" + 
         "\n" +
-        "        div_in2_valid : in std_logic; \n"
+        "        div_in2_valid : in std_logic; \n" + 
         "\n" +
-        "        div_in2_opening : in std_logic_vector; \n"
+        "        div_in2_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Output \n" +
-        "        div_out_ready : out std_logic; \n"
+        "        div_out_ready : out std_logic; \n" + 
         "\n" +
-        "        div_out_valid : out std_logic; \n"
+        "        div_out_valid : out std_logic; \n" + 
         "\n" +
-        "        div_out_opening : out std_logic_vector \n"
-        "    );  \n"
+        "        div_out_opening : out std_logic_vector \n" + 
+        "    );  \n" + 
         "\n" +       
         "end div_node; \n"
     )

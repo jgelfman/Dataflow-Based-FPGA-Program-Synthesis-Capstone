@@ -9,31 +9,31 @@ def returnProd(sdfArch, resourcesFolder):
         )
     node_entity = str(
         "entity prod_node is \n" +
-        "port ( \n"
-        "        prod_clk : in std_logic; \n"
-        "        prod_rst : in std_logic; \n"
+        "port ( \n" + 
+        "        prod_clk : in std_logic; \n" + 
+        "        prod_rst : in std_logic; \n" + 
         "\n\n" + 
         "--Input1 \n" +
-        "        prod_in1_ready : in std_logic; \n"
+        "        prod_in1_ready : in std_logic; \n" + 
         "\n" +
-        "        prod_in1_valid : in std_logic; \n"
+        "        prod_in1_valid : in std_logic; \n" + 
         "\n" +
-        "        prod_in1_opening : in std_logic_vector; \n"
+        "        prod_in1_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Input2 \n" +
-        "        prod_in2_ready : in std_logic; \n"
+        "        prod_in2_ready : in std_logic; \n" + 
         "\n" +
-        "        prod_in2_valid : in std_logic; \n"
+        "        prod_in2_valid : in std_logic; \n" + 
         "\n" +
-        "        prod_in2_opening : in std_logic_vector; \n"
+        "        prod_in2_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Output \n" +
-        "        prod_out_ready : out std_logic; \n"
+        "        prod_out_ready : out std_logic; \n" + 
         "\n" +
-        "        prod_out_valid : out std_logic; \n"
+        "        prod_out_valid : out std_logic; \n" + 
         "\n" +
-        "        prod_out_opening : out std_logic_vector \n"
-        "    );  \n"
+        "        prod_out_opening : out std_logic_vector \n" + 
+        "    );  \n" + 
         "\n" +       
         "end prod_node; \n"
     )

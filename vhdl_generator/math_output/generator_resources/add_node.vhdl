@@ -39,7 +39,8 @@ architecture math_arch of add_node is
 
     begin 
 
---PLACEHOLDER: Input1 propagated, Input 2 ignored    add_out_ready <= add_in1_ready; 
+--PLACEHOLDER: Input1 propagated, Input 2 ignored 
+    add_out_ready <= add_in1_ready; 
     add_out_valid <= add_in1_valid; 
     add_out_opening <= add_in1_opening; 
 

@@ -39,7 +39,8 @@ architecture math_arch of div_node is
 
     begin 
 
---PLACEHOLDER: Input1 propagated, Input 2 ignored    div_out_ready <= div_in1_ready; 
+--PLACEHOLDER: Input1 propagated, Input 2 ignored 
+    div_out_ready <= div_in1_ready; 
     div_out_valid <= div_in1_valid; 
     div_out_opening <= div_in1_opening; 
 

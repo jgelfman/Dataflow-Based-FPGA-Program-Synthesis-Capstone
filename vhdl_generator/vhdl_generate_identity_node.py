@@ -9,19 +9,19 @@ def returnIdentityNode(sdfArch, resourcesFolder):
         )
     node_entity = str(
         "entity entity_node is \n" +
-        "port ( \n"
-        "        entity_clk : in std_logic; \n"
-        "        entity_rst : in std_logic; \n"
+        "port ( \n" + 
+        "        entity_clk : in std_logic; \n" + 
+        "        entity_rst : in std_logic; \n" + 
         "\n" +
-        "        entity_in_ready : in std_logic; \n"
-        "        entity_out_ready : out std_logic; \n"
+        "        entity_in_ready : in std_logic; \n" + 
+        "        entity_out_ready : out std_logic; \n" + 
         "\n" +
-        "        entity_in_valid : in std_logic; \n"
-        "        entity_out_valid : out std_logic; \n"
+        "        entity_in_valid : in std_logic; \n" + 
+        "        entity_out_valid : out std_logic; \n" + 
         "\n" +
-        "        entity_in_opening : in std_logic_vector; \n"
-        "        entity_out_opening : out std_logic_vector \n"
-        "    );  \n"
+        "        entity_in_opening : in std_logic_vector; \n" + 
+        "        entity_out_opening : out std_logic_vector \n" + 
+        "    );  \n" + 
         "\n" +       
         "end entity_node; \n"
     )

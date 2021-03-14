@@ -14,26 +14,26 @@ def returnAdd(sdfArch, resourcesFolder):
         "        add_rst : in std_logic; \n"
         "\n\n" + 
         "--Input1 \n" +
-        "        add_in1_ready : in std_logic; \n"
+        "        add_in1_ready : in std_logic; \n" + 
         "\n" +
-        "        add_in1_valid : in std_logic; \n"
+        "        add_in1_valid : in std_logic; \n" + 
         "\n" +
-        "        add_in1_opening : in std_logic_vector; \n"
+        "        add_in1_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Input2 \n" +
-        "        add_in2_ready : in std_logic; \n"
+        "        add_in2_ready : in std_logic; \n" + 
         "\n" +
-        "        add_in2_valid : in std_logic; \n"
+        "        add_in2_valid : in std_logic; \n" + 
         "\n" +
-        "        add_in2_opening : in std_logic_vector; \n"
+        "        add_in2_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Output \n" +
-        "        add_out_ready : out std_logic; \n"
+        "        add_out_ready : out std_logic; \n" + 
         "\n" +
-        "        add_out_valid : out std_logic; \n"
+        "        add_out_valid : out std_logic; \n" + 
         "\n" +
-        "        add_out_opening : out std_logic_vector \n"
-        "    );  \n"
+        "        add_out_opening : out std_logic_vector \n" + 
+        "    );  \n" + 
         "\n" +       
         "end add_node; \n"
     )

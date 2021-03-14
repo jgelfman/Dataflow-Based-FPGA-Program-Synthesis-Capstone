@@ -1,5 +1,9 @@
 # This is a VHDL code generator that uses ElementTree XML to take in XML files describing dataflow graphs compiled using FAUST, and in-return produces the corresponding entities and connections in VHDL to be simulated in Xilinx Vivado.
 
+
+# Set to true in case of unkown operators
+Unkowns = false
+
 import xml.etree.ElementTree as ET
 inputfile = "math.dsp-sig.xml" # TODO: delete later
 #inputfile = "copy1.dsp-sig.xml" # TODO: delete later
@@ -92,8 +96,12 @@ AddExists = False
 ProdExists = False
 DivExists = False
 
+
 # In case of an unkown operator
-PlaceholderNeeded = True 
+if Unkowns == True:
+    PlaceholderNeeded = True 
+else:
+    PlaceholderNeeded = False
 
 # Check which operator node files are required to be generated
 for actor in range(len(actorsList)):
@@ -126,14 +134,14 @@ import vhdl_generate_div_node
 if DivExists == True:
     vhdl_generate_div_node.returnDiv(sdfArch, resourcesFolder)
 
-# If operator unkown, create placeholder identity node VHDL file
+# Once complex operators are added, if operator unkown, create placeholder identity node VHDL file
 import vhdl_generate_identity_node
 if PlaceholderNeeded == True:
     vhdl_generate_identity_node.returnIdentityNode(sdfArch, resourcesFolder)
 
 # Create wrapper VHDL file 
-#import vhdl_generate_wrapper
-#vhdl_generate_wrapper.returnNode(sdfArch, outputName, actorsList, interiorConnections, nodeSignals)
+import vhdl_generate_wrapper
+vhdl_generate_wrapper.returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections, nodeSignals)
 
 
 # Create testbench wrapper to connect all the entities

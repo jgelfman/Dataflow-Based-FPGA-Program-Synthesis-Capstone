@@ -10,18 +10,18 @@ def returnOutput(sdfArch, resourcesFolder):
     node_entity = str(
         "entity output_node is \n" +
         "port ( \n"
-        "        output_clk : in std_logic; \n"
-        "        output_rst : in std_logic; \n"
+        "        output_clk : in std_logic; \n" +
+        "        output_rst : in std_logic; \n" +
         "\n" +
-        "        output_in_ready : in std_logic; \n"
-        "        output_out_ready : out std_logic; \n"
+        "        output_in_ready : in std_logic; \n" +
+        "        output_out_ready : out std_logic; \n" +
         "\n" +
-        "        output_in_valid : in std_logic; \n"
-        "        output_out_valid : out std_logic; \n"
+        "        output_in_valid : in std_logic; \n" +
+        "        output_out_valid : out std_logic; \n" +
         "\n" +
-        "        output_in_opening : in std_logic_vector; \n"
-        "        output_out_opening : out std_logic_vector \n"
-        "    );  \n"
+        "        output_in_opening : in std_logic_vector; \n" +
+        "        output_out_opening : out std_logic_vector \n" +
+        "    );  \n" +
         "\n" +       
         "end output_node; \n"
     )
