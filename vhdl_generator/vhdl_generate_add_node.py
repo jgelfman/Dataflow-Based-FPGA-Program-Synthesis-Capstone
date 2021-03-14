@@ -42,7 +42,7 @@ def returnAdd(sdfArch, resourcesFolder):
         "\n" +
         "    begin \n" +
         "\n" +
-        "--PLACEHOLDER: Input1 propagated, Input 2 ignored" # Placeholder behavior
+        "--PLACEHOLDER: Input1 propagated, Input 2 ignored \n" + # Placeholder behavior
         "    add_out_ready <= add_in1_ready; \n" +
         "    add_out_valid <= add_in1_valid; \n" +
         "    add_out_opening <= add_in1_opening; \n" +

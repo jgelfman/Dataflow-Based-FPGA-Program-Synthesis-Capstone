@@ -42,7 +42,7 @@ def returnDiv(sdfArch, resourcesFolder):
         "\n" +
         "    begin \n" +
         "\n" +
-        "--PLACEHOLDER: Input1 propagated, Input 2 ignored" # Placeholder behavior
+        "--PLACEHOLDER: Input1 propagated, Input 2 ignored \n" + # Placeholder behavior
         "    div_out_ready <= div_in1_ready; \n" +
         "    div_out_valid <= div_in1_valid; \n" +
         "    div_out_opening <= div_in1_opening; \n" +

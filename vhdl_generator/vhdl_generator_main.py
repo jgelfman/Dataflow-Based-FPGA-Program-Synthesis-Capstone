@@ -90,6 +90,7 @@ vhdl_generate_output_node.returnOutput(sdfArch, resourcesFolder)
 AddExists = False
 ProdExists = False
 DivExists = False
+PlaceholderNeeded = False
 
 # Check which operator node files are required to be generated
 for actor in range(len(actorsList)):
@@ -104,6 +105,8 @@ for actor in range(len(actorsList)):
         ProdExists = True
     elif nodeName == "div":
         DivExists = True
+    else:
+        PlaceholderNeeded = True
 
 # Create a PLACEHOLDER add node VHDL file
 import vhdl_generate_add_node
@@ -119,6 +122,11 @@ if ProdExists == True:
 import vhdl_generate_div_node
 if DivExists == True:
     vhdl_generate_div_node.returnDiv(sdfArch, resourcesFolder)
+
+# If operator unkown, create placeholder identity node VHDL file
+import vhdl_generate_identity_node
+if PlaceholderNeeded == True:
+    vhdl_generate_identity_node.returnIdentityNode(sdfArch, resourcesFolder)
 
 # Create wrapper VHDL file 
 #import vhdl_generate_wrapper
