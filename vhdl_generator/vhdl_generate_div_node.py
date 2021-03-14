@@ -8,44 +8,44 @@ def returnDiv(sdfArch, resourcesFolder):
         "\n"
         )
     node_entity = str(
-        "entity entity_node is \n" +
+        "entity div_node is \n" +
         "port ( \n"
-        "        entity_clk : in std_logic; \n"
-        "        entity_rst : in std_logic; \n"
+        "        div_clk : in std_logic; \n"
+        "        div_rst : in std_logic; \n"
         "\n\n" + 
         "--Input1 \n" +
-        "        entity1_in_ready : in std_logic; \n"
+        "        div_in1_ready : in std_logic; \n"
         "\n" +
-        "        entity1_in_valid : in std_logic; \n"
+        "        div_in1_valid : in std_logic; \n"
         "\n" +
-        "        entity1_in_opening : in std_logic_vector; \n"
+        "        div_in1_opening : in std_logic_vector; \n"
         "\n\n" + 
         "--Input2 \n" +
-        "        entity2_in_ready : in std_logic; \n"
+        "        div_in2_ready : in std_logic; \n"
         "\n" +
-        "        entity2_in_valid : in std_logic; \n"
+        "        div_in2_valid : in std_logic; \n"
         "\n" +
-        "        entity2_in_opening : in std_logic_vector; \n"
+        "        div_in2_opening : in std_logic_vector; \n"
         "\n\n" + 
         "--Output \n" +
-        "        entity_out_ready : out std_logic; \n"
+        "        div_out_ready : out std_logic; \n"
         "\n" +
-        "        entity_out_valid : out std_logic; \n"
+        "        div_out_valid : out std_logic; \n"
         "\n" +
-        "        entity_out_opening : out std_logic_vector \n"
+        "        div_out_opening : out std_logic_vector \n"
         "    );  \n"
         "\n" +       
-        "end entity_node; \n"
+        "end div_node; \n"
     )
     node_arch = str(
-        "architecture " + str(sdfArch) + " of entity_node is \n" +
+        "architecture " + str(sdfArch) + " of div_node is \n" +
         "\n" +
         "    begin \n" +
         "\n" +
         "--PLACEHOLDER: Input1 propagated, Input 2 ignored" # Placeholder behavior
-        "    entity_out_ready <= entity1_in_ready; \n" +
-        "    entity_out_valid <= entity1_in_valid; \n" +
-        "    entity_out_opening <= entity1_in_opening; \n" +
+        "    div_out_ready <= div_in1_ready; \n" +
+        "    div_out_valid <= div_in1_valid; \n" +
+        "    div_out_opening <= div_in1_opening; \n" +
         "\n" +
         "end architecture; \n"
     )

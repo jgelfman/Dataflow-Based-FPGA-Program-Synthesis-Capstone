@@ -20,25 +20,23 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
     identityCount = 0
 
 
+    
+        
+    # Libraries import
+    libraries_component = str(
+    "library ieee; \n" + 
+    "use ieee.std_logic_1164.all;\n" +
+    "use ieee.numeric_std.all;\n\n"
+    )
+
+    # Buffer component
+    buffer_component = "\n" + "    component axi_fifo is \n" + "        generic ( \n" + "            ram_width : natural; \n" + "            ram_depth : natural \n" + "        ); \n" + "        Port ( \n" + "            buf_clk : in std_logic; \n" + "            buf_rst : in std_logic; \n" + " \n" + "            buf_in_ready : out std_logic; \n" + "            buf_in_valid : in std_logic; \n" + "            buf_in_data : in std_logic_vector(" + nodeName + "_ram_width - 1 downto 0); \n" + " \n" + "            buf_out_ready : in std_logic; \n" + "            buf_out_valid : out std_logic; \n" + "            buf_out_data : out std_logic_vector(" + nodeName + "_ram_width - 1 downto 0) \n" + "        ); end component;" + "\n"
+
     for actor in range(len(actorsList)):
-        
-        whole_Entity = ""
-        
-        # Libraries import
-        libraries_component = str(
-        "library ieee; \n" + 
-        "use ieee.std_logic_1164.all;\n" +
-        "use ieee.numeric_std.all;\n\n"
-        )
 
-        # Node name
-        nodeName = str(actorsList[actor][1]).split("_")[0]
+        whole_Node = ""
 
-        # Buffer component
-        buffer_component = "\n" + "    component axi_fifo is \n" + "        generic ( \n" + "            ram_width : natural; \n" + "            ram_depth : natural \n" + "        ); \n" + "        Port ( \n" + "            buf_clk : in std_logic; \n" + "            buf_rst : in std_logic; \n" + " \n" + "            buf_in_ready : out std_logic; \n" + "            buf_in_valid : in std_logic; \n" + "            buf_in_data : in std_logic_vector(" + nodeName + "_ram_width - 1 downto 0); \n" + " \n" + "            buf_out_ready : in std_logic; \n" + "            buf_out_valid : out std_logic; \n" + "            buf_out_data : out std_logic_vector(" + nodeName + "_ram_width - 1 downto 0) \n" + "        ); end component;" + "\n"
-
-
-        # Own entity
+        # Own entity part
         entity_component = ""
         entity_component = "entity " + nodeName + " is\n"
 
@@ -277,6 +275,8 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
                 # AXI ready
                 node_mapping +=  "                                            entity_in_ready => " + nodeName + "_in_ready, \n" +  "                                            entity_out_ready => " + node_signals_ready[-1][0] + ", \n\n"
             
+                
+
                 # AXI valid
                 node_mapping += "                                            entity_in_valid => " + nodeName + "_in_valid, \n" + "                                            entity_out_valid => " + node_signals_valid[-1][0] + ", \n\n"
                 
@@ -446,7 +446,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
         
         node_arch += arch_node_component + arch_buffer_component + arch_signals_component + arch_mapping_component
     
-        whole_entity = libraries_component + "\n" + entity_component + "\n" + node_arch + arch_remainder
+        whole_Node = libraries_component + "\n" + entity_component + "\n" + node_arch + arch_remainder
 
         # File name
         if nodeName == "INPUT":
@@ -465,7 +465,7 @@ def returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSigna
         # Add into the output subdirectory
         direc = str(outputName) + "/" + fileName + ".vhdl"
         filewrite = open(direc,"w")
-        filewrite.write(str(whole_entity))
+        filewrite.write(str(whole_Node))
         filewrite.close()
 
 #returnEntity(sdfArch, actorsList, interiorConnections, nodeSignals)

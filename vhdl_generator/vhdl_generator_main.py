@@ -1,8 +1,8 @@
 # This is a VHDL code generator that uses ElementTree XML to take in XML files describing dataflow graphs compiled using FAUST, and in-return produces the corresponding entities and connections in VHDL to be simulated in Xilinx Vivado.
 
 import xml.etree.ElementTree as ET
-#inputfile = "math.dsp-sig.xml" # TODO: delete later
-inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
+inputfile = "math.dsp-sig.xml" # TODO: delete later
+#inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
 # e.g. copy1.dsp-sig.xml
 
 fileTree = ET.parse(inputfile)
@@ -74,33 +74,61 @@ resourcesFolder = str(outputName) + "/generator_resources"
 os.makedirs(outputName, exist_ok = True)
 os.makedirs(resourcesFolder, exist_ok = True)
 
-# Create identity entitiy node VHDL file
-import vhdl_generator_node
-vhdl_generator_node.returnNode(sdfArch, resourcesFolder)
-
 # Create buffer VHDL file
-import vhdl_generator_buffer
-vhdl_generator_buffer.returnBuffer(sdfArch, resourcesFolder)
+import vhdl_generate_buffer
+vhdl_generate_buffer.returnBuffer(sdfArch, resourcesFolder)
+
+# Create input node VHDL file 
+import vhdl_generate_input_node
+vhdl_generate_input_node.returnInput(sdfArch, resourcesFolder)
+
+# Create output entitiy node VHDL file 
+import vhdl_generate_output_node
+vhdl_generate_output_node.returnOutput(sdfArch, resourcesFolder)
+
+# Setting in case not all operators used
+AddExists = False
+ProdExists = False
+DivExists = False
+
+# Check which operator node files are required to be generated
+for actor in range(len(actorsList)):
+
+    # Node name
+    nodeName = str(actorsList[actor][1]).split("_")[0]
+
+    # Check which operator nodes are required to be generated
+    if nodeName == "add":
+        AddExists = True
+    elif nodeName == "prod":
+        ProdExists = True
+    elif nodeName == "div":
+        DivExists = True
 
 # Create a PLACEHOLDER add node VHDL file
-import vhdl_generator_add
-vhdl_generator_add.returnAdd(sdfArch, resourcesFolder)
+import vhdl_generate_add_node
+if AddExists == True:
+    vhdl_generate_add_node.returnAdd(sdfArch, resourcesFolder)
 
 # Create a PLACEHOLDER prod node VHDL file
-import vhdl_generator_prod
-vhdl_generator_prod.returnProd(sdfArch, resourcesFolder)
+import vhdl_generate_prod_node
+if ProdExists == True:
+    vhdl_generate_prod_node.returnProd(sdfArch, resourcesFolder)
 
 # Create a PLACEHOLDER div node VHDL file
-import vhdl_generator_div
-vhdl_generator_div.returnDiv(sdfArch, resourcesFolder)
+import vhdl_generate_div_node
+if DivExists == True:
+    vhdl_generate_div_node.returnDiv(sdfArch, resourcesFolder)
 
-# Create entity connections based on above
-import vhdl_generator_entity
-vhdl_generator_entity.returnEntity(sdfArch, outputName, actorsList, interiorConnections, nodeSignals)
+# Create wrapper VHDL file 
+#import vhdl_generate_wrapper
+#vhdl_generate_wrapper.returnNode(sdfArch, outputName, actorsList, interiorConnections, nodeSignals)
 
 
 # Create testbench wrapper to connect all the entities
-# TODO: create testbench wrapper connecting entities
+# TODO: make sure there is only one file per every type of entity incl one for buffer
+# TODO: create wrapper connecting all entities
+# TODO: create testbench connecting entities
 
 
 

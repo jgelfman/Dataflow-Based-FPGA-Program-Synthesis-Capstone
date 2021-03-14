@@ -3,29 +3,44 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 
-entity entity_node is 
+entity div_node is 
 port ( 
-        entity_clk : in std_logic; 
-        entity_rst : in std_logic; 
+        div_clk : in std_logic; 
+        div_rst : in std_logic; 
 
-        entity_in_ready : in std_logic; 
-        entity_out_ready : out std_logic; 
 
-        entity_in_valid : in std_logic; 
-        entity_out_valid : out std_logic; 
+--Input1 
+        div_in1_ready : in std_logic; 
 
-        entity_in_opening : in std_logic_vector; 
-        entity_out_opening : out std_logic_vector 
+        div_in1_valid : in std_logic; 
+
+        div_in1_opening : in std_logic_vector; 
+
+
+--Input2 
+        div_in2_ready : in std_logic; 
+
+        div_in2_valid : in std_logic; 
+
+        div_in2_opening : in std_logic_vector; 
+
+
+--Output 
+        div_out_ready : out std_logic; 
+
+        div_out_valid : out std_logic; 
+
+        div_out_opening : out std_logic_vector 
     );  
 
-end entity_node; 
+end div_node; 
 
-architecture math_arch of entity_node is 
+architecture math_arch of div_node is 
 
     begin 
 
-    entity_out_ready <= entity_in_ready; 
-    entity_out_valid <= entity_in_valid; 
-    entity_out_opening <= entity_in_opening; 
+--PLACEHOLDER: Input1 propagated, Input 2 ignored    div_out_ready <= div_in1_ready; 
+    div_out_valid <= div_in1_valid; 
+    div_out_opening <= div_in1_opening; 
 
 end architecture; 

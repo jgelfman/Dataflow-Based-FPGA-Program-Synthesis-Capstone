@@ -8,31 +8,31 @@ def returnOutput(sdfArch, resourcesFolder):
         "\n"
         )
     node_entity = str(
-        "entity entity_node is \n" +
+        "entity output_node is \n" +
         "port ( \n"
-        "        entity_clk : in std_logic; \n"
-        "        entity_rst : in std_logic; \n"
+        "        output_clk : in std_logic; \n"
+        "        output_rst : in std_logic; \n"
         "\n" +
-        "        entity_in_ready : in std_logic; \n"
-        "        entity_out_ready : out std_logic; \n"
+        "        output_in_ready : in std_logic; \n"
+        "        output_out_ready : out std_logic; \n"
         "\n" +
-        "        entity_in_valid : in std_logic; \n"
-        "        entity_out_valid : out std_logic; \n"
+        "        output_in_valid : in std_logic; \n"
+        "        output_out_valid : out std_logic; \n"
         "\n" +
-        "        entity_in_opening : in std_logic_vector; \n"
-        "        entity_out_opening : out std_logic_vector \n"
+        "        output_in_opening : in std_logic_vector; \n"
+        "        output_out_opening : out std_logic_vector \n"
         "    );  \n"
         "\n" +       
-        "end entity_node; \n"
+        "end output_node; \n"
     )
     node_arch = str(
-        "architecture " + str(sdfArch) + " of entity_node is \n" +
+        "architecture " + str(sdfArch) + " of output_node is \n" +
         "\n" +
         "    begin \n" +
         "\n" +
-        "    entity_out_ready <= entity_in_ready; \n" +
-        "    entity_out_valid <= entity_in_valid; \n" +
-        "    entity_out_opening <= entity_in_opening; \n" +
+        "    output_out_ready <= output_in_ready; \n" +
+        "    output_out_valid <= output_in_valid; \n" +
+        "    output_out_opening <= output_in_opening; \n" +
         "\n" +
         "end architecture; \n"
     )
@@ -44,5 +44,3 @@ def returnOutput(sdfArch, resourcesFolder):
     output = open(direc,"w")
     output.write(str(whole_node))
     output.close()
-
-#returnNode(sdfArch)

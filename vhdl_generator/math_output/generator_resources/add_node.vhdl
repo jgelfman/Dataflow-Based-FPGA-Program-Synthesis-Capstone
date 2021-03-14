@@ -3,29 +3,44 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 
-entity entity_node is 
+entity add_node is 
 port ( 
-        entity_clk : in std_logic; 
-        entity_rst : in std_logic; 
+        add_clk : in std_logic; 
+        add_rst : in std_logic; 
 
-        entity_in_ready : in std_logic; 
-        entity_out_ready : out std_logic; 
 
-        entity_in_valid : in std_logic; 
-        entity_out_valid : out std_logic; 
+--Input1 
+        add_in1_ready : in std_logic; 
 
-        entity_in_opening : in std_logic_vector; 
-        entity_out_opening : out std_logic_vector 
+        add_in1_valid : in std_logic; 
+
+        add_in1_opening : in std_logic_vector; 
+
+
+--Input2 
+        add_in2_ready : in std_logic; 
+
+        add_in2_valid : in std_logic; 
+
+        add_in2_opening : in std_logic_vector; 
+
+
+--Output 
+        add_out_ready : out std_logic; 
+
+        add_out_valid : out std_logic; 
+
+        add_out_opening : out std_logic_vector 
     );  
 
-end entity_node; 
+end add_node; 
 
-architecture math_arch of entity_node is 
+architecture math_arch of add_node is 
 
     begin 
 
-    entity_out_ready <= entity_in_ready; 
-    entity_out_valid <= entity_in_valid; 
-    entity_out_opening <= entity_in_opening; 
+--PLACEHOLDER: Input1 propagated, Input 2 ignored    add_out_ready <= add_in1_ready; 
+    add_out_valid <= add_in1_valid; 
+    add_out_opening <= add_in1_opening; 
 
 end architecture; 

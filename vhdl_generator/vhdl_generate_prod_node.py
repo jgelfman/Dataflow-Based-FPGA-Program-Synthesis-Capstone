@@ -8,44 +8,44 @@ def returnProd(sdfArch, resourcesFolder):
         "\n"
         )
     node_entity = str(
-        "entity entity_node is \n" +
+        "entity prod_node is \n" +
         "port ( \n"
-        "        entity_clk : in std_logic; \n"
-        "        entity_rst : in std_logic; \n"
+        "        prod_clk : in std_logic; \n"
+        "        prod_rst : in std_logic; \n"
         "\n\n" + 
         "--Input1 \n" +
-        "        entity1_in_ready : in std_logic; \n"
+        "        prod_in1_ready : in std_logic; \n"
         "\n" +
-        "        entity1_in_valid : in std_logic; \n"
+        "        prod_in1_valid : in std_logic; \n"
         "\n" +
-        "        entity1_in_opening : in std_logic_vector; \n"
+        "        prod_in1_opening : in std_logic_vector; \n"
         "\n\n" + 
         "--Input2 \n" +
-        "        entity2_in_ready : in std_logic; \n"
+        "        prod_in2_ready : in std_logic; \n"
         "\n" +
-        "        entity2_in_valid : in std_logic; \n"
+        "        prod_in2_valid : in std_logic; \n"
         "\n" +
-        "        entity2_in_opening : in std_logic_vector; \n"
+        "        prod_in2_opening : in std_logic_vector; \n"
         "\n\n" + 
         "--Output \n" +
-        "        entity_out_ready : out std_logic; \n"
+        "        prod_out_ready : out std_logic; \n"
         "\n" +
-        "        entity_out_valid : out std_logic; \n"
+        "        prod_out_valid : out std_logic; \n"
         "\n" +
-        "        entity_out_opening : out std_logic_vector \n"
+        "        prod_out_opening : out std_logic_vector \n"
         "    );  \n"
         "\n" +       
-        "end entity_node; \n"
+        "end prod_node; \n"
     )
     node_arch = str(
-        "architecture " + str(sdfArch) + " of entity_node is \n" +
+        "architecture " + str(sdfArch) + " of prod_node is \n" +
         "\n" +
         "    begin \n" +
         "\n" +
         "--PLACEHOLDER: Input1 propagated, Input 2 ignored" # Placeholder behavior
-        "    entity_out_ready <= entity1_in_ready; \n" +
-        "    entity_out_valid <= entity1_in_valid; \n" +
-        "    entity_out_opening <= entity1_in_opening; \n" +
+        "    prod_out_ready <= prod_in1_ready; \n" +
+        "    prod_out_valid <= prod_in1_valid; \n" +
+        "    prod_out_opening <= prod_in1_opening; \n" +
         "\n" +
         "end architecture; \n"
     )
@@ -57,3 +57,5 @@ def returnProd(sdfArch, resourcesFolder):
     output = open(direc,"w")
     output.write(str(whole_node))
     output.close()
+
+
