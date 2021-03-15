@@ -316,13 +316,13 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                     inptList.append(inpt)
 
                 # AXI ready
-                component_mapping +=  "                                        " + str(actName) + "_in" + str(inptList[act])  + "_ready => " + str(sdfName) + "_in" + str(inptList[act]) + "_ready, \n" +  "                                        " + str(actName) + "_out_ready => " + str(toBuffReady) + ", \n\n"
+                component_mapping +=  "                                        " + str(actName) + "_in_ready => " + str(sdfName) + "_in" + str(inptList[act]) + "_ready, \n" +  "                                        " + str(actName) + "_out_ready => " + str(toBuffReady) + ", \n\n"
             
                 # AXI valid
-                component_mapping += "                                        " + str(actName) + "_in" + str(inptList[act]) + "_valid => " + str(sdfName) + "_in" + str(inptList[act]) + "_valid, \n" + "                                        " + str(actName) + "_out_valid => " + str(toBuffValid) + ", \n\n"
+                component_mapping += "                                        " + str(actName) + "_in_valid => " + str(sdfName) + "_in" + str(inptList[act]) + "_valid, \n" + "                                        " + str(actName) + "_out_valid => " + str(toBuffValid) + ", \n\n"
                 
                 # AXI data
-                component_mapping += "                                        " + str(actName) + "_in" + str(inptList[act]) + "_opening => " + str(sdfName) + "_in" + str(inptList[act]) + "_data, \n"
+                component_mapping += "                                        " + str(actName) + "_in_opening => " + str(sdfName) + "_in" + str(inptList[act]) + "_data, \n"
 
                 component_mapping += "                                        " + str(actName) + "_out_opening => " + str(toBuffData) + " \n" 
 

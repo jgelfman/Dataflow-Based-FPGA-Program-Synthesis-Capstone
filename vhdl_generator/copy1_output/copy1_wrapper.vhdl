@@ -88,13 +88,13 @@ begin
 
 INPUT_0 : INPUT_node PORT MAP (         INPUT_clk => copy1_clk, 
                                         INPUT_rst => copy1_rst, 
-                                        INPUT_in0_ready => copy1_in0_ready, 
+                                        INPUT_in_ready => copy1_in0_ready, 
                                         INPUT_out_ready => channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooREADY, 
 
-                                        INPUT_in0_valid => copy1_in0_valid, 
+                                        INPUT_in_valid => copy1_in0_valid, 
                                         INPUT_out_valid => channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooVALID, 
 
-                                        INPUT_in0_opening => copy1_in0_data, 
+                                        INPUT_in_opening => copy1_in0_data, 
                                         INPUT_out_opening => channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooDATA 
 ); 
 
