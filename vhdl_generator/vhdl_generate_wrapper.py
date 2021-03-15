@@ -277,7 +277,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "         " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                        " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
+                component_mapping += "         " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                        " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
 
                 # Figure out buffer subsequent exterior signals
                 for sig in range(len(nodeSignals)):
@@ -358,7 +358,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "           " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                            " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
+                component_mapping += "           " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                            " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
 
                 # Figure out predecessor
                 actID = "OUTPUT_0"
@@ -408,7 +408,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "           " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                            " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
+                component_mapping += "           " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                            " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
 
                 # Figure out predecessor and subsequent exterior signals
                 actID = str(actorsList[act][2])
@@ -512,7 +512,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "           " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                            " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
+                component_mapping += "           " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                            " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
 
                 # Figure out predecessor and subsequent exterior signals
                 actID = str(actorsList[act][2])
@@ -616,7 +616,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "           " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                            " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
+                component_mapping += "           " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                            " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
 
                 # Figure out predecessor and subsequent exterior signals
                 actID = str(actorsList[act][2])
