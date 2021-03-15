@@ -1,8 +1,5 @@
 # This file creates an instance of an entity node.
 
-from os import device_encoding
-
-
 def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections, nodeSignals):
 
     wholeWrapper = ""

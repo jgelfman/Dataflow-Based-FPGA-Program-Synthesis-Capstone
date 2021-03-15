@@ -87,15 +87,12 @@ begin
         
         wait for 10 * clock_period;
         
-        --wait until rising_edge(clk);
         copy1_out_ready <= '1';
         while copy1_out_valid = '0' loop
-            wait until rising_edge(clk);
-            --copy1_out_data <= std_logic_vector(unsigned(copy1_out_data) + 1);
+            --wait until rising_edge(clk);
+            copy1_out_data <= std_logic_vector(unsigned(copy1_out_data) + 1);
         end loop;    
-        --else
-        --  report "Output not valid!";
-        --end if;
+
         wait for 10 * clock_period;
         report "Test completed. Check waveform.";
         copy1_out_ready <= '0';
