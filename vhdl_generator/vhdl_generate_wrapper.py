@@ -320,16 +320,34 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 # Clock + reset
                 component_mapping += "           " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                            " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
 
+                # Figure out predecessor
+                actID = "OUTPUT_0"
+                fromBuffReady = []
+                fromBuffValid = []
+                fromBuffData = []
+
+                for readysig in range(len(node_signals_ready)):
+                    if node_signals_ready[readysig][1].split("__")[-2] == actID and node_signals_ready[readysig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                        fromBuffReady.append(node_signals_ready[readysig][1])
+
+                for validsig in range(len(node_signals_valid)):
+                    if node_signals_valid[validsig][1].split("__")[-2] == actID and node_signals_valid[validsig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                        fromBuffValid.append(node_signals_valid[validsig][1])
+
+                for datasig in range(len(node_signals_data)):
+                    if node_signals_data[datasig][1].split("__")[-2] == actID and node_signals_data[datasig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                        fromBuffData.append(node_signals_data[datasig][1])
+                
                 # AXI ready
-                component_mapping +=  "                                            " + str(actName) + "_in_ready => " + node_signals_ready[-1][0] + "_in_ready, \n" +  "                                            " + str(actName) + "_out_ready => " + str(sdfName) + ", \n\n"
+                component_mapping +=  "                                            " + str(actName) + "_in_ready => " + str(fromBuffReady[0]) + ", \n" +  "                                            " + str(actName) + "_out_ready => " + str(sdfName) + "_out_ready, \n\n"
             
                 # AXI valid
-                component_mapping += "                                            " + str(actName) + "_in_valid => " + node_signals_valid[-1][0] + "_in_valid, \n" + "                                            " + str(actName) + "_out_valid => " + str(sdfName) + ", \n\n"
+                component_mapping += "                                            " + str(actName) + "_in_valid => " + str(fromBuffValid[0]) + ", \n" + "                                            " + str(actName) + "_out_valid => " + str(sdfName) + "_out_valid, \n\n"
                 
                 # AXI data
-                component_mapping += "                                            " + str(actName) + "_in_opening => " + node_signals_data[-1][0] + "_in_data, \n"
+                component_mapping += "                                            " + str(actName) + "_in_opening => " + str(fromBuffReady[0]) + ", \n"
 
-                component_mapping += "                                            " + str(actName) + "_out_opening => " + str(sdfName) + " \n" 
+                component_mapping += "                                            " + str(actName) + "_out_opening => " + str(sdfName) + "_out_data \n" 
 
                 # Update input count
                 outputs +=1 
