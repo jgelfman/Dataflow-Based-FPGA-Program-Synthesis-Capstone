@@ -5,10 +5,7 @@
 Unkowns = False
 
 import xml.etree.ElementTree as ET
-#inputfile = "math.dsp-sig.xml" # TODO: delete later
-inputfile = "copy1.dsp-sig.xml" # TODO: delete later
-#inputfile = "copy2.dsp-sig.xml" # TODO: delete later
-#inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
+inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
 # e.g. copy1.dsp-sig.xml
 
 fileTree = ET.parse(inputfile)
@@ -148,16 +145,13 @@ vhdl_generate_wrapper.returnWrapper(sdfName, sdfArch, outputName, actorsList, in
 import vhdl_generate_tb
 
 # Ask user for clock_period
-#clock_period = input("Enter the desired clock period time in ns (e.g. 10):") #TODO: Uncomment
-clock_period = 10 # TODO: Delete later
+clock_period = input("Enter the desired clock period time in ns (e.g. 10):")
 
 # Ask user for ram width
-#ram_depth = input("Enter the desired ram depth (e.g. 16):") #TODO: Uncomment
-ram_depth = 16 # TODO: Delete later
+ram_depth = input("Enter the desired ram depth (e.g. 16):")
 
 # Ask user for ram depth
-#ram_width = input("Enter the desired ram depth (e.g. 256):") #TODO: Uncomment
-ram_width = 256 # TODO: Delete later
+ram_width = input("Enter the desired ram depth (e.g. 256):")
 
 vhdl_generate_tb.returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, nodeSignals, clock_period, ram_depth, ram_width)
 
