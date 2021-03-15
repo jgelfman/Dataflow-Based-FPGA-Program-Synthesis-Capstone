@@ -24,9 +24,24 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
     # Wrapper entity clock + reset
     entityComponent += "    port ( \n" + "        " + sdfName + "_clk : in std_logic; \n" + "        " + sdfName + "_rst : in std_logic; \n" + " \n"
 
-    # Wrapper entity AXI Ports
-    entityComponent +=  "        " + sdfName + "_in_ready : in std_logic; \n" +  "        " + sdfName + "_in_valid : in std_logic; \n" +  "        " + sdfName + "_in_data : in std_logic_vector; \n" + " \n" +  "        " + sdfName + "_out_ready : out std_logic; \n" +  "        " + sdfName + "_out_valid : out std_logic; \n" +  "        " + sdfName + "_out_data : out std_logic_vector \n" + "    ); \n" + "end; \n "
+    # Find how many input and output connections needed
+    inputCtr = 0
+    outputCtr = 0
+    for actor in range(len(actorsList)):
+        # Node name
+        entityName = str(actorsList[actor][1]).split("_")[0]
+        if entityName == "INPUT":
+            inputCtr += 1
+        if entityName == "OUTPUT":
+            outputCtr += 1
+
+    # Wrapper entity AXI Inputs
+    for inpt in range(0,inputCtr):
+        entityComponent +=  "        " + sdfName + "_in" + str(inpt) + "_ready : in std_logic; \n" +  "        " + sdfName + "_in" + str(inpt) + "_valid : in std_logic; \n" +  "        " + sdfName + "_in" + str(inpt) + "_data : in std_logic_vector; \n" + " \n"
     
+    # Wrapper entity AXI Outputs
+    for outpt in range(0,outputCtr):
+        entityComponent += "        " + sdfName + "_out" + str(outpt) + "_ready : out std_logic; \n" +  "        " + sdfName + "_out" + str(outpt) + "_valid : out std_logic; \n" +  "        " + sdfName + "_out" + str(outpt) + "_data : out std_logic_vector \n" + "    ); \n" + "end; \n "
 
 
     # Architecture
@@ -253,22 +268,47 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
             if actName == "INPUT":
                 component_mapping += actName + "_" + str(inputs) + " : " + str(actName) + "_node"
 
+                actID = str(actorsList[act][2])
+                toBuffReady = []
+                toBuffValid = []
+                toBuffData = []
+
                 # Port Map
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "           " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                            " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
+                component_mapping += "         " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                        " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
+
+                # Figure out buffer subsequent exterior signals
+                for sig in range(len(nodeSignals)):
+                    if nodeSignals[sig][1][0] == actID:
+                        sigFromBufName = nodeSignals[sig][2][0].split("_")[1] + "_" + nodeSignals[sig][2][0].split("_")[2]
+
+                for readySig in range(len(node_signals_ready)):
+                    if str(node_signals_ready[readySig][0]).split("_")[0] + "_" + str(node_signals_ready[readySig]).split("_")[1]  == sigFromBufName:
+                        toBuffReady = node_signals_ready[readySig][1]
+                for validSig in range(len(node_signals_valid)):
+                    if str(node_signals_valid[validSig][0]).split("_")[0] + "_" + str(node_signals_valid[validSig]).split("_")[1]  == sigFromBufName:
+                        toBuffValid = node_signals_valid[validSig][1]
+                for dataSig in range(len(node_signals_data)):
+                    if str(node_signals_data[dataSig][0]).split("_")[0] + "_" + str(node_signals_data[dataSig]).split("_")[1]  == sigFromBufName:
+                        toBuffData = node_signals_data[dataSig][1]
+
+                # Connect to correct input
+                inptList = []
+                for inpt in range(0,inputCtr):
+                    inptList.append(inpt)
 
                 # AXI ready
-                component_mapping +=  "                                            " + str(actName) + "_in_ready => " + str(sdfName) + "_in_ready, \n" +  "                                            " + str(actName) + "_out_ready => " + node_signals_ready[act][0] + ", \n\n"
+                component_mapping +=  "                                        " + str(actName) + "_" + str(inptList[act])  + "_in_ready => " + str(sdfName) + "_" + str(inptList[act]) + "_in_ready, \n" +  "                                        " + str(toBuffReady) + "_out_ready => " + str(toBuffReady[0]) + "_out_ready, \n\n"
             
                 # AXI valid
-                component_mapping += "                                            " + str(actName) + "_in_valid => " + str(sdfName) + "_in_valid, \n" + "                                            " + str(actName) + "_out_valid => " + node_signals_valid[act][0] + ", \n\n"
+                component_mapping += "                                        " + str(actName) + "_" + str(inptList[act]) + "in_valid => " + str(sdfName) + "_" + str(inptList[act]) + "_in_valid, \n" + "                                        " + str(toBuffValid) + "_out_valid => " + str(toBuffValid[0]) + "_out_valid, \n\n"
                 
                 # AXI data
-                component_mapping += "                                            " + str(actName) + "_in_opening => " + str(sdfName) + "_in_data, \n"
+                component_mapping += "                                        " + str(actName) + "_" + str(inptList[act]) + "_opening => " + str(sdfName) + "_" + str(inptList[act]) + "_in_data, \n"
 
-                component_mapping += "                                            " + str(actName) + "_out_opening => " + node_signals_data[act][0] + " \n" 
+                component_mapping += "                                        " + str(toBuffData) + "_out_opening => " + str(toBuffData[0]) + "_out_data \n" 
 
                 # Node remainder
                 component_mapping += "); \n\n"
@@ -752,7 +792,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
             '''
         
         except:
-            print("Unkown operator found: " + actName + ". Did you uncomment Unkowns?")
+            #print("Unkown operator found: " + actName + ". Did you uncomment Unkowns?")
             raise
 
 
