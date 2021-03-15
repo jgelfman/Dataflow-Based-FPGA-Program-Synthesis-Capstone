@@ -1,5 +1,7 @@
 # This file creates an instance of an entity node.
 
+import re
+
 def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections, nodeSignals):
 
     wholeWrapper = ""
@@ -102,28 +104,28 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
         # Input ports
         if entityName == "INPUT" and inputCount <= 1:
-            archComponent +=  "\n" + "            input_in_ready : in std_logic; \n" + "            input_out_ready : out std_logic; \n" + "\n" + "            input_in_valid : in std_logic; \n" + "            input_out_valid : out std_logic; \n" + "\n" + "            input_in_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "            input_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
+            archComponent +=  "\n" + "            " + str(entityName) + "_in_ready : in std_logic; \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_in_valid : in std_logic; \n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_in_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
 
             archComponents += archComponent
         
         # Output ports
         elif entityName == "OUTPUT" and outputCount <= 1:
-            archComponent +=  "\n" + "            output_in_ready : in std_logic; \n" + "            output_out_ready : out std_logic; \n" + "\n" + "            output_in_valid : in std_logic; \n" + "            output_out_valid : out std_logic; \n" + "\n" + "            output_in_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "            output_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
+            archComponent +=  "\n" + "            " + str(entityName) + "_in_ready : in std_logic; \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_in_valid : in std_logic; \n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_in_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
 
             archComponents += archComponent
 
         elif entityName == "add" and addCount <= 1: #PLACEHOLDER
-            archComponent +=  "            --Input1 \n" + "            add_in1_ready : in std_logic; \n" + "\n" + "            add_in1_valid : in std_logic; \n" + "\n" + "            add_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            add_in2_ready : in std_logic; \n" + "\n" + "            add_in2_valid : in std_logic; \n" + "\n" + "            add_in2_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            add_out_ready : out std_logic; \n" + "\n" + "            add_out_valid : out std_logic; \n" + "\n" + "            add_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
+            archComponent +=  "            --Input1 \n" + "            " + str(entityName) + "_in1_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            " + str(entityName) + "_in2_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
 
             archComponents += archComponent
 
         elif entityName == "prod" and prodCount <= 1: #PLACEHOLDER
-            archComponent +=  "            --Input1 \n" + "            prod_in1_ready : in std_logic; \n" + "\n" + "            prod_in1_valid : in std_logic; \n" + "\n" + "            prod_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            prod_in2_ready : in std_logic; \n" + "\n" + "            prod_in2_valid : in std_logic; \n" + "\n" + "            prod_in2_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            prod_out_ready : out std_logic; \n" + "\n" + "            prod_out_valid : out std_logic; \n" + "\n" + "            prod_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
+            archComponent +=  "            --Input1 \n" + "            " + str(entityName) + "_in1_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            " + str(entityName) + "_in2_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
 
             archComponents += archComponent
 
         elif entityName == "div" and divCount <= 1: #PLACEHOLDER
-            archComponent +=  "            --Input1 \n" + "            div_in1_ready : in std_logic; \n" + "\n" + "            div_in1_valid : in std_logic; \n" + "\n" + "            div_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            div_in2_ready : in std_logic; \n" + "\n" + "            div_in2_valid : in std_logic; \n" + "\n" + "            div_in2_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            div_out_ready : out std_logic; \n" + "\n" + "            div_out_valid : out std_logic; \n" + "\n" + "            div_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
+            archComponent +=  "            --Input1 \n" + "            " + str(entityName) + "_in1_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            " + str(entityName) + "_in2_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
 
             archComponents += archComponent
 
@@ -155,9 +157,21 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
     # Arch data signals
     archSignals += "\n\n signal "
     for signal in range(len(nodeSignals)):
+        
         # Signal name
-        signalName = str(nodeSignals[signal][0])
-
+        signalName = nodeSignals[signal][0]
+        '''
+        siglName = str(nodeSignals[signal][0])
+        signalName = ""
+        # Fix signal num
+        sigNameSplit = siglName.split("_")
+        if int(sigNameSplit[1]) < 10:
+            newsignalNum = str(00) + str(sigNameSplit[1])
+            signalName += "channel_" + str(newsignalNum) + "_real_vect"
+        else:
+            signalName = str(nodeSignals[signal][0])
+        '''
+    
         # Signal src
         signalSrcName = str(nodeSignals[signal][1][0])
 
@@ -165,10 +179,10 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
         signalDstName = str(nodeSignals[signal][1][1])
 
         # Full signal declaration to buffer
-        signalFullNameToBuffer = signalName + "-FROM-" + signalSrcName + "-TO_BUFFER-DATA"
+        signalFullNameToBuffer = signalName + "oooFROMooo" + signalSrcName + "oooTO_BUFFERoooDATA"
 
         # Full signal declaration from buffer
-        signalFullNameFromBuffer = signalName + "-FROM_BUFFER_TO-" + signalDstName + "-DATA"
+        signalFullNameFromBuffer = signalName + "oooFROM_BUFFER_TOooo" + signalDstName + "oooDATA"
 
         # Make pair for buffer handling
         bothDataSigs = []
@@ -176,12 +190,13 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
         bothDataSigs.append(signalFullNameFromBuffer)
 
         # Add pair to signals list
-        node_signals_data.append(bothDataSigs)
+        node_signals_data.insert(-1, bothDataSigs)
         
         
         # Add to signals component handling commas
         archSignals += signalFullNameToBuffer + ", " + signalFullNameFromBuffer + ", "
     
+
     # Remove separator for data signals
     archSignals = archSignals[:-2]
 
@@ -191,8 +206,21 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
     # Arch ready + valid signals
     archSignals += "signal "
     for signal in range(len(nodeSignals)):
+        
         # Signal name
-        signalName = str(nodeSignals[signal][0])
+        signalName = nodeSignals[signal][0]
+
+        '''
+        siglName = str(nodeSignals[signal][0])
+        signalName = ""
+        # Fix signal num
+        sigNameSplit = siglName.split("_")
+        if int(sigNameSplit[1]) < 10:
+            newsignalNum = str(00) + str(sigNameSplit[1])
+            signalName += "channel_" + str(newsignalNum) + "_real_vect"
+        else:
+            signalName = str(nodeSignals[signal][0])
+        '''
 
         # Signal src
         signalSrcName = str(nodeSignals[signal][1][0])
@@ -205,29 +233,29 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
         bothValidSigs = []
 
         # Full ready signal declaration to buffers
-        signalFullNameToBufferReady = signalName + "-FROM-" + signalSrcName + "-TO_BUFFER-READY"
+        signalFullNameToBufferReady = signalName + "oooFROMooo" + signalSrcName + "oooTO_BUFFERoooREADY"
         bothReadySigs.append(signalFullNameToBufferReady)
 
         # Full ready signal declaration from buffers
-        signalFullNameFromBufferReady = signalName + "-FROM_BUFFER_TO-" + signalDstName + "-READY"
+        signalFullNameFromBufferReady = signalName + "oooFROM_BUFFER_TOooo" + signalDstName + "oooREADY"
         bothReadySigs.append(signalFullNameFromBufferReady)
 
-        node_signals_ready.append(bothReadySigs)
+        node_signals_ready.insert(-1, bothReadySigs)
         
         # Full valid signal declaration to buffers
-        signalFullNameToBufferValid = signalName + "-FROM-" + signalSrcName + "-TO_BUFFER-VALID"
+        signalFullNameToBufferValid = signalName + "oooFROMooo" + signalSrcName + "oooTO_BUFFERoooVALID"
         bothValidSigs.append(signalFullNameToBufferValid)
 
         # Full valid signal declaration from buffers
-        signalFullNameFromBufferValid = signalName + "-FROM_BUFFER_TO-" + signalDstName + "-VALID"
+        signalFullNameFromBufferValid = signalName + "oooFROM_BUFFER_TOooo" + signalDstName + "oooVALID"
         bothValidSigs.append(signalFullNameFromBufferValid)
 
-        node_signals_valid.append(bothValidSigs)
+        node_signals_valid.insert(-1, bothValidSigs)
 
         # Add to signals component handling commas
         archSignals += signalFullNameToBufferReady + ", " + signalFullNameFromBufferReady + ", " + signalFullNameToBufferValid + ", " + signalFullNameFromBufferValid + ", "
     
-    # # Remove separator for ready + valid signals
+    # Remove separator for ready + valid signals
     archSignals = archSignals[:-2]
     
     # Add ready + valid signals remainder
@@ -274,7 +302,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "         " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                        " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
+                component_mapping += "         " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                        " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n"
 
                 # Figure out buffer subsequent exterior signals
                 for sig in range(len(nodeSignals)):
@@ -297,15 +325,15 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                     inptList.append(inpt)
 
                 # AXI ready
-                component_mapping +=  "                                        " + str(actName) + "_in" + str(inptList[act])  + "_ready => " + str(sdfName) + "_" + str(inptList[act]) + "_in_ready, \n" +  "                                        " + str(sdfName) + "_out_ready => " + str(toBuffReady) + ", \n\n"
+                component_mapping +=  "                                        " + str(actName) + "_in" + str(inptList[act])  + "_ready => " + str(sdfName) + "_in" + str(inptList[act]) + "_ready, \n" +  "                                        " + str(actName) + "_out_ready => " + str(toBuffReady) + ", \n\n"
             
                 # AXI valid
-                component_mapping += "                                        " + str(actName) + "_in" + str(inptList[act]) + "_valid => " + str(sdfName) + "_" + str(inptList[act]) + "_in_valid, \n" + "                                        " + str(sdfName) + "_out_valid => " + str(toBuffValid) + ", \n\n"
+                component_mapping += "                                        " + str(actName) + "_in" + str(inptList[act]) + "_valid => " + str(sdfName) + "_in" + str(inptList[act]) + "_valid, \n" + "                                        " + str(actName) + "_out_valid => " + str(toBuffValid) + ", \n\n"
                 
                 # AXI data
-                component_mapping += "                                        " + str(actName) + "_in" + str(inptList[act]) + "_opening => " + str(sdfName) + "_" + str(inptList[act]) + "_in_data, \n"
+                component_mapping += "                                        " + str(actName) + "_in" + str(inptList[act]) + "_opening => " + str(sdfName) + "_in" + str(inptList[act]) + "_data, \n"
 
-                component_mapping += "                                        " + str(sdfName) + "_out_opening => " + str(toBuffData) + " \n" 
+                component_mapping += "                                        " + str(actName) + "_out_opening => " + str(toBuffData) + " \n" 
 
                 # Node remainder
                 component_mapping += "); \n\n"
@@ -324,14 +352,25 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 # Clock + reset
                 buffer_mapping += "buf_clk => " + sdfName + "_clk, \n" + "                                    buf_rst => " + sdfName + "_rst, \n\n"
 
+                # Out of buf signals
+                for readysig in range(len(node_signals_ready)):
+                    if str(node_signals_ready[readysig]).split("_")[1] == toBuffReady.split("_")[1] and str(node_signals_ready[readysig][1]).split("ooo")[-3] == "FROM_BUFFER_TO":
+                        outOfBufReady = node_signals_ready[readysig][1]
+                for validsig in range(len(node_signals_valid)):
+                    if str(node_signals_valid[validsig]).split("_")[1] == toBuffReady.split("_")[1] and str(node_signals_valid[validsig][1]).split("ooo")[-3] == "FROM_BUFFER_TO":
+                        outOfBufValid = node_signals_valid[validsig][1]
+                for datasig in range(len(node_signals_data)):
+                    if str(node_signals_data[datasig]).split("_")[1] == toBuffReady.split("_")[1] and str(node_signals_data[datasig][1]).split("ooo")[-3] == "FROM_BUFFER_TO":
+                        outOfBufData = node_signals_data[datasig][1]
+
                 # AXI ready
-                buffer_mapping +=  "                                    buf_in_ready => " + node_signals_ready[act][0] + ", \n" +  "                                    buf_out_ready => " + node_signals_ready[act][1] + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_ready => " + str(toBuffReady) + ", \n" +  "                                    buf_out_ready => " + outOfBufReady + ", \n\n"
             
                 # AXI valid
-                buffer_mapping +=  "                                    buf_in_valid => " + node_signals_valid[act][0] + ", \n" +  "                                    buf_out_valid => " + node_signals_valid[act][1] + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_valid => " + str(toBuffValid) + ", \n" +  "                                    buf_out_valid => " + outOfBufValid + ", \n\n"
                 
                 # AXI data
-                buffer_mapping +=  "                                    buf_in_data => " + node_signals_data[act][0] + ", \n" +  "                                    buf_out_data => " + node_signals_data[act][1] + " \n"
+                buffer_mapping +=  "                                    buf_in_data => " + str(toBuffData) + ", \n" +  "                                    buf_out_data => " + outOfBufData + " \n"
 
                 # Buffer remainder
                 buffer_mapping += "); \n\n"
@@ -341,7 +380,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 bufCounter += 1
 
                 # Update input count
-                inputs +=1 
+                inputs +=1
 
                 # Add component and buffer mappings to architecture
                 archMappings += component_mapping + buffer_mapping
@@ -355,7 +394,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "           " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                            " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
+                component_mapping += "           " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                            " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n"
 
                 # Figure out predecessor
                 actID = "OUTPUT_0"
@@ -364,15 +403,15 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 fromBuffData = []
 
                 for readysig in range(len(node_signals_ready)):
-                    if node_signals_ready[readysig][1].split("-")[-2] == actID and node_signals_ready[readysig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_ready[readysig][1].split("ooo")[-2] == actID and node_signals_ready[readysig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffReady.append(node_signals_ready[readysig][1])
 
                 for validsig in range(len(node_signals_valid)):
-                    if node_signals_valid[validsig][1].split("-")[-2] == actID and node_signals_valid[validsig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_valid[validsig][1].split("ooo")[-2] == actID and node_signals_valid[validsig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffValid.append(node_signals_valid[validsig][1])
 
                 for datasig in range(len(node_signals_data)):
-                    if node_signals_data[datasig][1].split("-")[-2] == actID and node_signals_data[datasig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_data[datasig][1].split("ooo")[-2] == actID and node_signals_data[datasig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffData.append(node_signals_data[datasig][1])
                 
                 # AXI ready
@@ -382,7 +421,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += "                                            " + str(actName) + "_in_valid => " + str(fromBuffValid[0]) + ", \n" + "                                            " + str(actName) + "_out_valid => " + str(sdfName) + "_out_valid, \n\n"
                 
                 # AXI data
-                component_mapping += "                                            " + str(actName) + "_in_opening => " + str(fromBuffReady[0]) + ", \n"
+                component_mapping += "                                            " + str(actName) + "_in_opening => " + str(fromBuffData[0]) + ", \n"
 
                 component_mapping += "                                            " + str(actName) + "_out_opening => " + str(sdfName) + "_out_data \n" 
 
@@ -405,7 +444,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "           " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                            " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
+                component_mapping += "         " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                    " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n"
 
                 # Figure out predecessor and subsequent exterior signals
                 actID = str(actorsList[act][2])
@@ -419,30 +458,30 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 fromBuffData = []
 
                 for readysig in range(len(node_signals_ready)):
-                    if node_signals_ready[readysig][1].split("-")[-2] == actID and node_signals_ready[readysig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_ready[readysig][1].split("ooo")[-2] == actID and node_signals_ready[readysig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffReady.append(node_signals_ready[readysig][1])
-                    elif node_signals_ready[readysig][0].split("-")[-3] == actID and node_signals_ready[readysig][0].split("-")[-2] == "TO_BUFFER":
+                    elif node_signals_ready[readysig][0].split("ooo")[-3] == actID and node_signals_ready[readysig][0].split("ooo")[-2] == "TO_BUFFER":
                         toBuffReady.append(node_signals_ready[readySig][0])
 
                 for validsig in range(len(node_signals_valid)):
-                    if node_signals_valid[validsig][1].split("-")[-2] == actID and node_signals_valid[validsig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_valid[validsig][1].split("ooo")[-2] == actID and node_signals_valid[validsig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffValid.append(node_signals_valid[validsig][1])
-                    elif node_signals_valid[validsig][0].split("-")[-3] == actID and node_signals_valid[validsig][0].split("-")[-2] == "TO_BUFFER":
+                    elif node_signals_valid[validsig][0].split("ooo")[-3] == actID and node_signals_valid[validsig][0].split("ooo")[-2] == "TO_BUFFER":
                         toBuffValid.append(node_signals_valid[validsig][0])
 
                 for datasig in range(len(node_signals_data)):
-                    if node_signals_data[datasig][1].split("-")[-2] == actID and node_signals_data[datasig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_data[datasig][1].split("ooo")[-2] == actID and node_signals_data[datasig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffData.append(node_signals_data[datasig][1])
-                    elif node_signals_data[datasig][0].split("-")[-3] == actID and node_signals_data[datasig][0].split("-")[-2] == "TO_BUFFER":
+                    elif node_signals_data[datasig][0].split("ooo")[-3] == actID and node_signals_data[datasig][0].split("ooo")[-2] == "TO_BUFFER":
                         toBuffData.append(node_signals_data[datasig][0])
-                
+
                 # Input(s)
                 for sig in range(len(fromBuffReady)):
-                    component_mapping +=  "                                            " + str(actName) + "_in" + str(sig) + "_ready => " + fromBuffReady[sig] + ", \n" + "                                            " + str(actName) + "_in" + str(sig) + "_valid => " + fromBuffValid[sig] + ", \n" + "                                            " + str(actName) + "_in" + str(sig) + "_opening => " + fromBuffData[sig] + ", \n\n"
+                    component_mapping +=  "                                    " + str(actName) + "_in" + str(sig) + "_ready => " + str(fromBuffReady[sig]) + ", \n" + "                                    " + str(actName) + "_in" + str(sig) + "_valid => " + fromBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_in" + str(sig) + "_opening => " + fromBuffData[sig] + ", \n\n"
 
                 # Output(s)
                 for sig in range(len(toBuffReady)):
-                    component_mapping += "                                            " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
+                    component_mapping += "                                    " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
                 
 
                 # Node remainder
@@ -464,29 +503,34 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
 
                 # Figure out buffer subsequent exterior signals
+                sigFromBufReady = ""
+                sigFromBufValid = ""
+                sigFromBufData = ""
+
+
                 for sig in range(len(nodeSignals)):
                     if nodeSignals[sig][1][0] == actID:
                         sigFromBufName = nodeSignals[sig][2][0].split("_")[1] + "_" + nodeSignals[sig][2][0].split("_")[2]
 
                 for readySig in range(len(node_signals_ready)):
                     if str(node_signals_ready[readySig][0]).split("_")[0] + "_" + str(node_signals_ready[readySig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffReady = node_signals_ready[readySig][1]
+                        sigFromBufReady = node_signals_ready[readySig][1]
                 for validSig in range(len(node_signals_valid)):
                     if str(node_signals_valid[validSig][0]).split("_")[0] + "_" + str(node_signals_valid[validSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffValid = node_signals_valid[validSig][1]
+                        sigFromBufValid = node_signals_valid[validSig][1]
                 for dataSig in range(len(node_signals_data)):
                     if str(node_signals_data[dataSig][0]).split("_")[0] + "_" + str(node_signals_data[dataSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffData = node_signals_data[dataSig][1]
+                        sigFromBufData = node_signals_data[dataSig][1]
 
                 
                 # AXI ready
-                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0] + ", \n" +  "                                    buf_out_ready => " + str(fromCurBuffReady) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_ready => " + str(toBuffReady[0]) + ", \n" +  "                                    buf_out_ready => " + str(sigFromBufReady) + ", \n\n"
             
                 # AXI valid
-                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0] + ", \n" +  "                                    buf_out_valid => " + str(fromCurBuffValid) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_valid => " + str(toBuffValid[0]) + ", \n" +  "                                    buf_out_valid => " + str(sigFromBufValid) + ", \n\n"
                 
                 # AXI data
-                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0] + ", \n" +  "                                    buf_out_data => " + str(fromCurBuffData) + " \n"
+                buffer_mapping +=  "                                    buf_in_data => " + str(toBuffData[0]) + ", \n" +  "                                    buf_out_data => " + str(sigFromBufData) + " \n"
 
                 # Buffer remainder
                 buffer_mapping += "); \n\n"
@@ -509,7 +553,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "           " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                            " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
+                component_mapping += "         " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                    " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n"
 
                 # Figure out predecessor and subsequent exterior signals
                 actID = str(actorsList[act][2])
@@ -523,30 +567,30 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 fromBuffData = []
 
                 for readysig in range(len(node_signals_ready)):
-                    if node_signals_ready[readysig][1].split("-")[-2] == actID and node_signals_ready[readysig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_ready[readysig][1].split("ooo")[-2] == actID and node_signals_ready[readysig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffReady.append(node_signals_ready[readysig][1])
-                    elif node_signals_ready[readysig][0].split("-")[-3] == actID and node_signals_ready[readysig][0].split("-")[-2] == "TO_BUFFER":
+                    elif node_signals_ready[readysig][0].split("ooo")[-3] == actID and node_signals_ready[readysig][0].split("ooo")[-2] == "TO_BUFFER":
                         toBuffReady.append(node_signals_ready[readysig][0])
 
                 for validsig in range(len(node_signals_valid)):
-                    if node_signals_valid[validsig][1].split("-")[-2] == actID and node_signals_valid[validsig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_valid[validsig][1].split("ooo")[-2] == actID and node_signals_valid[validsig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffValid.append(node_signals_valid[validsig][1])
-                    elif node_signals_valid[validsig][0].split("-")[-3] == actID and node_signals_valid[validsig][0].split("-")[-2] == "TO_BUFFER":
+                    elif node_signals_valid[validsig][0].split("ooo")[-3] == actID and node_signals_valid[validsig][0].split("ooo")[-2] == "TO_BUFFER":
                         toBuffValid.append(node_signals_valid[validsig][0])
 
                 for datasig in range(len(node_signals_data)):
-                    if node_signals_data[datasig][1].split("-")[-2] == actID and node_signals_data[datasig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_data[datasig][1].split("ooo")[-2] == actID and node_signals_data[datasig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffData.append(node_signals_data[datasig][1])
-                    elif node_signals_data[datasig][0].split("-")[-3] == actID and node_signals_data[datasig][0].split("-")[-2] == "TO_BUFFER":
+                    elif node_signals_data[datasig][0].split("ooo")[-3] == actID and node_signals_data[datasig][0].split("ooo")[-2] == "TO_BUFFER":
                         toBuffData.append(node_signals_data[datasig][0])
                 
                 # Input(s)
                 for sig in range(len(fromBuffReady)):
-                    component_mapping +=  "                                            " + str(actName) + "_in" + str(sig) + "_ready => " + fromBuffReady[sig] + ", \n" + "                                            " + str(actName) + "_in" + str(sig) + "_valid => " + fromBuffValid[sig] + ", \n" + "                                            " + str(actName) + "_in" + str(sig) + "_opening => " + fromBuffData[sig] + ", \n\n"
+                    component_mapping +=  "                                    " + str(actName) + "_in" + str(sig) + "_ready => " + fromBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_in" + str(sig) + "_valid => " + fromBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_in" + str(sig) + "_opening => " + fromBuffData[sig] + ", \n\n"
 
                 # Output(s)
                 for sig in range(len(toBuffReady)):
-                    component_mapping += "                                            " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
+                    component_mapping += "                                    " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
                 
 
                 # Node remainder
@@ -574,23 +618,23 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 for readySig in range(len(node_signals_ready)):
                     if str(node_signals_ready[readySig][0]).split("_")[0] + str(node_signals_ready[readySig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffReady = node_signals_ready[readySig][1]
+                        fromBuffReady = node_signals_ready[readySig][1]
                 for validSig in range(len(node_signals_valid)):
                     if str(node_signals_valid[validSig][0]).split("_")[0] + str(node_signals_valid[validSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffValid = node_signals_valid[validSig][1]
+                        fromBuffValid = node_signals_valid[validSig][1]
                 for dataSig in range(len(node_signals_data)):
                     if str(node_signals_data[dataSig][0]).split("_")[0] + str(node_signals_data[dataSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffData = node_signals_data[dataSig][1]
+                        fromBuffData = node_signals_data[dataSig][1]
 
                 
                 # AXI ready
-                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0] + ", \n" +  "                                    buf_out_ready => " + str(fromCurBuffReady) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0] + ", \n" +  "                                    buf_out_ready => " + str(fromBuffReady) + ", \n\n"
             
                 # AXI valid
-                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0] + ", \n" +  "                                    buf_out_valid => " + str(fromCurBuffValid) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0] + ", \n" +  "                                    buf_out_valid => " + str(fromBuffValid) + ", \n\n"
                 
                 # AXI data
-                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0] + ", \n" +  "                                    buf_out_data => " + str(fromCurBuffData) + " \n"
+                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0] + ", \n" +  "                                    buf_out_data => " + str(fromBuffData) + " \n"
 
                 # Buffer remainder
                 buffer_mapping += "); \n\n"
@@ -613,7 +657,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "           " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                            " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n\n"
+                component_mapping += "         " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                    " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n"
 
                 # Figure out predecessor and subsequent exterior signals
                 actID = str(actorsList[act][2])
@@ -627,30 +671,30 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 fromBuffData = []
 
                 for readysig in range(len(node_signals_ready)):
-                    if node_signals_ready[readysig][1].split("-")[-2] == actID and node_signals_ready[readysig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_ready[readysig][1].split("ooo")[-2] == actID and node_signals_ready[readysig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffReady.append(node_signals_ready[readysig][1])
-                    elif node_signals_ready[readysig][0].split("-")[-3] == actID and node_signals_ready[readysig][0].split("-")[-2] == "TO_BUFFER":
+                    elif node_signals_ready[readysig][0].split("ooo")[-3] == actID and node_signals_ready[readysig][0].split("ooo")[-2] == "TO_BUFFER":
                         toBuffReady.append(node_signals_ready[readysig][0])
 
                 for validsig in range(len(node_signals_valid)):
-                    if node_signals_valid[validsig][1].split("-")[-2] == actID and node_signals_valid[validsig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_valid[validsig][1].split("ooo")[-2] == actID and node_signals_valid[validsig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffValid.append(node_signals_valid[validsig][1])
-                    elif node_signals_valid[validsig][0].split("-")[-3] == actID and node_signals_valid[validsig][0].split("-")[-2] == "TO_BUFFER":
+                    elif node_signals_valid[validsig][0].split("ooo")[-3] == actID and node_signals_valid[validsig][0].split("ooo")[-2] == "TO_BUFFER":
                         toBuffValid.append(node_signals_valid[validsig][0])
 
                 for datasig in range(len(node_signals_data)):
-                    if node_signals_data[datasig][1].split("-")[-2] == actID and node_signals_data[datasig][1].split("-")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_data[datasig][1].split("ooo")[-2] == actID and node_signals_data[datasig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffData.append(node_signals_data[datasig][1])
-                    elif node_signals_data[datasig][0].split("-")[-3] == actID and node_signals_data[datasig][0].split("-")[-2] == "TO_BUFFER":
+                    elif node_signals_data[datasig][0].split("ooo")[-3] == actID and node_signals_data[datasig][0].split("ooo")[-2] == "TO_BUFFER":
                         toBuffData.append(node_signals_data[datasig][0])
                 
                 # Input(s)
                 for sig in range(len(fromBuffReady)):
-                    component_mapping +=  "                                            " + str(actName) + "_in" + str(sig) + "_ready => " + fromBuffReady[sig] + ", \n" + "                                            " + str(actName) + "_in" + str(sig) + "_valid => " + fromBuffValid[sig] + ", \n" + "                                            " + str(actName) + "_in" + str(sig) + "_opening => " + fromBuffData[sig] + ", \n\n"
+                    component_mapping +=  "                                    " + str(actName) + "_in" + str(sig) + "_ready => " + fromBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_in" + str(sig) + "_valid => " + fromBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_in" + str(sig) + "_opening => " + fromBuffData[sig] + ", \n\n"
 
                 # Output(s)
                 for sig in range(len(toBuffReady)):
-                    component_mapping += "                                            " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
+                    component_mapping += "                                    " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
                 
 
                 # Node remainder
@@ -678,23 +722,23 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 for readySig in range(len(node_signals_ready)):
                     if str(node_signals_ready[readySig][0]).split("_")[0] + str(node_signals_ready[readySig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffReady = node_signals_ready[readySig][1]
+                        fromBuffReady = node_signals_ready[readySig][1]
                 for validSig in range(len(node_signals_valid)):
                     if str(node_signals_valid[validSig][0]).split("_")[0] + str(node_signals_valid[validSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffValid = node_signals_valid[validSig][1]
+                        fromBuffValid = node_signals_valid[validSig][1]
                 for dataSig in range(len(node_signals_data)):
                     if str(node_signals_data[dataSig][0]).split("_")[0] + str(node_signals_data[dataSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffData = node_signals_data[dataSig][1]
+                        fromBuffData = node_signals_data[dataSig][1]
 
                 
                 # AXI ready
-                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0] + ", \n" +  "                                    buf_out_ready => " + str(fromCurBuffReady) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0] + ", \n" +  "                                    buf_out_ready => " + str(fromBuffReady) + ", \n\n"
             
                 # AXI valid
-                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0] + ", \n" +  "                                    buf_out_valid => " + str(fromCurBuffValid) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0] + ", \n" +  "                                    buf_out_valid => " + str(fromBuffValid) + ", \n\n"
                 
                 # AXI data
-                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0] + ", \n" +  "                                    buf_out_data => " + str(fromCurBuffData) + " \n"
+                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0] + ", \n" +  "                                    buf_out_data => " + str(fromBuffData) + " \n"
 
                 # Buffer remainder
                 buffer_mapping += "); \n\n"
