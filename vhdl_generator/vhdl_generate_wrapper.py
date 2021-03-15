@@ -411,17 +411,17 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 # Figure out buffer subsequent exterior signals
                 for sig in range(len(nodeSignals)):
                     if nodeSignals[sig][1][0] == actID:
-                        sigFromBufName = nodeSignals[sig][2][0].split("_")[1] + nodeSignals[sig][2][0].split("_")[2]
+                        sigFromBufName = nodeSignals[sig][2][0].split("_")[1] + "_" + nodeSignals[sig][2][0].split("_")[2]
 
                 for readySig in range(len(node_signals_ready)):
-                    if str(node_signals_ready[readySig][0]).split("_")[0] + str(node_signals_ready[readySig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffReady = node_signals_ready[readySig][0]
+                    if str(node_signals_ready[readySig][0]).split("_")[0] + "_" + str(node_signals_ready[readySig]).split("_")[1]  == sigFromBufName:
+                        fromCurBuffReady = node_signals_ready[readySig][1]
                 for validSig in range(len(node_signals_valid)):
-                    if str(node_signals_valid[validSig][0]).split("_")[0] + str(node_signals_valid[validSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffValid = node_signals_valid[validSig][0]
+                    if str(node_signals_valid[validSig][0]).split("_")[0] + "_" + str(node_signals_valid[validSig]).split("_")[1]  == sigFromBufName:
+                        fromCurBuffValid = node_signals_valid[validSig][1]
                 for dataSig in range(len(node_signals_data)):
-                    if str(node_signals_data[dataSig][0]).split("_")[0] + str(node_signals_data[dataSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffData = node_signals_data[dataSig][0]
+                    if str(node_signals_data[dataSig][0]).split("_")[0] + "_" + str(node_signals_data[dataSig]).split("_")[1]  == sigFromBufName:
+                        fromCurBuffData = node_signals_data[dataSig][1]
 
                 
                 # AXI ready
@@ -519,13 +519,13 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 for readySig in range(len(node_signals_ready)):
                     if str(node_signals_ready[readySig][0]).split("_")[0] + str(node_signals_ready[readySig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffReady = node_signals_ready[readySig][0]
+                        fromCurBuffReady = node_signals_ready[readySig][1]
                 for validSig in range(len(node_signals_valid)):
                     if str(node_signals_valid[validSig][0]).split("_")[0] + str(node_signals_valid[validSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffValid = node_signals_valid[validSig][0]
+                        fromCurBuffValid = node_signals_valid[validSig][1]
                 for dataSig in range(len(node_signals_data)):
                     if str(node_signals_data[dataSig][0]).split("_")[0] + str(node_signals_data[dataSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffData = node_signals_data[dataSig][0]
+                        fromCurBuffData = node_signals_data[dataSig][1]
 
                 
                 # AXI ready
@@ -623,13 +623,13 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 for readySig in range(len(node_signals_ready)):
                     if str(node_signals_ready[readySig][0]).split("_")[0] + str(node_signals_ready[readySig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffReady = node_signals_ready[readySig][0]
+                        fromCurBuffReady = node_signals_ready[readySig][1]
                 for validSig in range(len(node_signals_valid)):
                     if str(node_signals_valid[validSig][0]).split("_")[0] + str(node_signals_valid[validSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffValid = node_signals_valid[validSig][0]
+                        fromCurBuffValid = node_signals_valid[validSig][1]
                 for dataSig in range(len(node_signals_data)):
                     if str(node_signals_data[dataSig][0]).split("_")[0] + str(node_signals_data[dataSig]).split("_")[1]  == sigFromBufName:
-                        fromCurBuffData = node_signals_data[dataSig][0]
+                        fromCurBuffData = node_signals_data[dataSig][1]
 
                 
                 # AXI ready

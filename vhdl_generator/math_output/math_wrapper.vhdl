@@ -418,13 +418,13 @@ fifo_8 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_rst => math_rst, 
 
                                     buf_in_ready => channel_2_real_vect__FROM__0x7fbf3be012c0__TO_BUFFER__READY, 
-                                    buf_out_ready => channel_2_real_vect__FROM__0x7fbf3be012c0__TO_BUFFER__READY, 
+                                    buf_out_ready => channel_2_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__READY, 
 
                                     buf_in_valid => channel_2_real_vect__FROM__0x7fbf3be012c0__TO_BUFFER__VALID, 
-                                    buf_out_valid => channel_2_real_vect__FROM__0x7fbf3be012c0__TO_BUFFER__VALID, 
+                                    buf_out_valid => channel_2_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__VALID, 
 
                                     buf_in_data => channel_2_real_vect__FROM__0x7fbf3be012c0__TO_BUFFER__DATA, 
-                                    buf_out_data => channel_2_real_vect__FROM__0x7fbf3be012c0__TO_BUFFER__DATA 
+                                    buf_out_data => channel_2_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__DATA 
 ); 
 
 add_1 : add_node PORT MAP (           add_clk => math_clk, 
@@ -450,13 +450,13 @@ fifo_9 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_rst => math_rst, 
 
                                     buf_in_ready => channel_5_real_vect__FROM__0x7fbf3be017f0__TO_BUFFER__READY, 
-                                    buf_out_ready => channel_5_real_vect__FROM__0x7fbf3be017f0__TO_BUFFER__READY, 
+                                    buf_out_ready => channel_5_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__READY, 
 
                                     buf_in_valid => channel_5_real_vect__FROM__0x7fbf3be017f0__TO_BUFFER__VALID, 
-                                    buf_out_valid => channel_5_real_vect__FROM__0x7fbf3be017f0__TO_BUFFER__VALID, 
+                                    buf_out_valid => channel_5_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__VALID, 
 
                                     buf_in_data => channel_5_real_vect__FROM__0x7fbf3be017f0__TO_BUFFER__DATA, 
-                                    buf_out_data => channel_5_real_vect__FROM__0x7fbf3be017f0__TO_BUFFER__DATA 
+                                    buf_out_data => channel_5_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__DATA 
 ); 
 
 add_2 : add_node PORT MAP (           add_clk => math_clk, 
@@ -482,13 +482,13 @@ fifo_10 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_rst => math_rst, 
 
                                     buf_in_ready => channel_9_real_vect__FROM__0x7fbf3be01d10__TO_BUFFER__READY, 
-                                    buf_out_ready => channel_9_real_vect__FROM__0x7fbf3be01d10__TO_BUFFER__READY, 
+                                    buf_out_ready => channel_9_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__READY, 
 
                                     buf_in_valid => channel_9_real_vect__FROM__0x7fbf3be01d10__TO_BUFFER__VALID, 
-                                    buf_out_valid => channel_9_real_vect__FROM__0x7fbf3be01d10__TO_BUFFER__VALID, 
+                                    buf_out_valid => channel_9_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__VALID, 
 
                                     buf_in_data => channel_9_real_vect__FROM__0x7fbf3be01d10__TO_BUFFER__DATA, 
-                                    buf_out_data => channel_9_real_vect__FROM__0x7fbf3be01d10__TO_BUFFER__DATA 
+                                    buf_out_data => channel_9_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__DATA 
 ); 
 
 add_3 : add_node PORT MAP (           add_clk => math_clk, 
@@ -514,13 +514,13 @@ fifo_11 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_rst => math_rst, 
 
                                     buf_in_ready => channel_12_real_vect__FROM__0x7fbf3be01fd0__TO_BUFFER__READY, 
-                                    buf_out_ready => channel_12_real_vect__FROM__0x7fbf3be01fd0__TO_BUFFER__READY, 
+                                    buf_out_ready => channel_12_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__READY, 
 
                                     buf_in_valid => channel_12_real_vect__FROM__0x7fbf3be01fd0__TO_BUFFER__VALID, 
-                                    buf_out_valid => channel_12_real_vect__FROM__0x7fbf3be01fd0__TO_BUFFER__VALID, 
+                                    buf_out_valid => channel_12_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__VALID, 
 
                                     buf_in_data => channel_12_real_vect__FROM__0x7fbf3be01fd0__TO_BUFFER__DATA, 
-                                    buf_out_data => channel_12_real_vect__FROM__0x7fbf3be01fd0__TO_BUFFER__DATA 
+                                    buf_out_data => channel_12_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__DATA 
 ); 
 
 prod_0 : prod_node PORT MAP (           prod_clk => math_clk, 
