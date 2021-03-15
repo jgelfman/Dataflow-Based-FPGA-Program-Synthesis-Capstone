@@ -5,8 +5,8 @@
 Unkowns = False
 
 import xml.etree.ElementTree as ET
-inputfile = "math.dsp-sig.xml" # TODO: delete later
-#inputfile = "copy1.dsp-sig.xml" # TODO: delete later
+#inputfile = "math.dsp-sig.xml" # TODO: delete later
+inputfile = "copy1.dsp-sig.xml" # TODO: delete later
 #inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
 # e.g. copy1.dsp-sig.xml
 
