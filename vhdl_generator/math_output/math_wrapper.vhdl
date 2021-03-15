@@ -47,6 +47,7 @@ entity math is
         math_out0_ready : out std_logic; 
         math_out0_valid : out std_logic; 
         math_out0_data : out std_logic_vector 
+ 
     ); 
 end; 
  
@@ -553,17 +554,17 @@ fifo_11 : axi_fifo GENERIC MAP       (math_ram_width,
 
 prod_0 : prod_node PORT MAP (         math_clk => prod_clk, 
                                     math_rst => prod_rst, 
-                                    prod_in0_ready => channel_2_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooREADY, 
-                                    prod_in0_valid => channel_2_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooVALID, 
-                                    prod_in0_opening => channel_2_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooDATA, 
+                                    prod_in_ready => channel_2_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooREADY, 
+                                    prod_in_valid => channel_2_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooVALID, 
+                                    prod_in_opening => channel_2_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooDATA, 
 
-                                    prod_in1_ready => channel_5_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooREADY, 
-                                    prod_in1_valid => channel_5_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooVALID, 
-                                    prod_in1_opening => channel_5_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooDATA, 
+                                    prod_in_ready => channel_5_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooREADY, 
+                                    prod_in_valid => channel_5_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooVALID, 
+                                    prod_in_opening => channel_5_real_vectoooFROM_BUFFER_TOooo0x7fbf3be02710oooDATA, 
 
-                                    prod_out0_ready => channel_6_real_vectoooFROMooo0x7fbf3be02710oooTO_BUFFERoooREADY, 
-                                    prod_out0_valid => channel_6_real_vectoooFROMooo0x7fbf3be02710oooTO_BUFFERoooVALID, 
-                                    prod_out0_opening => channel_6_real_vectoooFROMooo0x7fbf3be02710oooTO_BUFFERoooDATA 
+                                    prod_out_ready => channel_6_real_vectoooFROMooo0x7fbf3be02710oooTO_BUFFERoooREADY, 
+                                    prod_out_valid => channel_6_real_vectoooFROMooo0x7fbf3be02710oooTO_BUFFERoooVALID, 
+                                    prod_out_opening => channel_6_real_vectoooFROMooo0x7fbf3be02710oooTO_BUFFERoooDATA 
 ); 
 
 fifo_12 : axi_fifo GENERIC MAP       (math_ram_width, 
@@ -584,17 +585,17 @@ fifo_12 : axi_fifo GENERIC MAP       (math_ram_width,
 
 prod_1 : prod_node PORT MAP (         math_clk => prod_clk, 
                                     math_rst => prod_rst, 
-                                    prod_in0_ready => channel_12_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooREADY, 
-                                    prod_in0_valid => channel_12_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooVALID, 
-                                    prod_in0_opening => channel_12_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooDATA, 
+                                    prod_in_ready => channel_12_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooREADY, 
+                                    prod_in_valid => channel_12_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooVALID, 
+                                    prod_in_opening => channel_12_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooDATA, 
 
-                                    prod_in1_ready => channel_9_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooREADY, 
-                                    prod_in1_valid => channel_9_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooVALID, 
-                                    prod_in1_opening => channel_9_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooDATA, 
+                                    prod_in_ready => channel_9_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooREADY, 
+                                    prod_in_valid => channel_9_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooVALID, 
+                                    prod_in_opening => channel_9_real_vectoooFROM_BUFFER_TOooo0x7fbf3be029a0oooDATA, 
 
-                                    prod_out0_ready => channel_13_real_vectoooFROMooo0x7fbf3be029a0oooTO_BUFFERoooREADY, 
-                                    prod_out0_valid => channel_13_real_vectoooFROMooo0x7fbf3be029a0oooTO_BUFFERoooVALID, 
-                                    prod_out0_opening => channel_13_real_vectoooFROMooo0x7fbf3be029a0oooTO_BUFFERoooDATA 
+                                    prod_out_ready => channel_13_real_vectoooFROMooo0x7fbf3be029a0oooTO_BUFFERoooREADY, 
+                                    prod_out_valid => channel_13_real_vectoooFROMooo0x7fbf3be029a0oooTO_BUFFERoooVALID, 
+                                    prod_out_opening => channel_13_real_vectoooFROMooo0x7fbf3be029a0oooTO_BUFFERoooDATA 
 ); 
 
 fifo_13 : axi_fifo GENERIC MAP       (math_ram_width, 
@@ -647,13 +648,13 @@ fifo_14 : axi_fifo GENERIC MAP       (math_ram_width,
 OUTPUT_0 : OUTPUT_node PORT MAP (           OUTPUT_clk => math_clk, 
                                             OUTPUT_rst => math_rst, 
                                             OUTPUT_in_ready => channel_14_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooREADY, 
-                                            OUTPUT_out_ready => math_out_ready, 
+                                            OUTPUT_out_ready => math_out0_ready, 
 
                                             OUTPUT_in_valid => channel_14_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooVALID, 
-                                            OUTPUT_out_valid => math_out_valid, 
+                                            OUTPUT_out_valid => math_out0_valid, 
 
                                             OUTPUT_in_opening => channel_14_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooDATA, 
-                                            OUTPUT_out_opening => math_out_data 
+                                            OUTPUT_out_opening => math_out0_data 
 ); 
 
 

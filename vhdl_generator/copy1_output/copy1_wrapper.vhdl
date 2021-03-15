@@ -19,6 +19,7 @@ entity copy1 is
         copy1_out0_ready : out std_logic; 
         copy1_out0_valid : out std_logic; 
         copy1_out0_data : out std_logic_vector 
+ 
     ); 
 end; 
  
@@ -116,13 +117,13 @@ fifo_0 : axi_fifo GENERIC MAP       (copy1_ram_width,
 OUTPUT_0 : OUTPUT_node PORT MAP (           OUTPUT_clk => copy1_clk, 
                                             OUTPUT_rst => copy1_rst, 
                                             OUTPUT_in_ready => channel_0_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooREADY, 
-                                            OUTPUT_out_ready => copy1_out_ready, 
+                                            OUTPUT_out_ready => copy1_out0_ready, 
 
                                             OUTPUT_in_valid => channel_0_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooVALID, 
-                                            OUTPUT_out_valid => copy1_out_valid, 
+                                            OUTPUT_out_valid => copy1_out0_valid, 
 
                                             OUTPUT_in_opening => channel_0_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooDATA, 
-                                            OUTPUT_out_opening => copy1_out_data 
+                                            OUTPUT_out_opening => copy1_out0_data 
 ); 
 
 

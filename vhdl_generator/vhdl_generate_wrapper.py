@@ -40,7 +40,9 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
     
     # Wrapper entity AXI Outputs
     for outpt in range(0,outputCtr):
-        entityComponent += "        " + sdfName + "_out" + str(outpt) + "_ready : out std_logic; \n" +  "        " + sdfName + "_out" + str(outpt) + "_valid : out std_logic; \n" +  "        " + sdfName + "_out" + str(outpt) + "_data : out std_logic_vector \n" + "    ); \n" + "end; \n "
+        entityComponent += "        " + sdfName + "_out" + str(outpt) + "_ready : out std_logic; \n" +  "        " + sdfName + "_out" + str(outpt) + "_valid : out std_logic; \n" +  "        " + sdfName + "_out" + str(outpt) + "_data : out std_logic_vector \n" + " \n"
+        
+    entityComponent += "    ); \n" + "end; \n "
 
 
     # Architecture
@@ -160,17 +162,6 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
         
         # Signal name
         signalName = nodeSignals[signal][0]
-        '''
-        siglName = str(nodeSignals[signal][0])
-        signalName = ""
-        # Fix signal num
-        sigNameSplit = siglName.split("_")
-        if int(sigNameSplit[1]) < 10:
-            newsignalNum = str(00) + str(sigNameSplit[1])
-            signalName += "channel_" + str(newsignalNum) + "_real_vect"
-        else:
-            signalName = str(nodeSignals[signal][0])
-        '''
     
         # Signal src
         signalSrcName = str(nodeSignals[signal][1][0])
@@ -397,7 +388,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += "           " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                            " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n"
 
                 # Figure out predecessor
-                actID = "OUTPUT_0"
+                actID = str(actorsList[act][2])
                 fromBuffReady = []
                 fromBuffValid = []
                 fromBuffData = []
@@ -413,19 +404,23 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 for datasig in range(len(node_signals_data)):
                     if node_signals_data[datasig][1].split("ooo")[-2] == actID and node_signals_data[datasig][1].split("ooo")[-3] == "FROM_BUFFER_TO":
                         fromBuffData.append(node_signals_data[datasig][1])
-                
+
+                # Connect to correct output
+                whichOutput = 0
+
                 # AXI ready
-                component_mapping +=  "                                            " + str(actName) + "_in_ready => " + str(fromBuffReady[0]) + ", \n" +  "                                            " + str(actName) + "_out_ready => " + str(sdfName) + "_out_ready, \n\n"
+                component_mapping +=  "                                            " + str(actName) + "_in_ready => " + str(fromBuffReady[0]) + ", \n" +  "                                            " + str(actName) + "_out_ready => " + str(sdfName) + "_out" + str(whichOutput) + "_ready, \n\n"
             
                 # AXI valid
-                component_mapping += "                                            " + str(actName) + "_in_valid => " + str(fromBuffValid[0]) + ", \n" + "                                            " + str(actName) + "_out_valid => " + str(sdfName) + "_out_valid, \n\n"
+                component_mapping += "                                            " + str(actName) + "_in_valid => " + str(fromBuffValid[0]) + ", \n" + "                                            " + str(actName) + "_out_valid => " + str(sdfName) + "_out" + str(whichOutput) + "_valid, \n\n"
                 
                 # AXI data
                 component_mapping += "                                            " + str(actName) + "_in_opening => " + str(fromBuffData[0]) + ", \n"
 
-                component_mapping += "                                            " + str(actName) + "_out_opening => " + str(sdfName) + "_out_data \n" 
+                component_mapping += "                                            " + str(actName) + "_out_opening => " + str(sdfName) + "_out" + str(whichOutput) + "_data \n" 
 
-                # Update input count
+                # Update output count
+                whichOutput += 1
                 outputs +=1 
 
                 # Node remainder
@@ -586,11 +581,11 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 
                 # Input(s)
                 for sig in range(len(fromBuffReady)):
-                    component_mapping +=  "                                    " + str(actName) + "_in" + str(sig) + "_ready => " + fromBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_in" + str(sig) + "_valid => " + fromBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_in" + str(sig) + "_opening => " + fromBuffData[sig] + ", \n\n"
+                    component_mapping +=  "                                    " + str(actName) + "_in_ready => " + fromBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_in_valid => " + fromBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_in_opening => " + fromBuffData[sig] + ", \n\n"
 
                 # Output(s)
                 for sig in range(len(toBuffReady)):
-                    component_mapping += "                                    " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
+                    component_mapping += "                                    " + str(actName) + "_out_ready => " + toBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_out_valid => " + toBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_out_opening => " + toBuffData[sig] + " \n" 
                 
 
                 # Node remainder
