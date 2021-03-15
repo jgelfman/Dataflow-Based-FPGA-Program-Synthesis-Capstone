@@ -191,8 +191,8 @@ signal channel_0_real_vect__FROM__0x7fbf3be00080__TO_BUFFER__READY, channel_0_re
 
 begin 
 
-INPUT_0 : INPUT_node PORT MAP (         math_clk => INPUT_clk, 
-                                        math_rst => INPUT_rst, 
+INPUT_0 : INPUT_node PORT MAP (         INPUT_clk => math_clk, 
+                                        INPUT_rst => math_rst, 
 
                                         INPUT_0_in_ready => math_0_in_ready, 
                                         channel_0_real_vect__FROM_BUFFER_TO__0x7fbf3be012c0__READY_out_ready => c_out_ready, 
@@ -220,8 +220,8 @@ fifo_0 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_0_real_vect__FROM_BUFFER_TO__0x7fbf3be012c0__DATA 
 ); 
 
-INPUT_1 : INPUT_node PORT MAP (         math_clk => INPUT_clk, 
-                                        math_rst => INPUT_rst, 
+INPUT_1 : INPUT_node PORT MAP (         INPUT_clk => math_clk, 
+                                        INPUT_rst => math_rst, 
 
                                         INPUT_1_in_ready => math_1_in_ready, 
                                         channel_1_real_vect__FROM_BUFFER_TO__0x7fbf3be012c0__READY_out_ready => c_out_ready, 
@@ -249,8 +249,8 @@ fifo_1 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_10_real_vect__FROM_BUFFER_TO__0x7fbf3be01fd0__DATA 
 ); 
 
-INPUT_2 : INPUT_node PORT MAP (         math_clk => INPUT_clk, 
-                                        math_rst => INPUT_rst, 
+INPUT_2 : INPUT_node PORT MAP (         INPUT_clk => math_clk, 
+                                        INPUT_rst => math_rst, 
 
                                         INPUT_2_in_ready => math_2_in_ready, 
                                         channel_3_real_vect__FROM_BUFFER_TO__0x7fbf3be017f0__READY_out_ready => c_out_ready, 
@@ -278,8 +278,8 @@ fifo_2 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_11_real_vect__FROM_BUFFER_TO__0x7fbf3be01fd0__DATA 
 ); 
 
-INPUT_3 : INPUT_node PORT MAP (         math_clk => INPUT_clk, 
-                                        math_rst => INPUT_rst, 
+INPUT_3 : INPUT_node PORT MAP (         INPUT_clk => math_clk, 
+                                        INPUT_rst => math_rst, 
 
                                         INPUT_3_in_ready => math_3_in_ready, 
                                         channel_4_real_vect__FROM_BUFFER_TO__0x7fbf3be017f0__READY_out_ready => c_out_ready, 
@@ -307,8 +307,8 @@ fifo_3 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_12_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__DATA 
 ); 
 
-INPUT_4 : INPUT_node PORT MAP (         math_clk => INPUT_clk, 
-                                        math_rst => INPUT_rst, 
+INPUT_4 : INPUT_node PORT MAP (         INPUT_clk => math_clk, 
+                                        INPUT_rst => math_rst, 
 
                                         INPUT_4_in_ready => math_4_in_ready, 
                                         channel_7_real_vect__FROM_BUFFER_TO__0x7fbf3be01d10__READY_out_ready => c_out_ready, 
@@ -336,8 +336,8 @@ fifo_4 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_13_real_vect__FROM_BUFFER_TO__0x7fbf3be02d20__DATA 
 ); 
 
-INPUT_5 : INPUT_node PORT MAP (         math_clk => INPUT_clk, 
-                                        math_rst => INPUT_rst, 
+INPUT_5 : INPUT_node PORT MAP (         INPUT_clk => math_clk, 
+                                        INPUT_rst => math_rst, 
 
                                         INPUT_5_in_ready => math_5_in_ready, 
                                         channel_8_real_vect__FROM_BUFFER_TO__0x7fbf3be01d10__READY_out_ready => c_out_ready, 
@@ -365,8 +365,8 @@ fifo_5 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_14_real_vect__FROM_BUFFER_TO__OUTPUT_0__DATA 
 ); 
 
-INPUT_6 : INPUT_node PORT MAP (         math_clk => INPUT_clk, 
-                                        math_rst => INPUT_rst, 
+INPUT_6 : INPUT_node PORT MAP (         INPUT_clk => math_clk, 
+                                        INPUT_rst => math_rst, 
 
                                         INPUT_6_in_ready => math_6_in_ready, 
                                         channel_10_real_vect__FROM_BUFFER_TO__0x7fbf3be01fd0__READY_out_ready => c_out_ready, 
@@ -394,8 +394,8 @@ fifo_6 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_1_real_vect__FROM_BUFFER_TO__0x7fbf3be012c0__DATA 
 ); 
 
-INPUT_7 : INPUT_node PORT MAP (         math_clk => INPUT_clk, 
-                                        math_rst => INPUT_rst, 
+INPUT_7 : INPUT_node PORT MAP (         INPUT_clk => math_clk, 
+                                        INPUT_rst => math_rst, 
 
                                         INPUT_7_in_ready => math_7_in_ready, 
                                         channel_11_real_vect__FROM_BUFFER_TO__0x7fbf3be01fd0__READY_out_ready => c_out_ready, 
@@ -423,8 +423,8 @@ fifo_7 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_2_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__DATA 
 ); 
 
-add_0 : add_node PORT MAP (           add_clk => math_clk, 
-                                            add_rst => math_rst, 
+add_0 : add_node PORT MAP (           math_clk => add_clk, 
+                                            math_rst => add_rst, 
 
                                             add_in0_ready => channel_0_real_vect__FROM_BUFFER_TO__0x7fbf3be012c0__READY, 
                                             add_in0_valid => channel_0_real_vect__FROM_BUFFER_TO__0x7fbf3be012c0__VALID, 
@@ -455,8 +455,8 @@ fifo_8 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_2_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__DATA 
 ); 
 
-add_1 : add_node PORT MAP (           add_clk => math_clk, 
-                                            add_rst => math_rst, 
+add_1 : add_node PORT MAP (           math_clk => add_clk, 
+                                            math_rst => add_rst, 
 
                                             add_in0_ready => channel_3_real_vect__FROM_BUFFER_TO__0x7fbf3be017f0__READY, 
                                             add_in0_valid => channel_3_real_vect__FROM_BUFFER_TO__0x7fbf3be017f0__VALID, 
@@ -487,8 +487,8 @@ fifo_9 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_5_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__DATA 
 ); 
 
-add_2 : add_node PORT MAP (           add_clk => math_clk, 
-                                            add_rst => math_rst, 
+add_2 : add_node PORT MAP (           math_clk => add_clk, 
+                                            math_rst => add_rst, 
 
                                             add_in0_ready => channel_7_real_vect__FROM_BUFFER_TO__0x7fbf3be01d10__READY, 
                                             add_in0_valid => channel_7_real_vect__FROM_BUFFER_TO__0x7fbf3be01d10__VALID, 
@@ -519,8 +519,8 @@ fifo_10 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_9_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__DATA 
 ); 
 
-add_3 : add_node PORT MAP (           add_clk => math_clk, 
-                                            add_rst => math_rst, 
+add_3 : add_node PORT MAP (           math_clk => add_clk, 
+                                            math_rst => add_rst, 
 
                                             add_in0_ready => channel_10_real_vect__FROM_BUFFER_TO__0x7fbf3be01fd0__READY, 
                                             add_in0_valid => channel_10_real_vect__FROM_BUFFER_TO__0x7fbf3be01fd0__VALID, 
@@ -551,8 +551,8 @@ fifo_11 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_12_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__DATA 
 ); 
 
-prod_0 : prod_node PORT MAP (           prod_clk => math_clk, 
-                                            prod_rst => math_rst, 
+prod_0 : prod_node PORT MAP (           math_clk => prod_clk, 
+                                            math_rst => prod_rst, 
 
                                             prod_in0_ready => channel_2_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__READY, 
                                             prod_in0_valid => channel_2_real_vect__FROM_BUFFER_TO__0x7fbf3be02710__VALID, 
@@ -583,8 +583,8 @@ fifo_12 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_6_real_vect__FROM_BUFFER_TO__0x7fbf3be02d20__DATA 
 ); 
 
-prod_1 : prod_node PORT MAP (           prod_clk => math_clk, 
-                                            prod_rst => math_rst, 
+prod_1 : prod_node PORT MAP (           math_clk => prod_clk, 
+                                            math_rst => prod_rst, 
 
                                             prod_in0_ready => channel_12_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__READY, 
                                             prod_in0_valid => channel_12_real_vect__FROM_BUFFER_TO__0x7fbf3be029a0__VALID, 
@@ -615,8 +615,8 @@ fifo_13 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_13_real_vect__FROM_BUFFER_TO__0x7fbf3be02d20__DATA 
 ); 
 
-div_0 : div_node PORT MAP (           div_clk => math_clk, 
-                                            div_rst => math_rst, 
+div_0 : div_node PORT MAP (           math_clk => div_clk, 
+                                            math_rst => div_rst, 
 
                                             div_in0_ready => channel_13_real_vect__FROM_BUFFER_TO__0x7fbf3be02d20__READY, 
                                             div_in0_valid => channel_13_real_vect__FROM_BUFFER_TO__0x7fbf3be02d20__VALID, 
@@ -647,8 +647,8 @@ fifo_14 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_14_real_vect__FROM_BUFFER_TO__OUTPUT_0__DATA 
 ); 
 
-OUTPUT_0 : OUTPUT_node PORT MAP (           math_clk => OUTPUT_clk, 
-                                            math_rst => OUTPUT_rst, 
+OUTPUT_0 : OUTPUT_node PORT MAP (           OUTPUT_clk => math_clk, 
+                                            OUTPUT_rst => math_rst, 
 
                                             OUTPUT_in_ready => channel_14_real_vect__FROM_BUFFER_TO__OUTPUT_0__READY, 
                                             OUTPUT_out_ready => math_out_ready, 

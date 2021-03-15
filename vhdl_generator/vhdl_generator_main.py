@@ -144,7 +144,7 @@ vhdl_generate_wrapper.returnWrapper(sdfName, sdfArch, outputName, actorsList, in
 
 
 # Create testbench connecting entities
-import vhdl_generate_TB
+import vhdl_generate_tb
 
 # Ask user for clock_period
 #clock_period = input("Enter the desired clock period time in ns (e.g. 10):") #TODO: Uncomment
@@ -158,7 +158,7 @@ ram_depth = 16 # TODO: Delete later
 #ram_width = input("Enter the desired ram depth (e.g. 256):") #TODO: Uncomment
 ram_width = 256 # TODO: Delete later
 
-vhdl_generate_TB.returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, nodeSignals, clock_period, ram_depth, ram_width)
+vhdl_generate_tb.returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, nodeSignals, clock_period, ram_depth, ram_width)
 
 
 
