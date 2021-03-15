@@ -79,8 +79,8 @@ architecture copy1_arch of copy1 is
         ); end component;
 
 
- signal channel_0_real_vect__FROM__0x7f5f30004250__TO_BUFFER__DATA, channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__DATA : std_logic_vector(copy1_ram_width - 1 downto 0); 
-signal channel_0_real_vect__FROM__0x7f5f30004250__TO_BUFFER__READY, channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__READY, channel_0_real_vect__FROM__0x7f5f30004250__TO_BUFFER__VALID, channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__VALID : std_logic; 
+ signal channel_0_real_vect-FROM-0x7f5f30004250-TO_BUFFER-DATA, channel_0_real_vect-FROM_BUFFER_TO-OUTPUT_0-DATA : std_logic_vector(copy1_ram_width - 1 downto 0); 
+signal channel_0_real_vect-FROM-0x7f5f30004250-TO_BUFFER-READY, channel_0_real_vect-FROM_BUFFER_TO-OUTPUT_0-READY, channel_0_real_vect-FROM-0x7f5f30004250-TO_BUFFER-VALID, channel_0_real_vect-FROM_BUFFER_TO-OUTPUT_0-VALID : std_logic; 
 
 
 begin 
@@ -88,14 +88,14 @@ begin
 INPUT_0 : INPUT_node PORT MAP (         INPUT_clk => copy1_clk, 
                                         INPUT_rst => copy1_rst, 
 
-                                        INPUT_0_in_ready => copy1_0_in_ready, 
-                                        channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__READY_out_ready => c_out_ready, 
+                                        INPUT_in0_ready => copy1_0_in_ready, 
+                                        copy1_out_ready => channel_0_real_vect-FROM-0x7f5f30004250-TO_BUFFER-READY, 
 
-                                        INPUT_0in_valid => copy1_0_in_valid, 
-                                        channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__VALID_out_valid => c_out_valid, 
+                                        INPUT_in0_valid => copy1_0_in_valid, 
+                                        copy1_out_valid => channel_0_real_vect-FROM-0x7f5f30004250-TO_BUFFER-VALID, 
 
-                                        INPUT_0_opening => copy1_0_in_data, 
-                                        channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__DATA_out_opening => c_out_data 
+                                        INPUT_in0_opening => copy1_0_in_data, 
+                                        copy1_out_opening => channel_0_real_vect-FROM-0x7f5f30004250-TO_BUFFER-DATA 
 ); 
 
 fifo_0 : axi_fifo GENERIC MAP       (copy1_ram_width, 
@@ -104,26 +104,26 @@ fifo_0 : axi_fifo GENERIC MAP       (copy1_ram_width,
                     PORT MAP        (buf_clk => copy1_clk, 
                                     buf_rst => copy1_rst, 
 
-                                    buf_in_ready => channel_0_real_vect__FROM__0x7f5f30004250__TO_BUFFER__READY, 
-                                    buf_out_ready => channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__READY, 
+                                    buf_in_ready => channel_0_real_vect-FROM-0x7f5f30004250-TO_BUFFER-READY, 
+                                    buf_out_ready => channel_0_real_vect-FROM_BUFFER_TO-OUTPUT_0-READY, 
 
-                                    buf_in_valid => channel_0_real_vect__FROM__0x7f5f30004250__TO_BUFFER__VALID, 
-                                    buf_out_valid => channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__VALID, 
+                                    buf_in_valid => channel_0_real_vect-FROM-0x7f5f30004250-TO_BUFFER-VALID, 
+                                    buf_out_valid => channel_0_real_vect-FROM_BUFFER_TO-OUTPUT_0-VALID, 
 
-                                    buf_in_data => channel_0_real_vect__FROM__0x7f5f30004250__TO_BUFFER__DATA, 
-                                    buf_out_data => channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__DATA 
+                                    buf_in_data => channel_0_real_vect-FROM-0x7f5f30004250-TO_BUFFER-DATA, 
+                                    buf_out_data => channel_0_real_vect-FROM_BUFFER_TO-OUTPUT_0-DATA 
 ); 
 
 OUTPUT_0 : OUTPUT_node PORT MAP (           OUTPUT_clk => copy1_clk, 
                                             OUTPUT_rst => copy1_rst, 
 
-                                            OUTPUT_in_ready => channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__READY, 
+                                            OUTPUT_in_ready => channel_0_real_vect-FROM_BUFFER_TO-OUTPUT_0-READY, 
                                             OUTPUT_out_ready => copy1_out_ready, 
 
-                                            OUTPUT_in_valid => channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__VALID, 
+                                            OUTPUT_in_valid => channel_0_real_vect-FROM_BUFFER_TO-OUTPUT_0-VALID, 
                                             OUTPUT_out_valid => copy1_out_valid, 
 
-                                            OUTPUT_in_opening => channel_0_real_vect__FROM_BUFFER_TO__OUTPUT_0__READY, 
+                                            OUTPUT_in_opening => channel_0_real_vect-FROM_BUFFER_TO-OUTPUT_0-READY, 
                                             OUTPUT_out_opening => copy1_out_data 
 ); 
 
