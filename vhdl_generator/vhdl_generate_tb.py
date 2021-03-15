@@ -57,11 +57,11 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
 
     # TB entity AXI Input signals
     for inpt in range(0,inputCtr):
-        TBarchSignals +=  "  signal " + sdfName + "_in" + str(inpt) + "_ready : in std_logic; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_valid : std_logic := '0'; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0);  \n" + " \n"
+        TBarchSignals +=  "  signal " + sdfName + "_in" + str(inpt) + "_ready : std_logic; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_valid : std_logic := '0'; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0);  \n" + " \n"
     
     # TB entity AXI Output signals
     for outpt in range(0,outputCtr):
-        TBarchSignals += "  signal " + str(sdfName) + "_out" + str(outpt) + "_ready : std_logic := '0'; \n" +  "  signal " + sdfName + "_out" + str(outpt) + "_valid : std_logic; \n" +  "  signal " + str(sdfName) + "_out" + str(outpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0); \n" + "end; \n "
+        TBarchSignals += "  signal " + str(sdfName) + "_out" + str(outpt) + "_ready : std_logic := '0'; \n" +  "  signal " + sdfName + "_out" + str(outpt) + "_valid : std_logic; \n" +  "  signal " + str(sdfName) + "_out" + str(outpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0); \n\n "
 
     TBArch += TBarchConstants + TBarchSignals + "\n\n"
 
@@ -87,7 +87,7 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
     TBcomponentMapping = "  clk <= not clk after clock_period / 2; \n\n"
 
     # Wrapper component mapping
-    TBcomponentMapping += "  " + str(sdfName) + " : " + str(sdfName) + " GENERIC MAP (" + str(sdfName) + "_ram_width, \n" + "                          " + str(sdfName) + "_ram_depth \n" + "                          ) \n" + "              PORT MAP    ( \n" + "                          " + str(sdfName) + "_clk => clk, \n" + "                          " + str(sdfName) + "_rst => rst, \n" + " \n"
+    TBcomponentMapping += "  " + str(sdfName) + "_wrapper : " + str(sdfName) + " GENERIC MAP (" + str(sdfName) + "_ram_width, \n" + "                          " + str(sdfName) + "_ram_depth \n" + "                          ) \n" + "              PORT MAP    ( \n" + "                          " + str(sdfName) + "_clk => clk, \n" + "                          " + str(sdfName) + "_rst => rst, \n" + " \n"
 
     # TB entity AXI input mapping
     for inpt in range(0,inputCtr):
@@ -95,7 +95,7 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
     
     # TB entity AXI input mapping
     for outpt in range(0,outputCtr):
-        TBcomponentMapping += "                          " + str(sdfName) + "_out" + str(outpt) + "_ready => " + str(sdfName) + "_out_" + str(outpt) + "ready, \n" + "                          " + str(sdfName) + "_out" + str(outpt) + "_valid => " + str(sdfName) + "_out" + str(outpt) + "_valid, \n" + "                          " + str(sdfName) + "_out" + str(outpt) + "_data => " + str(sdfName) + "_out" + str(outpt) + "_data \n"
+        TBcomponentMapping += "                          " + str(sdfName) + "_out" + str(outpt) + "_ready => " + str(sdfName) + "_out" + str(outpt) + "_ready, \n" + "                          " + str(sdfName) + "_out" + str(outpt) + "_valid => " + str(sdfName) + "_out" + str(outpt) + "_valid, \n" + "                          " + str(sdfName) + "_out" + str(outpt) + "_data => " + str(sdfName) + "_out" + str(outpt) + "_data \n"
     
     #Remainder of component mappings
     TBcomponentMapping +=  "                          ); \n\n"
