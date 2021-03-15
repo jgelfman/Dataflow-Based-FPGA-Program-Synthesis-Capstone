@@ -387,7 +387,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 # Output(s)
                 for sig in range(len(toBuffReady)):
-                    component_mapping += "                                            " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig][0] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig][0] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig][0] + " \n" 
+                    component_mapping += "                                            " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
                 
 
                 # Node remainder
@@ -425,13 +425,13 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 
                 # AXI ready
-                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0][0] + ", \n" +  "                                    buf_out_ready => " + str(fromCurBuffReady) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0] + ", \n" +  "                                    buf_out_ready => " + str(fromCurBuffReady) + ", \n\n"
             
                 # AXI valid
-                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0][0] + ", \n" +  "                                    buf_out_valid => " + str(fromCurBuffValid) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0] + ", \n" +  "                                    buf_out_valid => " + str(fromCurBuffValid) + ", \n\n"
                 
                 # AXI data
-                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0][0] + ", \n" +  "                                    buf_out_data => " + str(fromCurBuffData) + " \n"
+                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0] + ", \n" +  "                                    buf_out_data => " + str(fromCurBuffData) + " \n"
 
                 # Buffer remainder
                 buffer_mapping += "); \n\n"
@@ -491,7 +491,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 # Output(s)
                 for sig in range(len(toBuffReady)):
-                    component_mapping += "                                            " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig][0] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig][0] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig][0] + " \n" 
+                    component_mapping += "                                            " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
                 
 
                 # Node remainder
@@ -529,13 +529,13 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 
                 # AXI ready
-                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0][0] + ", \n" +  "                                    buf_out_ready => " + str(fromCurBuffReady) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0] + ", \n" +  "                                    buf_out_ready => " + str(fromCurBuffReady) + ", \n\n"
             
                 # AXI valid
-                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0][0] + ", \n" +  "                                    buf_out_valid => " + str(fromCurBuffValid) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0] + ", \n" +  "                                    buf_out_valid => " + str(fromCurBuffValid) + ", \n\n"
                 
                 # AXI data
-                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0][0] + ", \n" +  "                                    buf_out_data => " + str(fromCurBuffData) + " \n"
+                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0] + ", \n" +  "                                    buf_out_data => " + str(fromCurBuffData) + " \n"
 
                 # Buffer remainder
                 buffer_mapping += "); \n\n"
@@ -595,7 +595,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 # Output(s)
                 for sig in range(len(toBuffReady)):
-                    component_mapping += "                                            " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig][0] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig][0] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig][0] + " \n" 
+                    component_mapping += "                                            " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                            " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
                 
 
                 # Node remainder
@@ -633,13 +633,13 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 
                 # AXI ready
-                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0][0] + ", \n" +  "                                    buf_out_ready => " + str(fromCurBuffReady) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_ready => " + toBuffReady[0] + ", \n" +  "                                    buf_out_ready => " + str(fromCurBuffReady) + ", \n\n"
             
                 # AXI valid
-                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0][0] + ", \n" +  "                                    buf_out_valid => " + str(fromCurBuffValid) + ", \n\n"
+                buffer_mapping +=  "                                    buf_in_valid => " + toBuffValid[0] + ", \n" +  "                                    buf_out_valid => " + str(fromCurBuffValid) + ", \n\n"
                 
                 # AXI data
-                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0][0] + ", \n" +  "                                    buf_out_data => " + str(fromCurBuffData) + " \n"
+                buffer_mapping +=  "                                    buf_in_data => " + toBuffData[0] + ", \n" +  "                                    buf_out_data => " + str(fromCurBuffData) + " \n"
 
                 # Buffer remainder
                 buffer_mapping += "); \n\n"
