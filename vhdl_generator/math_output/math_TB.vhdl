@@ -18,42 +18,42 @@ architecture math_arch of math_testbench is
   signal clk : std_logic := '1'; 
   signal rst : std_logic := '1'; 
 
-  signal math_in0_ready : in std_logic; 
+  signal math_in0_ready : std_logic; 
   signal math_in0_valid : std_logic := '0'; 
   signal math_in0_data : std_logic_vector(math_ram_width - 1 downto 0);  
  
-  signal math_in1_ready : in std_logic; 
+  signal math_in1_ready : std_logic; 
   signal math_in1_valid : std_logic := '0'; 
   signal math_in1_data : std_logic_vector(math_ram_width - 1 downto 0);  
  
-  signal math_in2_ready : in std_logic; 
+  signal math_in2_ready : std_logic; 
   signal math_in2_valid : std_logic := '0'; 
   signal math_in2_data : std_logic_vector(math_ram_width - 1 downto 0);  
  
-  signal math_in3_ready : in std_logic; 
+  signal math_in3_ready : std_logic; 
   signal math_in3_valid : std_logic := '0'; 
   signal math_in3_data : std_logic_vector(math_ram_width - 1 downto 0);  
  
-  signal math_in4_ready : in std_logic; 
+  signal math_in4_ready : std_logic; 
   signal math_in4_valid : std_logic := '0'; 
   signal math_in4_data : std_logic_vector(math_ram_width - 1 downto 0);  
  
-  signal math_in5_ready : in std_logic; 
+  signal math_in5_ready : std_logic; 
   signal math_in5_valid : std_logic := '0'; 
   signal math_in5_data : std_logic_vector(math_ram_width - 1 downto 0);  
  
-  signal math_in6_ready : in std_logic; 
+  signal math_in6_ready : std_logic; 
   signal math_in6_valid : std_logic := '0'; 
   signal math_in6_data : std_logic_vector(math_ram_width - 1 downto 0);  
  
-  signal math_in7_ready : in std_logic; 
+  signal math_in7_ready : std_logic; 
   signal math_in7_valid : std_logic := '0'; 
   signal math_in7_data : std_logic_vector(math_ram_width - 1 downto 0);  
  
   signal math_out0_ready : std_logic := '0'; 
   signal math_out0_valid : std_logic; 
   signal math_out0_data : std_logic_vector(math_ram_width - 1 downto 0); 
-end; 
+
  
 
   component math is 
@@ -107,7 +107,7 @@ begin
 
   clk <= not clk after clock_period / 2; 
 
-  math : math GENERIC MAP (math_ram_width, 
+  math_wrapper : math GENERIC MAP (math_ram_width, 
                           math_ram_depth 
                           ) 
               PORT MAP    ( 
@@ -146,7 +146,7 @@ begin
                           math_in7_valid => math_in7_valid, 
                           math_in7_data => math_in7_data, 
  
-                          math_out0_ready => math_out_0ready, 
+                          math_out0_ready => math_out0_ready, 
                           math_out0_valid => math_out0_valid, 
                           math_out0_data => math_out0_data 
                           ); 

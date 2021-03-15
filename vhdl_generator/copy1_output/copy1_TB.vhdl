@@ -18,14 +18,14 @@ architecture copy1_arch of copy1_testbench is
   signal clk : std_logic := '1'; 
   signal rst : std_logic := '1'; 
 
-  signal copy1_in0_ready : in std_logic; 
+  signal copy1_in0_ready : std_logic; 
   signal copy1_in0_valid : std_logic := '0'; 
   signal copy1_in0_data : std_logic_vector(copy1_ram_width - 1 downto 0);  
  
   signal copy1_out0_ready : std_logic := '0'; 
   signal copy1_out0_valid : std_logic; 
   signal copy1_out0_data : std_logic_vector(copy1_ram_width - 1 downto 0); 
-end; 
+
  
 
   component copy1 is 
@@ -51,7 +51,7 @@ begin
 
   clk <= not clk after clock_period / 2; 
 
-  copy1 : copy1 GENERIC MAP (copy1_ram_width, 
+  copy1_wrapper : copy1 GENERIC MAP (copy1_ram_width, 
                           copy1_ram_depth 
                           ) 
               PORT MAP    ( 
@@ -62,7 +62,7 @@ begin
                           copy1_in0_valid => copy1_in0_valid, 
                           copy1_in0_data => copy1_in0_data, 
  
-                          copy1_out0_ready => copy1_out_0ready, 
+                          copy1_out0_ready => copy1_out0_ready, 
                           copy1_out0_valid => copy1_out0_valid, 
                           copy1_out0_data => copy1_out0_data 
                           ); 
