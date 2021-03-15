@@ -28,6 +28,10 @@ architecture copy1_arch of copy1 is
     component INPUT_node is 
         port ( 
 
+            INPUT_clk : in std_logic; 
+            INPUT_rst : in std_logic; 
+
+
             input_in_ready : in std_logic; 
             input_out_ready : out std_logic; 
 
@@ -40,6 +44,10 @@ architecture copy1_arch of copy1 is
 
     component OUTPUT_node is 
         port ( 
+
+            OUTPUT_clk : in std_logic; 
+            OUTPUT_rst : in std_logic; 
+
 
             output_in_ready : in std_logic; 
             output_out_ready : out std_logic; 

@@ -97,8 +97,8 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
         '''
 
         # Add clock + reset ports
-        if inputCount and addCount and prodCount and divCount and outputCount <= 1:
-            archComponent += "\n" + "            " + str(entityName) + "_clk : in std_logic; \n" +  "            " + str(entityName) + "_rst : in std_logic; \n\n"
+        #if inputCount and addCount and prodCount and divCount and outputCount <= 1:
+        archComponent += "\n" + "            " + str(entityName) + "_clk : in std_logic; \n" +  "            " + str(entityName) + "_rst : in std_logic; \n\n"
 
         # Input ports
         if entityName == "INPUT" and inputCount <= 1:
@@ -165,10 +165,10 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
         signalDstName = str(nodeSignals[signal][1][1])
 
         # Full signal declaration to buffer
-        signalFullNameToBuffer = signalName + "__FROM__" + signalSrcName + "__TO_BUFFER__DATA"
+        signalFullNameToBuffer = signalName + "-FROM-" + signalSrcName + "-TO_BUFFER-DATA"
 
         # Full signal declaration from buffer
-        signalFullNameFromBuffer = signalName + "__FROM_BUFFER_TO__" + signalDstName + "__DATA"
+        signalFullNameFromBuffer = signalName + "-FROM_BUFFER_TO-" + signalDstName + "-DATA"
 
         # Make pair for buffer handling
         bothDataSigs = []
@@ -205,21 +205,21 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
         bothValidSigs = []
 
         # Full ready signal declaration to buffers
-        signalFullNameToBufferReady = signalName + "__FROM__" + signalSrcName + "__TO_BUFFER__READY"
+        signalFullNameToBufferReady = signalName + "-FROM-" + signalSrcName + "-TO_BUFFER-READY"
         bothReadySigs.append(signalFullNameToBufferReady)
 
         # Full ready signal declaration from buffers
-        signalFullNameFromBufferReady = signalName + "__FROM_BUFFER_TO__" + signalDstName + "__READY"
+        signalFullNameFromBufferReady = signalName + "-FROM_BUFFER_TO-" + signalDstName + "-READY"
         bothReadySigs.append(signalFullNameFromBufferReady)
 
         node_signals_ready.append(bothReadySigs)
         
         # Full valid signal declaration to buffers
-        signalFullNameToBufferValid = signalName + "__FROM__" + signalSrcName + "__TO_BUFFER__VALID"
+        signalFullNameToBufferValid = signalName + "-FROM-" + signalSrcName + "-TO_BUFFER-VALID"
         bothValidSigs.append(signalFullNameToBufferValid)
 
         # Full valid signal declaration from buffers
-        signalFullNameFromBufferValid = signalName + "__FROM_BUFFER_TO__" + signalDstName + "__VALID"
+        signalFullNameFromBufferValid = signalName + "-FROM_BUFFER_TO-" + signalDstName + "-VALID"
         bothValidSigs.append(signalFullNameFromBufferValid)
 
         node_signals_valid.append(bothValidSigs)
@@ -266,9 +266,9 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += actName + "_" + str(inputs) + " : " + str(actName) + "_node"
 
                 actID = str(actorsList[act][2])
-                toBuffReady = []
-                toBuffValid = []
-                toBuffData = []
+                toBuffReady = ""
+                toBuffValid = ""
+                toBuffData = ""
 
                 # Port Map
                 component_mapping += " PORT MAP ("
@@ -283,13 +283,13 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 for readySig in range(len(node_signals_ready)):
                     if str(node_signals_ready[readySig][0]).split("_")[0] + "_" + str(node_signals_ready[readySig]).split("_")[1]  == sigFromBufName:
-                        toBuffReady = node_signals_ready[readySig][1]
+                        toBuffReady = node_signals_ready[readySig][0]
                 for validSig in range(len(node_signals_valid)):
                     if str(node_signals_valid[validSig][0]).split("_")[0] + "_" + str(node_signals_valid[validSig]).split("_")[1]  == sigFromBufName:
-                        toBuffValid = node_signals_valid[validSig][1]
+                        toBuffValid = node_signals_valid[validSig][0]
                 for dataSig in range(len(node_signals_data)):
                     if str(node_signals_data[dataSig][0]).split("_")[0] + "_" + str(node_signals_data[dataSig]).split("_")[1]  == sigFromBufName:
-                        toBuffData = node_signals_data[dataSig][1]
+                        toBuffData = node_signals_data[dataSig][0]
 
                 # Connect to correct input
                 inptList = []
@@ -297,15 +297,15 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                     inptList.append(inpt)
 
                 # AXI ready
-                component_mapping +=  "                                        " + str(actName) + "_" + str(inptList[act])  + "_in_ready => " + str(sdfName) + "_" + str(inptList[act]) + "_in_ready, \n" +  "                                        " + str(toBuffReady) + "_out_ready => " + str(toBuffReady[0]) + "_out_ready, \n\n"
+                component_mapping +=  "                                        " + str(actName) + "_in" + str(inptList[act])  + "_ready => " + str(sdfName) + "_" + str(inptList[act]) + "_in_ready, \n" +  "                                        " + str(sdfName) + "_out_ready => " + str(toBuffReady) + ", \n\n"
             
                 # AXI valid
-                component_mapping += "                                        " + str(actName) + "_" + str(inptList[act]) + "in_valid => " + str(sdfName) + "_" + str(inptList[act]) + "_in_valid, \n" + "                                        " + str(toBuffValid) + "_out_valid => " + str(toBuffValid[0]) + "_out_valid, \n\n"
+                component_mapping += "                                        " + str(actName) + "_in" + str(inptList[act]) + "_valid => " + str(sdfName) + "_" + str(inptList[act]) + "_in_valid, \n" + "                                        " + str(sdfName) + "_out_valid => " + str(toBuffValid) + ", \n\n"
                 
                 # AXI data
-                component_mapping += "                                        " + str(actName) + "_" + str(inptList[act]) + "_opening => " + str(sdfName) + "_" + str(inptList[act]) + "_in_data, \n"
+                component_mapping += "                                        " + str(actName) + "_in" + str(inptList[act]) + "_opening => " + str(sdfName) + "_" + str(inptList[act]) + "_in_data, \n"
 
-                component_mapping += "                                        " + str(toBuffData) + "_out_opening => " + str(toBuffData[0]) + "_out_data \n" 
+                component_mapping += "                                        " + str(sdfName) + "_out_opening => " + str(toBuffData) + " \n" 
 
                 # Node remainder
                 component_mapping += "); \n\n"
@@ -364,15 +364,15 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 fromBuffData = []
 
                 for readysig in range(len(node_signals_ready)):
-                    if node_signals_ready[readysig][1].split("__")[-2] == actID and node_signals_ready[readysig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_ready[readysig][1].split("-")[-2] == actID and node_signals_ready[readysig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffReady.append(node_signals_ready[readysig][1])
 
                 for validsig in range(len(node_signals_valid)):
-                    if node_signals_valid[validsig][1].split("__")[-2] == actID and node_signals_valid[validsig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_valid[validsig][1].split("-")[-2] == actID and node_signals_valid[validsig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffValid.append(node_signals_valid[validsig][1])
 
                 for datasig in range(len(node_signals_data)):
-                    if node_signals_data[datasig][1].split("__")[-2] == actID and node_signals_data[datasig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_data[datasig][1].split("-")[-2] == actID and node_signals_data[datasig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffData.append(node_signals_data[datasig][1])
                 
                 # AXI ready
@@ -419,21 +419,21 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 fromBuffData = []
 
                 for readysig in range(len(node_signals_ready)):
-                    if node_signals_ready[readysig][1].split("__")[-2] == actID and node_signals_ready[readysig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_ready[readysig][1].split("-")[-2] == actID and node_signals_ready[readysig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffReady.append(node_signals_ready[readysig][1])
-                    elif node_signals_ready[readysig][0].split("__")[-3] == actID and node_signals_ready[readysig][0].split("__")[-2] == "TO_BUFFER":
-                        toBuffReady.append(node_signals_ready[readysig][0])
+                    elif node_signals_ready[readysig][0].split("-")[-3] == actID and node_signals_ready[readysig][0].split("-")[-2] == "TO_BUFFER":
+                        toBuffReady.append(node_signals_ready[readySig][0])
 
                 for validsig in range(len(node_signals_valid)):
-                    if node_signals_valid[validsig][1].split("__")[-2] == actID and node_signals_valid[validsig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_valid[validsig][1].split("-")[-2] == actID and node_signals_valid[validsig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffValid.append(node_signals_valid[validsig][1])
-                    elif node_signals_valid[validsig][0].split("__")[-3] == actID and node_signals_valid[validsig][0].split("__")[-2] == "TO_BUFFER":
+                    elif node_signals_valid[validsig][0].split("-")[-3] == actID and node_signals_valid[validsig][0].split("-")[-2] == "TO_BUFFER":
                         toBuffValid.append(node_signals_valid[validsig][0])
 
                 for datasig in range(len(node_signals_data)):
-                    if node_signals_data[datasig][1].split("__")[-2] == actID and node_signals_data[datasig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_data[datasig][1].split("-")[-2] == actID and node_signals_data[datasig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffData.append(node_signals_data[datasig][1])
-                    elif node_signals_data[datasig][0].split("__")[-3] == actID and node_signals_data[datasig][0].split("__")[-2] == "TO_BUFFER":
+                    elif node_signals_data[datasig][0].split("-")[-3] == actID and node_signals_data[datasig][0].split("-")[-2] == "TO_BUFFER":
                         toBuffData.append(node_signals_data[datasig][0])
                 
                 # Input(s)
@@ -523,21 +523,21 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 fromBuffData = []
 
                 for readysig in range(len(node_signals_ready)):
-                    if node_signals_ready[readysig][1].split("__")[-2] == actID and node_signals_ready[readysig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_ready[readysig][1].split("-")[-2] == actID and node_signals_ready[readysig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffReady.append(node_signals_ready[readysig][1])
-                    elif node_signals_ready[readysig][0].split("__")[-3] == actID and node_signals_ready[readysig][0].split("__")[-2] == "TO_BUFFER":
+                    elif node_signals_ready[readysig][0].split("-")[-3] == actID and node_signals_ready[readysig][0].split("-")[-2] == "TO_BUFFER":
                         toBuffReady.append(node_signals_ready[readysig][0])
 
                 for validsig in range(len(node_signals_valid)):
-                    if node_signals_valid[validsig][1].split("__")[-2] == actID and node_signals_valid[validsig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_valid[validsig][1].split("-")[-2] == actID and node_signals_valid[validsig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffValid.append(node_signals_valid[validsig][1])
-                    elif node_signals_valid[validsig][0].split("__")[-3] == actID and node_signals_valid[validsig][0].split("__")[-2] == "TO_BUFFER":
+                    elif node_signals_valid[validsig][0].split("-")[-3] == actID and node_signals_valid[validsig][0].split("-")[-2] == "TO_BUFFER":
                         toBuffValid.append(node_signals_valid[validsig][0])
 
                 for datasig in range(len(node_signals_data)):
-                    if node_signals_data[datasig][1].split("__")[-2] == actID and node_signals_data[datasig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_data[datasig][1].split("-")[-2] == actID and node_signals_data[datasig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffData.append(node_signals_data[datasig][1])
-                    elif node_signals_data[datasig][0].split("__")[-3] == actID and node_signals_data[datasig][0].split("__")[-2] == "TO_BUFFER":
+                    elif node_signals_data[datasig][0].split("-")[-3] == actID and node_signals_data[datasig][0].split("-")[-2] == "TO_BUFFER":
                         toBuffData.append(node_signals_data[datasig][0])
                 
                 # Input(s)
@@ -627,21 +627,21 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 fromBuffData = []
 
                 for readysig in range(len(node_signals_ready)):
-                    if node_signals_ready[readysig][1].split("__")[-2] == actID and node_signals_ready[readysig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_ready[readysig][1].split("-")[-2] == actID and node_signals_ready[readysig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffReady.append(node_signals_ready[readysig][1])
-                    elif node_signals_ready[readysig][0].split("__")[-3] == actID and node_signals_ready[readysig][0].split("__")[-2] == "TO_BUFFER":
+                    elif node_signals_ready[readysig][0].split("-")[-3] == actID and node_signals_ready[readysig][0].split("-")[-2] == "TO_BUFFER":
                         toBuffReady.append(node_signals_ready[readysig][0])
 
                 for validsig in range(len(node_signals_valid)):
-                    if node_signals_valid[validsig][1].split("__")[-2] == actID and node_signals_valid[validsig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_valid[validsig][1].split("-")[-2] == actID and node_signals_valid[validsig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffValid.append(node_signals_valid[validsig][1])
-                    elif node_signals_valid[validsig][0].split("__")[-3] == actID and node_signals_valid[validsig][0].split("__")[-2] == "TO_BUFFER":
+                    elif node_signals_valid[validsig][0].split("-")[-3] == actID and node_signals_valid[validsig][0].split("-")[-2] == "TO_BUFFER":
                         toBuffValid.append(node_signals_valid[validsig][0])
 
                 for datasig in range(len(node_signals_data)):
-                    if node_signals_data[datasig][1].split("__")[-2] == actID and node_signals_data[datasig][1].split("__")[-3] == "FROM_BUFFER_TO":
+                    if node_signals_data[datasig][1].split("-")[-2] == actID and node_signals_data[datasig][1].split("-")[-3] == "FROM_BUFFER_TO":
                         fromBuffData.append(node_signals_data[datasig][1])
-                    elif node_signals_data[datasig][0].split("__")[-3] == actID and node_signals_data[datasig][0].split("__")[-2] == "TO_BUFFER":
+                    elif node_signals_data[datasig][0].split("-")[-3] == actID and node_signals_data[datasig][0].split("-")[-2] == "TO_BUFFER":
                         toBuffData.append(node_signals_data[datasig][0])
                 
                 # Input(s)
