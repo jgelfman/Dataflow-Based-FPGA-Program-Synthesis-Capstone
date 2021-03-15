@@ -5,8 +5,8 @@
 Unkowns = False
 
 import xml.etree.ElementTree as ET
-inputfile = "math.dsp-sig.xml" # TODO: delete later
-#inputfile = "copy1.dsp-sig.xml" # TODO: delete later
+#inputfile = "math.dsp-sig.xml" # TODO: delete later
+inputfile = "copy1.dsp-sig.xml" # TODO: delete later
 #inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
 # e.g. copy1.dsp-sig.xml
 
@@ -160,7 +160,5 @@ ram_width = 256 # TODO: Delete later
 
 vhdl_generate_tb.returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, nodeSignals, clock_period, ram_depth, ram_width)
 
-
-
-#Testing:
+print("\n" + "VHDL program generated successfully.\n" + "Find resources at " +  str(resourcesFolder) + "\n" + "To generate wavelength and schematic, open " + str(outputName) + "\n")
 
