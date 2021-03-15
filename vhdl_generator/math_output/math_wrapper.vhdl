@@ -619,5 +619,18 @@ fifo_14 : axi_fifo GENERIC MAP       (math_ram_width,
                                     buf_out_data => channel_14_real_vect__FROM__0x7fbf3be02d20__TO_BUFFER__DATA 
 ); 
 
+OUTPUT_0 : OUTPUT_node PORT MAP (           math_clk => OUTPUT_clk, 
+                                            math_rst => OUTPUT_rst, 
+
+                                            OUTPUT_in_ready => channel_9_real_vect__FROM__0x7fbf3be01d10__TO_BUFFER__READY_in_ready, 
+                                            OUTPUT_out_ready => math, 
+
+                                            OUTPUT_in_valid => channel_9_real_vect__FROM__0x7fbf3be01d10__TO_BUFFER__VALID_in_valid, 
+                                            OUTPUT_out_valid => math, 
+
+                                            OUTPUT_in_opening => channel_9_real_vect__FROM__0x7fbf3be01d10__TO_BUFFER__DATA_in_data, 
+                                            OUTPUT_out_opening => math 
+); 
+
 
  end math_arch; 

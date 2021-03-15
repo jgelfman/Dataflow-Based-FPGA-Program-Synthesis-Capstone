@@ -234,7 +234,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
     divs = 0
 
     # Node mapping
-    for act in range(len(actorsList) - 1):
+    for act in range(len(actorsList)):
     
         # Act name:
         actName = str(actorsList[act][1]).split("_")[0]

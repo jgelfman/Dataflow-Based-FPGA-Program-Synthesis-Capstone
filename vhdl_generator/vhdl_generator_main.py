@@ -96,7 +96,6 @@ AddExists = False
 ProdExists = False
 DivExists = False
 
-
 # In case of an unkown operator
 if Unkowns == True:
     PlaceholderNeeded = True 
