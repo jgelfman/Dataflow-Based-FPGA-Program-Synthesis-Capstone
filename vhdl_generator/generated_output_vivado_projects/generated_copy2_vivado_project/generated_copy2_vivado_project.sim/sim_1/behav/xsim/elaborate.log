@@ -1,0 +1,19 @@
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 0398bab4d6d448d3b7428b7bfe2b2345 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot copy2_testbench_behav xil_defaultlib.copy2_testbench -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture copy2_arch of entity xil_defaultlib.input_node [\input_node(15,0)(15,0)\]
+Compiling architecture copy2_arch of entity xil_defaultlib.axi_fifo [\axi_fifo(ram_width=16,ram_depth...]
+Compiling architecture copy2_arch of entity xil_defaultlib.output_node [\output_node(15,0)(15,0)\]
+Compiling architecture copy2_arch of entity xil_defaultlib.copy2 [\copy2(copy2_ram_width=16,copy2_...]
+Compiling architecture copy2_arch of entity xil_defaultlib.copy2_testbench
+Built simulation snapshot copy2_testbench_behav
