@@ -57,7 +57,7 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
 
     # TB entity AXI Input signals
     for inpt in range(0,inputCtr):
-        TBarchSignals +=  "  signal " + sdfName + "_in" + str(inpt) + "_ready : std_logic; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_valid : std_logic := '0'; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0);  \n" + " \n"
+        TBarchSignals +=  "  signal " + sdfName + "_in" + str(inpt) + "_ready : std_logic; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_valid : std_logic := '0'; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0);  \n\n"
     
     # TB entity AXI Output signals
     for outpt in range(0,outputCtr):
@@ -77,7 +77,11 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
 
     # TB entity AXI outputs
     for outpt in range(0,outputCtr):
-        TBComponent += "          " + str(sdfName) + "_out" + str(outpt) + "_ready : out std_logic; \n" + "          " + str(sdfName) + "_out" + str(outpt) + "_valid : out std_logic; \n" + "          " + str(sdfName) + "_out" + str(outpt) + "_data : out std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0) \n" + "      ); end component; \n\n\n"
+        TBComponent += "          " + str(sdfName) + "_out" + str(outpt) + "_ready : out std_logic; \n" + "          " + str(sdfName) + "_out" + str(outpt) + "_valid : out std_logic; \n" + "          " + str(sdfName) + "_out" + str(outpt) + "_data : out std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0)"
+        if outpt < (outputCtr - 1):
+            TBComponent += "; \n\n"
+        elif outpt == (outputCtr - 1):
+            TBComponent += " \n      ); end component; \n\n\n"
 
     TBArch += TBComponent
 
@@ -95,10 +99,13 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
     
     # TB entity AXI input mapping
     for outpt in range(0,outputCtr):
-        TBcomponentMapping += "                          " + str(sdfName) + "_out" + str(outpt) + "_ready => " + str(sdfName) + "_out" + str(outpt) + "_ready, \n" + "                          " + str(sdfName) + "_out" + str(outpt) + "_valid => " + str(sdfName) + "_out" + str(outpt) + "_valid, \n" + "                          " + str(sdfName) + "_out" + str(outpt) + "_data => " + str(sdfName) + "_out" + str(outpt) + "_data \n"
-    
-    #Remainder of component mappings
-    TBcomponentMapping +=  "                          ); \n\n"
+        TBcomponentMapping += "                          " + str(sdfName) + "_out" + str(outpt) + "_ready => " + str(sdfName) + "_out" + str(outpt) + "_ready, \n" + "                          " + str(sdfName) + "_out" + str(outpt) + "_valid => " + str(sdfName) + "_out" + str(outpt) + "_valid, \n" + "                          " + str(sdfName) + "_out" + str(outpt) + "_data => " + str(sdfName) + "_out" + str(outpt) + "_data"
+        
+        #Remainder of component mappings
+        if outpt < (outputCtr - 1):
+            TBcomponentMapping += ", \n\n"
+        elif outpt == (outputCtr - 1):
+            TBcomponentMapping += "\n                          ); \n\n\n"
 
 
     # TB Process
@@ -123,13 +130,13 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
     # Begin writing data
     TBProcess += "        report \"Adding input...\"; \n"
     for inpt in range(0,inputCtr):
-        TBProcess += "--Currently broken and needs to get fixed" + "--        while " + str(sdfName) + "_in" + str(inpt) + "_ready = '1' loop \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_in" + str(inpt) + "_data) + 1); \n" + "--                wait for 10 * clock_period; \n" + "--        end loop; \n" + "        wait for 10 * clock_period; \n" + "        " + str(sdfName) + "_in" + str(inpt) + "_valid <= \'0\'; \n\n\n"
+        TBProcess += "        --Currently broken and needs to get fixed \n" + "        --while " + str(sdfName) + "_in" + str(inpt) + "_ready = '1' loop \n" + "        " + str(sdfName) + "_in" + str(inpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_in" + str(inpt) + "_data) + 1); \n" + "        --wait for 10 * clock_period; \n" + "        --end loop; \n" + "        wait for 10 * clock_period; \n" + "        " + str(sdfName) + "_in" + str(inpt) + "_valid <= \'0\'; \n\n\n"
 
     # Begin reading data and wait
     TBProcess += "        report \"Reading data...\"; \n\n" + "        wait for 10 * clock_period;"
 
     for outpt in range(0,outputCtr):
-        TBProcess += str(sdfName) + "_out" + str(outpt) + "_ready <= '1'; \n" + "--Currently broken and needs to get fixed" + "--        while " + str(sdfName) + "_out" + str(outpt) + "_valid = '0' loop \n" + "            " + str(sdfName) + "_out" + str(outpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_out" + str(outpt) + "_data) + 1); \n" + "--        end loop;  \n" + "        wait for 10 * clock_period; \n\n"
+        TBProcess += str(sdfName) + "_out" + str(outpt) + "_ready <= '1'; \n" + "        --Currently broken and needs to get fixed \n" + "        --while " + str(sdfName) + "_out" + str(outpt) + "_valid = '0' loop \n" + "        " + str(sdfName) + "_out" + str(outpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_out" + str(outpt) + "_data) + 1); \n" + "        --end loop;  \n" + "        wait for 10 * clock_period; \n\n"
 
     # Finalize process
     TBProcess += "        report \"Test completed. Check waveform.\"; \n"

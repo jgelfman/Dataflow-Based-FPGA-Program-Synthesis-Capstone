@@ -21,7 +21,7 @@ architecture copy1_arch of copy1_testbench is
   signal copy1_in0_ready : std_logic; 
   signal copy1_in0_valid : std_logic := '0'; 
   signal copy1_in0_data : std_logic_vector(copy1_ram_width - 1 downto 0);  
- 
+
   signal copy1_out0_ready : std_logic := '0'; 
   signal copy1_out0_valid : std_logic; 
   signal copy1_out0_data : std_logic_vector(copy1_ram_width - 1 downto 0); 
@@ -64,8 +64,9 @@ begin
  
                           copy1_out0_ready => copy1_out0_ready, 
                           copy1_out0_valid => copy1_out0_valid, 
-                          copy1_out0_data => copy1_out0_data 
+                          copy1_out0_data => copy1_out0_data
                           ); 
+
 
     TB_sequencer : process is 
     begin 
@@ -80,10 +81,11 @@ begin
 
 
         report "Adding input..."; 
---Currently broken and needs to get fixed--        while copy1_in0_ready = '1' loop 
-                copy1_in0_data <= std_logic_vector(unsigned(copy1_in0_data) + 1); 
---                wait for 10 * clock_period; 
---        end loop; 
+        --Currently broken and needs to get fixed 
+        --while copy1_in0_ready = '1' loop 
+        copy1_in0_data <= std_logic_vector(unsigned(copy1_in0_data) + 1); 
+        --wait for 10 * clock_period; 
+        --end loop; 
         wait for 10 * clock_period; 
         copy1_in0_valid <= '0'; 
 
@@ -91,9 +93,10 @@ begin
         report "Reading data..."; 
 
         wait for 10 * clock_period;copy1_out0_ready <= '1'; 
---Currently broken and needs to get fixed--        while copy1_out0_valid = '0' loop 
-            copy1_out0_data <= std_logic_vector(unsigned(copy1_out0_data) + 1); 
---        end loop;  
+        --Currently broken and needs to get fixed 
+        --while copy1_out0_valid = '0' loop 
+        copy1_out0_data <= std_logic_vector(unsigned(copy1_out0_data) + 1); 
+        --end loop;  
         wait for 10 * clock_period; 
 
         report "Test completed. Check waveform."; 

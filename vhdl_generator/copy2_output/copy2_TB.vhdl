@@ -21,11 +21,11 @@ architecture copy2_arch of copy2_testbench is
   signal copy2_in0_ready : std_logic; 
   signal copy2_in0_valid : std_logic := '0'; 
   signal copy2_in0_data : std_logic_vector(copy2_ram_width - 1 downto 0);  
- 
+
   signal copy2_in1_ready : std_logic; 
   signal copy2_in1_valid : std_logic := '0'; 
   signal copy2_in1_data : std_logic_vector(copy2_ram_width - 1 downto 0);  
- 
+
   signal copy2_out0_ready : std_logic := '0'; 
   signal copy2_out0_valid : std_logic; 
   signal copy2_out0_data : std_logic_vector(copy2_ram_width - 1 downto 0); 
@@ -55,9 +55,7 @@ architecture copy2_arch of copy2_testbench is
  
           copy2_out0_ready : out std_logic; 
           copy2_out0_valid : out std_logic; 
-          copy2_out0_data : out std_logic_vector(copy2_ram_width - 1 downto 0) 
-      ); end component; 
-
+          copy2_out0_data : out std_logic_vector(copy2_ram_width - 1 downto 0); 
 
           copy2_out1_ready : out std_logic; 
           copy2_out1_valid : out std_logic; 
@@ -86,11 +84,13 @@ begin
  
                           copy2_out0_ready => copy2_out0_ready, 
                           copy2_out0_valid => copy2_out0_valid, 
-                          copy2_out0_data => copy2_out0_data 
+                          copy2_out0_data => copy2_out0_data, 
+
                           copy2_out1_ready => copy2_out1_ready, 
                           copy2_out1_valid => copy2_out1_valid, 
-                          copy2_out1_data => copy2_out1_data 
+                          copy2_out1_data => copy2_out1_data
                           ); 
+
 
     TB_sequencer : process is 
     begin 
@@ -107,18 +107,20 @@ begin
 
 
         report "Adding input..."; 
---Currently broken and needs to get fixed--        while copy2_in0_ready = '1' loop 
-                copy2_in0_data <= std_logic_vector(unsigned(copy2_in0_data) + 1); 
---                wait for 10 * clock_period; 
---        end loop; 
+        --Currently broken and needs to get fixed 
+        --while copy2_in0_ready = '1' loop 
+        copy2_in0_data <= std_logic_vector(unsigned(copy2_in0_data) + 1); 
+        --wait for 10 * clock_period; 
+        --end loop; 
         wait for 10 * clock_period; 
         copy2_in0_valid <= '0'; 
 
 
---Currently broken and needs to get fixed--        while copy2_in1_ready = '1' loop 
-                copy2_in1_data <= std_logic_vector(unsigned(copy2_in1_data) + 1); 
---                wait for 10 * clock_period; 
---        end loop; 
+        --Currently broken and needs to get fixed 
+        --while copy2_in1_ready = '1' loop 
+        copy2_in1_data <= std_logic_vector(unsigned(copy2_in1_data) + 1); 
+        --wait for 10 * clock_period; 
+        --end loop; 
         wait for 10 * clock_period; 
         copy2_in1_valid <= '0'; 
 
@@ -126,15 +128,17 @@ begin
         report "Reading data..."; 
 
         wait for 10 * clock_period;copy2_out0_ready <= '1'; 
---Currently broken and needs to get fixed--        while copy2_out0_valid = '0' loop 
-            copy2_out0_data <= std_logic_vector(unsigned(copy2_out0_data) + 1); 
---        end loop;  
+        --Currently broken and needs to get fixed 
+        --while copy2_out0_valid = '0' loop 
+        copy2_out0_data <= std_logic_vector(unsigned(copy2_out0_data) + 1); 
+        --end loop;  
         wait for 10 * clock_period; 
 
 copy2_out1_ready <= '1'; 
---Currently broken and needs to get fixed--        while copy2_out1_valid = '0' loop 
-            copy2_out1_data <= std_logic_vector(unsigned(copy2_out1_data) + 1); 
---        end loop;  
+        --Currently broken and needs to get fixed 
+        --while copy2_out1_valid = '0' loop 
+        copy2_out1_data <= std_logic_vector(unsigned(copy2_out1_data) + 1); 
+        --end loop;  
         wait for 10 * clock_period; 
 
         report "Test completed. Check waveform."; 

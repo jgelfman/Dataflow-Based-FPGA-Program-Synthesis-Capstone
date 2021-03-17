@@ -52,8 +52,9 @@ begin
  
                           noise_out0_ready => noise_out0_ready, 
                           noise_out0_valid => noise_out0_valid, 
-                          noise_out0_data => noise_out0_data 
+                          noise_out0_data => noise_out0_data
                           ); 
+
 
     TB_sequencer : process is 
     begin 
@@ -69,9 +70,10 @@ begin
         report "Reading data..."; 
 
         wait for 10 * clock_period;noise_out0_ready <= '1'; 
---Currently broken and needs to get fixed--        while noise_out0_valid = '0' loop 
-            noise_out0_data <= std_logic_vector(unsigned(noise_out0_data) + 1); 
---        end loop;  
+        --Currently broken and needs to get fixed 
+        --while noise_out0_valid = '0' loop 
+        noise_out0_data <= std_logic_vector(unsigned(noise_out0_data) + 1); 
+        --end loop;  
         wait for 10 * clock_period; 
 
         report "Test completed. Check waveform."; 
