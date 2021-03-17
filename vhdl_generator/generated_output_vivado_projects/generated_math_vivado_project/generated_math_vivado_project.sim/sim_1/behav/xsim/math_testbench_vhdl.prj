@@ -1,0 +1,13 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../generated_math_vivado_project.srcs/sources_1/imports/math_output/generator_resources/add_node.vhdl" \
+"../../../../generated_math_vivado_project.srcs/sources_1/imports/math_output/generator_resources/axi_fifo.vhd" \
+"../../../../generated_math_vivado_project.srcs/sources_1/imports/math_output/generator_resources/div_node.vhdl" \
+"../../../../generated_math_vivado_project.srcs/sources_1/imports/math_output/generator_resources/input_node.vhdl" \
+"../../../../generated_math_vivado_project.srcs/sources_1/imports/math_output/math_wrapper.vhdl" \
+"../../../../generated_math_vivado_project.srcs/sources_1/imports/math_output/generator_resources/output_node.vhdl" \
+"../../../../generated_math_vivado_project.srcs/sources_1/imports/math_output/generator_resources/prod_node.vhdl" \
+"../../../../generated_math_vivado_project.srcs/sources_1/imports/math_output/math_TB.vhdl" \
+
+# Do not sort compile order
+nosort
