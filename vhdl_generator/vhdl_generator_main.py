@@ -4,8 +4,12 @@
 # Set to true in case of unkown operators
 Unkowns = False
 
+import sys
 import xml.etree.ElementTree as ET
-inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml):")
+inputfile = input("Enter the exact file name (e.g. copy1.dsp-sig.xml) or type \"cancel\" to cancel: \n")
+if inputfile == "cancel":
+    sys.exit()
+    
 # e.g. copy1.dsp-sig.xml
 
 fileTree = ET.parse(inputfile)
@@ -145,13 +149,19 @@ vhdl_generate_wrapper.returnWrapper(sdfName, sdfArch, outputName, actorsList, in
 import vhdl_generate_tb
 
 # Ask user for clock_period
-clock_period = input("Enter the desired clock period time in ns (e.g. 10):")
+clock_period = input("Enter the desired clock period time in ns (e.g. 10) or type \"cancel\" to cancel: \n")
+if clock_period == "cancel":
+    sys.exit()
 
 # Ask user for ram width
-ram_depth = input("Enter the desired ram depth (e.g. 16):")
+ram_depth = input("Enter the desired ram depth (e.g. 16) or type \"cancel\" to cancel: \n")
+if ram_depth == "cancel":
+    sys.exit()
 
 # Ask user for ram depth
-ram_width = input("Enter the desired ram depth (e.g. 256):")
+ram_width = input("Enter the desired ram depth (e.g. 256) or type \"cancel\" to cancel: \n")
+if ram_width == "cancel":
+    sys.exit()
 
 vhdl_generate_tb.returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, nodeSignals, clock_period, ram_depth, ram_width)
 

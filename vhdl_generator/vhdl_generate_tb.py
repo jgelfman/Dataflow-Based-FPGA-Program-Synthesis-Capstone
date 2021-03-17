@@ -123,13 +123,13 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
     # Begin writing data
     TBProcess += "        report \"Adding input...\"; \n"
     for inpt in range(0,inputCtr):
-        TBProcess += "        while " + str(sdfName) + "_in" + str(inpt) + "_ready = '1' loop \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_in" + str(inpt) + "_data) + 1); \n" + "                wait for 10 * clock_period; \n" + "        end loop; \n" + "        wait for 10 * clock_period; \n" + "        " + str(sdfName) + "_in" + str(inpt) + "_valid <= \'0\'; \n\n\n"
+        TBProcess += "--Currently broken and needs to get fixed" + "--        while " + str(sdfName) + "_in" + str(inpt) + "_ready = '1' loop \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_in" + str(inpt) + "_data) + 1); \n" + "--                wait for 10 * clock_period; \n" + "--        end loop; \n" + "        wait for 10 * clock_period; \n" + "        " + str(sdfName) + "_in" + str(inpt) + "_valid <= \'0\'; \n\n\n"
 
     # Begin reading data and wait
     TBProcess += "        report \"Reading data...\"; \n\n" + "        wait for 10 * clock_period;"
 
     for outpt in range(0,outputCtr):
-        TBProcess += "        " + str(sdfName) + "_out" + str(outpt) + "_ready <= '1'; \n" + "        while " + str(sdfName) + "_out" + str(outpt) + "_valid = '0' loop \n" + "            " + str(sdfName) + "_out" + str(outpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_out" + str(outpt) + "_data) + 1); \n" + "        end loop;  \n" + "        wait for 10 * clock_period; \n\n"
+        TBProcess += str(sdfName) + "_out" + str(outpt) + "_ready <= '1'; \n" + "--Currently broken and needs to get fixed" + "--        while " + str(sdfName) + "_out" + str(outpt) + "_valid = '0' loop \n" + "            " + str(sdfName) + "_out" + str(outpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_out" + str(outpt) + "_data) + 1); \n" + "--        end loop;  \n" + "        wait for 10 * clock_period; \n\n"
 
     # Finalize process
     TBProcess += "        report \"Test completed. Check waveform.\"; \n"

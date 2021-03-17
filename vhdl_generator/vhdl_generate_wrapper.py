@@ -40,7 +40,11 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
     
     # Wrapper entity AXI Outputs
     for outpt in range(0,outputCtr):
-        entityComponent += "        " + sdfName + "_out" + str(outpt) + "_ready : out std_logic; \n" +  "        " + sdfName + "_out" + str(outpt) + "_valid : out std_logic; \n" +  "        " + sdfName + "_out" + str(outpt) + "_data : out std_logic_vector \n" + " \n"
+        entityComponent += "        " + sdfName + "_out" + str(outpt) + "_ready : out std_logic; \n" +  "        " + sdfName + "_out" + str(outpt) + "_valid : out std_logic; \n" +  "        " + sdfName + "_out" + str(outpt) + "_data : out std_logic_vector"
+        if outpt < (outputCtr - 1):
+            entityComponent += "; \n\n"
+        elif outpt == (outputCtr - 1):
+            entityComponent += " \n"
         
     entityComponent += "    ); \n" + "end; \n "
 
@@ -49,6 +53,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
     wrapperArch = "architecture " + str(sdfArch) + " of " + sdfName + " is \n\n\n"
 
     archComponents = ""
+    archComponent = ""
 
     # Buffer count
     bufCount = len(actorsList) - 1
@@ -101,7 +106,6 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
         '''
 
         # Add clock + reset ports
-        #if inputCount and addCount and prodCount and divCount and outputCount <= 1:
         archComponent += "\n" + "            " + str(entityName) + "_clk : in std_logic; \n" +  "            " + str(entityName) + "_rst : in std_logic; \n\n"
 
         # Input ports
@@ -117,17 +121,17 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
             archComponents += archComponent
 
         elif entityName == "add" and addCount <= 1: #PLACEHOLDER
-            archComponent +=  "            --Input1 \n" + "            " + str(entityName) + "_in1_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            " + str(entityName) + "_in2_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
+            archComponent +=  "            --Input1 \n" + "            " + str(entityName) + "_in0_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in0_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in0_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            " + str(entityName) + "_in1_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
 
             archComponents += archComponent
 
         elif entityName == "prod" and prodCount <= 1: #PLACEHOLDER
-            archComponent +=  "            --Input1 \n" + "            " + str(entityName) + "_in1_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            " + str(entityName) + "_in2_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
+            archComponent +=  "            --Input1 \n" + "            " + str(entityName) + "_in0_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in0_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in0_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            " + str(entityName) + "_in1_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
 
             archComponents += archComponent
 
         elif entityName == "div" and divCount <= 1: #PLACEHOLDER
-            archComponent +=  "            --Input1 \n" + "            " + str(entityName) + "_in1_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            " + str(entityName) + "_in2_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in2_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
+            archComponent +=  "            --Input1 \n" + "            " + str(entityName) + "_in0_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in0_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in0_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Input2 \n" + "            " + str(entityName) + "_in1_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_valid : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in1_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "\n\n" + "            --Output \n" + "            " + str(entityName) + "_out_ready : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
 
             archComponents += archComponent
 
@@ -157,7 +161,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
     
 
     # Arch data signals
-    archSignals += "\n\n signal "
+    archSignals += "\n\n" + "signal "
     for signal in range(len(nodeSignals)):
         
         # Signal name
@@ -293,7 +297,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "         " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                        " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n"
+                component_mapping += "     " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                    " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
 
                 # Figure out buffer subsequent exterior signals
                 for sig in range(len(nodeSignals)):
@@ -316,15 +320,15 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                     inptList.append(inpt)
 
                 # AXI ready
-                component_mapping +=  "                                        " + str(actName) + "_in_ready => " + str(sdfName) + "_in" + str(inptList[act]) + "_ready, \n" +  "                                        " + str(actName) + "_out_ready => " + str(toBuffReady) + ", \n\n"
+                component_mapping +=  "                                    " + str(actName) + "_in_ready => " + str(sdfName) + "_in" + str(inptList[act]) + "_ready, \n" +  "                                    " + str(actName) + "_out_ready => " + str(toBuffReady) + ", \n\n"
             
                 # AXI valid
-                component_mapping += "                                        " + str(actName) + "_in_valid => " + str(sdfName) + "_in" + str(inptList[act]) + "_valid, \n" + "                                        " + str(actName) + "_out_valid => " + str(toBuffValid) + ", \n\n"
+                component_mapping += "                                    " + str(actName) + "_in_valid => " + str(sdfName) + "_in" + str(inptList[act]) + "_valid, \n" + "                                    " + str(actName) + "_out_valid => " + str(toBuffValid) + ", \n\n"
                 
                 # AXI data
-                component_mapping += "                                        " + str(actName) + "_in_opening => " + str(sdfName) + "_in" + str(inptList[act]) + "_data, \n"
+                component_mapping += "                                    " + str(actName) + "_in_opening => " + str(sdfName) + "_in" + str(inptList[act]) + "_data, \n"
 
-                component_mapping += "                                        " + str(actName) + "_out_opening => " + str(toBuffData) + " \n" 
+                component_mapping += "                                    " + str(actName) + "_out_opening => " + str(toBuffData) + " \n" 
 
                 # Node remainder
                 component_mapping += "); \n\n"
@@ -385,7 +389,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "           " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                            " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n"
+                component_mapping += "           " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                            " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
 
                 # Figure out predecessor
                 actID = str(actorsList[act][2])
@@ -439,7 +443,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "         " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                    " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n"
+                component_mapping += "         " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                    " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
 
                 # Figure out predecessor and subsequent exterior signals
                 actID = str(actorsList[act][2])
@@ -476,7 +480,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 # Output(s)
                 for sig in range(len(toBuffReady)):
-                    component_mapping += "                                    " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
+                    component_mapping += "                                    " + str(actName) + "_out_ready => " + toBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_out_valid => " + toBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_out_opening => " + toBuffData[sig] + " \n" 
                 
 
                 # Node remainder
@@ -548,7 +552,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "         " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                    " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n"
+                component_mapping += "         " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                    " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
 
                 # Figure out predecessor and subsequent exterior signals
                 actID = str(actorsList[act][2])
@@ -652,7 +656,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 component_mapping += " PORT MAP ("
 
                 # Clock + reset
-                component_mapping += "         " + str(sdfName) + "_clk => " + str(actName) + "_clk, \n" + "                                    " + str(sdfName) + "_rst => " + str(actName) + "_rst, \n"
+                component_mapping += "         " + str(actName) + "_clk => " + str(sdfName) + "_clk, \n" + "                                    " + str(actName) + "_rst => " + str(sdfName) + "_rst, \n\n"
 
                 # Figure out predecessor and subsequent exterior signals
                 actID = str(actorsList[act][2])
@@ -689,7 +693,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
                 # Output(s)
                 for sig in range(len(toBuffReady)):
-                    component_mapping += "                                    " + str(actName) + "_out" + str(sig) + "_ready => " + toBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_valid => " + toBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_out" + str(sig) + "_opening => " + toBuffData[sig] + " \n" 
+                    component_mapping += "                                    " + str(actName) + "_out_ready => " + toBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_out_valid => " + toBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_out_opening => " + toBuffData[sig] + " \n" 
                 
 
                 # Node remainder
@@ -828,7 +832,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
             '''
         
         except:
-            #print("Unkown operator found: " + actName + ". Did you uncomment Unkowns?")
+            print("Unkown operator found: " + actName + ". Did you uncomment Unkowns?")
             raise
 
 

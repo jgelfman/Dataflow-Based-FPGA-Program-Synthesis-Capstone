@@ -178,76 +178,76 @@ begin
 
 
         report "Adding input..."; 
-        while math_in0_ready = '1' loop 
+--Currently broken and needs to get fixed--        while math_in0_ready = '1' loop 
                 math_in0_data <= std_logic_vector(unsigned(math_in0_data) + 1); 
-                wait for 10 * clock_period; 
-        end loop; 
+--                wait for 10 * clock_period; 
+--        end loop; 
         wait for 10 * clock_period; 
         math_in0_valid <= '0'; 
 
 
-        while math_in1_ready = '1' loop 
+--Currently broken and needs to get fixed--        while math_in1_ready = '1' loop 
                 math_in1_data <= std_logic_vector(unsigned(math_in1_data) + 1); 
-                wait for 10 * clock_period; 
-        end loop; 
+--                wait for 10 * clock_period; 
+--        end loop; 
         wait for 10 * clock_period; 
         math_in1_valid <= '0'; 
 
 
-        while math_in2_ready = '1' loop 
+--Currently broken and needs to get fixed--        while math_in2_ready = '1' loop 
                 math_in2_data <= std_logic_vector(unsigned(math_in2_data) + 1); 
-                wait for 10 * clock_period; 
-        end loop; 
+--                wait for 10 * clock_period; 
+--        end loop; 
         wait for 10 * clock_period; 
         math_in2_valid <= '0'; 
 
 
-        while math_in3_ready = '1' loop 
+--Currently broken and needs to get fixed--        while math_in3_ready = '1' loop 
                 math_in3_data <= std_logic_vector(unsigned(math_in3_data) + 1); 
-                wait for 10 * clock_period; 
-        end loop; 
+--                wait for 10 * clock_period; 
+--        end loop; 
         wait for 10 * clock_period; 
         math_in3_valid <= '0'; 
 
 
-        while math_in4_ready = '1' loop 
+--Currently broken and needs to get fixed--        while math_in4_ready = '1' loop 
                 math_in4_data <= std_logic_vector(unsigned(math_in4_data) + 1); 
-                wait for 10 * clock_period; 
-        end loop; 
+--                wait for 10 * clock_period; 
+--        end loop; 
         wait for 10 * clock_period; 
         math_in4_valid <= '0'; 
 
 
-        while math_in5_ready = '1' loop 
+--Currently broken and needs to get fixed--        while math_in5_ready = '1' loop 
                 math_in5_data <= std_logic_vector(unsigned(math_in5_data) + 1); 
-                wait for 10 * clock_period; 
-        end loop; 
+--                wait for 10 * clock_period; 
+--        end loop; 
         wait for 10 * clock_period; 
         math_in5_valid <= '0'; 
 
 
-        while math_in6_ready = '1' loop 
+--Currently broken and needs to get fixed--        while math_in6_ready = '1' loop 
                 math_in6_data <= std_logic_vector(unsigned(math_in6_data) + 1); 
-                wait for 10 * clock_period; 
-        end loop; 
+--                wait for 10 * clock_period; 
+--        end loop; 
         wait for 10 * clock_period; 
         math_in6_valid <= '0'; 
 
 
-        while math_in7_ready = '1' loop 
+--Currently broken and needs to get fixed--        while math_in7_ready = '1' loop 
                 math_in7_data <= std_logic_vector(unsigned(math_in7_data) + 1); 
-                wait for 10 * clock_period; 
-        end loop; 
+--                wait for 10 * clock_period; 
+--        end loop; 
         wait for 10 * clock_period; 
         math_in7_valid <= '0'; 
 
 
         report "Reading data..."; 
 
-        wait for 10 * clock_period;        math_out0_ready <= '1'; 
-        while math_out0_valid = '0' loop 
+        wait for 10 * clock_period;math_out0_ready <= '1'; 
+--Currently broken and needs to get fixed--        while math_out0_valid = '0' loop 
             math_out0_data <= std_logic_vector(unsigned(math_out0_data) + 1); 
-        end loop;  
+--        end loop;  
         wait for 10 * clock_period; 
 
         report "Test completed. Check waveform."; 

@@ -19,7 +19,6 @@ entity copy1 is
         copy1_out0_ready : out std_logic; 
         copy1_out0_valid : out std_logic; 
         copy1_out0_data : out std_logic_vector 
- 
     ); 
 end; 
  
@@ -80,22 +79,23 @@ architecture copy1_arch of copy1 is
         ); end component;
 
 
- signal channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooDATA, channel_0_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooDATA : std_logic_vector(copy1_ram_width - 1 downto 0); 
+signal channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooDATA, channel_0_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooDATA : std_logic_vector(copy1_ram_width - 1 downto 0); 
 signal channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooREADY, channel_0_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooREADY, channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooVALID, channel_0_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooVALID : std_logic; 
 
 
 begin 
 
-INPUT_0 : INPUT_node PORT MAP (         INPUT_clk => copy1_clk, 
-                                        INPUT_rst => copy1_rst, 
-                                        INPUT_in_ready => copy1_in0_ready, 
-                                        INPUT_out_ready => channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooREADY, 
+INPUT_0 : INPUT_node PORT MAP (     INPUT_clk => copy1_clk, 
+                                    INPUT_rst => copy1_rst, 
 
-                                        INPUT_in_valid => copy1_in0_valid, 
-                                        INPUT_out_valid => channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooVALID, 
+                                    INPUT_in_ready => copy1_in0_ready, 
+                                    INPUT_out_ready => channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooREADY, 
 
-                                        INPUT_in_opening => copy1_in0_data, 
-                                        INPUT_out_opening => channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooDATA 
+                                    INPUT_in_valid => copy1_in0_valid, 
+                                    INPUT_out_valid => channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooVALID, 
+
+                                    INPUT_in_opening => copy1_in0_data, 
+                                    INPUT_out_opening => channel_0_real_vectoooFROMooo0x7f5f30004250oooTO_BUFFERoooDATA 
 ); 
 
 fifo_0 : axi_fifo GENERIC MAP       (copy1_ram_width, 
@@ -116,6 +116,7 @@ fifo_0 : axi_fifo GENERIC MAP       (copy1_ram_width,
 
 OUTPUT_0 : OUTPUT_node PORT MAP (           OUTPUT_clk => copy1_clk, 
                                             OUTPUT_rst => copy1_rst, 
+
                                             OUTPUT_in_ready => channel_0_real_vectoooFROM_BUFFER_TOoooOUTPUT_0oooREADY, 
                                             OUTPUT_out_ready => copy1_out0_ready, 
 
