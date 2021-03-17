@@ -585,7 +585,7 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
                 
                 # Input(s)
                 for sig in range(len(fromBuffReady)):
-                    component_mapping +=  "                                    " + str(actName) + "_in_ready => " + fromBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_in_valid => " + fromBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_in_opening => " + fromBuffData[sig] + ", \n\n"
+                    component_mapping +=  "                                    " + str(actName) + "_in" + str(sig) + "_ready => " + fromBuffReady[sig] + ", \n" + "                                    " + str(actName) + "_in" + str(sig) + "_valid => " + fromBuffValid[sig] + ", \n" + "                                    " + str(actName) + "_in" + str(sig) + "_opening => " + fromBuffData[sig] + ", \n\n"
 
                 # Output(s)
                 for sig in range(len(toBuffReady)):

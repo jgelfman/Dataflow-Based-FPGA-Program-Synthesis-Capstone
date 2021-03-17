@@ -13,19 +13,19 @@ def returnDiv(sdfArch, resourcesFolder):
         "        div_clk : in std_logic; \n" + 
         "        div_rst : in std_logic; \n" + 
         "\n\n" + 
+        "--Input0 \n" +
+        "        div_in0_ready : in std_logic; \n" + 
+        "\n" +
+        "        div_in0_valid : in std_logic; \n" + 
+        "\n" +
+        "        div_in0_opening : in std_logic_vector; \n" + 
+        "\n\n" + 
         "--Input1 \n" +
         "        div_in1_ready : in std_logic; \n" + 
         "\n" +
         "        div_in1_valid : in std_logic; \n" + 
         "\n" +
         "        div_in1_opening : in std_logic_vector; \n" + 
-        "\n\n" + 
-        "--Input2 \n" +
-        "        div_in2_ready : in std_logic; \n" + 
-        "\n" +
-        "        div_in2_valid : in std_logic; \n" + 
-        "\n" +
-        "        div_in2_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Output \n" +
         "        div_out_ready : out std_logic; \n" + 

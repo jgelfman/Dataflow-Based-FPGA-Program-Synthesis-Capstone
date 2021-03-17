@@ -9,20 +9,20 @@ port (
         prod_rst : in std_logic; 
 
 
+--Input0 
+        prod_in0_ready : in std_logic; 
+
+        prod_in0_valid : in std_logic; 
+
+        prod_in0_opening : in std_logic_vector; 
+
+
 --Input1 
         prod_in1_ready : in std_logic; 
 
         prod_in1_valid : in std_logic; 
 
         prod_in1_opening : in std_logic_vector; 
-
-
---Input2 
-        prod_in2_ready : in std_logic; 
-
-        prod_in2_valid : in std_logic; 
-
-        prod_in2_opening : in std_logic_vector; 
 
 
 --Output 

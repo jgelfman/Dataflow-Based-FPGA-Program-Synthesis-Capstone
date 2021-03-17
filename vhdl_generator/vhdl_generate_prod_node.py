@@ -13,19 +13,19 @@ def returnProd(sdfArch, resourcesFolder):
         "        prod_clk : in std_logic; \n"
         "        prod_rst : in std_logic; \n"
         "\n\n" + 
+        "--Input0 \n" +
+        "        prod_in0_ready : in std_logic; \n"
+        "\n" +
+        "        prod_in0_valid : in std_logic; \n"
+        "\n" +
+        "        prod_in0_opening : in std_logic_vector; \n"
+        "\n\n" + 
         "--Input1 \n" +
         "        prod_in1_ready : in std_logic; \n"
         "\n" +
         "        prod_in1_valid : in std_logic; \n"
         "\n" +
         "        prod_in1_opening : in std_logic_vector; \n"
-        "\n\n" + 
-        "--Input2 \n" +
-        "        prod_in2_ready : in std_logic; \n"
-        "\n" +
-        "        prod_in2_valid : in std_logic; \n"
-        "\n" +
-        "        prod_in2_opening : in std_logic_vector; \n"
         "\n\n" + 
         "--Output \n" +
         "        prod_out_ready : out std_logic; \n"

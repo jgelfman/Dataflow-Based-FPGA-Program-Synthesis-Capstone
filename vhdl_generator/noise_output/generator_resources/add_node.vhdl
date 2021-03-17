@@ -9,20 +9,20 @@ port (
         add_rst : in std_logic; 
 
 
+--Input0 
+        add_in0_ready : in std_logic; 
+
+        add_in0_valid : in std_logic; 
+
+        add_in0_opening : in std_logic_vector; 
+
+
 --Input1 
         add_in1_ready : in std_logic; 
 
         add_in1_valid : in std_logic; 
 
         add_in1_opening : in std_logic_vector; 
-
-
---Input2 
-        add_in2_ready : in std_logic; 
-
-        add_in2_valid : in std_logic; 
-
-        add_in2_opening : in std_logic_vector; 
 
 
 --Output 

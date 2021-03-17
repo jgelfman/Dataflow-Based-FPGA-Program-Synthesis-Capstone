@@ -13,19 +13,19 @@ def returnAdd(sdfArch, resourcesFolder):
         "        add_clk : in std_logic; \n"
         "        add_rst : in std_logic; \n"
         "\n\n" + 
+        "--Input0 \n" +
+        "        add_in0_ready : in std_logic; \n" + 
+        "\n" +
+        "        add_in0_valid : in std_logic; \n" + 
+        "\n" +
+        "        add_in0_opening : in std_logic_vector; \n" + 
+        "\n\n" + 
         "--Input1 \n" +
         "        add_in1_ready : in std_logic; \n" + 
         "\n" +
         "        add_in1_valid : in std_logic; \n" + 
         "\n" +
         "        add_in1_opening : in std_logic_vector; \n" + 
-        "\n\n" + 
-        "--Input2 \n" +
-        "        add_in2_ready : in std_logic; \n" + 
-        "\n" +
-        "        add_in2_valid : in std_logic; \n" + 
-        "\n" +
-        "        add_in2_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Output \n" +
         "        add_out_ready : out std_logic; \n" + 

@@ -9,20 +9,20 @@ port (
         div_rst : in std_logic; 
 
 
+--Input0 
+        div_in0_ready : in std_logic; 
+
+        div_in0_valid : in std_logic; 
+
+        div_in0_opening : in std_logic_vector; 
+
+
 --Input1 
         div_in1_ready : in std_logic; 
 
         div_in1_valid : in std_logic; 
 
         div_in1_opening : in std_logic_vector; 
-
-
---Input2 
-        div_in2_ready : in std_logic; 
-
-        div_in2_valid : in std_logic; 
-
-        div_in2_opening : in std_logic_vector; 
 
 
 --Output 
