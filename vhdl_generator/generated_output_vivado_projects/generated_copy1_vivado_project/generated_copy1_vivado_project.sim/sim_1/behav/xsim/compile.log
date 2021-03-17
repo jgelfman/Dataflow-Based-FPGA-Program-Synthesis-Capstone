@@ -1,0 +1,10 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_copy1_vivado_project/generated_copy1_vivado_project.srcs/sources_1/imports/copy1_output/generator_resources/axi_fifo.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'axi_fifo'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_copy1_vivado_project/generated_copy1_vivado_project.srcs/sources_1/imports/copy1_output/copy1_wrapper.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'copy1'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_copy1_vivado_project/generated_copy1_vivado_project.srcs/sources_1/imports/copy1_output/generator_resources/input_node.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'input_node'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_copy1_vivado_project/generated_copy1_vivado_project.srcs/sources_1/imports/copy1_output/generator_resources/output_node.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'output_node'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_copy1_vivado_project/generated_copy1_vivado_project.srcs/sources_1/imports/copy1_output/copy1_TB.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'copy1_testbench'
