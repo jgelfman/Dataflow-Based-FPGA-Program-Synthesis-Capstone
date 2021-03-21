@@ -2,6 +2,16 @@
 A Yale-NUS BSc. (Hons) in Mathematical, Computational, and Statistical Sciences Capstone: **an FPGA Program Generator written in Python that takes `dsp-sig` XML Dataflow Graphs created using FAUST to produce FPGA programs in VHDL.**
 
 
+## Example: `math`
+For a `math.dsp-sig.dot` dataflow graph for which a `math.dsp-sig.xml` was created using the FAUST fork by [@jkmingwen](https://github.com/jkmingwen):
+<img width="745" alt="Screenshot 2021-03-21 at 23 03 22" src="https://user-images.githubusercontent.com/47740280/111909805-abb00100-8a99-11eb-8c71-ba91bde5f5fe.png">
+
+The following is an automatically generated FPGA program in VHDL, compiled using Vivado:
+<img width="1526" alt="entirely_generated_math" src="https://user-images.githubusercontent.com/47740280/111909696-478d3d00-8a99-11eb-87a9-e0d1ae1b546c.png">
+Zoomed in:
+<img width="1499" alt="entirely_generated_math_1" src="https://user-images.githubusercontent.com/47740280/111909702-4c51f100-8a99-11eb-9e55-d32539fd7e80.png">
+
+
 ## How does this work?
 
 Steps to reproduce:
@@ -59,7 +69,7 @@ The Vivado projects of some of the automatically generated programs above (**the
 
 
 ### `Dataflow_Graphs`
-A folder containing an array of dataflow graphs produced by @jkmingwen using [his fork](https://github.com/jkmingwen/faust) of the [FAUST programming language](https://github.com/grame-cncm/faust). Every subfolder contains a dataflow signal process `.dsp` file, a `.dot` graph, an `.xml`, and a `.png` visualization:
+A folder containing an array of dataflow graphs produced by [@jkmingwen](https://github.com/jkmingwen) using [his fork](https://github.com/jkmingwen/faust) of the [FAUST programming language](https://github.com/grame-cncm/faust). Every subfolder contains a dataflow signal process `.dsp` file, a `.dot` graph, an `.xml`, and a `.png` visualization:
 - `copy1`: a basic 1 input to 1 output copy dataflow.
 - `noisedsp`: a noise generator dataflow.
 - `plus1`: a basic plus 1 adder dataflow.
@@ -71,7 +81,7 @@ As well as:
 
 
 ### `axi_fifo_ring_buffer`
-A clone folder of an AXI FIFO buffer written in VHDL as a Xilinx Vivado Project by @jjzmajic from his [repository](https://gitlab.com/jjzmajic/axi_fifo_ring_buffer):
+A clone folder of an AXI FIFO buffer written in VHDL as a Xilinx Vivado Project by [@jjzmajic](https://gitlab.com/jjzmajic) from his [repository](https://gitlab.com/jjzmajic/axi_fifo_ring_buffer):
 
 The FPGA program generator was developed using the VHDL buffer implementation which can be found here:
 `axi_fifo_ring_buffer/kernel_wrapper_ex.srcs/sources_1/imports/new/`
@@ -91,4 +101,4 @@ This can be ran as Xilinx Vivado Project.
 
 
 ### Acknowledgment
-This repository was done as an independent capstone project supervised by Prof. Bodin at Yale-NUS College (@bbodin).
+This repository was done as an independent capstone project supervised by Prof. Bodin at Yale-NUS College [@bbodin](https://github.com/bbodin).
