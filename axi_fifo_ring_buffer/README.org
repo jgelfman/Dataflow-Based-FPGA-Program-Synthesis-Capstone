@@ -1,5 +1,7 @@
-#+TITLE: (BY UROS:) FPGA BRAM FIFO Buffer
+#+TITLE: FPGA BRAM FIFO Buffer
 #+startup: overview
+
+*Cloned from the [[https://gitlab.com/jjzmajic/axi_fifo_ring_buffer][FPGA FIFO Ring Buffer repository]] made by [[https://gitlab.com/jjzmajic][jjzmajic]].*
 
 All hope abandon, ye who enter here.
 
