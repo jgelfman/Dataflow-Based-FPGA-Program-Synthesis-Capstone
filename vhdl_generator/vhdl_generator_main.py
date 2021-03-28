@@ -1,4 +1,5 @@
-# This is a VHDL code generator that uses ElementTree XML to take in XML files describing dataflow graphs compiled using FAUST, and in-return produces the corresponding entities and connections in VHDL to be simulated in Xilinx Vivado.
+# This is a VHDL code generator that uses ElementTree XML to take in XML files describing dataflow graphs 
+# compiled using FAUST, and in-return produces the corresponding entities and connections in VHDL to be simulated in Xilinx Vivado.
 
 
 # Set to true in case of unkown operators
