@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2019.2.1 (64-bit)
+# SW Build 2729669 on Thu Dec  5 04:48:12 MST 2019
+# IP Build 2729494 on Thu Dec  5 07:38:25 MST 2019
+# Start of session at: Sun Mar 28 17:29:42 2021
+# Process ID: 28653
+# Current directory: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/xsim.dir/copy1_wrapper_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/jon/Desktop/capstone/copy1_poc/copy1_poc.sim/sim_1/behav/xsim/xsim.dir/copy1_wrapper_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sun Mar 28 17:29:42 2021...

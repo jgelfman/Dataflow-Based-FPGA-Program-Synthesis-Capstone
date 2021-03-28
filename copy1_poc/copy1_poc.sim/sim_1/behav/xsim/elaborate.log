@@ -1,6 +1,6 @@
 Vivado Simulator 2019.2
 Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: /tools/Xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 7cb67da4d93341db9fa3bd9068944096 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot copy1_wrapper_behav xil_defaultlib.copy1_wrapper -log elaborate.log 
+Running: /tools/Xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab -wto 7cb67da4d93341db9fa3bd9068944096 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot copy1_tb_behav xil_defaultlib.copy1_tb -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -11,8 +11,9 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
+Compiling package std.env
 Compiling architecture copy1_arch of entity xil_defaultlib.entity_node [\entity_node(15,0)(15,0)\]
 Compiling architecture copy1_arch of entity xil_defaultlib.axi_fifo [\axi_fifo(ram_width=16,ram_depth...]
 Compiling architecture copy1_arch of entity xil_defaultlib.copy1 [\copy1(copy1_ram_width=16,copy1_...]
-Compiling architecture copy1_arch of entity xil_defaultlib.copy1_wrapper
-Built simulation snapshot copy1_wrapper_behav
+Compiling architecture copy1_arch of entity xil_defaultlib.copy1_tb
+Built simulation snapshot copy1_tb_behav
