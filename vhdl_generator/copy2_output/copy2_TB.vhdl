@@ -70,7 +70,8 @@ begin
                           ); 
 
 
-    -- Sequential test process    send_proc : process is 
+    -- Sequential test process 
+    send_proc : process is 
     begin 
 
         -- Reset system 
@@ -129,32 +130,32 @@ begin
 
         -- Loop to start reading data 
 
-        report "Start reading data...";        while unsigned(expected_copy2_out0_data) < 10 loop 
-
-        while unsigned(expected_copy2_out1_data) < 10 loop 
+        report "Start reading data..."; 
 
         while unsigned(copy2_in0_data) < 3 loop 
 
-            report "Reading from OUTPUT_0...";            report "Writing one data iteration to input copy2..."; 
+            report "Reading from OUTPUT_0..."; 
             wait until rising_edge(clk); 
 
             if copy2_out0_valid = '1' and copy2_out0_ready = '1' then 
                  expected_copy2_out0_data <= std_logic_vector(unsigned(expected_copy2_out0_data) + 1); 
                 copy2_out0_ready <= '0'; 
-            elsif  copy2_out0_ready = '0' then                copy2_out0_ready <= '1'; 
+            elsif  copy2_out0_ready = '0' then 
+                copy2_out0_ready <= '1'; 
             end if; 
 
         end loop; 
 
         while unsigned(copy2_in1_data) < 3 loop 
 
-            report "Reading from OUTPUT_1...";            report "Writing one data iteration to input copy2..."; 
+            report "Reading from OUTPUT_1..."; 
             wait until rising_edge(clk); 
 
             if copy2_out1_valid = '1' and copy2_out1_ready = '1' then 
                  expected_copy2_out1_data <= std_logic_vector(unsigned(expected_copy2_out1_data) + 1); 
                 copy2_out1_ready <= '0'; 
-            elsif  copy2_out1_ready = '0' then                copy2_out1_ready <= '1'; 
+            elsif  copy2_out1_ready = '0' then 
+                copy2_out1_ready <= '1'; 
             end if; 
 
         end loop; 

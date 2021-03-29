@@ -115,7 +115,7 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
     # TB Processes
     
     # TB Send Process
-    TBSendProc = "    -- Sequential test process" + "    send_proc : process is \n" + "    begin \n\n"
+    TBSendProc = "    -- Sequential test process \n" + "    send_proc : process is \n" + "    begin \n\n"
 
     # Reset system
     TBSendProc += "        -- Reset system \n" + "        rst <= '1'; \n" +  "        wait until rising_edge(clk); \n\n" + "        rst <= '0'; \n" + "        wait until rising_edge(clk); \n\n"
@@ -146,20 +146,14 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
     for outpt in range(0,outputCtr):
         TBReceiveProc += "        " + str(sdfName) + "_out" + str(outpt) + "_ready <= '0'; \n"
 
-    TBReceiveProc += "        wait for 10 * clock_period; \n\n" + "        -- Loop to start reading data \n\n" + "        report \"Start reading data...\";"
+    TBReceiveProc += "        wait for 10 * clock_period; \n\n" + "        -- Loop to start reading data \n\n" + "        report \"Start reading data...\"; \n\n"
 
-    
-    # Reading data from output(s)
-    for outpt in range(0,outputCtr):
-        TBReceiveProc += "        while unsigned(expected_" + str(sdfName) + "_out" + str(outpt) + "_data) < 10 loop \n\n"
-
-
-    # Reading every input
+    # Reading every output
     for outpt in range(0,outputCtr):
         TBReceiveProc += "        while unsigned(" + str(sdfName) + "_in" + str(outpt) + "_data) < " + str(ram_width) + " loop \n\n"
         
         # Wait
-        TBReceiveProc += "            report \"Reading from OUTPUT_" + str(outpt) + "...\"; \n" + "            report \"Writing one data iteration to input " +  str(sdfName) + "...\"; \n" + "            wait until rising_edge(clk); \n\n"
+        TBReceiveProc += "            report \"Reading from OUTPUT_" + str(outpt) + "...\"; \n" + "            wait until rising_edge(clk); \n\n"
 
         # Read from every output
         TBReceiveProc += "            if " + str(sdfName) + "_out" + str(outpt) + "_valid = '1' and " + str(sdfName) + "_out" + str(outpt) + "_ready = '1' then \n " + "                expected_" + str(sdfName) + "_out" + str(outpt) + "_data <= std_logic_vector(unsigned(expected_" + str(sdfName) + "_out" + str(outpt) + "_data) + 1); \n" + "                " + str(sdfName) + "_out" + str(outpt) + "_ready <= '0'; \n" + "            elsif  " + str(sdfName) + "_out" + str(outpt) + "_ready = '0' then \n" + "                " + str(sdfName) + "_out" + str(outpt) + "_ready <= '1'; \n" + "            end if; \n\n"

@@ -12,7 +12,7 @@ architecture copy1_arch of copy1_testbench is
   -- testbench constants 
   constant clock_period : time := 10 ns; 
   constant copy1_ram_width : natural := 16; 
-  constant copy1_ram_depth : natural := 2; 
+  constant copy1_ram_depth : natural := 3; 
 
   -- signals 
   signal clk : std_logic := '1'; 
@@ -53,7 +53,8 @@ begin
                           ); 
 
 
-    -- Sequential test process    send_proc : process is 
+    -- Sequential test process 
+    send_proc : process is 
     begin 
 
         -- Reset system 
@@ -97,17 +98,18 @@ begin
 
         -- Loop to start reading data 
 
-        report "Start reading data...";        while unsigned(expected_copy1_out0_data) < 10 loop 
+        report "Start reading data..."; 
 
-        while unsigned(copy1_in0_data) < 2 loop 
+        while unsigned(copy1_in0_data) < 3 loop 
 
-            report "Reading from OUTPUT_0...";            report "Writing one data iteration to input copy1..."; 
+            report "Reading from OUTPUT_0..."; 
             wait until rising_edge(clk); 
 
             if copy1_out0_valid = '1' and copy1_out0_ready = '1' then 
                  expected_copy1_out0_data <= std_logic_vector(unsigned(expected_copy1_out0_data) + 1); 
                 copy1_out0_ready <= '0'; 
-            elsif  copy1_out0_ready = '0' then                copy1_out0_ready <= '1'; 
+            elsif  copy1_out0_ready = '0' then 
+                copy1_out0_ready <= '1'; 
             end if; 
 
         end loop; 
