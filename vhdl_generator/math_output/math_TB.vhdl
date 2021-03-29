@@ -62,7 +62,9 @@ begin
     -- clock ticking 
   clk <= not clk after clock_period / 2; 
 
-    -- Instantiate the wrapper to be tested  math_wrapper : entity work.math(math_arch) GENERIC MAP (math_ram_width, 
+    -- Instantiate the wrapper to be tested
+  math_wrapper : entity work.math(math_arch) 
+              GENERIC MAP (math_ram_width, 
                           math_ram_depth 
                           ) 
               PORT MAP    ( 
@@ -123,11 +125,13 @@ begin
 
         while unsigned(math_in0_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_math...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_0..."; 
+            wait until rising_edge(clk); 
 
             if math_in0_valid = '1' and math_in0_ready = '1' then 
                 math_in0_data <= std_logic_vector(unsigned(math_in0_data) + 1); 
-                math_in0_valid <= '0';            elsif math_in0_valid = '0' then 
+                math_in0_valid <= '0'; 
+            elsif math_in0_valid = '0' then 
                 math_in0_valid <= '1'; 
             end if; 
 
@@ -135,11 +139,13 @@ begin
 
         while unsigned(math_in1_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_math...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_1..."; 
+            wait until rising_edge(clk); 
 
             if math_in1_valid = '1' and math_in1_ready = '1' then 
                 math_in1_data <= std_logic_vector(unsigned(math_in1_data) + 1); 
-                math_in1_valid <= '0';            elsif math_in1_valid = '0' then 
+                math_in1_valid <= '0'; 
+            elsif math_in1_valid = '0' then 
                 math_in1_valid <= '1'; 
             end if; 
 
@@ -147,11 +153,13 @@ begin
 
         while unsigned(math_in2_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_math...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_2..."; 
+            wait until rising_edge(clk); 
 
             if math_in2_valid = '1' and math_in2_ready = '1' then 
                 math_in2_data <= std_logic_vector(unsigned(math_in2_data) + 1); 
-                math_in2_valid <= '0';            elsif math_in2_valid = '0' then 
+                math_in2_valid <= '0'; 
+            elsif math_in2_valid = '0' then 
                 math_in2_valid <= '1'; 
             end if; 
 
@@ -159,11 +167,13 @@ begin
 
         while unsigned(math_in3_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_math...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_3..."; 
+            wait until rising_edge(clk); 
 
             if math_in3_valid = '1' and math_in3_ready = '1' then 
                 math_in3_data <= std_logic_vector(unsigned(math_in3_data) + 1); 
-                math_in3_valid <= '0';            elsif math_in3_valid = '0' then 
+                math_in3_valid <= '0'; 
+            elsif math_in3_valid = '0' then 
                 math_in3_valid <= '1'; 
             end if; 
 
@@ -171,11 +181,13 @@ begin
 
         while unsigned(math_in4_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_math...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_4..."; 
+            wait until rising_edge(clk); 
 
             if math_in4_valid = '1' and math_in4_ready = '1' then 
                 math_in4_data <= std_logic_vector(unsigned(math_in4_data) + 1); 
-                math_in4_valid <= '0';            elsif math_in4_valid = '0' then 
+                math_in4_valid <= '0'; 
+            elsif math_in4_valid = '0' then 
                 math_in4_valid <= '1'; 
             end if; 
 
@@ -183,11 +195,13 @@ begin
 
         while unsigned(math_in5_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_math...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_5..."; 
+            wait until rising_edge(clk); 
 
             if math_in5_valid = '1' and math_in5_ready = '1' then 
                 math_in5_data <= std_logic_vector(unsigned(math_in5_data) + 1); 
-                math_in5_valid <= '0';            elsif math_in5_valid = '0' then 
+                math_in5_valid <= '0'; 
+            elsif math_in5_valid = '0' then 
                 math_in5_valid <= '1'; 
             end if; 
 
@@ -195,11 +209,13 @@ begin
 
         while unsigned(math_in6_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_math...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_6..."; 
+            wait until rising_edge(clk); 
 
             if math_in6_valid = '1' and math_in6_ready = '1' then 
                 math_in6_data <= std_logic_vector(unsigned(math_in6_data) + 1); 
-                math_in6_valid <= '0';            elsif math_in6_valid = '0' then 
+                math_in6_valid <= '0'; 
+            elsif math_in6_valid = '0' then 
                 math_in6_valid <= '1'; 
             end if; 
 
@@ -207,11 +223,13 @@ begin
 
         while unsigned(math_in7_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_math...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_7..."; 
+            wait until rising_edge(clk); 
 
             if math_in7_valid = '1' and math_in7_ready = '1' then 
                 math_in7_data <= std_logic_vector(unsigned(math_in7_data) + 1); 
-                math_in7_valid <= '0';            elsif math_in7_valid = '0' then 
+                math_in7_valid <= '0'; 
+            elsif math_in7_valid = '0' then 
                 math_in7_valid <= '1'; 
             end if; 
 
@@ -237,12 +255,15 @@ begin
 
         while unsigned(math_in0_data) < 3 loop 
 
-            report "Reading from OUTPUT_0...";            report "Writing one data iteration to input math...";            wait until rising_edge(clk); 
+            report "Reading from OUTPUT_0...";
+            report "Writing one data iteration to input math..."; 
+            wait until rising_edge(clk); 
 
             if math_out0_valid = '1' and math_out0_ready = '1' then 
                  expected_math_out0_data <= std_logic_vector(unsigned(expected_math_out0_data) + 1); 
                 math_out0_ready <= '0'; 
-            elsif  math_out0_ready = '0' then                math_out0_ready <= '1'; 
+            elsif  math_out0_ready = '0' then
+                math_out0_ready <= '1'; 
             end if; 
 
         end loop; 

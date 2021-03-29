@@ -12,7 +12,7 @@ architecture copy1_arch of copy1_testbench is
   -- testbench constants 
   constant clock_period : time := 10 ns; 
   constant copy1_ram_width : natural := 16; 
-  constant copy1_ram_depth : natural := 3; 
+  constant copy1_ram_depth : natural := 2; 
 
   -- signals 
   signal clk : std_logic := '1'; 
@@ -34,7 +34,9 @@ begin
     -- clock ticking 
   clk <= not clk after clock_period / 2; 
 
-    -- Instantiate the wrapper to be tested  copy1_wrapper : entity work.copy1(copy1_arch) GENERIC MAP (copy1_ram_width, 
+    -- Instantiate the wrapper to be tested
+  copy1_wrapper : entity work.copy1(copy1_arch) 
+              GENERIC MAP (copy1_ram_width, 
                           copy1_ram_depth 
                           ) 
               PORT MAP    ( 
@@ -67,11 +69,13 @@ begin
 
         while unsigned(copy1_in0_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_copy1...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_0..."; 
+            wait until rising_edge(clk); 
 
             if copy1_in0_valid = '1' and copy1_in0_ready = '1' then 
                 copy1_in0_data <= std_logic_vector(unsigned(copy1_in0_data) + 1); 
-                copy1_in0_valid <= '0';            elsif copy1_in0_valid = '0' then 
+                copy1_in0_valid <= '0'; 
+            elsif copy1_in0_valid = '0' then 
                 copy1_in0_valid <= '1'; 
             end if; 
 
@@ -95,9 +99,10 @@ begin
 
         report "Start reading data...";        while unsigned(expected_copy1_out0_data) < 10 loop 
 
-        while unsigned(copy1_in0_data) < 3 loop 
+        while unsigned(copy1_in0_data) < 2 loop 
 
-            report "Reading from OUTPUT_0...";            report "Writing one data iteration to input copy1...";            wait until rising_edge(clk); 
+            report "Reading from OUTPUT_0...";            report "Writing one data iteration to input copy1..."; 
+            wait until rising_edge(clk); 
 
             if copy1_out0_valid = '1' and copy1_out0_ready = '1' then 
                  expected_copy1_out0_data <= std_logic_vector(unsigned(expected_copy1_out0_data) + 1); 

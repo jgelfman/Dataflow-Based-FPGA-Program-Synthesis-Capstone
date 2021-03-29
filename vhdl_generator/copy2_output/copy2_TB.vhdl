@@ -43,7 +43,9 @@ begin
     -- clock ticking 
   clk <= not clk after clock_period / 2; 
 
-    -- Instantiate the wrapper to be tested  copy2_wrapper : entity work.copy2(copy2_arch) GENERIC MAP (copy2_ram_width, 
+    -- Instantiate the wrapper to be tested
+  copy2_wrapper : entity work.copy2(copy2_arch) 
+              GENERIC MAP (copy2_ram_width, 
                           copy2_ram_depth 
                           ) 
               PORT MAP    ( 
@@ -84,11 +86,13 @@ begin
 
         while unsigned(copy2_in0_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_copy2...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_0..."; 
+            wait until rising_edge(clk); 
 
             if copy2_in0_valid = '1' and copy2_in0_ready = '1' then 
                 copy2_in0_data <= std_logic_vector(unsigned(copy2_in0_data) + 1); 
-                copy2_in0_valid <= '0';            elsif copy2_in0_valid = '0' then 
+                copy2_in0_valid <= '0'; 
+            elsif copy2_in0_valid = '0' then 
                 copy2_in0_valid <= '1'; 
             end if; 
 
@@ -96,11 +100,13 @@ begin
 
         while unsigned(copy2_in1_data) < 10 loop 
 
-            report "Writing one data iteration to INPUT_copy2...";            wait until rising_edge(clk); 
+            report "Writing one data iteration to INPUT_1..."; 
+            wait until rising_edge(clk); 
 
             if copy2_in1_valid = '1' and copy2_in1_ready = '1' then 
                 copy2_in1_data <= std_logic_vector(unsigned(copy2_in1_data) + 1); 
-                copy2_in1_valid <= '0';            elsif copy2_in1_valid = '0' then 
+                copy2_in1_valid <= '0'; 
+            elsif copy2_in1_valid = '0' then 
                 copy2_in1_valid <= '1'; 
             end if; 
 
@@ -129,7 +135,8 @@ begin
 
         while unsigned(copy2_in0_data) < 3 loop 
 
-            report "Reading from OUTPUT_0...";            report "Writing one data iteration to input copy2...";            wait until rising_edge(clk); 
+            report "Reading from OUTPUT_0...";            report "Writing one data iteration to input copy2..."; 
+            wait until rising_edge(clk); 
 
             if copy2_out0_valid = '1' and copy2_out0_ready = '1' then 
                  expected_copy2_out0_data <= std_logic_vector(unsigned(expected_copy2_out0_data) + 1); 
@@ -141,7 +148,8 @@ begin
 
         while unsigned(copy2_in1_data) < 3 loop 
 
-            report "Reading from OUTPUT_1...";            report "Writing one data iteration to input copy2...";            wait until rising_edge(clk); 
+            report "Reading from OUTPUT_1...";            report "Writing one data iteration to input copy2..."; 
+            wait until rising_edge(clk); 
 
             if copy2_out1_valid = '1' and copy2_out1_ready = '1' then 
                  expected_copy2_out1_data <= std_logic_vector(unsigned(expected_copy2_out1_data) + 1); 

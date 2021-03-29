@@ -94,7 +94,7 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
     TBcomponentMapping = "    -- clock ticking \n" + "  clk <= not clk after clock_period / 2; \n\n"
 
     # Wrapper component mapping
-    TBcomponentMapping += "    -- Instantiate the wrapper to be tested" + "  " + str(sdfName) + "_wrapper : entity work." + str(sdfName) + "(" + str(sdfArch) + ") GENERIC MAP (" + str(sdfName) + "_ram_width, \n" + "                          " + str(sdfName) + "_ram_depth \n" + "                          ) \n" + "              PORT MAP    ( \n" + "                          " + str(sdfName) + "_clk => clk, \n" + "                          " + str(sdfName) + "_rst => rst, \n" + " \n"
+    TBcomponentMapping += "    -- Instantiate the wrapper to be tested\n" + "  " + str(sdfName) + "_wrapper : entity work." + str(sdfName) + "(" + str(sdfArch) + ") \n" + "              GENERIC MAP (" + str(sdfName) + "_ram_width, \n" + "                          " + str(sdfName) + "_ram_depth \n" + "                          ) \n" + "              PORT MAP    ( \n" + "                          " + str(sdfName) + "_clk => clk, \n" + "                          " + str(sdfName) + "_rst => rst, \n" + " \n"
 
     # TB entity AXI input mapping
     for inpt in range(0,inputCtr):
@@ -128,10 +128,10 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
         TBSendProc += "        while unsigned(" + str(sdfName) + "_in" + str(inpt) + "_data) < 10 loop \n\n"
         
         # Wait
-        TBSendProc += "            report \"Writing one data iteration to INPUT_" +  str(sdfName) + "...\";" + "            wait until rising_edge(clk); \n\n"
+        TBSendProc += "            report \"Writing one data iteration to INPUT_" +  str(inpt) + "...\"; \n" + "            wait until rising_edge(clk); \n\n"
         
         # Loading all inputs
-        TBSendProc += "            if " + str(sdfName) + "_in" + str(inpt) + "_valid = '1' and " + str(sdfName) + "_in" + str(inpt) + "_ready = '1' then \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_in" + str(inpt) + "_data) + 1); \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_valid <= '0';" + "            elsif " + str(sdfName) + "_in" + str(inpt) + "_valid = '0' then \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_valid <= '1'; \n" +  "            end if; \n\n" + "        end loop; \n\n"
+        TBSendProc += "            if " + str(sdfName) + "_in" + str(inpt) + "_valid = '1' and " + str(sdfName) + "_in" + str(inpt) + "_ready = '1' then \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_in" + str(inpt) + "_data) + 1); \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_valid <= '0'; \n" + "            elsif " + str(sdfName) + "_in" + str(inpt) + "_valid = '0' then \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_valid <= '1'; \n" +  "            end if; \n\n" + "        end loop; \n\n"
 
     TBSendProc += "        report \"Writing completed...\"; \n" + "        finish;\n\n" + "    end process; \n\n\n"
 
@@ -159,10 +159,10 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
         TBReceiveProc += "        while unsigned(" + str(sdfName) + "_in" + str(outpt) + "_data) < " + str(ram_width) + " loop \n\n"
         
         # Wait
-        TBReceiveProc += "            report \"Reading from OUTPUT_" + str(outpt) + "...\";" + "            report \"Writing one data iteration to input " +  str(sdfName) + "...\";" + "            wait until rising_edge(clk); \n\n"
+        TBReceiveProc += "            report \"Reading from OUTPUT_" + str(outpt) + "...\"; \n" + "            report \"Writing one data iteration to input " +  str(sdfName) + "...\"; \n" + "            wait until rising_edge(clk); \n\n"
 
         # Read from every output
-        TBReceiveProc += "            if " + str(sdfName) + "_out" + str(outpt) + "_valid = '1' and " + str(sdfName) + "_out" + str(outpt) + "_ready = '1' then \n " + "                expected_" + str(sdfName) + "_out" + str(outpt) + "_data <= std_logic_vector(unsigned(expected_" + str(sdfName) + "_out" + str(outpt) + "_data) + 1); \n" + "                " + str(sdfName) + "_out" + str(outpt) + "_ready <= '0'; \n" + "            elsif  " + str(sdfName) + "_out" + str(outpt) + "_ready = '0' then" + "                " + str(sdfName) + "_out" + str(outpt) + "_ready <= '1'; \n" + "            end if; \n\n"
+        TBReceiveProc += "            if " + str(sdfName) + "_out" + str(outpt) + "_valid = '1' and " + str(sdfName) + "_out" + str(outpt) + "_ready = '1' then \n " + "                expected_" + str(sdfName) + "_out" + str(outpt) + "_data <= std_logic_vector(unsigned(expected_" + str(sdfName) + "_out" + str(outpt) + "_data) + 1); \n" + "                " + str(sdfName) + "_out" + str(outpt) + "_ready <= '0'; \n" + "            elsif  " + str(sdfName) + "_out" + str(outpt) + "_ready = '0' then \n" + "                " + str(sdfName) + "_out" + str(outpt) + "_ready <= '1'; \n" + "            end if; \n\n"
 
         TBReceiveProc += "        end loop; \n\n"
 

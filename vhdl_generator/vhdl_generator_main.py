@@ -166,4 +166,4 @@ if ram_width == "cancel":
 
 vhdl_generate_tb.returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, nodeSignals, clock_period, ram_depth, ram_width)
 
-print("\n" + "VHDL program generated successfully.\n" + "Find resources at " +  str(resourcesFolder) + "\n" + "To generate wavelength and schematic, open " + str(outputName) + "\n")
+print("\n" + "VHDL program generated successfully.\n" + "Find resources at " +  str(resourcesFolder) + "\n" + "To generate wavelength and schematic in Xilinx Vivado, open " + str(outputName) + "\n")
