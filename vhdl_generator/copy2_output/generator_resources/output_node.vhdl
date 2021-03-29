@@ -8,8 +8,8 @@ port (
         output_clk : in std_logic; 
         output_rst : in std_logic; 
 
-        output_in_ready : in std_logic; 
-        output_out_ready : out std_logic; 
+        output_in_ready : out std_logic; 
+        output_out_ready : in std_logic; 
 
         output_in_valid : in std_logic; 
         output_out_valid : out std_logic; 
@@ -24,7 +24,7 @@ architecture copy2_arch of output_node is
 
     begin 
 
-    output_out_ready <= output_in_ready; 
+    output_in_ready <= output_out_ready; 
     output_out_valid <= output_in_valid; 
     output_out_opening <= output_in_opening; 
 

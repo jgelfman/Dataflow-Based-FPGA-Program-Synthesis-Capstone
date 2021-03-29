@@ -12,11 +12,11 @@ entity copy1 is
         copy1_clk : in std_logic; 
         copy1_rst : in std_logic; 
  
-        copy1_in0_ready : in std_logic; 
+        copy1_in0_ready : out std_logic; 
         copy1_in0_valid : in std_logic; 
         copy1_in0_data : in std_logic_vector; 
  
-        copy1_out0_ready : out std_logic; 
+        copy1_out0_ready : in std_logic; 
         copy1_out0_valid : out std_logic; 
         copy1_out0_data : out std_logic_vector 
     ); 
@@ -33,7 +33,7 @@ architecture copy1_arch of copy1 is
 
 
             INPUT_in_ready : in std_logic; 
-            INPUT_out_ready : out std_logic; 
+            INPUT_out_ready : in std_logic; 
 
             INPUT_in_valid : in std_logic; 
             INPUT_out_valid : out std_logic; 
@@ -50,7 +50,7 @@ architecture copy1_arch of copy1 is
 
 
             OUTPUT_in_ready : in std_logic; 
-            OUTPUT_out_ready : out std_logic; 
+            OUTPUT_out_ready : in std_logic; 
 
             OUTPUT_in_valid : in std_logic; 
             OUTPUT_out_valid : out std_logic; 

@@ -12,39 +12,39 @@ entity math is
         math_clk : in std_logic; 
         math_rst : in std_logic; 
  
-        math_in0_ready : in std_logic; 
+        math_in0_ready : out std_logic; 
         math_in0_valid : in std_logic; 
         math_in0_data : in std_logic_vector; 
  
-        math_in1_ready : in std_logic; 
+        math_in1_ready : out std_logic; 
         math_in1_valid : in std_logic; 
         math_in1_data : in std_logic_vector; 
  
-        math_in2_ready : in std_logic; 
+        math_in2_ready : out std_logic; 
         math_in2_valid : in std_logic; 
         math_in2_data : in std_logic_vector; 
  
-        math_in3_ready : in std_logic; 
+        math_in3_ready : out std_logic; 
         math_in3_valid : in std_logic; 
         math_in3_data : in std_logic_vector; 
  
-        math_in4_ready : in std_logic; 
+        math_in4_ready : out std_logic; 
         math_in4_valid : in std_logic; 
         math_in4_data : in std_logic_vector; 
  
-        math_in5_ready : in std_logic; 
+        math_in5_ready : out std_logic; 
         math_in5_valid : in std_logic; 
         math_in5_data : in std_logic_vector; 
  
-        math_in6_ready : in std_logic; 
+        math_in6_ready : out std_logic; 
         math_in6_valid : in std_logic; 
         math_in6_data : in std_logic_vector; 
  
-        math_in7_ready : in std_logic; 
+        math_in7_ready : out std_logic; 
         math_in7_valid : in std_logic; 
         math_in7_data : in std_logic_vector; 
  
-        math_out0_ready : out std_logic; 
+        math_out0_ready : in std_logic; 
         math_out0_valid : out std_logic; 
         math_out0_data : out std_logic_vector 
     ); 
@@ -61,7 +61,7 @@ architecture math_arch of math is
 
 
             INPUT_in_ready : in std_logic; 
-            INPUT_out_ready : out std_logic; 
+            INPUT_out_ready : in std_logic; 
 
             INPUT_in_valid : in std_logic; 
             INPUT_out_valid : out std_logic; 
@@ -77,7 +77,7 @@ architecture math_arch of math is
             add_rst : in std_logic; 
 
             --Input1 
-            add_in0_ready : in std_logic; 
+            add_in0_ready : out std_logic; 
 
             add_in0_valid : in std_logic; 
 
@@ -85,7 +85,7 @@ architecture math_arch of math is
 
 
             --Input2 
-            add_in1_ready : in std_logic; 
+            add_in1_ready : out std_logic; 
 
             add_in1_valid : in std_logic; 
 
@@ -93,7 +93,7 @@ architecture math_arch of math is
 
 
             --Output 
-            add_out_ready : out std_logic; 
+            add_out_ready : in std_logic; 
 
             add_out_valid : out std_logic; 
 
@@ -107,7 +107,7 @@ architecture math_arch of math is
             prod_rst : in std_logic; 
 
             --Input1 
-            prod_in0_ready : in std_logic; 
+            prod_in0_ready : out std_logic; 
 
             prod_in0_valid : in std_logic; 
 
@@ -115,7 +115,7 @@ architecture math_arch of math is
 
 
             --Input2 
-            prod_in1_ready : in std_logic; 
+            prod_in1_ready : out std_logic; 
 
             prod_in1_valid : in std_logic; 
 
@@ -123,7 +123,7 @@ architecture math_arch of math is
 
 
             --Output 
-            prod_out_ready : out std_logic; 
+            prod_out_ready : in std_logic; 
 
             prod_out_valid : out std_logic; 
 
@@ -137,7 +137,7 @@ architecture math_arch of math is
             div_rst : in std_logic; 
 
             --Input1 
-            div_in0_ready : in std_logic; 
+            div_in0_ready : out std_logic; 
 
             div_in0_valid : in std_logic; 
 
@@ -145,7 +145,7 @@ architecture math_arch of math is
 
 
             --Input2 
-            div_in1_ready : in std_logic; 
+            div_in1_ready : out std_logic; 
 
             div_in1_valid : in std_logic; 
 
@@ -153,7 +153,7 @@ architecture math_arch of math is
 
 
             --Output 
-            div_out_ready : out std_logic; 
+            div_out_ready : in std_logic; 
 
             div_out_valid : out std_logic; 
 
@@ -168,7 +168,7 @@ architecture math_arch of math is
 
 
             OUTPUT_in_ready : in std_logic; 
-            OUTPUT_out_ready : out std_logic; 
+            OUTPUT_out_ready : in std_logic; 
 
             OUTPUT_in_valid : in std_logic; 
             OUTPUT_out_valid : out std_logic; 

@@ -10,7 +10,7 @@ port (
 
 
 --Input0 
-        div_in0_ready : in std_logic; 
+        div_in0_ready : out std_logic; 
 
         div_in0_valid : in std_logic; 
 
@@ -18,7 +18,7 @@ port (
 
 
 --Input1 
-        div_in1_ready : in std_logic; 
+        div_in1_ready : out std_logic; 
 
         div_in1_valid : in std_logic; 
 
@@ -26,7 +26,7 @@ port (
 
 
 --Output 
-        div_out_ready : out std_logic; 
+        div_out_ready : in std_logic; 
 
         div_out_valid : out std_logic; 
 
@@ -40,7 +40,7 @@ architecture math_arch of div_node is
     begin 
 
 --PLACEHOLDER: Input1 propagated, Input 2 ignored 
-    div_out_ready <= div_in1_ready; 
+    div_in1_ready <= div_out_ready; 
     div_out_valid <= div_in1_valid; 
     div_out_opening <= div_in1_opening; 
 

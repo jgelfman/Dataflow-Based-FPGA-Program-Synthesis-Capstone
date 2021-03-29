@@ -10,7 +10,7 @@ port (
 
 
 --Input0 
-        add_in0_ready : in std_logic; 
+        add_in0_ready : out std_logic; 
 
         add_in0_valid : in std_logic; 
 
@@ -18,7 +18,7 @@ port (
 
 
 --Input1 
-        add_in1_ready : in std_logic; 
+        add_in1_ready : out std_logic; 
 
         add_in1_valid : in std_logic; 
 
@@ -26,7 +26,7 @@ port (
 
 
 --Output 
-        add_out_ready : out std_logic; 
+        add_out_ready : in std_logic; 
 
         add_out_valid : out std_logic; 
 
@@ -40,7 +40,7 @@ architecture math_arch of add_node is
     begin 
 
 --PLACEHOLDER: Input1 propagated, Input 2 ignored 
-    add_out_ready <= add_in1_ready; 
+    add_in1_ready <= add_out_ready; 
     add_out_valid <= add_in1_valid; 
     add_out_opening <= add_in1_opening; 
 

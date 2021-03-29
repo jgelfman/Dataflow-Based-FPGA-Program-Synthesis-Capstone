@@ -10,7 +10,7 @@ port (
 
 
 --Input0 
-        prod_in0_ready : in std_logic; 
+        prod_in0_ready : out std_logic; 
 
         prod_in0_valid : in std_logic; 
 
@@ -18,7 +18,7 @@ port (
 
 
 --Input1 
-        prod_in1_ready : in std_logic; 
+        prod_in1_ready : out std_logic; 
 
         prod_in1_valid : in std_logic; 
 
@@ -26,7 +26,7 @@ port (
 
 
 --Output 
-        prod_out_ready : out std_logic; 
+        prod_out_ready : in std_logic; 
 
         prod_out_valid : out std_logic; 
 
@@ -39,7 +39,7 @@ architecture math_arch of prod_node is
 
     begin 
 
---PLACEHOLDER: Input1 propagated, Input 2 ignored    prod_out_ready <= prod_in1_ready; 
+--PLACEHOLDER: Input1 propagated, Input 2 ignored    prod_in1_ready <= prod_out_ready; 
     prod_out_valid <= prod_in1_valid; 
     prod_out_opening <= prod_in1_opening; 
 

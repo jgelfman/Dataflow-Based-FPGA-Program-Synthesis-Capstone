@@ -8,8 +8,8 @@ port (
         input_clk : in std_logic; 
         input_rst : in std_logic; 
 
-        input_in_ready : in std_logic; 
-        input_out_ready : out std_logic; 
+        input_in_ready : out std_logic; 
+        input_out_ready : in std_logic; 
 
         input_in_valid : in std_logic; 
         input_out_valid : out std_logic; 
@@ -24,7 +24,7 @@ architecture copy1_arch of input_node is
 
     begin 
 
-    input_out_ready <= input_in_ready; 
+    input_in_ready <= input_out_ready; 
     input_out_valid <= input_in_valid; 
     input_out_opening <= input_in_opening; 
 
