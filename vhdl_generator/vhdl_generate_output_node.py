@@ -13,8 +13,8 @@ def returnOutput(sdfArch, resourcesFolder):
         "        output_clk : in std_logic; \n" +
         "        output_rst : in std_logic; \n" +
         "\n" +
-        "        output_in_ready : in std_logic; \n" +
-        "        output_out_ready : out std_logic; \n" +
+        "        output_in_ready : out std_logic; \n" +
+        "        output_out_ready : in std_logic; \n" +
         "\n" +
         "        output_in_valid : in std_logic; \n" +
         "        output_out_valid : out std_logic; \n" +
@@ -30,7 +30,7 @@ def returnOutput(sdfArch, resourcesFolder):
         "\n" +
         "    begin \n" +
         "\n" +
-        "    output_out_ready <= output_in_ready; \n" +
+        "    output_in_ready <= output_out_ready; \n" +
         "    output_out_valid <= output_in_valid; \n" +
         "    output_out_opening <= output_in_opening; \n" +
         "\n" +

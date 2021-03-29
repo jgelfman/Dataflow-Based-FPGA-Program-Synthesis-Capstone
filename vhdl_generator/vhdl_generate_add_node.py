@@ -14,21 +14,21 @@ def returnAdd(sdfArch, resourcesFolder):
         "        add_rst : in std_logic; \n"
         "\n\n" + 
         "--Input0 \n" +
-        "        add_in0_ready : in std_logic; \n" + 
+        "        add_in0_ready : out std_logic; \n" + 
         "\n" +
         "        add_in0_valid : in std_logic; \n" + 
         "\n" +
         "        add_in0_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Input1 \n" +
-        "        add_in1_ready : in std_logic; \n" + 
+        "        add_in1_ready : out std_logic; \n" + 
         "\n" +
         "        add_in1_valid : in std_logic; \n" + 
         "\n" +
         "        add_in1_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Output \n" +
-        "        add_out_ready : out std_logic; \n" + 
+        "        add_out_ready : in std_logic; \n" + 
         "\n" +
         "        add_out_valid : out std_logic; \n" + 
         "\n" +
@@ -43,7 +43,7 @@ def returnAdd(sdfArch, resourcesFolder):
         "    begin \n" +
         "\n" +
         "--PLACEHOLDER: Input1 propagated, Input 2 ignored \n" + # Placeholder behavior
-        "    add_out_ready <= add_in1_ready; \n" +
+        "    add_in1_ready <= add_out_ready; \n" +
         "    add_out_valid <= add_in1_valid; \n" +
         "    add_out_opening <= add_in1_opening; \n" +
         "\n" +

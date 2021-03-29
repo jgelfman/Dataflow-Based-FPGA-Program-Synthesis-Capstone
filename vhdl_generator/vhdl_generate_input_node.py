@@ -13,8 +13,8 @@ def returnInput(sdfArch, resourcesFolder):
         "        input_clk : in std_logic; \n" +
         "        input_rst : in std_logic; \n" +
         "\n" +
-        "        input_in_ready : in std_logic; \n" +
-        "        input_out_ready : out std_logic; \n" +
+        "        input_in_ready : out std_logic; \n" +
+        "        input_out_ready : in std_logic; \n" +
         "\n" +
         "        input_in_valid : in std_logic; \n" +
         "        input_out_valid : out std_logic; \n" +
@@ -30,7 +30,7 @@ def returnInput(sdfArch, resourcesFolder):
         "\n" +
         "    begin \n" +
         "\n" +
-        "    input_out_ready <= input_in_ready; \n" +
+        "    input_in_ready <= input_out_ready; \n" +
         "    input_out_valid <= input_in_valid; \n" +
         "    input_out_opening <= input_in_opening; \n" +
         "\n" +

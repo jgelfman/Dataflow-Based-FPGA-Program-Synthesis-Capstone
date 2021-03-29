@@ -14,21 +14,21 @@ def returnDiv(sdfArch, resourcesFolder):
         "        div_rst : in std_logic; \n" + 
         "\n\n" + 
         "--Input0 \n" +
-        "        div_in0_ready : in std_logic; \n" + 
+        "        div_in0_ready : out std_logic; \n" + 
         "\n" +
         "        div_in0_valid : in std_logic; \n" + 
         "\n" +
         "        div_in0_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Input1 \n" +
-        "        div_in1_ready : in std_logic; \n" + 
+        "        div_in1_ready : out std_logic; \n" + 
         "\n" +
         "        div_in1_valid : in std_logic; \n" + 
         "\n" +
         "        div_in1_opening : in std_logic_vector; \n" + 
         "\n\n" + 
         "--Output \n" +
-        "        div_out_ready : out std_logic; \n" + 
+        "        div_out_ready : in std_logic; \n" + 
         "\n" +
         "        div_out_valid : out std_logic; \n" + 
         "\n" +
@@ -43,7 +43,7 @@ def returnDiv(sdfArch, resourcesFolder):
         "    begin \n" +
         "\n" +
         "--PLACEHOLDER: Input1 propagated, Input 2 ignored \n" + # Placeholder behavior
-        "    div_out_ready <= div_in1_ready; \n" +
+        "    div_in1_ready <= div_out_ready; \n" +
         "    div_out_valid <= div_in1_valid; \n" +
         "    div_out_opening <= div_in1_opening; \n" +
         "\n" +

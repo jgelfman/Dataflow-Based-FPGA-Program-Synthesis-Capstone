@@ -8,7 +8,8 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
     TBlibrariesComponent = str(
     "library ieee; \n" + 
     "use ieee.std_logic_1164.all;\n" +
-    "use ieee.numeric_std.all;\n\n"
+    "use ieee.numeric_std.all;\n\n" +
+    "use std.env.finish;"
     )
 
 
@@ -57,17 +58,18 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
 
     # TB entity AXI Input signals
     for inpt in range(0,inputCtr):
-        TBarchSignals +=  "  signal " + sdfName + "_in" + str(inpt) + "_ready : std_logic; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_valid : std_logic := '0'; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0);  \n\n"
+        TBarchSignals +=  "  signal " + sdfName + "_in" + str(inpt) + "_ready : std_logic; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_valid : std_logic := '0'; \n" +  "  signal " + sdfName + "_in" + str(inpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0) := (others => '0');  \n\n"
     
     # TB entity AXI Output signals
     for outpt in range(0,outputCtr):
-        TBarchSignals += "  signal " + str(sdfName) + "_out" + str(outpt) + "_ready : std_logic := '0'; \n" +  "  signal " + sdfName + "_out" + str(outpt) + "_valid : std_logic; \n" +  "  signal " + str(sdfName) + "_out" + str(outpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0); \n\n "
+        TBarchSignals += "  signal " + str(sdfName) + "_out" + str(outpt) + "_ready : std_logic := '0'; \n" +  "  signal " + sdfName + "_out" + str(outpt) + "_valid : std_logic; \n" +  "  signal " + str(sdfName) + "_out" + str(outpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0); \n" + "  signal expected_" + str(sdfName) + "_out" + str(outpt) + "_data : std_logic_vector(" + str(sdfName) + "_ram_width - 1 downto 0) := (others => '0'); \n\n"
 
     TBArch += TBarchConstants + TBarchSignals + "\n\n"
 
     # Wrapper component
     TBComponent = ""
 
+    '''
     # Component + generics + clk/rst ports
     TBComponent += "  component " + str(sdfName) + " is \n" + "      generic ( \n" + "          " + str(sdfName) + "_ram_width : natural; \n" + "          " + str(sdfName) + "_ram_depth : natural \n" + "      ); \n" + "      port ( \n" + "          " + str(sdfName) + "_clk : in std_logic; \n" + "          " + str(sdfName) + "_rst : in std_logic; \n" + "\n"
 
@@ -84,14 +86,15 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
             TBComponent += " \n      ); end component; \n\n\n"
 
     TBArch += TBComponent
+    '''
 
     TBMappings = "begin \n\n"
 
     # Clk designation
-    TBcomponentMapping = "  clk <= not clk after clock_period / 2; \n\n"
+    TBcomponentMapping = "    -- clock ticking \n" + "  clk <= not clk after clock_period / 2; \n\n"
 
     # Wrapper component mapping
-    TBcomponentMapping += "  " + str(sdfName) + "_wrapper : " + str(sdfName) + " GENERIC MAP (" + str(sdfName) + "_ram_width, \n" + "                          " + str(sdfName) + "_ram_depth \n" + "                          ) \n" + "              PORT MAP    ( \n" + "                          " + str(sdfName) + "_clk => clk, \n" + "                          " + str(sdfName) + "_rst => rst, \n" + " \n"
+    TBcomponentMapping += "    -- Instantiate the wrapper to be tested" + "  " + str(sdfName) + "_wrapper : entity work." + str(sdfName) + "(" + str(sdfArch) + ") GENERIC MAP (" + str(sdfName) + "_ram_width, \n" + "                          " + str(sdfName) + "_ram_depth \n" + "                          ) \n" + "              PORT MAP    ( \n" + "                          " + str(sdfName) + "_clk => clk, \n" + "                          " + str(sdfName) + "_rst => rst, \n" + " \n"
 
     # TB entity AXI input mapping
     for inpt in range(0,inputCtr):
@@ -108,47 +111,67 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
             TBcomponentMapping += "\n                          ); \n\n\n"
 
 
-    # TB Process
-    TBProcess = "    TB_sequencer : process is \n" + "    begin \n\n"
 
-    # Intialize rst
-    TBProcess += "        wait for 10 * clock_period; \n" + "        rst <= '0'; \n"
+    # TB Processes
     
-    # Setting input valids
-    for inpt in range(0,inputCtr):
-        TBProcess += "        " + str(sdfName) + "_in" + str(inpt) + "_valid <= '1'; \n"
+    # TB Send Process
+    TBSendProc = "    -- Sequential test process" + "    send_proc : process is \n" + "    begin \n\n"
+
+    # Reset system
+    TBSendProc += "        -- Reset system \n" + "        rst <= '1'; \n" +  "        wait until rising_edge(clk); \n\n" + "        rst <= '0'; \n" + "        wait until rising_edge(clk); \n\n"
     
-    # Wait
-    TBProcess += "\n\n" + "       report \"Writing data...\"; \n"
-
-    # Loading all inputs
-    for inpt in range(0,inputCtr):
-        TBProcess += "        " + str(sdfName) + "_in" + str(inpt) + "_data <= (others => '1'); \n"
+    # Adding data to input(s)
+    TBSendProc += "        report \"Adding input...\"; \n\n" + "        -- Loop to start writing inside 10 values \n\n"
     
-    TBProcess += "\n\n"
-
-    # Begin writing data
-    TBProcess += "        report \"Adding input...\"; \n"
+    # Loading every input
     for inpt in range(0,inputCtr):
-        TBProcess += "        --Currently broken and needs to get fixed \n" + "        --while " + str(sdfName) + "_in" + str(inpt) + "_ready = '1' loop \n" + "        " + str(sdfName) + "_in" + str(inpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_in" + str(inpt) + "_data) + 1); \n" + "        --wait for 10 * clock_period; \n" + "        --end loop; \n" + "        wait for 10 * clock_period; \n" + "        " + str(sdfName) + "_in" + str(inpt) + "_valid <= \'0\'; \n\n\n"
+        TBSendProc += "        while unsigned(" + str(sdfName) + "_in" + str(inpt) + "_data) < 10 loop \n\n"
+        
+        # Wait
+        TBSendProc += "            report \"Writing one data iteration to INPUT_" +  str(sdfName) + "...\";" + "            wait until rising_edge(clk); \n\n"
+        
+        # Loading all inputs
+        TBSendProc += "            if " + str(sdfName) + "_in" + str(inpt) + "_valid = '1' and " + str(sdfName) + "_in" + str(inpt) + "_ready = '1' then \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_in" + str(inpt) + "_data) + 1); \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_valid <= '0';" + "            elsif " + str(sdfName) + "_in" + str(inpt) + "_valid = '0' then \n" + "                " + str(sdfName) + "_in" + str(inpt) + "_valid <= '1'; \n" +  "            end if; \n\n" + "        end loop; \n\n"
 
-    # Begin reading data and wait
-    TBProcess += "        report \"Reading data...\"; \n\n" + "        wait for 10 * clock_period;"
+    TBSendProc += "        report \"Writing completed...\"; \n" + "        finish;\n\n" + "    end process; \n\n\n"
 
+
+
+    # TB Receieve Process
+    TBReceiveProc = "    receive_proc : process is \n" + "    begin \n\n"
+
+    # Reset system
+    TBReceiveProc += "        -- Wait for the buffer to get full \n" + "        report \"Wait for filling...\"; \n"
+    
     for outpt in range(0,outputCtr):
-        TBProcess += str(sdfName) + "_out" + str(outpt) + "_ready <= '1'; \n" + "        --Currently broken and needs to get fixed \n" + "        --while " + str(sdfName) + "_out" + str(outpt) + "_valid = '0' loop \n" + "        " + str(sdfName) + "_out" + str(outpt) + "_data <= std_logic_vector(unsigned(" + str(sdfName) + "_out" + str(outpt) + "_data) + 1); \n" + "        --end loop;  \n" + "        wait for 10 * clock_period; \n\n"
+        TBReceiveProc += "        " + str(sdfName) + "_out" + str(outpt) + "_ready <= '0'; \n"
 
-    # Finalize process
-    TBProcess += "        report \"Test completed. Check waveform.\"; \n"
-    for outpt in range(0,outputCtr):
-        TBProcess += "        " + str(sdfName) + "_out" + str(outpt) + "_ready <= \'0\'; \n"
+    TBReceiveProc += "        wait for 10 * clock_period; \n\n" + "        -- Loop to start reading data \n\n" + "        report \"Start reading data...\";"
+
     
-    TBProcess += "\n\n" + "        report \"Testbench completed.\"; \n\n" + "    end process; \n\n"
+    # Reading data from output(s)
+    for outpt in range(0,outputCtr):
+        TBReceiveProc += "        while unsigned(expected_" + str(sdfName) + "_out" + str(outpt) + "_data) < 10 loop \n\n"
+
+
+    # Reading every input
+    for outpt in range(0,outputCtr):
+        TBReceiveProc += "        while unsigned(" + str(sdfName) + "_in" + str(outpt) + "_data) < " + str(ram_width) + " loop \n\n"
+        
+        # Wait
+        TBReceiveProc += "            report \"Reading from OUTPUT_" + str(outpt) + "...\";" + "            report \"Writing one data iteration to input " +  str(sdfName) + "...\";" + "            wait until rising_edge(clk); \n\n"
+
+        # Read from every output
+        TBReceiveProc += "            if " + str(sdfName) + "_out" + str(outpt) + "_valid = '1' and " + str(sdfName) + "_out" + str(outpt) + "_ready = '1' then \n " + "                expected_" + str(sdfName) + "_out" + str(outpt) + "_data <= std_logic_vector(unsigned(expected_" + str(sdfName) + "_out" + str(outpt) + "_data) + 1); \n" + "                " + str(sdfName) + "_out" + str(outpt) + "_ready <= '0'; \n" + "            elsif  " + str(sdfName) + "_out" + str(outpt) + "_ready = '0' then" + "                " + str(sdfName) + "_out" + str(outpt) + "_ready <= '1'; \n" + "            end if; \n\n"
+
+        TBReceiveProc += "        end loop; \n\n"
+
+    TBReceiveProc += "        report \"Test completed. Check waveform.\"; \n" + "        finish; \n\n" + "    end process; \n\n"
+
 
     # Bringing the architecture together
-    TBArchRemainder = "end architecture;"
-    TBArch += TBMappings + TBcomponentMapping + TBProcess + TBArchRemainder
-
+    TBArchRemainder = "end architecture; \n"
+    TBArch += TBMappings + TBcomponentMapping + TBSendProc + TBReceiveProc + TBArchRemainder
 
 
     wholeTB = TBlibrariesComponent + "\n" + TBentityComponent + "\n" + TBArch
