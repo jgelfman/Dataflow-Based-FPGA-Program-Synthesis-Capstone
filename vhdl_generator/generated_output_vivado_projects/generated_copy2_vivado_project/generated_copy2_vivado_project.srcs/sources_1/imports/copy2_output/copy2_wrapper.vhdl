@@ -12,19 +12,19 @@ entity copy2 is
         copy2_clk : in std_logic; 
         copy2_rst : in std_logic; 
  
-        copy2_in0_ready : in std_logic; 
+        copy2_in0_ready : out std_logic; 
         copy2_in0_valid : in std_logic; 
         copy2_in0_data : in std_logic_vector; 
  
-        copy2_in1_ready : in std_logic; 
+        copy2_in1_ready : out std_logic; 
         copy2_in1_valid : in std_logic; 
         copy2_in1_data : in std_logic_vector; 
  
-        copy2_out0_ready : out std_logic; 
+        copy2_out0_ready : in std_logic; 
         copy2_out0_valid : out std_logic; 
         copy2_out0_data : out std_logic_vector; 
 
-        copy2_out1_ready : out std_logic; 
+        copy2_out1_ready : in std_logic; 
         copy2_out1_valid : out std_logic; 
         copy2_out1_data : out std_logic_vector 
     ); 
@@ -40,8 +40,8 @@ architecture copy2_arch of copy2 is
             INPUT_rst : in std_logic; 
 
 
-            INPUT_in_ready : in std_logic; 
-            INPUT_out_ready : out std_logic; 
+            INPUT_in_ready : out std_logic; 
+            INPUT_out_ready : in std_logic; 
 
             INPUT_in_valid : in std_logic; 
             INPUT_out_valid : out std_logic; 
@@ -57,8 +57,8 @@ architecture copy2_arch of copy2 is
             OUTPUT_rst : in std_logic; 
 
 
-            OUTPUT_in_ready : in std_logic; 
-            OUTPUT_out_ready : out std_logic; 
+            OUTPUT_in_ready : out std_logic; 
+            OUTPUT_out_ready : in std_logic; 
 
             OUTPUT_in_valid : in std_logic; 
             OUTPUT_out_valid : out std_logic; 

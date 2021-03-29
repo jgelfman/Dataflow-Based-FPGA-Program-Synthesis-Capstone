@@ -1,0 +1,33 @@
+#-----------------------------------------------------------
+# Vivado v2019.2.1 (64-bit)
+# SW Build 2729669 on Thu Dec  5 04:48:12 MST 2019
+# IP Build 2729494 on Thu Dec  5 07:38:25 MST 2019
+# Start of session at: Mon Mar 29 21:54:48 2021
+# Process ID: 38158
+# Current directory: /home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_math_vivado_project/generated_math_vivado_project.runs/synth_1
+# Command line: vivado -log math_testbench.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source math_testbench.tcl
+# Log file: /home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_math_vivado_project/generated_math_vivado_project.runs/synth_1/math_testbench.vds
+# Journal file: /home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_math_vivado_project/generated_math_vivado_project.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source math_testbench.tcl -notrace
+Command: synth_design -top math_testbench -part xc7vx485tffg1157-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
+INFO: [Common 17-1686] The version limit for your license is '2021.03' and will not allow you to run Xilinx software released after that date (year & month). A version limit expiration means that while you will be able to continue to use the current version of tools or IP with this license, you will not be able to use any updates or new releases.
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 38188 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1599.594 ; gain = 155.719 ; free physical = 226 ; free virtual = 3666
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-4169] error in use clause: package 'env' not found in library 'std' [/home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_math_vivado_project/generated_math_vivado_project.srcs/sources_1/imports/math_output/math_TB.vhdl:5]
+INFO: [Synth 8-2810] unit math_testbench ignored due to previous errors [/home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_math_vivado_project/generated_math_vivado_project.srcs/sources_1/imports/math_output/math_TB.vhdl:7]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 1658.344 ; gain = 214.469 ; free physical = 262 ; free virtual = 3701
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+4 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Mon Mar 29 21:55:12 2021...

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1616924935">
-  <File Type="VDS-TIMING-PB" Name="copy1_wrapper_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="copy1_wrapper_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="copy1_wrapper.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="copy1_wrapper_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="copy1_wrapper_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="copy1_wrapper_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="copy1_wrapper.vds"/>
-  <File Type="REPORTS-TCL" Name="copy1_wrapper_reports.tcl"/>
   <File Type="PA-TCL" Name="copy1_wrapper.tcl"/>
+  <File Type="REPORTS-TCL" Name="copy1_wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="copy1_wrapper.vds"/>
+  <File Type="RDS-DCP" Name="copy1_wrapper.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/new/axi_fifo.vhd">
@@ -26,13 +21,13 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/imports/new/entity_node.vhdl">
-      <FileInfo>
+      <FileInfo RelPath="entity_node.vhdl">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/imports/new/copy1_wrapper.vhdl">
-      <FileInfo>
+      <FileInfo RelPath="copy1_wrapper.vhdl">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

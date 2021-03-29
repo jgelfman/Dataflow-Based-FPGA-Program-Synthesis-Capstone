@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1617026086">
+  <File Type="VDS-TIMING-PB" Name="math_testbench_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="math_testbench_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="math_testbench.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="math_testbench_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="math_testbench_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="math_testbench_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="math_testbench.vds"/>
+  <File Type="REPORTS-TCL" Name="math_testbench_reports.tcl"/>
+  <File Type="PA-TCL" Name="math_testbench.tcl"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/math_output/generator_resources/add_node.vhdl">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../math_output/generator_resources/add_node.vhdl"/>
+        <Attr Name="ImportTime" Val="1617025761"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/math_output/generator_resources/axi_fifo.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../math_output/generator_resources/axi_fifo.vhd"/>
+        <Attr Name="ImportTime" Val="1617025761"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/math_output/generator_resources/div_node.vhdl">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../math_output/generator_resources/div_node.vhdl"/>
+        <Attr Name="ImportTime" Val="1617025761"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/math_output/generator_resources/input_node.vhdl">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../math_output/generator_resources/input_node.vhdl"/>
+        <Attr Name="ImportTime" Val="1617025761"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/math_output/math_wrapper.vhdl">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../math_output/math_wrapper.vhdl"/>
+        <Attr Name="ImportTime" Val="1617025761"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/math_output/generator_resources/output_node.vhdl">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../math_output/generator_resources/output_node.vhdl"/>
+        <Attr Name="ImportTime" Val="1617025761"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/math_output/generator_resources/prod_node.vhdl">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../math_output/generator_resources/prod_node.vhdl"/>
+        <Attr Name="ImportTime" Val="1617025761"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/math_output/math_TB.vhdl">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../math_output/math_TB.vhdl"/>
+        <Attr Name="ImportTime" Val="1617025761"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="math_testbench"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

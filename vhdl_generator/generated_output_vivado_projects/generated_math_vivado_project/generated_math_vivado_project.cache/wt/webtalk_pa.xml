@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Wed Mar 17 23:05:46 2021">
+<application name="pa" timeStamp="Mon Mar 29 21:58:47 2021">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="e364844585aa48cfa3e03be629289be4" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -17,29 +17,46 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
+<property name="AddSources" value="2" type="JavaHandler"/>
 <property name="CloseProject" value="1" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
 <property name="RunSchematic" value="1" type="JavaHandler"/>
-<property name="SimulationRun" value="1" type="JavaHandler"/>
+<property name="RunSynthesis" value="4" type="JavaHandler"/>
+<property name="SimulationRun" value="2" type="JavaHandler"/>
+<property name="UpdateRegId" value="1" type="JavaHandler"/>
 <property name="ZoomFit" value="1" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
-<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="4" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="2" type="GuiHandlerData"/>
+<property name="CmdMsgDialog_OK" value="2" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="5" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="9" type="GuiHandlerData"/>
 <property name="GettingStartedView_CREATE_NEW_PROJECT" value="2" type="GuiHandlerData"/>
 <property name="GraphicalView_ZOOM_FIT" value="2" type="GuiHandlerData"/>
+<property name="MainMenuMgr_EDIT" value="2" type="GuiHandlerData"/>
 <property name="MainMenuMgr_EXPORT" value="1" type="GuiHandlerData"/>
-<property name="MainMenuMgr_FILE" value="2" type="GuiHandlerData"/>
+<property name="MainMenuMgr_FILE" value="10" type="GuiHandlerData"/>
+<property name="MainMenuMgr_FLOW" value="4" type="GuiHandlerData"/>
+<property name="MainMenuMgr_HELP" value="2" type="GuiHandlerData"/>
 <property name="MainMenuMgr_IP" value="2" type="GuiHandlerData"/>
-<property name="MainMenuMgr_PROJECT" value="1" type="GuiHandlerData"/>
+<property name="MainMenuMgr_OPEN_RECENT_PROJECT" value="2" type="GuiHandlerData"/>
+<property name="MainMenuMgr_PROJECT" value="2" type="GuiHandlerData"/>
 <property name="MainMenuMgr_SIMULATION_WAVEFORM" value="1" type="GuiHandlerData"/>
 <property name="MainMenuMgr_TEXT_EDITOR" value="1" type="GuiHandlerData"/>
+<property name="MainMenuMgr_TOOLS" value="4" type="GuiHandlerData"/>
+<property name="MainMenuMgr_VIEW" value="2" type="GuiHandlerData"/>
+<property name="MsgTreePanel_MESSAGE_VIEW_TREE" value="10" type="GuiHandlerData"/>
+<property name="MsgView_WARNING_MESSAGES" value="2" type="GuiHandlerData"/>
+<property name="PACommandNames_ADD_SOURCES" value="3" type="GuiHandlerData"/>
 <property name="PACommandNames_CLOSE_PROJECT" value="1" type="GuiHandlerData"/>
-<property name="PACommandNames_SIMULATION_RUN_BEHAVIORAL" value="1" type="GuiHandlerData"/>
+<property name="PACommandNames_LICENSE_MANAGE" value="1" type="GuiHandlerData"/>
+<property name="PACommandNames_SIMULATION_RUN_BEHAVIORAL" value="2" type="GuiHandlerData"/>
 <property name="PACommandNames_ZOOM_FIT" value="2" type="GuiHandlerData"/>
 <property name="PAViews_PROJECT_SUMMARY" value="1" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_CHOOSE_PROJECT_LOCATION" value="2" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_PROJECT_NAME" value="1" type="GuiHandlerData"/>
-<property name="SrcChooserPanel_ADD_DIRECTORIES" value="2" type="GuiHandlerData"/>
+<property name="SaveProjectUtils_SAVE" value="4" type="GuiHandlerData"/>
+<property name="SrcChooserPanel_ADD_DIRECTORIES" value="6" type="GuiHandlerData"/>
 </item>
 <item name="Other">
 <property name="GuiMode" value="18" type="GuiMode"/>

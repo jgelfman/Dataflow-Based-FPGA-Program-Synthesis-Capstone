@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2.1 (64-bit)
+# SW Build 2729669 on Thu Dec  5 04:48:12 MST 2019
+# IP Build 2729494 on Thu Dec  5 07:38:25 MST 2019
+# Start of session at: Mon Mar 29 22:13:55 2021
+# Process ID: 40778
+# Current directory: /home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_copy2_vivado_project/generated_copy2_vivado_project.runs/synth_1
+# Command line: vivado -log copy2_testbench.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source copy2_testbench.tcl
+# Log file: /home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_copy2_vivado_project/generated_copy2_vivado_project.runs/synth_1/copy2_testbench.vds
+# Journal file: /home/jon/Desktop/capstone/vhdl_generator/generated_output_vivado_projects/generated_copy2_vivado_project/generated_copy2_vivado_project.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source copy2_testbench.tcl -notrace
