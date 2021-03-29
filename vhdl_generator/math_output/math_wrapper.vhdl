@@ -60,7 +60,7 @@ architecture math_arch of math is
             INPUT_rst : in std_logic; 
 
 
-            INPUT_in_ready : in std_logic; 
+            INPUT_in_ready : out std_logic; 
             INPUT_out_ready : in std_logic; 
 
             INPUT_in_valid : in std_logic; 
@@ -167,7 +167,7 @@ architecture math_arch of math is
             OUTPUT_rst : in std_logic; 
 
 
-            OUTPUT_in_ready : in std_logic; 
+            OUTPUT_in_ready : out std_logic; 
             OUTPUT_out_ready : in std_logic; 
 
             OUTPUT_in_valid : in std_logic; 

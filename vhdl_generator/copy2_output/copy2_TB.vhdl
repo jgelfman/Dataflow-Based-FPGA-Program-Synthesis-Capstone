@@ -1,8 +1,9 @@
 library ieee; 
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use std.env.finish; 
 
-use std.env.finish;
+
 entity copy2_testbench is 
 end copy2_testbench; 
 

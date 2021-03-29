@@ -110,13 +110,13 @@ def returnWrapper(sdfName, sdfArch, outputName, actorsList, interiorConnections,
 
         # Input ports
         if entityName == "INPUT" and inputCount <= 1:
-            archComponent +=  "\n" + "            " + str(entityName) + "_in_ready : in std_logic; \n" + "            " + str(entityName) + "_out_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in_valid : in std_logic; \n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_in_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
+            archComponent +=  "\n" + "            " + str(entityName) + "_in_ready : out std_logic; \n" + "            " + str(entityName) + "_out_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in_valid : in std_logic; \n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_in_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
 
             archComponents += archComponent
         
         # Output ports
         elif entityName == "OUTPUT" and outputCount <= 1:
-            archComponent +=  "\n" + "            " + str(entityName) + "_in_ready : in std_logic; \n" + "            " + str(entityName) + "_out_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in_valid : in std_logic; \n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_in_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
+            archComponent +=  "\n" + "            " + str(entityName) + "_in_ready : out std_logic; \n" + "            " + str(entityName) + "_out_ready : in std_logic; \n" + "\n" + "            " + str(entityName) + "_in_valid : in std_logic; \n" + "            " + str(entityName) + "_out_valid : out std_logic; \n" + "\n" + "            " + str(entityName) + "_in_opening : in std_logic_vector(" + sdfName + "_ram_width - 1 downto 0); \n" + "            " + str(entityName) + "_out_opening : out std_logic_vector(" + sdfName + "_ram_width - 1 downto 0) \n" + "    ); end component; \n\n"
 
             archComponents += archComponent
 

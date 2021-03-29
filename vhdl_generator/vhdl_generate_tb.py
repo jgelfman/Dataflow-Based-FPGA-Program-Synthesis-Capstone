@@ -8,8 +8,8 @@ def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, node
     TBlibrariesComponent = str(
     "library ieee; \n" + 
     "use ieee.std_logic_1164.all;\n" +
-    "use ieee.numeric_std.all;\n\n" +
-    "use std.env.finish;"
+    "use ieee.numeric_std.all;\n" +
+    "use std.env.finish; \n\n"
     )
 
 
