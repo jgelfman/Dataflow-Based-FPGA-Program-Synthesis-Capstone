@@ -1,4 +1,4 @@
-# This file creates an instance of an entity node.
+# This file creates an a testbench for the dataflow wrapper.
 
 def returnTB(sdfName, sdfArch, outputName, actorsList, interiorConnections, nodeSignals, clock_period, ram_depth, ram_width):
 
