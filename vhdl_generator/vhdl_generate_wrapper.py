@@ -1,4 +1,4 @@
-# This file creates an instance of an entity node.
+# This file creates a wrapper for the dataflow model.
 
 import re
 
