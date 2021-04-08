@@ -155,7 +155,7 @@ if clock_period == "cancel":
     sys.exit()
 
 # Ask user for ram width
-ram_depth = input("Enter the desired ram depth (e.g. 16) or type \"cancel\" to cancel: \n")
+ram_depth = input("Enter the desired ram width (e.g. 16) or type \"cancel\" to cancel: \n")
 if ram_depth == "cancel":
     sys.exit()
 
